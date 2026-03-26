@@ -49,27 +49,27 @@ El curso está organizado en **7 módulos** que cubren desde los conceptos bási
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
-### [Módulo 1: Introducción a QGIS y SIG](content/modulo1.qmd)
+### [Módulo 1: Introducción a QGIS y SIG](content/modulos/modulo1.qmd)
 Fundamentos de los SIG, ventajas de QGIS como plataforma open source, interfaz y tipos de datos espaciales.
 
-### [Módulo 2: Carga y manejo de datos](content/modulo2.qmd)
+### [Módulo 2: Carga y manejo de datos](content/modulos/modulo2.qmd)
 Importación de múltiples formatos, conexión a bases de datos, sistemas de referencia de coordenadas.
 
-### [Módulo 3: Edición y geoprocesamiento básico](content/modulo3.qmd)
+### [Módulo 3: Edición y geoprocesamiento básico](content/modulos/modulo3.qmd)
 Creación y edición de capas, herramientas de análisis vectorial y validación de geometrías.
 
-### [Módulo 4: Análisis espacial para rutas](content/modulo4.qmd)
+### [Módulo 4: Análisis espacial para rutas](content/modulos/modulo4.qmd)
 Análisis de redes, rutas óptimas, matrices origen-destino y análisis de cobertura.
 :::
 
 ::: {.g-col-12 .g-col-md-6}
-### [Módulo 5: Automatización con Python y PyQGIS](content/modulo5.qmd)
+### [Módulo 5: Automatización con Python y PyQGIS](content/modulos/modulo5.qmd)
 Consola Python en QGIS, manipulación de capas y atributos, scripts de automatización.
 
-### [Módulo 6: Visualización avanzada y mapas finales](content/modulo6.qmd)
+### [Módulo 6: Visualización avanzada y mapas finales](content/modulos/modulo6.qmd)
 Simbología, etiquetado, mapas temáticos y diseño en el compositor de impresión.
 
-### [Módulo 7: Integración y casos prácticos](content/modulo7.qmd)
+### [Módulo 7: Integración y casos prácticos](content/modulos/modulo7.qmd)
 APIs externas, proyecto aplicado, trazabilidad GPS y optimización de recorridos.
 :::
 
@@ -128,4 +128,4 @@ Utiliza el menú de navegación superior o lateral para acceder a cada módulo d
 - **Ejercicios prácticos** guiados
 - **Recursos y referencias** adicionales
 
-¡Comencemos! → [Ver el temario completo](content/syllabus.qmd)
+¡Comencemos! → [Ver el temario completo](content/sobre/syllabus.qmd)
