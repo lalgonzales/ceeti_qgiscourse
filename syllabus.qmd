@@ -1,0 +1,120 @@
+---
+title: "Temario del Curso"
+subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
+---
+
+## Información General
+
+| Ítem            | Detalle                                                    |
+|:----------------|:-----------------------------------------------------------|
+| **Institución** | Universidad Nacional Autónoma de Honduras (UNAH)           |
+| **Unidad**      | Centro de Excelencia para la Educación en TI (CEETI)       |
+| **Modalidad**   | Virtual                                                     |
+| **Horario**     | Lunes a Jueves, 6:00 PM – 7:30 PM                          |
+| **Duración**    | 20 horas                                                    |
+
+---
+
+## Módulo 1 — Introducción a QGIS y SIG {#modulo1}
+
+[→ Ir al módulo](modulo1.qmd)
+
+1. Qué es un SIG y para qué sirve.
+2. Ventajas de QGIS como plataforma de código abierto.
+3. Interfaz de QGIS: paneles, capas, consola, herramientas.
+4. Tipos de datos espaciales: vectoriales vs ráster.
+
+---
+
+## Módulo 2 — Carga y manejo de datos {#modulo2}
+
+[→ Ir al módulo](modulo2.qmd)
+
+1. Importación de archivos shapefile, GeoJSON, KML, CSV georreferenciado.
+2. Conexión a bases de datos (PostGIS, SQLite).
+3. Uso de coordenadas y sistemas de referencia (CRS).
+4. Visualización de rutas y redes de transporte.
+
+---
+
+## Módulo 3 — Edición y geoprocesamiento básico {#modulo3}
+
+[→ Ir al módulo](modulo3.qmd)
+
+1. Creación y edición de capas vectoriales.
+2. Herramientas de corte, unión, buffer y disolución.
+3. Limpieza y validación de geometrías.
+4. Cálculo de distancias y áreas.
+
+---
+
+## Módulo 4 — Análisis espacial para rutas {#modulo4}
+
+[→ Ir al módulo](modulo4.qmd)
+
+1. Análisis de redes con el plugin QNEAT3 o Road Graph.
+2. Cálculo de rutas óptimas (más cortas, más rápidas).
+3. Matrices de origen-destino.
+4. Zonificación y análisis de cobertura de rutas.
+5. Análisis de puntos de interés (clientes, riesgos, servicios).
+
+---
+
+## Módulo 5 — Automatización con Python y PyQGIS {#modulo5}
+
+[→ Ir al módulo](modulo5.qmd)
+
+1. Introducción a la consola de Python en QGIS.
+2. Manipulación de capas, geometrías y atributos con PyQGIS.
+3. Scripts para generación automatizada de rutas y reportes.
+4. Exportación de resultados a Excel, shapefile, PDF, etc.
+5. Introducción a QGIS Processing Framework y scripts personalizados.
+
+---
+
+## Módulo 6 — Visualización avanzada y mapas finales {#modulo6}
+
+[→ Ir al módulo](modulo6.qmd)
+
+1. Uso de simbología por atributos.
+2. Etiquetado dinámico.
+3. Creación de mapas temáticos.
+4. Diseño de mapas en el compositor de impresión.
+5. Exportación de mapas para presentaciones o informes.
+
+---
+
+## Módulo 7 — Integración y casos prácticos {#modulo7}
+
+[→ Ir al módulo](modulo7.qmd)
+
+1. Conexión con APIs externas (ej. OpenStreetMap, Google Maps).
+2. Proyecto aplicado: diseño y evaluación de rutas eficientes para campo.
+3. Trazabilidad de rutas recolectadas con GPS o apps móviles (ej. Input, QField).
+4. Optimización de recorridos considerando restricciones reales.
+
+---
+
+## Distribución tentativa de sesiones
+
+| Sesión | Día       | Módulo                                      | Horas |
+|:------:|:----------|:--------------------------------------------|:-----:|
+| 1      | Lunes     | Módulo 1: Introducción a QGIS y SIG         | 1.5   |
+| 2      | Martes    | Módulo 1 (cont.) + Módulo 2 inicio          | 1.5   |
+| 3      | Miércoles | Módulo 2: Carga y manejo de datos           | 1.5   |
+| 4      | Jueves    | Módulo 2 (cont.) + Módulo 3 inicio          | 1.5   |
+| 5      | Lunes     | Módulo 3: Edición y geoprocesamiento        | 1.5   |
+| 6      | Martes    | Módulo 3 (cont.)                            | 1.5   |
+| 7      | Miércoles | Módulo 4: Análisis espacial para rutas      | 1.5   |
+| 8      | Jueves    | Módulo 4 (cont.)                            | 1.5   |
+| 9      | Lunes     | Módulo 4 (cont.) + Módulo 5 inicio          | 1.5   |
+| 10     | Martes    | Módulo 5: Automatización con Python         | 1.5   |
+| 11     | Miércoles | Módulo 5 (cont.)                            | 1.5   |
+| 12     | Jueves    | Módulo 6: Visualización avanzada            | 1.5   |
+| 13     | Lunes     | Módulo 6 (cont.) + Módulo 7 inicio          | 1.5   |
+| 14     | Martes    | Módulo 7 (cont.) + Proyecto final           | 1.5   |
+| **Total** |        |                                             | **21 h** |
+
+> **Nota**: La distribución es aproximada. El instructor podrá ajustar
+> el ritmo según el avance del grupo. La última sesión incluye la
+> presentación del proyecto final y la clausura del curso.

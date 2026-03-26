@@ -1,0 +1,189 @@
+---
+title: "Módulo 1: Introducción a QGIS y SIG"
+---
+
+## Objetivos del Módulo
+
+Al finalizar este módulo, los participantes podrán:
+
+- Explicar qué es un Sistema de Información Geográfica (SIG) y sus aplicaciones prácticas.
+- Identificar las ventajas de QGIS frente a otras plataformas SIG.
+- Navegar con fluidez por la interfaz de QGIS.
+- Distinguir entre datos vectoriales y ráster.
+
+---
+
+## 1.1 ¿Qué es un SIG y para qué sirve?
+
+Un **Sistema de Información Geográfica (SIG)** es un sistema informático diseñado para capturar, almacenar, manipular, analizar, gestionar y presentar datos espaciales o geográficos.
+
+### Componentes de un SIG
+
+| Componente      | Descripción                                                   |
+|:----------------|:--------------------------------------------------------------|
+| **Hardware**    | Computadoras, GPS, scanners, impresoras                       |
+| **Software**    | QGIS, ArcGIS, PostGIS, entre otros                            |
+| **Datos**       | Capas vectoriales, imágenes ráster, tablas de atributos       |
+| **Métodos**     | Modelos y procedimientos de análisis espacial                 |
+| **Personas**    | Usuarios, analistas y tomadores de decisiones                 |
+
+### Aplicaciones prácticas
+
+Los SIG se utilizan en una amplia variedad de campos:
+
+- 🏙️ **Planificación urbana**: diseño de infraestructuras y servicios
+- 🌿 **Medio ambiente**: monitoreo de recursos naturales y cambio climático
+- 🚛 **Logística y transporte**: optimización de rutas y flotas
+- 🏥 **Salud pública**: análisis epidemiológico y cobertura de servicios
+- 🌾 **Agricultura**: gestión de cultivos y análisis de suelos
+- 🔒 **Seguridad**: análisis de incidentes y cobertura policial
+
+---
+
+## 1.2 Ventajas de QGIS como plataforma de código abierto
+
+**QGIS** (anteriormente Quantum GIS) es la plataforma SIG de escritorio de código abierto más utilizada en el mundo.
+
+::: {.callout-tip}
+## ¿Por qué elegir QGIS?
+
+- **Gratuito y de código abierto**: sin costos de licencia
+- **Multiplataforma**: disponible para Windows, macOS, Linux y Android
+- **Comunidad activa**: miles de contribuidores y usuarios en todo el mundo
+- **Extensible**: más de 1,000 plugins disponibles
+- **Estándares abiertos**: compatibilidad con formatos OGC (WMS, WFS, WCS)
+- **Integración con Python**: automatización mediante PyQGIS
+:::
+
+### Comparativa con otras plataformas
+
+| Característica         | QGIS         | ArcGIS      | MapInfo     |
+|:-----------------------|:-------------|:------------|:------------|
+| Costo                  | Gratuito     | De pago     | De pago     |
+| Código abierto         | ✅            | ❌           | ❌           |
+| Plataformas            | Win/Mac/Linux| Windows     | Windows     |
+| Extensibilidad         | Alta         | Alta        | Media       |
+| Comunidad              | Muy activa   | Activa      | Limitada    |
+| Integración Python     | Nativa       | Nativa      | Limitada    |
+
+---
+
+## 1.3 Interfaz de QGIS: paneles, capas, consola, herramientas
+
+### Pantalla principal de QGIS
+
+La interfaz de QGIS está compuesta por los siguientes elementos principales:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Barra de Menús                                              │
+│  Barra de Herramientas                                       │
+├──────────────┬──────────────────────────┬───────────────────┤
+│              │                          │                   │
+│  Panel de    │    Vista del Mapa        │  Panel de         │
+│  Capas       │    (Canvas Principal)    │  Explorador       │
+│  (Layers)    │                          │  de Archivos      │
+│              │                          │                   │
+├──────────────┴──────────────────────────┴───────────────────┤
+│  Barra de Estado / Coordenadas / Escala / CRS               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Paneles principales
+
+1. **Panel de Capas (Layers Panel)**: gestión y orden de las capas del proyecto
+2. **Vista del Mapa (Map Canvas)**: área de visualización geoespacial
+3. **Panel del Explorador**: navegación de archivos y fuentes de datos
+4. **Tabla de Atributos**: tabla con los datos alfanuméricos de una capa
+5. **Consola de Python**: entorno interactivo para scripts
+
+### Herramientas esenciales
+
+- **Herramientas de navegación**: zoom, desplazamiento, extensión completa
+- **Herramientas de selección**: seleccionar entidades por área o atributo
+- **Herramientas de identificación**: consultar atributos de entidades
+- **Herramientas de medición**: medir distancias y áreas
+
+::: {.callout-note}
+## Acceso rápido a herramientas
+
+Puedes activar o desactivar paneles desde el menú **Ver → Paneles** y las barras de herramientas desde **Ver → Barras de herramientas**.
+:::
+
+---
+
+## 1.4 Tipos de datos espaciales: vectoriales vs ráster
+
+### Datos vectoriales
+
+Los **datos vectoriales** representan objetos geográficos mediante geometrías definidas matemáticamente:
+
+| Tipo        | Descripción                         | Ejemplos                          |
+|:------------|:------------------------------------|:----------------------------------|
+| **Punto**   | Coordenada X, Y en el espacio       | Ciudades, pozos, estaciones       |
+| **Línea**   | Secuencia de puntos conectados      | Ríos, carreteras, tuberías        |
+| **Polígono**| Área cerrada definida por vértices  | Parcelas, municipios, edificios   |
+
+**Formatos comunes**: Shapefile (.shp), GeoJSON (.geojson), GeoPackage (.gpkg), KML (.kml)
+
+### Datos ráster
+
+Los **datos ráster** representan el espacio como una cuadrícula regular de celdas (píxeles), donde cada celda tiene un valor numérico:
+
+- **Imágenes satelitales**: Sentinel, Landsat, Google Earth
+- **Modelos de elevación digital (DEM)**: SRTM, ASTER, LIDAR
+- **Mapas de precipitación, temperatura, uso del suelo**
+
+**Formatos comunes**: GeoTIFF (.tif), NetCDF (.nc), ASCII Grid (.asc)
+
+### ¿Cuándo usar cada tipo?
+
+| Criterio              | Vectorial                    | Ráster                         |
+|:----------------------|:-----------------------------|:-------------------------------|
+| Objetos discretos     | ✅ Ideal                      | ❌ Menos preciso                |
+| Fenómenos continuos   | ❌ Complejo                   | ✅ Ideal                        |
+| Edición de geometrías | ✅ Fácil                      | ❌ Difícil                      |
+| Análisis de superficie| ❌ Limitado                   | ✅ Amplio                       |
+| Tamaño de archivo     | Menor (generalmente)         | Mayor (depende de resolución)  |
+
+---
+
+## 🛠️ Ejercicio Práctico
+
+### Ejercicio 1.1: Exploración de la interfaz de QGIS
+
+1. Abre QGIS en tu computadora.
+2. Familiarízate con los paneles y herramientas principales.
+3. Activa el panel del **Explorador** (Ver → Paneles → Explorador).
+4. Accede a las capas de muestra incluidas con QGIS:
+   - Ve a: `C:/Users/[usuario]/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/` (Windows)
+5. Carga una capa de ejemplo y practica el zoom y la navegación.
+
+### Ejercicio 1.2: Identificar tipos de datos
+
+1. Descarga el dataset de ejemplo desde la [página de QGIS](https://qgis.org/resources/hub/).
+2. Carga capas de los tres tipos (punto, línea, polígono).
+3. Examina la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).
+4. Identifica el sistema de referencia de coordenadas (CRS) de cada capa.
+
+---
+
+## 📚 Recursos y Referencias
+
+- [Documentación oficial de QGIS en español](https://docs.qgis.org/latest/es/)
+- [QGIS Training Manual](https://docs.qgis.org/latest/en/docs/training_manual/)
+- [Página de descarga de QGIS](https://qgis.org/download/)
+- [Foro de usuarios de QGIS](https://lists.osgeo.org/mailman/listinfo/qgis-user)
+- [Canal de YouTube de QGIS](https://www.youtube.com/@QGISProject)
+
+---
+
+::: {.callout-important}
+## Para la próxima sesión
+
+Asegúrate de tener QGIS instalado y funcionando correctamente antes de la sesión 2. Si tienes problemas con la instalación, consulta la [guía de instalación oficial](https://qgis.org/resources/installation-guide/).
+:::
+
+---
+
+[← Volver al temario](syllabus.qmd) | [Módulo 2: Carga y manejo de datos →](modulo2.qmd)

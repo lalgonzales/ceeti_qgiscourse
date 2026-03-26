@@ -1,0 +1,129 @@
+/* ============================================================
+   CEETI QGIS Course — Custom Styles (Light Theme)
+   ============================================================ */
+
+/* --- Color palette ----------------------------------------- */
+:root {
+  --ceeti-green:    #2d7d46;
+  --ceeti-green-lt: #4caf72;
+  --ceeti-blue:     #1a5276;
+  --ceeti-blue-lt:  #2980b9;
+  --ceeti-gold:     #d4ac0d;
+  --ceeti-gray:     #5d6d7e;
+  --ceeti-light:    #f4f6f7;
+}
+
+/* --- Hero banner ------------------------------------------- */
+.hero-banner {
+  background: linear-gradient(135deg, var(--ceeti-blue) 0%, var(--ceeti-green) 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.hero-banner p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+.hero-title {
+  color: white !important;
+  font-size: 2.2rem !important;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Navbar ------------------------------------------------- */
+.navbar {
+  background-color: var(--ceeti-blue) !important;
+  border-bottom: 3px solid var(--ceeti-green);
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--ceeti-gold) !important;
+}
+
+/* --- Sidebar ----------------------------------------------- */
+.sidebar-navigation .sidebar-item a {
+  color: var(--ceeti-blue);
+  font-weight: 500;
+}
+
+.sidebar-navigation .sidebar-item a:hover {
+  color: var(--ceeti-green);
+}
+
+/* --- Section headings -------------------------------------- */
+h1, h2 {
+  border-bottom: 2px solid var(--ceeti-green);
+  padding-bottom: 0.3rem;
+  color: var(--ceeti-blue);
+}
+
+h3 {
+  color: var(--ceeti-green);
+}
+
+/* --- Tables ------------------------------------------------ */
+table {
+  font-size: 0.93rem;
+}
+
+thead {
+  background-color: var(--ceeti-blue);
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--ceeti-light);
+}
+
+/* --- Code blocks ------------------------------------------- */
+pre.sourceCode {
+  border-left: 4px solid var(--ceeti-green);
+  background-color: #f8f9fa;
+}
+
+/* --- Callout tweaks ---------------------------------------- */
+.callout-tip {
+  border-left-color: var(--ceeti-green) !important;
+}
+
+.callout-important {
+  border-left-color: var(--ceeti-gold) !important;
+}
+
+/* --- Module cards in grid ---------------------------------- */
+.g-col-12 h3 a {
+  color: var(--ceeti-blue);
+  text-decoration: none;
+}
+
+.g-col-12 h3 a:hover {
+  color: var(--ceeti-green);
+  text-decoration: underline;
+}
+
+/* --- Footer ------------------------------------------------ */
+.nav-footer {
+  background-color: var(--ceeti-blue);
+  color: white;
+  padding: 1rem;
+}
+
+.nav-footer a {
+  color: var(--ceeti-gold) !important;
+}
+
+/* --- Back-to-top button ------------------------------------ */
+#quarto-back-to-top {
+  background-color: var(--ceeti-green);
+  border-color: var(--ceeti-green);
+}

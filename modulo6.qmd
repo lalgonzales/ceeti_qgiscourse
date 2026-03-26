@@ -1,0 +1,271 @@
+---
+title: "Módulo 6: Visualización avanzada y mapas finales"
+---
+
+## Objetivos del Módulo
+
+Al finalizar este módulo, los participantes podrán:
+
+- Aplicar simbología por atributos para comunicar información espacial.
+- Configurar etiquetado dinámico en capas vectoriales.
+- Crear mapas temáticos (coropletas, puntos proporcionales, etc.).
+- Diseñar mapas completos en el Compositor de Impresión.
+- Exportar mapas en formatos adecuados para presentaciones e informes.
+
+---
+
+## 6.1 Simbología por atributos
+
+La **simbología** define cómo se representan visualmente las entidades geográficas. QGIS ofrece múltiples opciones accesibles desde las **Propiedades de la capa → Simbología**.
+
+### Tipos de simbología vectorial
+
+| Tipo                    | Descripción                                              | Uso típico                          |
+|:------------------------|:---------------------------------------------------------|:------------------------------------|
+| **Símbolo único**       | Mismo estilo para todas las entidades                    | Visualización básica                |
+| **Categorizado**        | Colores distintos por categoría (campo de texto)         | Tipos de vía, uso del suelo         |
+| **Graduado**            | Colores o tamaños graduales por valor numérico           | Población, área, densidad           |
+| **Basado en reglas**    | Estilos condicionales mediante expresiones              | Combinaciones complejas             |
+| **Desplazamiento de puntos** | Separa puntos superpuestos                         | Eventos en la misma ubicación       |
+| **Mapa de calor**       | Densidad de puntos como gradiente de color               | Accidentes, ventas, crímenes        |
+
+### Simbología categorizada (ejemplo: tipos de vía)
+
+1. Clic derecho en la capa → **Propiedades → Simbología**
+2. En el menú desplegable, selecciona **Categorizado**
+3. En **Valor**, elige el campo `highway` (tipo de vía)
+4. Haz clic en **Clasificar**
+5. Personaliza los colores y estilos de cada categoría
+6. Haz clic en **Aplicar**
+
+### Simbología graduada (ejemplo: densidad de población)
+
+1. Propiedades → Simbología → **Graduado**
+2. Valor: campo `poblacion`
+3. Método de clasificación: **Cuantiles**, **Intervalos iguales** o **Jenks**
+4. Clases: 5
+5. Rampa de color: elige una rampa apropiada (ej. `Blues` o `RdYlGn`)
+6. Haz clic en **Clasificar** → **Aplicar**
+
+::: {.callout-tip}
+## Consejo de color
+
+Para mapas coropléticos, usa rampas de color perceptualmente uniformes:
+- `Viridis`, `Magma`, `Plasma` (secuenciales, para daltonismo)
+- `RdBu`, `BrBG` (divergentes, para valores positivos/negativos)
+- Evita usar rojo/verde juntos (problema para daltónicos)
+:::
+
+### Usar expresiones en simbología
+
+Puedes basar el tamaño, color u otras propiedades en expresiones:
+
+```python
+# Tamaño proporcional a la población
+sqrt("poblacion") / 100
+
+# Color rojo para municipios sin cobertura, verde para con cobertura
+if("cobertura" = 'Sí', '0,128,0', '255,0,0')
+```
+
+---
+
+## 6.2 Etiquetado dinámico
+
+Las **etiquetas** muestran información textual sobre las entidades directamente en el mapa.
+
+### Configurar etiquetas básicas
+
+1. Propiedades de la capa → **Etiquetas**
+2. Selecciona **Etiquetas simples**
+3. Valor: elige el campo a mostrar (ej. `nombre`)
+4. Configura fuente, tamaño, color y posición
+
+### Opciones avanzadas de etiquetado
+
+**Colocación de etiquetas** (para evitar solapamientos):
+- Propiedades → Etiquetas → **Posición**
+- Estrategia de colocación: `Libre (rápido)`, `Cuadrantes`, `Horizontal`
+
+**Escala de visibilidad**:
+- Muestra etiquetas solo en determinados rangos de escala
+- Propiedades → Etiquetas → **Renderizado** → Escala basada en visibilidad
+
+**Expresiones para etiquetas compuestas**:
+```python
+# Combinar nombre y área
+"nombre" || '\n' || format_number($area / 1000000, 2) || ' km²'
+
+# Etiqueta condicional
+if("tipo" = 'Hospital', '🏥 ' || "nombre", "nombre")
+```
+
+### Evitar solapamiento de etiquetas
+
+En el menú **Etiquetas → Motor de etiquetado**:
+- Usa el motor `PAL (Parallax)` para una colocación más inteligente
+- Activa la opción **Separar etiquetas solapadas**
+
+---
+
+## 6.3 Mapas temáticos
+
+Un **mapa temático** comunica un aspecto específico del territorio de forma clara y visualmente atractiva.
+
+### Tipos de mapas temáticos
+
+| Tipo                     | Descripción                                      |
+|:-------------------------|:-------------------------------------------------|
+| **Coropleta**            | Polígonos coloreados según valor de un atributo  |
+| **Puntos proporcionales**| Puntos con tamaño según un atributo numérico     |
+| **Mapa de densidad**     | Ráster de densidad de puntos (KDE)               |
+| **Flujos**               | Líneas con grosor variable para representar flujos|
+| **Diagrama**             | Gráficos (torta, barra) sobre cada entidad       |
+
+### Crear un diagrama de pastel sobre entidades
+
+1. Propiedades de la capa → **Diagramas**
+2. Tipo: **Diagrama de pastel**
+3. Atributos: selecciona las columnas a incluir
+4. Configura el tamaño y los colores
+
+### Mapa de calor (densidad de puntos)
+
+Para crear un mapa de calor a partir de una capa de puntos:
+
+1. Propiedades de la capa → Simbología → **Mapa de calor**
+2. Radio: define el radio de influencia de cada punto
+3. Mínimo/máximo de color: ajusta la rampa
+4. Ponderación: puedes usar un atributo numérico como peso
+
+---
+
+## 6.4 Diseño de mapas en el Compositor de Impresión
+
+El **Compositor de Impresión** (Print Layout) permite crear mapas profesionales con todos los elementos cartográficos necesarios.
+
+### Abrir el Compositor de Impresión
+
+```
+Proyecto → Nuevo diseño de impresión
+```
+O desde el menú **Proyecto → Administrador de diseños**.
+
+### Elementos esenciales de un mapa
+
+| Elemento      | Función                                        |
+|:--------------|:-----------------------------------------------|
+| **Vista del mapa** | Ventana que muestra el contenido del canvas |
+| **Leyenda**   | Explica los símbolos del mapa                  |
+| **Escala**    | Barra o texto que indica la escala del mapa    |
+| **Norte**     | Indica la orientación geográfica               |
+| **Título**    | Nombre del mapa                                |
+| **Créditos**  | Fuente de datos, autor, fecha                  |
+| **Cuadrícula**| Líneas de latitud/longitud o coordenadas       |
+
+### Flujo de trabajo en el Compositor
+
+1. **Agregar vista del mapa**: Diseño → Agregar elemento → Agregar mapa
+2. **Sincronizar con el canvas**: clic derecho → **Establecer extensión del mapa**
+3. **Agregar leyenda**: Diseño → Agregar elemento → Agregar leyenda
+4. **Agregar escala**: Diseño → Agregar elemento → Agregar barra de escala
+5. **Agregar norte**: Diseño → Agregar elemento → Agregar imagen de norte
+6. **Agregar texto**: para título, créditos, etc.
+
+### Configurar la leyenda
+
+Para personalizar la leyenda:
+1. Selecciona la leyenda en el layout
+2. En el panel de propiedades → **Elementos de la leyenda**
+3. Desactiva **Actualización automática** para editar manualmente
+4. Renombra, reordena u oculta elementos según necesidad
+
+### Ajuste de escala y extensión
+
+```python
+# Desde Python: ajustar la extensión de un layout
+from qgis.core import QgsProject, QgsRectangle
+
+manager = QgsProject.instance().layoutManager()
+layout = manager.layoutByName("Mi Mapa")
+
+# Obtener el mapa del layout
+for item in layout.items():
+    if item.type() == 65639:  # QgsLayoutItemMap
+        item.setExtent(QgsRectangle(-87.5, 13.8, -86.9, 14.4))
+        item.refresh()
+```
+
+---
+
+## 6.5 Exportación de mapas
+
+### Exportar desde el Compositor
+
+**Como imagen (PNG/JPG)**:
+- Layout → **Exportar como imagen...**
+- Configura la resolución (300 DPI para impresión, 96 DPI para pantalla)
+
+**Como PDF**:
+- Layout → **Exportar como PDF...**
+- Activa **Exportar capas como grupos PDF** para mantener la interactividad
+
+**Como SVG** (editable en Inkscape/Illustrator):
+- Layout → **Exportar como SVG...**
+
+### Exportación por lotes con Atlas
+
+El **Atlas** genera automáticamente un mapa para cada entidad de una capa:
+
+1. Layout → **Atlas → Configurar Atlas**
+2. Activa **Generar atlas**
+3. Capa de cobertura: selecciona la capa guía (ej. municipios)
+4. Configura la expresión del nombre de archivo
+5. Previsualiza con **Vista previa del atlas**
+6. Exporta todos los mapas: **Atlas → Exportar atlas como PDF/imagen**
+
+---
+
+## 🛠️ Ejercicios Prácticos
+
+### Ejercicio 6.1: Mapa coroplético
+
+1. Carga la capa de municipios de Honduras.
+2. Aplica simbología graduada usando el campo de población.
+3. Usa el método de clasificación de Jenks con 5 clases.
+4. Usa la rampa de color `YlOrRd`.
+5. Agrega etiquetas con el nombre del municipio.
+
+### Ejercicio 6.2: Mapa de rutas
+
+1. Carga las capas de: carreteras, municipios y hospitales.
+2. Aplica simbología categorizada a las carreteras por tipo.
+3. Usa puntos proporcionales para hospitales basados en capacidad.
+4. Configura etiquetas solo para hospitales principales.
+
+### Ejercicio 6.3: Diseño de mapa final
+
+1. Abre el Compositor de Impresión.
+2. Crea un mapa completo con:
+   - Vista del mapa de Tegucigalpa con al menos 3 capas
+   - Leyenda clara y legible
+   - Barra de escala en metros/kilómetros
+   - Rosa de los vientos
+   - Título del mapa
+   - Créditos: fuente de datos y fecha
+3. Exporta el mapa como PNG a 300 DPI.
+4. Exporta también como PDF.
+
+---
+
+## 📚 Recursos y Referencias
+
+- [QGIS — Simbología de capas vectoriales](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)
+- [QGIS — Compositor de impresión](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/index.html)
+- [ColorBrewer — Paletas de color para cartografía](https://colorbrewer2.org)
+- [Cartography Guide — NACIS](https://www.axismaps.com/guide)
+- [QGIS Atlas Tutorial](https://docs.qgis.org/latest/en/docs/training_manual/forestry/forest_maps.html)
+
+---
+
+[← Módulo 5: Automatización con Python](modulo5.qmd) | [Módulo 7: Integración y casos prácticos →](modulo7.qmd)
