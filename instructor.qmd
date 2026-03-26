@@ -1,0 +1,81 @@
+---
+title: "Instructor"
+subtitle: "Luis A. L. González"
+toc: false
+---
+
+::: {.hero-banner}
+# Luis A. L. González {.hero-title}
+
+**Especialista en SIG & Desarrollo de Herramientas Geoespaciales**  
+*CEETI – Universidad Nacional Autónoma de Honduras*
+:::
+
+---
+
+## 👤 Perfil Profesional
+
+Profesional con **más de una década de experiencia** en Sistemas de Información Geográfica (SIG), con enfoque en programación aplicada al análisis geoespacial. Su trabajo combina el dominio de plataformas SIG de escritorio con el desarrollo de herramientas en Python y R para la automatización de flujos de trabajo espaciales.
+
+---
+
+## 🎓 Áreas de Expertise
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+
+### 🗺️ SIG & Análisis Geoespacial
+- QGIS (desktop y automatización)
+- ArcGIS Pro
+- Google Earth Engine (GEE)
+- Análisis vectorial y ráster
+- Bases de datos espaciales con **PostgreSQL + PostGIS**
+
+### 🐍 Programación
+- **Python** — principal lenguaje de trabajo
+- **R** — análisis estadístico y espacial
+- **SQL** — consultas y gestión de datos espaciales
+- PyQGIS para automatización de flujos QGIS
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+
+### 📦 Herramientas & Librerías
+| Categoría | Herramientas |
+|:---|:---|
+| Datos ráster | `rasterio`, `GDAL`, `geemap` |
+| Datos vectoriales | `geopandas` |
+| Earth Engine | `geemap`, API de GEE |
+| Desarrollo | Git, GitHub, Python packaging |
+
+### 🔧 Proyectos Open Source
+- **[gishndev](https://github.com/lalgonzales/gishndev)** — paquete Python para procesamiento de datos SIG
+- **[geo-intro-py](https://github.com/lalgonzales/geo-intro-py)** — introducción a Python para SIG
+- **[ai-assistance-guides](https://github.com/lalgonzales/ai-assistance-guides)** — guías de asistencia con IA
+
+:::
+
+:::
+
+---
+
+## 🏛️ Afiliación Institucional
+
+::: {.callout-note appearance="minimal"}
+**Centro de Excelencia para la Educación en Tecnologías de la Información (CEETI)**  
+Universidad Nacional Autónoma de Honduras (UNAH)
+
+Instructor del programa de formación en QGIS y Herramientas Python para el Análisis Geoespacial, orientado a profesionales y estudiantes de la comunidad universitaria y sector técnico.
+:::
+
+---
+
+## 📫 Contacto y Redes
+
+| Canal | Enlace |
+|:---|:---|
+| 🐙 GitHub | [github.com/lalgonzales](https://github.com/lalgonzales) |
+| 💼 LinkedIn | [linkedin.com/in/lalgonzales](https://www.linkedin.com/in/lalgonzales/) |
+| 🌐 Sitio personal | [lalgonzales.github.io](https://lalgonzales.github.io) |

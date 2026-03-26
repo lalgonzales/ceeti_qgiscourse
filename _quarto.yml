@@ -15,23 +15,25 @@ website:
       - text: "Inicio"
         href: index.qmd
       - text: "Temario"
-        href: modulos/syllabus.qmd
+        href: content/syllabus.qmd
       - text: "Módulos"
         menu:
           - text: "1. Introducción a QGIS y SIG"
-            href: modulos/modulo1.qmd
+            href: content/modulo1.qmd
           - text: "2. Carga y manejo de datos"
-            href: modulos/modulo2.qmd
+            href: content/modulo2.qmd
           - text: "3. Edición y geoprocesamiento básico"
-            href: modulos/modulo3.qmd
+            href: content/modulo3.qmd
           - text: "4. Análisis espacial para rutas"
-            href: modulos/modulo4.qmd
+            href: content/modulo4.qmd
           - text: "5. Automatización con Python y PyQGIS"
-            href: modulos/modulo5.qmd
+            href: content/modulo5.qmd
           - text: "6. Visualización avanzada y mapas finales"
-            href: modulos/modulo6.qmd
+            href: content/modulo6.qmd
           - text: "7. Integración y casos prácticos"
-            href: modulos/modulo7.qmd
+            href: content/modulo7.qmd
+      - text: "Instructor"
+        href: instructor.qmd
     right:
       - icon: github
         href: https://github.com/lalgonzales/ceeti_qgiscourse
@@ -45,23 +47,25 @@ website:
       - text: "Inicio"
         href: index.qmd
       - text: "Temario"
-        href: modulos/syllabus.qmd
+        href: content/syllabus.qmd
       - section: "Módulos"
         contents:
           - text: "1. Introducción a QGIS y SIG"
-            href: modulos/modulo1.qmd
+            href: content/modulo1.qmd
           - text: "2. Carga y manejo de datos"
-            href: modulos/modulo2.qmd
+            href: content/modulo2.qmd
           - text: "3. Edición y geoprocesamiento básico"
-            href: modulos/modulo3.qmd
+            href: content/modulo3.qmd
           - text: "4. Análisis espacial para rutas"
-            href: modulos/modulo4.qmd
+            href: content/modulo4.qmd
           - text: "5. Automatización con Python y PyQGIS"
-            href: modulos/modulo5.qmd
+            href: content/modulo5.qmd
           - text: "6. Visualización avanzada y mapas finales"
-            href: modulos/modulo6.qmd
+            href: content/modulo6.qmd
           - text: "7. Integración y casos prácticos"
-            href: modulos/modulo7.qmd
+            href: content/modulo7.qmd
+      - text: "Instructor"
+        href: instructor.qmd
 
   page-footer:
     left: "© 2025 CEETI – Universidad Nacional Autónoma de Honduras"
