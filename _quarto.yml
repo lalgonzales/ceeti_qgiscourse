@@ -15,23 +15,23 @@ website:
       - text: "Inicio"
         href: index.qmd
       - text: "Temario"
-        href: syllabus.qmd
+        href: modulos/syllabus.qmd
       - text: "Módulos"
         menu:
           - text: "1. Introducción a QGIS y SIG"
-            href: modulo1.qmd
+            href: modulos/modulo1.qmd
           - text: "2. Carga y manejo de datos"
-            href: modulo2.qmd
+            href: modulos/modulo2.qmd
           - text: "3. Edición y geoprocesamiento básico"
-            href: modulo3.qmd
+            href: modulos/modulo3.qmd
           - text: "4. Análisis espacial para rutas"
-            href: modulo4.qmd
+            href: modulos/modulo4.qmd
           - text: "5. Automatización con Python y PyQGIS"
-            href: modulo5.qmd
+            href: modulos/modulo5.qmd
           - text: "6. Visualización avanzada y mapas finales"
-            href: modulo6.qmd
+            href: modulos/modulo6.qmd
           - text: "7. Integración y casos prácticos"
-            href: modulo7.qmd
+            href: modulos/modulo7.qmd
     right:
       - icon: github
         href: https://github.com/lalgonzales/ceeti_qgiscourse
@@ -45,23 +45,23 @@ website:
       - text: "Inicio"
         href: index.qmd
       - text: "Temario"
-        href: syllabus.qmd
+        href: modulos/syllabus.qmd
       - section: "Módulos"
         contents:
           - text: "1. Introducción a QGIS y SIG"
-            href: modulo1.qmd
+            href: modulos/modulo1.qmd
           - text: "2. Carga y manejo de datos"
-            href: modulo2.qmd
+            href: modulos/modulo2.qmd
           - text: "3. Edición y geoprocesamiento básico"
-            href: modulo3.qmd
+            href: modulos/modulo3.qmd
           - text: "4. Análisis espacial para rutas"
-            href: modulo4.qmd
+            href: modulos/modulo4.qmd
           - text: "5. Automatización con Python y PyQGIS"
-            href: modulo5.qmd
+            href: modulos/modulo5.qmd
           - text: "6. Visualización avanzada y mapas finales"
-            href: modulo6.qmd
+            href: modulos/modulo6.qmd
           - text: "7. Integración y casos prácticos"
-            href: modulo7.qmd
+            href: modulos/modulo7.qmd
 
   page-footer:
     left: "© 2025 CEETI – Universidad Nacional Autónoma de Honduras"
@@ -72,8 +72,8 @@ website:
 format:
   html:
     theme:
-      light: [cosmo, styles.css]
-      dark: [darkly, styles-dark.css]
+      light: [cosmo, assets/styles.css]
+      dark: [darkly, assets/styles-dark.css]
     toc: true
     toc-depth: 3
     number-sections: true
