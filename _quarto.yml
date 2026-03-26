@@ -68,7 +68,7 @@ website:
         href: instructor.qmd
 
   page-footer:
-    left: "© 2025 CEETI – Universidad Nacional Autónoma de Honduras"
+    left: "© 2026 CEETI – Universidad Nacional Autónoma de Honduras"
     right:
       - icon: github
         href: https://github.com/lalgonzales/ceeti_qgiscourse
