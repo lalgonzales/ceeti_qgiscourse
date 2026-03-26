@@ -2,6 +2,8 @@
    CEETI QGIS Course — Custom Styles (Dark Theme)
    ============================================================ */
 
+/*-- scss:rules --*/
+
 :root {
   --ceeti-green:    #4caf72;
   --ceeti-blue-lt:  #5dade2;

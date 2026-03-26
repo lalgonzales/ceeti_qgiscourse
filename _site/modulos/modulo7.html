@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Módulo 7: Integración y casos prácticos – QGIS y Herramientas Python para el Análisis Geoespacial</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../modulos/modulo6.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-f8dc6eab18fde03278982b0b35885446.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-1dac198a63be2ef8274c2a1a65a8842f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-15c7f3373ac0553cf661b3635614a57c.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CEETI – QGIS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Inicio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../modulos/syllabus.html"> 
+<span class="menu-text">Temario</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-módulos" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Módulos</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-módulos">    
+        <li>
+    <a class="dropdown-item" href="../modulos/modulo1.html">
+ <span class="dropdown-text">1. Introducción a QGIS y SIG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modulos/modulo2.html">
+ <span class="dropdown-text">2. Carga y manejo de datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modulos/modulo3.html">
+ <span class="dropdown-text">3. Edición y geoprocesamiento básico</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modulos/modulo4.html">
+ <span class="dropdown-text">4. Análisis espacial para rutas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modulos/modulo5.html">
+ <span class="dropdown-text">5. Automatización con Python y PyQGIS</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modulos/modulo6.html">
+ <span class="dropdown-text">6. Visualización avanzada y mapas finales</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modulos/modulo7.html">
+ <span class="dropdown-text">7. Integración y casos prácticos</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/lalgonzales/ceeti_qgiscourse"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../modulos/modulo7.html">7. Integración y casos prácticos</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inicio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Temario</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Módulos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Introducción a QGIS y SIG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Carga y manejo de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Edición y geoprocesamiento básico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Análisis espacial para rutas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Automatización con Python y PyQGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Visualización avanzada y mapas finales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo7.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">7. Integración y casos prácticos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#objetivos-del-módulo" id="toc-objetivos-del-módulo" class="nav-link active" data-scroll-target="#objetivos-del-módulo"><span class="header-section-number">1</span> Objetivos del Módulo</a></li>
+  <li><a href="#conexión-con-apis-externas" id="toc-conexión-con-apis-externas" class="nav-link" data-scroll-target="#conexión-con-apis-externas"><span class="header-section-number">2</span> 7.1 Conexión con APIs externas</a>
+  <ul class="collapse">
+  <li><a href="#openstreetmap-osm" id="toc-openstreetmap-osm" class="nav-link" data-scroll-target="#openstreetmap-osm"><span class="header-section-number">2.1</span> OpenStreetMap (OSM)</a></li>
+  <li><a href="#google-maps-places-api" id="toc-google-maps-places-api" class="nav-link" data-scroll-target="#google-maps-places-api"><span class="header-section-number">2.2</span> Google Maps / Places API</a></li>
+  <li><a href="#openrouteservice-ors" id="toc-openrouteservice-ors" class="nav-link" data-scroll-target="#openrouteservice-ors"><span class="header-section-number">2.3</span> OpenRouteService (ORS)</a></li>
+  </ul></li>
+  <li><a href="#proyecto-aplicado-diseño-de-rutas-eficientes-para-campo" id="toc-proyecto-aplicado-diseño-de-rutas-eficientes-para-campo" class="nav-link" data-scroll-target="#proyecto-aplicado-diseño-de-rutas-eficientes-para-campo"><span class="header-section-number">3</span> 7.2 Proyecto aplicado: diseño de rutas eficientes para campo</a>
+  <ul class="collapse">
+  <li><a href="#planteamiento-del-problema" id="toc-planteamiento-del-problema" class="nav-link" data-scroll-target="#planteamiento-del-problema"><span class="header-section-number">3.1</span> Planteamiento del problema</a></li>
+  <li><a href="#solución-1-herramienta-de-procesamiento-de-qgis" id="toc-solución-1-herramienta-de-procesamiento-de-qgis" class="nav-link" data-scroll-target="#solución-1-herramienta-de-procesamiento-de-qgis"><span class="header-section-number">3.2</span> Solución 1: Herramienta de procesamiento de QGIS</a></li>
+  <li><a href="#solución-2-python-con-or-tools-google" id="toc-solución-2-python-con-or-tools-google" class="nav-link" data-scroll-target="#solución-2-python-con-or-tools-google"><span class="header-section-number">3.3</span> Solución 2: Python con OR-Tools (Google)</a></li>
+  </ul></li>
+  <li><a href="#trazabilidad-de-rutas-gps-con-apps-móviles" id="toc-trazabilidad-de-rutas-gps-con-apps-móviles" class="nav-link" data-scroll-target="#trazabilidad-de-rutas-gps-con-apps-móviles"><span class="header-section-number">4</span> 7.3 Trazabilidad de rutas GPS con apps móviles</a>
+  <ul class="collapse">
+  <li><a href="#aplicaciones-para-recolección-de-datos-en-campo" id="toc-aplicaciones-para-recolección-de-datos-en-campo" class="nav-link" data-scroll-target="#aplicaciones-para-recolección-de-datos-en-campo"><span class="header-section-number">4.1</span> Aplicaciones para recolección de datos en campo</a></li>
+  <li><a href="#flujo-de-trabajo-con-qfield" id="toc-flujo-de-trabajo-con-qfield" class="nav-link" data-scroll-target="#flujo-de-trabajo-con-qfield"><span class="header-section-number">4.2</span> Flujo de trabajo con QField</a></li>
+  <li><a href="#importar-tracks-gpx" id="toc-importar-tracks-gpx" class="nav-link" data-scroll-target="#importar-tracks-gpx"><span class="header-section-number">4.3</span> Importar tracks GPX</a></li>
+  <li><a href="#análisis-de-tracks-gps" id="toc-análisis-de-tracks-gps" class="nav-link" data-scroll-target="#análisis-de-tracks-gps"><span class="header-section-number">4.4</span> Análisis de tracks GPS</a></li>
+  </ul></li>
+  <li><a href="#optimización-de-recorridos-con-restricciones-reales" id="toc-optimización-de-recorridos-con-restricciones-reales" class="nav-link" data-scroll-target="#optimización-de-recorridos-con-restricciones-reales"><span class="header-section-number">5</span> 7.4 Optimización de recorridos con restricciones reales</a>
+  <ul class="collapse">
+  <li><a href="#tipos-de-restricciones-comunes" id="toc-tipos-de-restricciones-comunes" class="nav-link" data-scroll-target="#tipos-de-restricciones-comunes"><span class="header-section-number">5.1</span> Tipos de restricciones comunes</a></li>
+  <li><a href="#vehicle-routing-problem-vrp-con-or-tools" id="toc-vehicle-routing-problem-vrp-con-or-tools" class="nav-link" data-scroll-target="#vehicle-routing-problem-vrp-con-or-tools"><span class="header-section-number">5.2</span> Vehicle Routing Problem (VRP) con OR-Tools</a></li>
+  <li><a href="#herramientas-adicionales-para-optimización" id="toc-herramientas-adicionales-para-optimización" class="nav-link" data-scroll-target="#herramientas-adicionales-para-optimización"><span class="header-section-number">5.3</span> Herramientas adicionales para optimización</a></li>
+  </ul></li>
+  <li><a href="#proyecto-final-del-curso" id="toc-proyecto-final-del-curso" class="nav-link" data-scroll-target="#proyecto-final-del-curso"><span class="header-section-number">6</span> 7.5 Proyecto Final del Curso</a>
+  <ul class="collapse">
+  <li><a href="#descripción-del-proyecto" id="toc-descripción-del-proyecto" class="nav-link" data-scroll-target="#descripción-del-proyecto"><span class="header-section-number">6.1</span> Descripción del proyecto</a></li>
+  <li><a href="#entregables-del-proyecto" id="toc-entregables-del-proyecto" class="nav-link" data-scroll-target="#entregables-del-proyecto"><span class="header-section-number">6.2</span> Entregables del proyecto</a></li>
+  </ul></li>
+  <li><a href="#recursos-y-referencias" id="toc-recursos-y-referencias" class="nav-link" data-scroll-target="#recursos-y-referencias"><span class="header-section-number">7</span> 📚 Recursos y Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../modulos/modulo7.html">7. Integración y casos prácticos</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Módulo 7: Integración y casos prácticos</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="objetivos-del-módulo" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="objetivos-del-módulo"><span class="header-section-number">1</span> Objetivos del Módulo</h2>
+<p>Al finalizar este módulo, los participantes podrán:</p>
+<ul>
+<li>Conectar QGIS con APIs externas como OpenStreetMap y Google Maps.</li>
+<li>Diseñar y evaluar rutas eficientes para trabajo de campo.</li>
+<li>Importar y procesar rutas GPS recolectadas con aplicaciones móviles.</li>
+<li>Aplicar técnicas de optimización de recorridos con restricciones reales.</li>
+</ul>
+<hr>
+</section>
+<section id="conexión-con-apis-externas" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="conexión-con-apis-externas"><span class="header-section-number">2</span> 7.1 Conexión con APIs externas</h2>
+<section id="openstreetmap-osm" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="openstreetmap-osm"><span class="header-section-number">2.1</span> OpenStreetMap (OSM)</h3>
+<p>OpenStreetMap es el mapa colaborativo de código abierto más completo del mundo. QGIS se integra con OSM de múltiples maneras.</p>
+<section id="tiles-mapas-base" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="tiles-mapas-base"><span class="header-section-number">2.1.1</span> Tiles (mapas base)</h4>
+<pre><code>Panel Explorador → Teselas XYZ → Nueva conexión</code></pre>
+<p>Agrega estas URLs como capas base:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 77%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Servicio</th>
+<th style="text-align: left;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">OpenStreetMap</td>
+<td style="text-align: left;"><code>https://tile.openstreetmap.org/{z}/{x}/{y}.png</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OSM Humanitarian</td>
+<td style="text-align: left;"><code>https://tile-c.openstreetmap.fr/hot/{z}/{x}/{y}.png</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CartoDB Light</td>
+<td style="text-align: left;"><code>https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ESRI Satellite</td>
+<td style="text-align: left;"><code>https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="descarga-de-datos-con-quickosm" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="descarga-de-datos-con-quickosm"><span class="header-section-number">2.1.2</span> Descarga de datos con QuickOSM</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Consulta mediante Python (requiere plugin QuickOSM)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> processing</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>resultado <span class="op">=</span> processing.run(<span class="st">"quickosm:buildqueryextent"</span>, {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"KEY"</span>: <span class="st">"amenity"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"VALUE"</span>: <span class="st">"hospital"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"EXTENT"</span>: <span class="st">"-87.3,13.9,-87.1,14.2 [EPSG:4326]"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OUTPUT"</span>: <span class="st">"TEMPORARY_OUTPUT"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="descarga-con-la-api-overpass" class="level4" data-number="2.1.3">
+<h4 data-number="2.1.3" class="anchored" data-anchor-id="descarga-con-la-api-overpass"><span class="header-section-number">2.1.3</span> Descarga con la API Overpass</h4>
+<p>La API Overpass permite consultas avanzadas sobre datos OSM:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> descargar_osm_overpass(query, bbox):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Descarga datos OSM usando la API Overpass.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    bbox: (sur, oeste, norte, este)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://overpass-api.de/api/interpreter"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    overpass_query <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    [out:json][timeout:30];</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ss">      node[</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">](</span><span class="sc">{</span>bbox[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">3</span>]<span class="sc">}</span><span class="ss">);</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ss">      way[</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">](</span><span class="sc">{</span>bbox[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">3</span>]<span class="sc">}</span><span class="ss">);</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    );</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    out body;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    &gt;;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    out skel qt;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url, params<span class="op">=</span>{<span class="st">"data"</span>: overpass_query})</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response.json()</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo: hospitales en Tegucigalpa</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> descargar_osm_overpass(</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'"amenity"="hospital"'</span>,</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">13.9</span>, <span class="op">-</span><span class="fl">87.3</span>, <span class="fl">14.2</span>, <span class="op">-</span><span class="fl">87.1</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Elementos encontrados: </span><span class="sc">{</span><span class="bu">len</span>(datos[<span class="st">'elements'</span>])<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="google-maps-places-api" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="google-maps-places-api"><span class="header-section-number">2.2</span> Google Maps / Places API</h3>
+<p>Para conectar con la API de Google Maps desde Python (requiere clave API):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> geocodificar_direccion(direccion, api_key):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Convierte una dirección en coordenadas usando Google Maps."""</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://maps.googleapis.com/maps/api/geocode/json"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"address"</span>: direccion,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key"</span>: api_key,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"language"</span>: <span class="st">"es"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url, params<span class="op">=</span>params)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> response.json()</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> data[<span class="st">"status"</span>] <span class="op">==</span> <span class="st">"OK"</span>:</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        location <span class="op">=</span> data[<span class="st">"results"</span>][<span class="dv">0</span>][<span class="st">"geometry"</span>][<span class="st">"location"</span>]</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> location[<span class="st">"lat"</span>], location[<span class="st">"lng"</span>]</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Uso</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># lat, lon = geocodificar_direccion("UNAH, Tegucigalpa", "TU_API_KEY")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+API Keys
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para usar las APIs de Google Maps necesitas registrarte en Google Cloud Platform y crear una clave de API. Algunas APIs son de pago según el uso.</p>
+</div>
+</div>
+</section>
+<section id="openrouteservice-ors" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="openrouteservice-ors"><span class="header-section-number">2.3</span> OpenRouteService (ORS)</h3>
+<p>OpenRouteService ofrece APIs gratuitas para enrutamiento basadas en OSM:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcular_ruta_ors(origen, destino, api_key, modo<span class="op">=</span><span class="st">"driving-car"</span>):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Calcula una ruta usando OpenRouteService.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    origen/destino: [longitud, latitud]</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    modos: driving-car, cycling-regular, foot-walking</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://api.openrouteservice.org/v2/directions/"</span> <span class="op">+</span> modo</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> {</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span>: api_key,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Content-Type"</span>: <span class="st">"application/json"</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    body <span class="op">=</span> {</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"coordinates"</span>: [origen, destino],</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"format"</span>: <span class="st">"geojson"</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.post(url, json<span class="op">=</span>body, headers<span class="op">=</span>headers)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response.json()</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># origen = [-87.2068, 14.0818]  # [lon, lat]</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># destino = [-87.1904, 14.0817]</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ruta = calcular_ruta_ors(origen, destino, "TU_API_KEY_ORS")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="proyecto-aplicado-diseño-de-rutas-eficientes-para-campo" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="proyecto-aplicado-diseño-de-rutas-eficientes-para-campo"><span class="header-section-number">3</span> 7.2 Proyecto aplicado: diseño de rutas eficientes para campo</h2>
+<section id="planteamiento-del-problema" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="planteamiento-del-problema"><span class="header-section-number">3.1</span> Planteamiento del problema</h3>
+<p>Un equipo de trabajo de campo necesita visitar 10 puntos de control (comunidades, puntos de monitoreo, etc.) desde una base de operaciones, minimizando el tiempo total de desplazamiento.</p>
+<p>Este es un problema de <strong>Ruta del Viajero (TSP - Travelling Salesman Problem)</strong>.</p>
+</section>
+<section id="solución-1-herramienta-de-procesamiento-de-qgis" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="solución-1-herramienta-de-procesamiento-de-qgis"><span class="header-section-number">3.2</span> Solución 1: Herramienta de procesamiento de QGIS</h3>
+<p>QGIS incluye herramientas para optimizar recorridos:</p>
+<pre><code>Procesamiento → Caja de herramientas → Análisis de redes → Optimization of a graph path</code></pre>
+</section>
+<section id="solución-2-python-con-or-tools-google" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="solución-2-python-con-or-tools-google"><span class="header-section-number">3.3</span> Solución 2: Python con OR-Tools (Google)</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Requiere: pip install ortools</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ortools.constraint_solver <span class="im">import</span> routing_enums_pb2</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ortools.constraint_solver <span class="im">import</span> pywrapcp</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcular_distancia(p1, p2):</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Distancia euclidiana entre dos puntos (lat, lon)."""</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.sqrt((p1[<span class="dv">0</span>]<span class="op">-</span>p2[<span class="dv">0</span>])<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1[<span class="dv">1</span>]<span class="op">-</span>p2[<span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> <span class="dv">111000</span>  <span class="co"># metros aprox.</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resolver_tsp(puntos):</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Resuelve el TSP para una lista de puntos (lat, lon).</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Retorna el orden óptimo de visita.</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(puntos)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Matriz de distancias</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    matriz <span class="op">=</span> [[<span class="bu">int</span>(calcular_distancia(puntos[i], puntos[j]))</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n)] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)]</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    manager <span class="op">=</span> pywrapcp.RoutingIndexManager(n, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    routing <span class="op">=</span> pywrapcp.RoutingModel(manager)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> callback_distancia(from_index, to_index):</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        from_node <span class="op">=</span> manager.IndexToNode(from_index)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        to_node <span class="op">=</span> manager.IndexToNode(to_index)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> matriz[from_node][to_node]</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    transit_callback_index <span class="op">=</span> routing.RegisterTransitCallback(callback_distancia)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    routing.SetArcCostEvaluatorOfAllVehicles(transit_callback_index)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    parametros <span class="op">=</span> pywrapcp.DefaultRoutingSearchParameters()</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    parametros.first_solution_strategy <span class="op">=</span> (</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    solucion <span class="op">=</span> routing.SolveWithParameters(parametros)</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> solucion:</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        ruta <span class="op">=</span> []</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        index <span class="op">=</span> routing.Start(<span class="dv">0</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="kw">not</span> routing.IsEnd(index):</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>            ruta.append(manager.IndexToNode(index))</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>            index <span class="op">=</span> solucion.Value(routing.NextVar(index))</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>        ruta.append(manager.IndexToNode(index))</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ruta</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo con puntos en Honduras</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>puntos_visita <span class="op">=</span> [</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0818</span>, <span class="op">-</span><span class="fl">87.2068</span>),  <span class="co"># Base: UNAH</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.1234</span>, <span class="op">-</span><span class="fl">87.1890</span>),  <span class="co"># Punto 1</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0500</span>, <span class="op">-</span><span class="fl">87.2200</span>),  <span class="co"># Punto 2</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0700</span>, <span class="op">-</span><span class="fl">87.1700</span>),  <span class="co"># Punto 3</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>orden_optimo <span class="op">=</span> resolver_tsp(puntos_visita)</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> orden_optimo:</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Orden óptimo de visita:"</span>, orden_optimo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="trazabilidad-de-rutas-gps-con-apps-móviles" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="trazabilidad-de-rutas-gps-con-apps-móviles"><span class="header-section-number">4</span> 7.3 Trazabilidad de rutas GPS con apps móviles</h2>
+<section id="aplicaciones-para-recolección-de-datos-en-campo" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="aplicaciones-para-recolección-de-datos-en-campo"><span class="header-section-number">4.1</span> Aplicaciones para recolección de datos en campo</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 67%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Aplicación</th>
+<th style="text-align: left;">Plataforma</th>
+<th style="text-align: left;">Características principales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>QField</strong></td>
+<td style="text-align: left;">Android/iOS</td>
+<td style="text-align: left;">Versión móvil de QGIS, edita capas directamente</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Input</strong></td>
+<td style="text-align: left;">Android/iOS</td>
+<td style="text-align: left;">Basada en QGIS, sincronización en la nube</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>GPSLogger</strong></td>
+<td style="text-align: left;">Android</td>
+<td style="text-align: left;">Registra tracks GPS en varios formatos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>OSMAnd</strong></td>
+<td style="text-align: left;">Android/iOS</td>
+<td style="text-align: left;">Navegación y recolección de datos OSM</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SW Maps</strong></td>
+<td style="text-align: left;">Android</td>
+<td style="text-align: left;">Mapeo GPS de alta precisión</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="flujo-de-trabajo-con-qfield" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="flujo-de-trabajo-con-qfield"><span class="header-section-number">4.2</span> Flujo de trabajo con QField</h3>
+<ol type="1">
+<li><strong>Preparar proyecto en QGIS Desktop</strong>:
+<ul>
+<li>Crea el proyecto con las capas necesarias</li>
+<li>Define formularios de captura de datos</li>
+<li>Guarda como GeoPackage</li>
+</ul></li>
+<li><strong>Transferir al dispositivo móvil</strong>:
+<ul>
+<li>Usa QFieldCloud (sincronización en la nube)</li>
+<li>O copia los archivos via USB/WiFi</li>
+</ul></li>
+<li><strong>Recolección en campo</strong>:
+<ul>
+<li>Abre el proyecto en QField</li>
+<li>Captura puntos, líneas o polígonos con GPS</li>
+<li>Completa los formularios de atributos</li>
+</ul></li>
+<li><strong>Importar datos de vuelta a QGIS</strong>:
+<ul>
+<li>Sincroniza con QFieldCloud</li>
+<li>O copia el GeoPackage actualizado al computador</li>
+</ul></li>
+</ol>
+</section>
+<section id="importar-tracks-gpx" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="importar-tracks-gpx"><span class="header-section-number">4.3</span> Importar tracks GPX</h3>
+<p>Los tracks GPS se pueden importar directamente:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar archivo GPX</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ruta_gpx <span class="op">=</span> <span class="st">"/home/usuario/tracks/recorrido.gpx"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>capa_track <span class="op">=</span> QgsVectorLayer(<span class="ss">f"</span><span class="sc">{</span>ruta_gpx<span class="sc">}</span><span class="ss">|layername=tracks"</span>, <span class="st">"Mi Track"</span>, <span class="st">"ogr"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>capa_waypoints <span class="op">=</span> QgsVectorLayer(<span class="ss">f"</span><span class="sc">{</span>ruta_gpx<span class="sc">}</span><span class="ss">|layername=waypoints"</span>, <span class="st">"Waypoints"</span>, <span class="st">"ogr"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(capa_track)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(capa_waypoints)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Track cargado: </span><span class="sc">{</span>capa_track<span class="sc">.</span>featureCount()<span class="sc">}</span><span class="ss"> segmentos"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Waypoints: </span><span class="sc">{</span>capa_waypoints<span class="sc">.</span>featureCount()<span class="sc">}</span><span class="ss"> puntos"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="análisis-de-tracks-gps" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="análisis-de-tracks-gps"><span class="header-section-number">4.4</span> Análisis de tracks GPS</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular longitud total de un track</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>capa <span class="op">=</span> QgsProject.instance().mapLayersByName(<span class="st">"Mi Track"</span>)[<span class="dv">0</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>longitud_total <span class="op">=</span> <span class="bu">sum</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    entidad.geometry().length()</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> entidad <span class="kw">in</span> capa.getFeatures()</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Longitud total del recorrido: </span><span class="sc">{</span>longitud_total<span class="op">/</span><span class="dv">1000</span><span class="sc">:.2f}</span><span class="ss"> km"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="optimización-de-recorridos-con-restricciones-reales" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="optimización-de-recorridos-con-restricciones-reales"><span class="header-section-number">5</span> 7.4 Optimización de recorridos con restricciones reales</h2>
+<section id="tipos-de-restricciones-comunes" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="tipos-de-restricciones-comunes"><span class="header-section-number">5.1</span> Tipos de restricciones comunes</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 64%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Restricción</th>
+<th style="text-align: left;">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Ventanas de tiempo</strong></td>
+<td style="text-align: left;">Visitar un cliente entre 9:00 AM y 12:00 PM</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Capacidad del vehículo</strong></td>
+<td style="text-align: left;">Máximo de 500 kg por camión</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Tipo de vehículo</strong></td>
+<td style="text-align: left;">Camiones no pueden usar ciertos caminos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Prioridades</strong></td>
+<td style="text-align: left;">Clientes prioritarios deben visitarse primero</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Horas de trabajo</strong></td>
+<td style="text-align: left;">Máximo 8 horas de trabajo por jornada</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="vehicle-routing-problem-vrp-con-or-tools" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="vehicle-routing-problem-vrp-con-or-tools"><span class="header-section-number">5.2</span> Vehicle Routing Problem (VRP) con OR-Tools</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo simplificado de VRP con ventanas de tiempo</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Requiere: pip install ortools</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">Problema: Una empresa tiene una bodega central y 5 clientes a visitar</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">con 2 vehículos disponibles, cada uno con ventanas de tiempo.</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del problema</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> {</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"num_vehicles"</span>: <span class="dv">2</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"depot"</span>: <span class="dv">0</span>,  <span class="co"># índice de la bodega</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"time_matrix"</span>: [</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Tiempo en minutos entre cada par de ubicaciones</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">25</span>, <span class="dv">20</span>, <span class="dv">35</span>],</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">28</span>],</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">22</span>, <span class="dv">15</span>],</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">25</span>, <span class="dv">18</span>, <span class="dv">12</span>, <span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">20</span>],</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">22</span>, <span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">18</span>],</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">0</span>],</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"time_windows"</span>: [</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">480</span>),    <span class="co"># Bodega: 8:00 AM - 4:00 PM</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">60</span>, <span class="dv">180</span>),   <span class="co"># Cliente 1: 9:00 AM - 11:00 AM</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">120</span>, <span class="dv">240</span>),  <span class="co"># Cliente 2: 10:00 AM - 12:00 PM</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">300</span>),    <span class="co"># Cliente 3: 8:00 AM - 1:00 PM</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">180</span>, <span class="dv">360</span>),  <span class="co"># Cliente 4: 11:00 AM - 2:00 PM</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">240</span>, <span class="dv">420</span>),  <span class="co"># Cliente 5: 12:00 PM - 3:00 PM</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Problema de VRP con ventanas de tiempo definido."</span>)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Vehículos disponibles: </span><span class="sc">{</span>datos[<span class="st">'num_vehicles'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Clientes a visitar: </span><span class="sc">{</span><span class="bu">len</span>(datos[<span class="st">'time_windows'</span>]) <span class="op">-</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="herramientas-adicionales-para-optimización" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="herramientas-adicionales-para-optimización"><span class="header-section-number">5.3</span> Herramientas adicionales para optimización</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Herramienta</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>OR-Tools</strong></td>
+<td style="text-align: left;">Biblioteca de Google para optimización combinatoria</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>OpenRouteService</strong></td>
+<td style="text-align: left;">API con funcionalidad de optimización de rutas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>pgRouting</strong></td>
+<td style="text-align: left;">Extensión de PostgreSQL para análisis de redes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>OSRM</strong></td>
+<td style="text-align: left;">Motor de enrutamiento de alto rendimiento basado en OSM</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Vroom</strong></td>
+<td style="text-align: left;">Soluciones para VRP usando OSRM/OpenRouteService</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="proyecto-final-del-curso" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="proyecto-final-del-curso"><span class="header-section-number">6</span> 7.5 Proyecto Final del Curso</h2>
+<section id="descripción-del-proyecto" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="descripción-del-proyecto"><span class="header-section-number">6.1</span> Descripción del proyecto</h3>
+<p>Diseña y evalúa un sistema de rutas para uno de los siguientes escenarios:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Escenario A: Sistema de distribución de productos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Diseña las rutas óptimas para distribuir productos desde una bodega central a 8–10 clientes en Tegucigalpa, considerando: - Ventanas horarias de entrega por cliente - Capacidad de 2 vehículos disponibles - Minimización del tiempo total de desplazamiento</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Escenario B: Cobertura de servicios de salud
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Evalúa la cobertura geográfica de los centros de salud en un municipio: - Calcula el área atendida por cada establecimiento (isócronas de 15 y 30 min) - Identifica comunidades sin cobertura adecuada - Propone la ubicación óptima para un nuevo centro de salud</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Escenario C: Monitoreo ambiental en campo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Planifica rutas de campo para monitoreo ambiental: - Importa puntos de muestreo desde GPS/aplicación móvil - Optimiza el orden de visita - Genera un informe con las rutas y estadísticas del recorrido</p>
+</div>
+</div>
+</section>
+<section id="entregables-del-proyecto" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="entregables-del-proyecto"><span class="header-section-number">6.2</span> Entregables del proyecto</h3>
+<ol type="1">
+<li>✅ Mapa final exportado en PDF (calidad de impresión)</li>
+<li>✅ Script Python documentado con la lógica de análisis</li>
+<li>✅ Archivo GeoPackage con todas las capas del proyecto</li>
+<li>✅ Informe breve (máximo 2 páginas) describiendo la metodología y resultados</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="recursos-y-referencias" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="recursos-y-referencias"><span class="header-section-number">7</span> 📚 Recursos y Referencias</h2>
+<ul>
+<li><a href="https://docs.qfield.org">QField — Documentación oficial</a></li>
+<li><a href="https://merginmaps.com/docs">Input App — Mergin Maps</a></li>
+<li><a href="https://openrouteservice.org/dev/#/api-docs">OpenRouteService — API Documentation</a></li>
+<li><a href="https://developers.google.com/optimization">OR-Tools — Google Optimization Tools</a></li>
+<li><a href="https://docs.pgrouting.org">pgRouting — Documentación</a></li>
+<li><a href="https://wiki.openstreetmap.org/wiki/Overpass_API">OSM Overpass API — Tutorial</a></li>
+<li><a href="https://github.com/VROOM-Project/vroom">VROOM — Vehicle Routing Open-source Optimization Machine</a></li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¡Felicitaciones!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Has completado el <strong>Curso de QGIS y Herramientas Python para el Análisis Geoespacial</strong> del CEETI – UNAH.</p>
+<p>Recuerda que la práctica continua es la clave para dominar estas herramientas. Explora los recursos adicionales, participa en la comunidad QGIS y aplica lo aprendido en proyectos reales.</p>
+</div>
+</div>
+<hr>
+<p><a href="../modulos/modulo6.html">← Módulo 6: Visualización avanzada</a> | <a href="../index.html">↑ Inicio</a> | <a href="../modulos/syllabus.html">Ver temario completo</a></p>
+
+
+<!-- -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../modulos/modulo6.html" class="pagination-link" aria-label="6. Visualización avanzada y mapas finales">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">6. Visualización avanzada y mapas finales</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Módulo 7: Integración y casos prácticos"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Objetivos del Módulo</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>Al finalizar este módulo, los participantes podrán:</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Conectar QGIS con APIs externas como OpenStreetMap y Google Maps.</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Diseñar y evaluar rutas eficientes para trabajo de campo.</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Importar y procesar rutas GPS recolectadas con aplicaciones móviles.</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar técnicas de optimización de recorridos con restricciones reales.</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.1 Conexión con APIs externas</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="fu">### OpenStreetMap (OSM)</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>OpenStreetMap es el mapa colaborativo de código abierto más completo del mundo. QGIS se integra con OSM de múltiples maneras.</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tiles (mapas base)</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="in">Panel Explorador → Teselas XYZ → Nueva conexión</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>Agrega estas URLs como capas base:</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>| Servicio          | URL                                                              |</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>|:------------------|:-----------------------------------------------------------------|</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>| OpenStreetMap     | <span class="in">`https://tile.openstreetmap.org/{z}/{x}/{y}.png`</span>                |</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>| OSM Humanitarian  | <span class="in">`https://tile-c.openstreetmap.fr/hot/{z}/{x}/{y}.png`</span>           |</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>| CartoDB Light     | <span class="in">`https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png`</span> |</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>| ESRI Satellite    | <span class="in">`https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}`</span> |</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Descarga de datos con QuickOSM</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Consulta mediante Python (requiere plugin QuickOSM)</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> processing</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>resultado <span class="op">=</span> processing.run(<span class="st">"quickosm:buildqueryextent"</span>, {</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"KEY"</span>: <span class="st">"amenity"</span>,</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">"VALUE"</span>: <span class="st">"hospital"</span>,</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">"EXTENT"</span>: <span class="st">"-87.3,13.9,-87.1,14.2 [EPSG:4326]"</span>,</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OUTPUT"</span>: <span class="st">"TEMPORARY_OUTPUT"</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Descarga con la API Overpass</span></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>La API Overpass permite consultas avanzadas sobre datos OSM:</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> descargar_osm_overpass(query, bbox):</span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="co">    Descarga datos OSM usando la API Overpass.</span></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a><span class="co">    bbox: (sur, oeste, norte, este)</span></span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://overpass-api.de/api/interpreter"</span></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>    overpass_query <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a><span class="ss">    [out:json][timeout:30];</span></span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span></span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a><span class="ss">      node[</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">](</span><span class="sc">{</span>bbox[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">3</span>]<span class="sc">}</span><span class="ss">);</span></span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a><span class="ss">      way[</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">](</span><span class="sc">{</span>bbox[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">3</span>]<span class="sc">}</span><span class="ss">);</span></span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a><span class="ss">    );</span></span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="ss">    out body;</span></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a><span class="ss">    &gt;;</span></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="ss">    out skel qt;</span></span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url, params<span class="op">=</span>{<span class="st">"data"</span>: overpass_query})</span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response.json()</span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo: hospitales en Tegucigalpa</span></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> descargar_osm_overpass(</span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a>    <span class="st">'"amenity"="hospital"'</span>,</span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">13.9</span>, <span class="op">-</span><span class="fl">87.3</span>, <span class="fl">14.2</span>, <span class="op">-</span><span class="fl">87.1</span>)</span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Elementos encontrados: </span><span class="sc">{</span><span class="bu">len</span>(datos[<span class="st">'elements'</span>])<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Google Maps / Places API</span></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>Para conectar con la API de Google Maps desde Python (requiere clave API):</span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> geocodificar_direccion(direccion, api_key):</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Convierte una dirección en coordenadas usando Google Maps."""</span></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://maps.googleapis.com/maps/api/geocode/json"</span></span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> {</span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>        <span class="st">"address"</span>: direccion,</span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key"</span>: api_key,</span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>        <span class="st">"language"</span>: <span class="st">"es"</span></span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url, params<span class="op">=</span>params)</span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> response.json()</span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> data[<span class="st">"status"</span>] <span class="op">==</span> <span class="st">"OK"</span>:</span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>        location <span class="op">=</span> data[<span class="st">"results"</span>][<span class="dv">0</span>][<span class="st">"geometry"</span>][<span class="st">"location"</span>]</span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> location[<span class="st">"lat"</span>], location[<span class="st">"lng"</span>]</span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Uso</span></span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a><span class="co"># lat, lon = geocodificar_direccion("UNAH, Tegucigalpa", "TU_API_KEY")</span></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## API Keys</span></span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>Para usar las APIs de Google Maps necesitas registrarte en Google Cloud Platform y crear una clave de API. Algunas APIs son de pago según el uso.</span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### OpenRouteService (ORS)</span></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>OpenRouteService ofrece APIs gratuitas para enrutamiento basadas en OSM:</span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcular_ruta_ors(origen, destino, api_key, modo<span class="op">=</span><span class="st">"driving-car"</span>):</span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a><span class="co">    Calcula una ruta usando OpenRouteService.</span></span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a><span class="co">    origen/destino: [longitud, latitud]</span></span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a><span class="co">    modos: driving-car, cycling-regular, foot-walking</span></span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://api.openrouteservice.org/v2/directions/"</span> <span class="op">+</span> modo</span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> {</span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span>: api_key,</span>
+<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Content-Type"</span>: <span class="st">"application/json"</span></span>
+<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a>    body <span class="op">=</span> {</span>
+<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a>        <span class="st">"coordinates"</span>: [origen, destino],</span>
+<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a>        <span class="st">"format"</span>: <span class="st">"geojson"</span></span>
+<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.post(url, json<span class="op">=</span>body, headers<span class="op">=</span>headers)</span>
+<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response.json()</span>
+<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de uso</span></span>
+<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a><span class="co"># origen = [-87.2068, 14.0818]  # [lon, lat]</span></span>
+<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a><span class="co"># destino = [-87.1904, 14.0817]</span></span>
+<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a><span class="co"># ruta = calcular_ruta_ors(origen, destino, "TU_API_KEY_ORS")</span></span>
+<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.2 Proyecto aplicado: diseño de rutas eficientes para campo</span></span>
+<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a><span class="fu">### Planteamiento del problema</span></span>
+<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>Un equipo de trabajo de campo necesita visitar 10 puntos de control (comunidades, puntos de monitoreo, etc.) desde una base de operaciones, minimizando el tiempo total de desplazamiento.</span>
+<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>Este es un problema de **Ruta del Viajero (TSP - Travelling Salesman Problem)**.</span>
+<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solución 1: Herramienta de procesamiento de QGIS</span></span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a>QGIS incluye herramientas para optimizar recorridos:</span>
+<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a><span class="in">Procesamiento → Caja de herramientas → Análisis de redes → Optimization of a graph path</span></span>
+<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solución 2: Python con OR-Tools (Google)</span></span>
+<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a><span class="co"># Requiere: pip install ortools</span></span>
+<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ortools.constraint_solver <span class="im">import</span> routing_enums_pb2</span>
+<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ortools.constraint_solver <span class="im">import</span> pywrapcp</span>
+<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcular_distancia(p1, p2):</span>
+<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Distancia euclidiana entre dos puntos (lat, lon)."""</span></span>
+<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.sqrt((p1[<span class="dv">0</span>]<span class="op">-</span>p2[<span class="dv">0</span>])<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1[<span class="dv">1</span>]<span class="op">-</span>p2[<span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> <span class="dv">111000</span>  <span class="co"># metros aprox.</span></span>
+<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resolver_tsp(puntos):</span>
+<span id="cb11-181"><a href="#cb11-181" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb11-182"><a href="#cb11-182" aria-hidden="true" tabindex="-1"></a><span class="co">    Resuelve el TSP para una lista de puntos (lat, lon).</span></span>
+<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a><span class="co">    Retorna el orden óptimo de visita.</span></span>
+<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(puntos)</span>
+<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Matriz de distancias</span></span>
+<span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a>    matriz <span class="op">=</span> [[<span class="bu">int</span>(calcular_distancia(puntos[i], puntos[j]))</span>
+<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n)] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)]</span>
+<span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a>    manager <span class="op">=</span> pywrapcp.RoutingIndexManager(n, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a>    routing <span class="op">=</span> pywrapcp.RoutingModel(manager)</span>
+<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> callback_distancia(from_index, to_index):</span>
+<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a>        from_node <span class="op">=</span> manager.IndexToNode(from_index)</span>
+<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a>        to_node <span class="op">=</span> manager.IndexToNode(to_index)</span>
+<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> matriz[from_node][to_node]</span>
+<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a>    transit_callback_index <span class="op">=</span> routing.RegisterTransitCallback(callback_distancia)</span>
+<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a>    routing.SetArcCostEvaluatorOfAllVehicles(transit_callback_index)</span>
+<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a>    parametros <span class="op">=</span> pywrapcp.DefaultRoutingSearchParameters()</span>
+<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a>    parametros.first_solution_strategy <span class="op">=</span> (</span>
+<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a>        routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)</span>
+<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a>    solucion <span class="op">=</span> routing.SolveWithParameters(parametros)</span>
+<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> solucion:</span>
+<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a>        ruta <span class="op">=</span> []</span>
+<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a>        index <span class="op">=</span> routing.Start(<span class="dv">0</span>)</span>
+<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="kw">not</span> routing.IsEnd(index):</span>
+<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a>            ruta.append(manager.IndexToNode(index))</span>
+<span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a>            index <span class="op">=</span> solucion.Value(routing.NextVar(index))</span>
+<span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a>        ruta.append(manager.IndexToNode(index))</span>
+<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ruta</span>
+<span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo con puntos en Honduras</span></span>
+<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a>puntos_visita <span class="op">=</span> [</span>
+<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0818</span>, <span class="op">-</span><span class="fl">87.2068</span>),  <span class="co"># Base: UNAH</span></span>
+<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.1234</span>, <span class="op">-</span><span class="fl">87.1890</span>),  <span class="co"># Punto 1</span></span>
+<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0500</span>, <span class="op">-</span><span class="fl">87.2200</span>),  <span class="co"># Punto 2</span></span>
+<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0700</span>, <span class="op">-</span><span class="fl">87.1700</span>),  <span class="co"># Punto 3</span></span>
+<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a>orden_optimo <span class="op">=</span> resolver_tsp(puntos_visita)</span>
+<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> orden_optimo:</span>
+<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Orden óptimo de visita:"</span>, orden_optimo)</span>
+<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.3 Trazabilidad de rutas GPS con apps móviles</span></span>
+<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aplicaciones para recolección de datos en campo</span></span>
+<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a>| Aplicación  | Plataforma | Características principales                         |</span>
+<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a>|:------------|:-----------|:----------------------------------------------------|</span>
+<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a>| **QField**  | Android/iOS| Versión móvil de QGIS, edita capas directamente    |</span>
+<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a>| **Input**   | Android/iOS| Basada en QGIS, sincronización en la nube           |</span>
+<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a>| **GPSLogger**| Android   | Registra tracks GPS en varios formatos              |</span>
+<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a>| **OSMAnd**  | Android/iOS| Navegación y recolección de datos OSM               |</span>
+<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a>| **SW Maps** | Android    | Mapeo GPS de alta precisión                         |</span>
+<span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### Flujo de trabajo con QField</span></span>
+<span id="cb11-245"><a href="#cb11-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Preparar proyecto en QGIS Desktop**:</span>
+<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Crea el proyecto con las capas necesarias</span>
+<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Define formularios de captura de datos</span>
+<span id="cb11-249"><a href="#cb11-249" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guarda como GeoPackage</span>
+<span id="cb11-250"><a href="#cb11-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-251"><a href="#cb11-251" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Transferir al dispositivo móvil**:</span>
+<span id="cb11-252"><a href="#cb11-252" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usa QFieldCloud (sincronización en la nube)</span>
+<span id="cb11-253"><a href="#cb11-253" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>O copia los archivos via USB/WiFi</span>
+<span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Recolección en campo**:</span>
+<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Abre el proyecto en QField</span>
+<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Captura puntos, líneas o polígonos con GPS</span>
+<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Completa los formularios de atributos</span>
+<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Importar datos de vuelta a QGIS**:</span>
+<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Sincroniza con QFieldCloud</span>
+<span id="cb11-262"><a href="#cb11-262" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>O copia el GeoPackage actualizado al computador</span>
+<span id="cb11-263"><a href="#cb11-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-264"><a href="#cb11-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### Importar tracks GPX</span></span>
+<span id="cb11-265"><a href="#cb11-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-266"><a href="#cb11-266" aria-hidden="true" tabindex="-1"></a>Los tracks GPS se pueden importar directamente:</span>
+<span id="cb11-267"><a href="#cb11-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-268"><a href="#cb11-268" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb11-269"><a href="#cb11-269" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar archivo GPX</span></span>
+<span id="cb11-270"><a href="#cb11-270" aria-hidden="true" tabindex="-1"></a>ruta_gpx <span class="op">=</span> <span class="st">"/home/usuario/tracks/recorrido.gpx"</span></span>
+<span id="cb11-271"><a href="#cb11-271" aria-hidden="true" tabindex="-1"></a>capa_track <span class="op">=</span> QgsVectorLayer(<span class="ss">f"</span><span class="sc">{</span>ruta_gpx<span class="sc">}</span><span class="ss">|layername=tracks"</span>, <span class="st">"Mi Track"</span>, <span class="st">"ogr"</span>)</span>
+<span id="cb11-272"><a href="#cb11-272" aria-hidden="true" tabindex="-1"></a>capa_waypoints <span class="op">=</span> QgsVectorLayer(<span class="ss">f"</span><span class="sc">{</span>ruta_gpx<span class="sc">}</span><span class="ss">|layername=waypoints"</span>, <span class="st">"Waypoints"</span>, <span class="st">"ogr"</span>)</span>
+<span id="cb11-273"><a href="#cb11-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-274"><a href="#cb11-274" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(capa_track)</span>
+<span id="cb11-275"><a href="#cb11-275" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(capa_waypoints)</span>
+<span id="cb11-276"><a href="#cb11-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-277"><a href="#cb11-277" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Track cargado: </span><span class="sc">{</span>capa_track<span class="sc">.</span>featureCount()<span class="sc">}</span><span class="ss"> segmentos"</span>)</span>
+<span id="cb11-278"><a href="#cb11-278" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Waypoints: </span><span class="sc">{</span>capa_waypoints<span class="sc">.</span>featureCount()<span class="sc">}</span><span class="ss"> puntos"</span>)</span>
+<span id="cb11-279"><a href="#cb11-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-280"><a href="#cb11-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-281"><a href="#cb11-281" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de tracks GPS</span></span>
+<span id="cb11-282"><a href="#cb11-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-283"><a href="#cb11-283" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb11-284"><a href="#cb11-284" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular longitud total de un track</span></span>
+<span id="cb11-285"><a href="#cb11-285" aria-hidden="true" tabindex="-1"></a>capa <span class="op">=</span> QgsProject.instance().mapLayersByName(<span class="st">"Mi Track"</span>)[<span class="dv">0</span>]</span>
+<span id="cb11-286"><a href="#cb11-286" aria-hidden="true" tabindex="-1"></a>longitud_total <span class="op">=</span> <span class="bu">sum</span>(</span>
+<span id="cb11-287"><a href="#cb11-287" aria-hidden="true" tabindex="-1"></a>    entidad.geometry().length()</span>
+<span id="cb11-288"><a href="#cb11-288" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> entidad <span class="kw">in</span> capa.getFeatures()</span>
+<span id="cb11-289"><a href="#cb11-289" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-290"><a href="#cb11-290" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Longitud total del recorrido: </span><span class="sc">{</span>longitud_total<span class="op">/</span><span class="dv">1000</span><span class="sc">:.2f}</span><span class="ss"> km"</span>)</span>
+<span id="cb11-291"><a href="#cb11-291" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-292"><a href="#cb11-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-293"><a href="#cb11-293" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb11-294"><a href="#cb11-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-295"><a href="#cb11-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.4 Optimización de recorridos con restricciones reales</span></span>
+<span id="cb11-296"><a href="#cb11-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-297"><a href="#cb11-297" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tipos de restricciones comunes</span></span>
+<span id="cb11-298"><a href="#cb11-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-299"><a href="#cb11-299" aria-hidden="true" tabindex="-1"></a>| Restricción                  | Ejemplo                                              |</span>
+<span id="cb11-300"><a href="#cb11-300" aria-hidden="true" tabindex="-1"></a>|:-----------------------------|:-----------------------------------------------------|</span>
+<span id="cb11-301"><a href="#cb11-301" aria-hidden="true" tabindex="-1"></a>| **Ventanas de tiempo**       | Visitar un cliente entre 9:00 AM y 12:00 PM          |</span>
+<span id="cb11-302"><a href="#cb11-302" aria-hidden="true" tabindex="-1"></a>| **Capacidad del vehículo**   | Máximo de 500 kg por camión                         |</span>
+<span id="cb11-303"><a href="#cb11-303" aria-hidden="true" tabindex="-1"></a>| **Tipo de vehículo**         | Camiones no pueden usar ciertos caminos              |</span>
+<span id="cb11-304"><a href="#cb11-304" aria-hidden="true" tabindex="-1"></a>| **Prioridades**              | Clientes prioritarios deben visitarse primero        |</span>
+<span id="cb11-305"><a href="#cb11-305" aria-hidden="true" tabindex="-1"></a>| **Horas de trabajo**         | Máximo 8 horas de trabajo por jornada                |</span>
+<span id="cb11-306"><a href="#cb11-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-307"><a href="#cb11-307" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vehicle Routing Problem (VRP) con OR-Tools</span></span>
+<span id="cb11-308"><a href="#cb11-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-309"><a href="#cb11-309" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb11-310"><a href="#cb11-310" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo simplificado de VRP con ventanas de tiempo</span></span>
+<span id="cb11-311"><a href="#cb11-311" aria-hidden="true" tabindex="-1"></a><span class="co"># Requiere: pip install ortools</span></span>
+<span id="cb11-312"><a href="#cb11-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-313"><a href="#cb11-313" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb11-314"><a href="#cb11-314" aria-hidden="true" tabindex="-1"></a><span class="co">Problema: Una empresa tiene una bodega central y 5 clientes a visitar</span></span>
+<span id="cb11-315"><a href="#cb11-315" aria-hidden="true" tabindex="-1"></a><span class="co">con 2 vehículos disponibles, cada uno con ventanas de tiempo.</span></span>
+<span id="cb11-316"><a href="#cb11-316" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb11-317"><a href="#cb11-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-318"><a href="#cb11-318" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del problema</span></span>
+<span id="cb11-319"><a href="#cb11-319" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> {</span>
+<span id="cb11-320"><a href="#cb11-320" aria-hidden="true" tabindex="-1"></a>    <span class="st">"num_vehicles"</span>: <span class="dv">2</span>,</span>
+<span id="cb11-321"><a href="#cb11-321" aria-hidden="true" tabindex="-1"></a>    <span class="st">"depot"</span>: <span class="dv">0</span>,  <span class="co"># índice de la bodega</span></span>
+<span id="cb11-322"><a href="#cb11-322" aria-hidden="true" tabindex="-1"></a>    <span class="st">"time_matrix"</span>: [</span>
+<span id="cb11-323"><a href="#cb11-323" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Tiempo en minutos entre cada par de ubicaciones</span></span>
+<span id="cb11-324"><a href="#cb11-324" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">25</span>, <span class="dv">20</span>, <span class="dv">35</span>],</span>
+<span id="cb11-325"><a href="#cb11-325" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">28</span>],</span>
+<span id="cb11-326"><a href="#cb11-326" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">22</span>, <span class="dv">15</span>],</span>
+<span id="cb11-327"><a href="#cb11-327" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">25</span>, <span class="dv">18</span>, <span class="dv">12</span>, <span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">20</span>],</span>
+<span id="cb11-328"><a href="#cb11-328" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">22</span>, <span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">18</span>],</span>
+<span id="cb11-329"><a href="#cb11-329" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">0</span>],</span>
+<span id="cb11-330"><a href="#cb11-330" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb11-331"><a href="#cb11-331" aria-hidden="true" tabindex="-1"></a>    <span class="st">"time_windows"</span>: [</span>
+<span id="cb11-332"><a href="#cb11-332" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">480</span>),    <span class="co"># Bodega: 8:00 AM - 4:00 PM</span></span>
+<span id="cb11-333"><a href="#cb11-333" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">60</span>, <span class="dv">180</span>),   <span class="co"># Cliente 1: 9:00 AM - 11:00 AM</span></span>
+<span id="cb11-334"><a href="#cb11-334" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">120</span>, <span class="dv">240</span>),  <span class="co"># Cliente 2: 10:00 AM - 12:00 PM</span></span>
+<span id="cb11-335"><a href="#cb11-335" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">300</span>),    <span class="co"># Cliente 3: 8:00 AM - 1:00 PM</span></span>
+<span id="cb11-336"><a href="#cb11-336" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">180</span>, <span class="dv">360</span>),  <span class="co"># Cliente 4: 11:00 AM - 2:00 PM</span></span>
+<span id="cb11-337"><a href="#cb11-337" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">240</span>, <span class="dv">420</span>),  <span class="co"># Cliente 5: 12:00 PM - 3:00 PM</span></span>
+<span id="cb11-338"><a href="#cb11-338" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb11-339"><a href="#cb11-339" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-340"><a href="#cb11-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-341"><a href="#cb11-341" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Problema de VRP con ventanas de tiempo definido."</span>)</span>
+<span id="cb11-342"><a href="#cb11-342" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Vehículos disponibles: </span><span class="sc">{</span>datos[<span class="st">'num_vehicles'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-343"><a href="#cb11-343" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Clientes a visitar: </span><span class="sc">{</span><span class="bu">len</span>(datos[<span class="st">'time_windows'</span>]) <span class="op">-</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-344"><a href="#cb11-344" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-345"><a href="#cb11-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-346"><a href="#cb11-346" aria-hidden="true" tabindex="-1"></a><span class="fu">### Herramientas adicionales para optimización</span></span>
+<span id="cb11-347"><a href="#cb11-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-348"><a href="#cb11-348" aria-hidden="true" tabindex="-1"></a>| Herramienta          | Descripción                                          |</span>
+<span id="cb11-349"><a href="#cb11-349" aria-hidden="true" tabindex="-1"></a>|:---------------------|:-----------------------------------------------------|</span>
+<span id="cb11-350"><a href="#cb11-350" aria-hidden="true" tabindex="-1"></a>| **OR-Tools**         | Biblioteca de Google para optimización combinatoria  |</span>
+<span id="cb11-351"><a href="#cb11-351" aria-hidden="true" tabindex="-1"></a>| **OpenRouteService** | API con funcionalidad de optimización de rutas       |</span>
+<span id="cb11-352"><a href="#cb11-352" aria-hidden="true" tabindex="-1"></a>| **pgRouting**        | Extensión de PostgreSQL para análisis de redes        |</span>
+<span id="cb11-353"><a href="#cb11-353" aria-hidden="true" tabindex="-1"></a>| **OSRM**             | Motor de enrutamiento de alto rendimiento basado en OSM|</span>
+<span id="cb11-354"><a href="#cb11-354" aria-hidden="true" tabindex="-1"></a>| **Vroom**            | Soluciones para VRP usando OSRM/OpenRouteService     |</span>
+<span id="cb11-355"><a href="#cb11-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-356"><a href="#cb11-356" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb11-357"><a href="#cb11-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-358"><a href="#cb11-358" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.5 Proyecto Final del Curso</span></span>
+<span id="cb11-359"><a href="#cb11-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-360"><a href="#cb11-360" aria-hidden="true" tabindex="-1"></a><span class="fu">### Descripción del proyecto</span></span>
+<span id="cb11-361"><a href="#cb11-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-362"><a href="#cb11-362" aria-hidden="true" tabindex="-1"></a>Diseña y evalúa un sistema de rutas para uno de los siguientes escenarios:</span>
+<span id="cb11-363"><a href="#cb11-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-364"><a href="#cb11-364" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb11-365"><a href="#cb11-365" aria-hidden="true" tabindex="-1"></a><span class="fu">## Escenario A: Sistema de distribución de productos</span></span>
+<span id="cb11-366"><a href="#cb11-366" aria-hidden="true" tabindex="-1"></a>Diseña las rutas óptimas para distribuir productos desde una bodega central a 8–10 clientes en Tegucigalpa, considerando:</span>
+<span id="cb11-367"><a href="#cb11-367" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ventanas horarias de entrega por cliente</span>
+<span id="cb11-368"><a href="#cb11-368" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Capacidad de 2 vehículos disponibles</span>
+<span id="cb11-369"><a href="#cb11-369" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Minimización del tiempo total de desplazamiento</span>
+<span id="cb11-370"><a href="#cb11-370" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-371"><a href="#cb11-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-372"><a href="#cb11-372" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb11-373"><a href="#cb11-373" aria-hidden="true" tabindex="-1"></a><span class="fu">## Escenario B: Cobertura de servicios de salud</span></span>
+<span id="cb11-374"><a href="#cb11-374" aria-hidden="true" tabindex="-1"></a>Evalúa la cobertura geográfica de los centros de salud en un municipio:</span>
+<span id="cb11-375"><a href="#cb11-375" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcula el área atendida por cada establecimiento (isócronas de 15 y 30 min)</span>
+<span id="cb11-376"><a href="#cb11-376" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identifica comunidades sin cobertura adecuada</span>
+<span id="cb11-377"><a href="#cb11-377" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Propone la ubicación óptima para un nuevo centro de salud</span>
+<span id="cb11-378"><a href="#cb11-378" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-379"><a href="#cb11-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-380"><a href="#cb11-380" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb11-381"><a href="#cb11-381" aria-hidden="true" tabindex="-1"></a><span class="fu">## Escenario C: Monitoreo ambiental en campo</span></span>
+<span id="cb11-382"><a href="#cb11-382" aria-hidden="true" tabindex="-1"></a>Planifica rutas de campo para monitoreo ambiental:</span>
+<span id="cb11-383"><a href="#cb11-383" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Importa puntos de muestreo desde GPS/aplicación móvil</span>
+<span id="cb11-384"><a href="#cb11-384" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimiza el orden de visita</span>
+<span id="cb11-385"><a href="#cb11-385" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Genera un informe con las rutas y estadísticas del recorrido</span>
+<span id="cb11-386"><a href="#cb11-386" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-387"><a href="#cb11-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-388"><a href="#cb11-388" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entregables del proyecto</span></span>
+<span id="cb11-389"><a href="#cb11-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-390"><a href="#cb11-390" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>✅ Mapa final exportado en PDF (calidad de impresión)</span>
+<span id="cb11-391"><a href="#cb11-391" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>✅ Script Python documentado con la lógica de análisis</span>
+<span id="cb11-392"><a href="#cb11-392" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>✅ Archivo GeoPackage con todas las capas del proyecto</span>
+<span id="cb11-393"><a href="#cb11-393" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>✅ Informe breve (máximo 2 páginas) describiendo la metodología y resultados</span>
+<span id="cb11-394"><a href="#cb11-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-395"><a href="#cb11-395" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb11-396"><a href="#cb11-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-397"><a href="#cb11-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Recursos y Referencias</span></span>
+<span id="cb11-398"><a href="#cb11-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-399"><a href="#cb11-399" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QField — Documentación oficial</span><span class="co">](https://docs.qfield.org)</span></span>
+<span id="cb11-400"><a href="#cb11-400" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Input App — Mergin Maps</span><span class="co">](https://merginmaps.com/docs)</span></span>
+<span id="cb11-401"><a href="#cb11-401" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OpenRouteService — API Documentation</span><span class="co">](https://openrouteservice.org/dev/#/api-docs)</span></span>
+<span id="cb11-402"><a href="#cb11-402" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OR-Tools — Google Optimization Tools</span><span class="co">](https://developers.google.com/optimization)</span></span>
+<span id="cb11-403"><a href="#cb11-403" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">pgRouting — Documentación</span><span class="co">](https://docs.pgrouting.org)</span></span>
+<span id="cb11-404"><a href="#cb11-404" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OSM Overpass API — Tutorial</span><span class="co">](https://wiki.openstreetmap.org/wiki/Overpass_API)</span></span>
+<span id="cb11-405"><a href="#cb11-405" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">VROOM — Vehicle Routing Open-source Optimization Machine</span><span class="co">](https://github.com/VROOM-Project/vroom)</span></span>
+<span id="cb11-406"><a href="#cb11-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-407"><a href="#cb11-407" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb11-408"><a href="#cb11-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-409"><a href="#cb11-409" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb11-410"><a href="#cb11-410" aria-hidden="true" tabindex="-1"></a><span class="fu">## ¡Felicitaciones!</span></span>
+<span id="cb11-411"><a href="#cb11-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-412"><a href="#cb11-412" aria-hidden="true" tabindex="-1"></a>Has completado el **Curso de QGIS y Herramientas Python para el Análisis Geoespacial** del CEETI – UNAH.</span>
+<span id="cb11-413"><a href="#cb11-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-414"><a href="#cb11-414" aria-hidden="true" tabindex="-1"></a>Recuerda que la práctica continua es la clave para dominar estas herramientas. Explora los recursos adicionales, participa en la comunidad QGIS y aplica lo aprendido en proyectos reales.</span>
+<span id="cb11-415"><a href="#cb11-415" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-416"><a href="#cb11-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-417"><a href="#cb11-417" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb11-418"><a href="#cb11-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-419"><a href="#cb11-419" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">← Módulo 6: Visualización avanzada</span><span class="co">](modulo6.qmd)</span> | <span class="co">[</span><span class="ot">↑ Inicio</span><span class="co">](../index.qmd)</span> | <span class="co">[</span><span class="ot">Ver temario completo</span><span class="co">](syllabus.qmd)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 CEETI – Universidad Nacional Autónoma de Honduras</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/lalgonzales/ceeti_qgiscourse">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
