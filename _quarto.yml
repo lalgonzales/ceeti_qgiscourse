@@ -32,6 +32,24 @@ website:
             href: content/modulos/modulo6.qmd
           - text: "7. Integración y casos prácticos"
             href: content/modulos/modulo7.qmd
+      - text: "Laboratorios"
+        menu:
+          - text: "Instrucciones"
+            href: content/labs/instrucciones_labs.qmd
+          - text: "Lab 1 – Exploración de QGIS"
+            href: content/labs/lab_01.qmd
+          - text: "Lab 2 – Carga y gestión de datos"
+            href: content/labs/lab_02.qmd
+          - text: "Lab 3 – Edición y geoprocesamiento"
+            href: content/labs/lab_03.qmd
+          - text: "Lab 4 – Análisis de redes y rutas"
+            href: content/labs/lab_04.qmd
+          - text: "Lab 5 – Automatización con PyQGIS"
+            href: content/labs/lab_05.qmd
+          - text: "Lab 6 – Cartografía temática"
+            href: content/labs/lab_06.qmd
+          - text: "Lab 7 – Integración y proyecto final"
+            href: content/labs/lab_07.qmd
       - text: "Instructor"
         href: content/sobre/instructor.qmd
     right:
@@ -64,6 +82,24 @@ website:
             href: content/modulos/modulo6.qmd
           - text: "7. Integración y casos prácticos"
             href: content/modulos/modulo7.qmd
+      - section: "Laboratorios"
+        contents:
+          - text: "Instrucciones"
+            href: content/labs/instrucciones_labs.qmd
+          - text: "Lab 1 – Exploración de QGIS"
+            href: content/labs/lab_01.qmd
+          - text: "Lab 2 – Carga y gestión de datos"
+            href: content/labs/lab_02.qmd
+          - text: "Lab 3 – Edición y geoprocesamiento"
+            href: content/labs/lab_03.qmd
+          - text: "Lab 4 – Análisis de redes y rutas"
+            href: content/labs/lab_04.qmd
+          - text: "Lab 5 – Automatización con PyQGIS"
+            href: content/labs/lab_05.qmd
+          - text: "Lab 6 – Cartografía temática"
+            href: content/labs/lab_06.qmd
+          - text: "Lab 7 – Integración y proyecto final"
+            href: content/labs/lab_07.qmd
       - text: "Instructor"
         href: content/sobre/instructor.qmd
 

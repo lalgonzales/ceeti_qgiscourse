@@ -1,0 +1,77 @@
+---
+title: "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales"
+subtitle: "Módulo 2 – Carga y manejo de datos"
+---
+
+**Módulo relacionado:** [Módulo 2 – Carga y manejo de datos](../modulos/modulo2.qmd)
+
+::: {.callout-note}
+## Instrucciones generales
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados según las instrucciones del instructor.
+:::
+
+---
+
+## Tarea 1: Importación de múltiples formatos
+
+Descarga o localiza datos espaciales en **al menos tres formatos diferentes**. Puedes usar fuentes como [GADM](https://gadm.org/), [OpenStreetMap](https://www.openstreetmap.org/export), [GeoJSON.io](https://geojson.io) u otras.
+
+Formatos sugeridos:
+- Shapefile (`.shp`)
+- GeoJSON (`.geojson`)
+- KML (`.kml`) o CSV con coordenadas (`.csv`)
+
+Para cada formato:
+1. Carga la capa en QGIS usando el método adecuado (Capa → Agregar capa…).
+2. Verifica que la capa se visualice correctamente.
+3. Toma una captura de pantalla con las capas cargadas.
+
+**Entrega:** Captura de pantalla con las capas de los tres formatos visibles en el panel de capas.
+
+---
+
+## Tarea 2: Sistemas de referencia de coordenadas (CRS)
+
+1. Para cada capa cargada en la Tarea 1, identifica el CRS (clic derecho sobre la capa → Propiedades → Información).
+2. Exporta una de las capas a un CRS diferente (clic derecho → Exportar → Guardar entidades como…, y cambia el CRS de destino).
+3. Compara visualmente ambas versiones (original y reproyectada) en el mapa.
+
+**Entrega:** Tabla con el CRS de cada capa + captura de pantalla mostrando la capa original y la reproyectada.
+
+---
+
+## Tarea 3: Unión de tabla CSV
+
+1. Crea o descarga un archivo **CSV** con al menos 5 filas, que incluya:
+   - Una columna con un identificador (ej. código de municipio, nombre)
+   - Una o más columnas con datos estadísticos (ej. población, área)
+2. Carga el CSV en QGIS (Capa → Agregar capa → Agregar capa de texto delimitado).
+3. Realiza una **unión de tablas** (Table Join) entre el CSV y una capa vectorial que comparta el identificador (Propiedades de la capa → Uniones).
+4. Verifica que los campos del CSV aparecen ahora en la tabla de atributos de la capa vectorial.
+
+**Entrega:** Captura de pantalla de la tabla de atributos mostrando los campos unidos.
+
+---
+
+## Tarea 4: Reflexión
+
+> ¿Cuáles son las ventajas y desventajas de los diferentes formatos de datos espaciales (Shapefile, GeoJSON, GeoPackage)? ¿Cuándo usarías cada uno?
+
+Responde en 4–6 oraciones con base en lo aprendido en el módulo.
+
+---
+
+::: {.callout-important}
+## Criterios de evaluación
+| Criterio                                     | Puntos |
+|:---------------------------------------------|:------:|
+| Capas en 3 formatos cargadas correctamente   | 25     |
+| CRS identificados y reproyección realizada   | 25     |
+| Unión de tabla CSV completada                | 30     |
+| Reflexión sobre formatos                     | 20     |
+| **Total**                                    | **100** |
+:::
+
+---
+
+[← Lab 1](lab_01.qmd) | [Lab 3 →](lab_03.qmd)

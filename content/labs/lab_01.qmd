@@ -1,0 +1,76 @@
+---
+title: "Laboratorio 1: Exploración de QGIS y tipos de datos espaciales"
+subtitle: "Módulo 1 – Introducción a QGIS y SIG"
+---
+
+**Módulo relacionado:** [Módulo 1 – Introducción a QGIS y SIG](../modulos/modulo1.qmd)
+
+::: {.callout-note}
+## Instrucciones generales
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados según las instrucciones del instructor.
+:::
+
+---
+
+## Tarea 1: Instalación y verificación de QGIS
+
+1. Instala **QGIS LTR** (versión de soporte a largo plazo) desde [qgis.org/download](https://qgis.org/download/).
+2. Abre QGIS y toma una captura de pantalla de la pantalla principal con los paneles visibles (Panel de Capas, Vista del Mapa, Explorador).
+3. Verifica e indica la versión de QGIS instalada (menú Ayuda → Acerca de QGIS).
+
+**Entrega:** Captura de pantalla de la pantalla principal con la versión visible.
+
+---
+
+## Tarea 2: Exploración de la interfaz
+
+1. Activa los siguientes paneles (Ver → Paneles):
+   - Panel de Capas
+   - Panel del Explorador
+   - Tabla de Atributos (puede abrirse al cargar datos)
+2. Identifica y describe brevemente (1–2 oraciones cada uno) los 5 componentes principales de la interfaz de QGIS.
+3. ¿Qué hace la barra de estado en la parte inferior de la ventana? Explica qué información muestra.
+
+**Entrega:** Documento de texto con tus respuestas (formato libre).
+
+---
+
+## Tarea 3: Carga y comparación de tipos de datos
+
+1. Descarga uno de los datasets de muestra disponibles en [QGIS Sample Data](https://docs.qgis.org/latest/en/docs/training_manual/foreword/preparing_data.html) o utiliza cualquier dato shapefile de tu elección.
+2. Carga al menos:
+   - Una capa de **puntos** (ej. ciudades, escuelas, hospitales)
+   - Una capa de **líneas** (ej. carreteras, ríos)
+   - Una capa de **polígonos** (ej. municipios, departamentos)
+3. Abre la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).
+4. Para cada capa, anota:
+   - Número de entidades (features)
+   - Nombre de al menos 3 campos/columnas
+   - Sistema de Referencia de Coordenadas (CRS) — visible en la barra de estado al hacer clic en la capa
+
+**Entrega:** Tabla resumen con la información solicitada + captura de pantalla del proyecto con las tres capas cargadas.
+
+---
+
+## Tarea 4: Reflexión
+
+Responde brevemente (3–5 oraciones) la siguiente pregunta:
+
+> ¿En qué situación real de tu área de trabajo o interés profesional aplicarías un SIG? ¿Qué tipo de datos espaciales utilizarías (puntos, líneas, polígonos) y por qué?
+
+---
+
+::: {.callout-important}
+## Criterios de evaluación
+| Criterio                                   | Puntos |
+|:-------------------------------------------|:------:|
+| QGIS instalado y captura de pantalla       | 20     |
+| Descripción de componentes de la interfaz  | 20     |
+| Capas cargadas y tabla resumen correcta    | 40     |
+| Reflexión fundamentada                     | 20     |
+| **Total**                                  | **100** |
+:::
+
+---
+
+[← Instrucciones generales](instrucciones_labs.qmd) | [Lab 2 →](lab_02.qmd)

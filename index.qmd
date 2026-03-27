@@ -18,7 +18,7 @@ toc: false
 
 Este curso está diseñado para introducir a los participantes en el uso de **QGIS** como plataforma de código abierto para el análisis y visualización de información geoespacial, complementado con el uso de **Python y PyQGIS** para la automatización de procesos.
 
-A lo largo de **20 horas** distribuidas en sesiones de lunes a jueves, los participantes adquirirán habilidades prácticas para:
+A lo largo de **20 horas** distribuidas en **13 sesiones** (lunes a jueves a partir del **6 de abril de 2026**), los participantes adquirirán habilidades prácticas para:
 
 - Comprender los fundamentos de los Sistemas de Información Geográfica (SIG)
 - Manejar, editar y analizar datos espaciales
@@ -31,14 +31,14 @@ A lo largo de **20 horas** distribuidas en sesiones de lunes a jueves, los parti
 
 ## 🗓️ Horario y Modalidad
 
-| Detalle         | Información                              |
-|:----------------|:-----------------------------------------|
-| **Modalidad**   | Virtual                                   |
-| **Días**        | Lunes a Jueves                            |
-| **Horario**     | 6:00 PM – 7:30 PM (hora Honduras)        |
-| **Duración**    | 20 horas (sesiones de 1.5 h)              |
-| **Sesiones**    | ~13–14 sesiones                           |
-| **Plataforma**  | A confirmar por el CEETI                  |
+| Detalle         | Información                                      |
+|:----------------|:-------------------------------------------------|
+| **Inicio**      | 6 de abril de 2026                               |
+| **Modalidad**   | Virtual (sesiones 1–12) · Presencial (sesión 13) |
+| **Días**        | Lunes a Jueves                                   |
+| **Horario**     | 6:00 PM – 7:30 PM (hora Honduras)               |
+| **Duración**    | 20 horas (13 sesiones)                           |
+| **Plataforma**  | A confirmar por el CEETI                         |
 
 ---
 
@@ -127,5 +127,7 @@ Utiliza el menú de navegación superior o lateral para acceder a cada módulo d
 - **Contenido teórico** con ejemplos
 - **Ejercicios prácticos** guiados
 - **Recursos y referencias** adicionales
+
+Los **[Laboratorios](content/labs/instrucciones_labs.qmd)** son tareas independientes asignadas después de cada módulo, diseñadas para que apliques lo aprendido de forma autónoma y puedan ser utilizadas como instrumento de evaluación.
 
 ¡Comencemos! → [Ver el temario completo](content/sobre/syllabus.qmd)

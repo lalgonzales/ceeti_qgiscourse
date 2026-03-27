@@ -1,0 +1,93 @@
+---
+title: "Laboratorio 7: Integración de datos y preparación del proyecto final"
+subtitle: "Módulo 7 – Integración y casos prácticos"
+---
+
+**Módulo relacionado:** [Módulo 7 – Integración y casos prácticos](../modulos/modulo7.qmd)
+
+::: {.callout-note}
+## Instrucciones generales
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Constituye la práctica preparatoria para la **presentación del proyecto final** (Sesión 13). Entrega todos los archivos y el mapa final según las instrucciones del instructor.
+:::
+
+---
+
+## Tarea 1: Integración con OpenStreetMap
+
+1. Instala o activa el plugin **QuickOSM** en QGIS (Complementos → Administrar e instalar complementos).
+2. Descarga datos de OSM para un área de tu interés (ej. tu ciudad o municipio):
+   - Red vial principal (`highway = primary, secondary, tertiary`)
+   - Puntos de interés (ej. `amenity = hospital`, `shop = supermarket` u otro de tu elección)
+3. Carga los datos descargados en tu proyecto.
+4. Realiza un análisis básico: ¿cuántos puntos de interés hay en el área? ¿Cómo se distribuyen respecto a la red vial?
+
+**Entrega:** Captura de pantalla con los datos OSM cargados + respuestas al análisis.
+
+---
+
+## Tarea 2: Importación de rutas GPS o datos de campo
+
+1. Obtén un archivo **GPX** o **KML** con rutas o puntos de campo. Puedes:
+   - Grabar una ruta con tu celular usando una app (ej. OsmAnd, Maps.me, Google Maps exportado a KML)
+   - Descargar un GPX de ejemplo desde [OpenStreetMap GPS Traces](https://www.openstreetmap.org/traces)
+2. Importa el archivo en QGIS.
+3. Verifica el CRS y reproyecta si es necesario.
+4. Calcula la longitud total de la ruta.
+
+**Entrega:** Archivo GPX/KML + captura de pantalla con la ruta en el mapa + longitud calculada.
+
+---
+
+## Tarea 3: Proyecto integrador
+
+Diseña y desarrolla un **mini-proyecto aplicado** que integre las habilidades aprendidas en el curso. Tu proyecto debe:
+
+1. Plantear un **problema o pregunta geoespacial** de tu elección (ej. análisis de accesibilidad a servicios de salud, optimización de rutas de distribución, identificación de zonas de riesgo).
+2. Utilizar al menos **3 tipos de datos diferentes** (puntos, líneas, polígonos; o vectorial + OSM + GPS).
+3. Aplicar al menos **2 herramientas de análisis** (buffer, clip, análisis de redes, selección espacial, etc.).
+4. Incluir **al menos un proceso automatizado** con PyQGIS (puede ser simple: listar entidades, calcular un campo, exportar resultados).
+5. Producir un **mapa final** con todos los elementos cartográficos (título, leyenda, escala, norte, créditos).
+
+**Entrega:**
+- Proyecto QGIS (`.qgz`) con todas las capas
+- Mapa final en PDF
+- Documento de 1 página describiendo el problema, datos usados, metodología y conclusiones
+
+---
+
+## Tarea 4: Preparación de la presentación final
+
+Prepara una **presentación de 5–7 minutos** para la Sesión 13 (presencial) que incluya:
+
+1. **Título del proyecto** y área de estudio
+2. **Objetivo o pregunta** que buscaste responder
+3. **Datos utilizados** y sus fuentes
+4. **Metodología** aplicada (pasos principales)
+5. **Mapa(s) resultado(s)**
+6. **Conclusiones** y posibles aplicaciones o mejoras
+
+**Entrega:** Presentación en formato PDF o PowerPoint.
+
+---
+
+::: {.callout-important}
+## Criterios de evaluación
+| Criterio                                          | Puntos |
+|:--------------------------------------------------|:------:|
+| Integración con OSM y análisis básico             | 15     |
+| Importación y análisis de ruta GPS/KML            | 15     |
+| Proyecto integrador (datos + análisis + mapa)     | 50     |
+| Preparación de presentación final                 | 20     |
+| **Total**                                         | **100** |
+:::
+
+---
+
+::: {.callout-tip}
+## ¡Éxito en tu proyecto final!
+Recuerda que la Sesión 13 es **presencial** y la fecha se confirmará oportunamente. Este laboratorio es tu guía de preparación.
+:::
+
+---
+
+[← Lab 6](lab_06.qmd) | [← Instrucciones generales](instrucciones_labs.qmd)

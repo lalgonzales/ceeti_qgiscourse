@@ -5,13 +5,14 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 
 ## Información General
 
-| Ítem            | Detalle                                                    |
-|:----------------|:-----------------------------------------------------------|
-| **Institución** | Universidad Nacional Autónoma de Honduras (UNAH)           |
-| **Unidad**      | Centro de Excelencia para la Educación en TI (CEETI)       |
-| **Modalidad**   | Virtual                                                     |
-| **Horario**     | Lunes a Jueves, 6:00 PM – 7:30 PM                          |
-| **Duración**    | 20 horas                                                    |
+| Ítem              | Detalle                                                    |
+|:------------------|:-----------------------------------------------------------|
+| **Institución**   | Universidad Nacional Autónoma de Honduras (UNAH)           |
+| **Unidad**        | Centro de Excelencia para la Educación en TI (CEETI)       |
+| **Modalidad**     | Virtual (sesiones 1–12) · Presencial (sesión 13)           |
+| **Inicio**        | 6 de abril de 2026                                         |
+| **Horario**       | Lunes a Jueves, 6:00 PM – 7:30 PM (hora Honduras)         |
+| **Duración**      | 20 horas (13 sesiones)                                     |
 
 ---
 
@@ -95,25 +96,26 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 
 ---
 
-## Distribución tentativa de sesiones
+## Distribución de sesiones
 
-| Sesión | Día       | Módulo                                      | Horas |
-|:------:|:----------|:--------------------------------------------|:-----:|
-| 1      | Lunes     | Módulo 1: Introducción a QGIS y SIG         | 1.5   |
-| 2      | Martes    | Módulo 1 (cont.) + Módulo 2 inicio          | 1.5   |
-| 3      | Miércoles | Módulo 2: Carga y manejo de datos           | 1.5   |
-| 4      | Jueves    | Módulo 2 (cont.) + Módulo 3 inicio          | 1.5   |
-| 5      | Lunes     | Módulo 3: Edición y geoprocesamiento        | 1.5   |
-| 6      | Martes    | Módulo 3 (cont.)                            | 1.5   |
-| 7      | Miércoles | Módulo 4: Análisis espacial para rutas      | 1.5   |
-| 8      | Jueves    | Módulo 4 (cont.)                            | 1.5   |
-| 9      | Lunes     | Módulo 4 (cont.) + Módulo 5 inicio          | 1.5   |
-| 10     | Martes    | Módulo 5: Automatización con Python         | 1.5   |
-| 11     | Miércoles | Módulo 5 (cont.)                            | 1.5   |
-| 12     | Jueves    | Módulo 6: Visualización avanzada            | 1.5   |
-| 13     | Lunes     | Módulo 6 (cont.) + Módulo 7 inicio          | 1.5   |
-| 14     | Martes    | Módulo 7 (cont.) + Proyecto final           | 1.5   |
-| **Total** |        |                                             | **21 h** |
+| Sesión | Fecha              | Módulo                                          | Modalidad    | Horas |
+|:------:|:-------------------|:------------------------------------------------|:-------------|:-----:|
+| 1      | 6 abr (Lun)        | Módulo 1: Introducción a QGIS y SIG             | Virtual      | 1.5   |
+| 2      | 7 abr (Mar)        | Módulo 2: Carga y manejo de datos               | Virtual      | 1.5   |
+| 3      | 8 abr (Mié)        | Módulo 2 (cont.)                                | Virtual      | 1.5   |
+| 4      | 9 abr (Jue)        | Módulo 3: Edición y geoprocesamiento básico     | Virtual      | 1.5   |
+| 5      | 13 abr (Lun)       | Módulo 3 (cont.)                                | Virtual      | 1.5   |
+| 6      | 14 abr (Mar)       | Módulo 4: Análisis espacial para rutas          | Virtual      | 1.5   |
+| 7      | 15 abr (Mié)       | Módulo 4 (cont.)                                | Virtual      | 1.5   |
+| 8      | 16 abr (Jue)       | Módulo 5: Automatización con Python y PyQGIS    | Virtual      | 1.5   |
+| 9      | 20 abr (Lun)       | Módulo 5 (cont.)                                | Virtual      | 1.5   |
+| 10     | 21 abr (Mar)       | Módulo 6: Visualización avanzada y mapas        | Virtual      | 1.5   |
+| 11     | 22 abr (Mié)       | Módulo 6 (cont.)                                | Virtual      | 1.5   |
+| 12     | 23 abr (Jue)       | Módulo 7: Integración y casos prácticos         | Virtual      | 1.5   |
+| **13** | **Por coordinar**  | **Presentación proyecto final y clausura**      | **Presencial** | **2** |
+| **Total** |                 |                                                 |              | **20 h** |
 
-> **Nota**: La distribución es aproximada. La última sesión incluye la
-> presentación del proyecto final y la clausura del curso.
+> **Nota**: Las sesiones 1–12 son virtuales (1.5 h cada una). La sesión 13
+> es presencial (2 h) y su fecha se estará coordinando oportunamente.
+> Los [laboratorios](../labs/instrucciones_labs.qmd) son tareas independientes
+> de las sesiones, diseñadas para evaluación y práctica autónoma.

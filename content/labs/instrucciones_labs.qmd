@@ -1,0 +1,42 @@
+---
+title: "Instrucciones de Laboratorios"
+subtitle: "Tareas de práctica y evaluación"
+toc: false
+number-sections: false
+---
+
+## ¿Qué son los laboratorios?
+
+Los **laboratorios** son tareas de trabajo autónomo que se entregan **fuera del horario de clase**. No forman parte de las sesiones virtuales; son asignaciones diseñadas para que apliques, explores y profundices los conocimientos adquiridos en cada módulo.
+
+Cada laboratorio puede ser utilizado como **instrumento de evaluación** del curso.
+
+---
+
+## ¿Cómo entregar un laboratorio?
+
+1. Descarga el archivo del laboratorio correspondiente (indicado por tu instructor).
+2. Realiza todas las tareas descritas en QGIS y, cuando corresponda, guarda los proyectos, mapas exportados o capturas de pantalla.
+3. Entrega tu trabajo según las indicaciones del CEETI (plataforma y formato a confirmar).
+
+---
+
+## Laboratorios disponibles
+
+| Lab | Módulo relacionado                              | Enlace                  |
+|:---:|:------------------------------------------------|:------------------------|
+| 1   | Módulo 1 – Introducción a QGIS y SIG            | [Lab 1](lab_01.qmd)     |
+| 2   | Módulo 2 – Carga y manejo de datos              | [Lab 2](lab_02.qmd)     |
+| 3   | Módulo 3 – Edición y geoprocesamiento básico    | [Lab 3](lab_03.qmd)     |
+| 4   | Módulo 4 – Análisis espacial para rutas         | [Lab 4](lab_04.qmd)     |
+| 5   | Módulo 5 – Automatización con Python y PyQGIS   | [Lab 5](lab_05.qmd)     |
+| 6   | Módulo 6 – Visualización avanzada               | [Lab 6](lab_06.qmd)     |
+| 7   | Módulo 7 – Integración y casos prácticos        | [Lab 7](lab_07.qmd)     |
+
+---
+
+::: {.callout-tip}
+## Recomendación
+
+Antes de iniciar cada laboratorio, revisa el módulo correspondiente y los ejercicios prácticos realizados en clase. Los laboratorios amplían esos ejercicios con nuevos escenarios y datos.
+:::

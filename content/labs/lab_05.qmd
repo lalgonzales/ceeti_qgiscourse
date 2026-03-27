@@ -1,0 +1,114 @@
+---
+title: "Laboratorio 5: Automatización con Python y PyQGIS"
+subtitle: "Módulo 5 – Automatización con Python y PyQGIS"
+---
+
+**Módulo relacionado:** [Módulo 5 – Automatización con Python y PyQGIS](../modulos/modulo5.qmd)
+
+::: {.callout-note}
+## Instrucciones generales
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los scripts y capturas de pantalla indicados según las instrucciones del instructor.
+:::
+
+---
+
+## Tarea 1: Primeros pasos en la consola Python de QGIS
+
+1. Abre la **Consola de Python** en QGIS (Complementos → Consola de Python, o `Ctrl+Alt+P`).
+2. Ejecuta el siguiente código para listar todas las capas cargadas en el proyecto:
+
+```python
+for layer in QgsProject.instance().mapLayers().values():
+    print(layer.name(), "–", layer.type())
+```
+
+3. Carga al menos 2 capas en tu proyecto y vuelve a ejecutar el código.
+4. ¿Cuántas capas se listan? ¿Qué valores puede tener `layer.type()`?
+
+**Entrega:** Captura de pantalla de la consola con el resultado + respuesta a las preguntas.
+
+---
+
+## Tarea 2: Acceso a atributos con PyQGIS
+
+1. Selecciona una capa vectorial cargada en tu proyecto.
+2. Escribe un script Python en la consola (o en el editor de scripts) que:
+   - Obtenga la referencia a la capa por nombre.
+   - Imprima el nombre de todos los campos (columnas) de la capa.
+   - Imprima los atributos de las primeras 5 entidades.
+
+```python
+# Plantilla de ejemplo
+layer = QgsProject.instance().mapLayersByName("NOMBRE_DE_TU_CAPA")[0]
+for field in layer.fields():
+    print(field.name())
+
+for feature in list(layer.getFeatures())[:5]:
+    print(feature.attributes())
+```
+
+**Entrega:** Script completo + captura de pantalla con la salida en consola.
+
+---
+
+## Tarea 3: Selección y filtrado con PyQGIS
+
+1. Usando la misma capa, escribe un script que seleccione entidades según un criterio de atributo (ej. área mayor a cierto valor, nombre que contenga una cadena específica).
+2. Imprime cuántas entidades cumplen el criterio.
+3. Exporta las entidades seleccionadas a un nuevo archivo GeoPackage usando `QgsVectorFileWriter` o la herramienta de procesamiento:
+
+```python
+processing.run("native:saveselectedfeatures", {
+    'INPUT': layer,
+    'OUTPUT': '/ruta/a/tu/archivo.gpkg'
+})
+```
+
+**Entrega:** Script completo + archivo exportado + captura de pantalla.
+
+---
+
+## Tarea 4: Script de automatización
+
+Crea un script que realice el siguiente flujo de trabajo automatizado:
+
+1. Cargue una capa vectorial desde un archivo.
+2. Calcule el área en metros cuadrados de cada entidad.
+3. Exporte un reporte en formato **CSV** con las columnas `nombre` (u otro identificador) y `area_m2`.
+
+```python
+import csv
+
+layer = QgsVectorLayer('/ruta/a/tu/archivo.shp', 'mi_capa', 'ogr')
+QgsProject.instance().addMapLayer(layer)
+
+with open('/ruta/reporte.csv', 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(['nombre', 'area_m2'])
+    for feat in layer.getFeatures():
+        geom = feat.geometry()
+        area = geom.area()
+        nombre = feat['NOMBRE_DEL_CAMPO']  # ajusta al nombre real
+        writer.writerow([nombre, round(area, 2)])
+
+print("Reporte generado exitosamente.")
+```
+
+**Entrega:** Script completo + archivo CSV generado + captura de pantalla.
+
+---
+
+::: {.callout-important}
+## Criterios de evaluación
+| Criterio                                        | Puntos |
+|:------------------------------------------------|:------:|
+| Listado de capas en consola                     | 15     |
+| Acceso a atributos con PyQGIS                   | 25     |
+| Selección y exportación de entidades            | 25     |
+| Script de automatización y reporte CSV          | 35     |
+| **Total**                                       | **100** |
+:::
+
+---
+
+[← Lab 4](lab_04.qmd) | [Lab 6 →](lab_06.qmd)
