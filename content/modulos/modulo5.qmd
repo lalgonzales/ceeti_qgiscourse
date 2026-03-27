@@ -1,0 +1,423 @@
+---
+title: "Módulo 5: Automatización con Python y PyQGIS"
+---
+
+## Objetivos del Módulo
+
+Al finalizar este módulo, los participantes podrán:
+
+- Usar la consola de Python integrada en QGIS.
+- Manipular capas, geometrías y atributos con PyQGIS.
+- Escribir scripts para automatizar tareas repetitivas.
+- Exportar resultados a Excel, Shapefile, PDF y otros formatos.
+- Usar el QGIS Processing Framework para crear flujos de trabajo personalizados.
+
+---
+
+## 5.1 Introducción a la consola de Python en QGIS
+
+### Acceso a la consola
+
+La consola de Python en QGIS permite ejecutar código directamente sobre el proyecto abierto:
+
+```
+Complementos → Consola de Python
+```
+O con el atajo de teclado: `Ctrl+Alt+P`
+
+### Interfaz de la consola
+
+La consola tiene dos áreas:
+1. **Área de entrada**: escribe y ejecuta comandos línea por línea
+2. **Editor de scripts**: escribe y guarda scripts completos (botón "Mostrar editor")
+
+### Primeros pasos en la consola
+
+```python
+# Importar la interfaz de QGIS
+from qgis.core import *
+from qgis.gui import *
+
+# Acceder a la instancia de QGIS
+iface.mapCanvas()  # Objeto canvas del mapa
+
+# Listar capas del proyecto
+layers = QgsProject.instance().mapLayers()
+for layer_id, layer in layers.items():
+    print(f"Capa: {layer.name()} | Tipo: {layer.type()}")
+
+# Obtener la capa activa
+layer = iface.activeLayer()
+print(f"Capa activa: {layer.name()}")
+```
+
+### Objetos principales de PyQGIS
+
+| Clase                   | Descripción                                     |
+|:------------------------|:------------------------------------------------|
+| `QgsProject`            | Proyecto QGIS actual                            |
+| `QgsVectorLayer`        | Capa vectorial                                  |
+| `QgsRasterLayer`        | Capa ráster                                     |
+| `QgsFeature`            | Entidad (fila) de una capa vectorial            |
+| `QgsGeometry`           | Geometría espacial de una entidad               |
+| `QgsPoint`, `QgsPointXY`| Punto en el espacio                             |
+| `QgsField`              | Campo/columna de una tabla de atributos         |
+| `QgsCoordinateTransform`| Transformación de coordenadas entre CRS         |
+
+---
+
+## 5.2 Manipulación de capas, geometrías y atributos
+
+### Cargar una capa desde Python
+
+```python
+# Cargar una capa vectorial
+ruta = "/home/usuario/datos/municipios.shp"
+capa = QgsVectorLayer(ruta, "Municipios", "ogr")
+
+if not capa.isValid():
+    print("Error: la capa no se cargó correctamente")
+else:
+    QgsProject.instance().addMapLayer(capa)
+    print(f"Capa cargada: {capa.name()} | Entidades: {capa.featureCount()}")
+```
+
+### Iterar sobre entidades
+
+```python
+capa = iface.activeLayer()
+
+for entidad in capa.getFeatures():
+    geom = entidad.geometry()
+    attrs = entidad.attributes()
+    print(f"ID: {entidad.id()} | Atributos: {attrs}")
+```
+
+### Leer y filtrar por atributos
+
+```python
+from qgis.core import QgsFeatureRequest
+
+capa = iface.activeLayer()
+
+# Filtrar por expresión
+expresion = '"departamento" = \'Francisco Morazán\''
+request = QgsFeatureRequest().setFilterExpression(expresion)
+
+for entidad in capa.getFeatures(request):
+    print(entidad["municipio"])
+```
+
+### Modificar atributos
+
+```python
+capa = iface.activeLayer()
+capa.startEditing()
+
+for entidad in capa.getFeatures():
+    # Calcular área y actualizar campo
+    area_km2 = entidad.geometry().area() / 1_000_000
+    capa.changeAttributeValue(entidad.id(), capa.fields().indexOf("area_km2"), area_km2)
+
+capa.commitChanges()
+print("Atributos actualizados correctamente.")
+```
+
+### Trabajar con geometrías
+
+```python
+from qgis.core import QgsGeometry, QgsPointXY
+
+# Crear un punto
+punto = QgsGeometry.fromPointXY(QgsPointXY(-87.2068, 14.0818))
+
+# Crear una línea
+linea = QgsGeometry.fromPolylineXY([
+    QgsPointXY(-87.20, 14.08),
+    QgsPointXY(-87.21, 14.09),
+    QgsPointXY(-87.22, 14.10)
+])
+
+# Calcular distancia entre dos puntos
+p1 = QgsGeometry.fromPointXY(QgsPointXY(-87.2068, 14.0818))
+p2 = QgsGeometry.fromPointXY(QgsPointXY(-87.2100, 14.0900))
+print(f"Distancia: {p1.distance(p2)}")
+
+# Buffer de 100 metros
+buffer = punto.buffer(100, 8)
+print(f"Área del buffer: {buffer.area()}")
+```
+
+---
+
+## 5.3 Scripts para automatización de rutas y reportes
+
+### Script: generar múltiples buffers automáticamente
+
+```python
+from qgis.core import (
+    QgsVectorLayer, QgsFeature, QgsGeometry,
+    QgsProject, QgsWkbTypes, QgsField
+)
+from PyQt5.QtCore import QVariant
+
+def generar_buffers(nombre_capa, distancias):
+    """
+    Genera capas de buffer para una capa de puntos
+    con múltiples distancias.
+    """
+    capa_origen = QgsProject.instance().mapLayersByName(nombre_capa)
+    if not capa_origen:
+        print(f"No se encontró la capa: {nombre_capa}")
+        return
+
+    capa_origen = capa_origen[0]
+
+    for distancia in distancias:
+        # Crear nueva capa de polígonos
+        crs = capa_origen.crs().authid()
+        capa_buffer = QgsVectorLayer(
+            f"Polygon?crs={crs}",
+            f"Buffer_{distancia}m",
+            "memory"
+        )
+        provider = capa_buffer.dataProvider()
+        provider.addAttributes([QgsField("nombre", QVariant.String)])
+        capa_buffer.updateFields()
+
+        entidades = []
+        for entidad in capa_origen.getFeatures():
+            buffer_geom = entidad.geometry().buffer(distancia, 8)
+            nueva_entidad = QgsFeature()
+            nueva_entidad.setGeometry(buffer_geom)
+            nueva_entidad.setAttributes([entidad["nombre"]])
+            entidades.append(nueva_entidad)
+
+        provider.addFeatures(entidades)
+        QgsProject.instance().addMapLayer(capa_buffer)
+        print(f"Buffer de {distancia}m creado: {capa_buffer.featureCount()} entidades")
+
+# Ejecutar la función
+generar_buffers("Hospitales", [500, 1000, 2000])
+```
+
+### Script: exportar atributos a Excel
+
+```python
+import csv
+from pathlib import Path
+
+def exportar_a_csv(nombre_capa, ruta_salida):
+    """Exporta los atributos de una capa a CSV."""
+    capa = QgsProject.instance().mapLayersByName(nombre_capa)
+    if not capa:
+        print(f"Capa no encontrada: {nombre_capa}")
+        return
+
+    capa = capa[0]
+    campos = [campo.name() for campo in capa.fields()]
+
+    with open(ruta_salida, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(campos)  # Encabezados
+        for entidad in capa.getFeatures():
+            writer.writerow(entidad.attributes())
+
+    print(f"Exportado exitosamente: {ruta_salida}")
+
+# Ejecutar
+exportar_a_csv("Municipios", "/tmp/municipios.csv")
+```
+
+### Script: exportar mapa como imagen
+
+```python
+from qgis.core import QgsLayoutExporter, QgsProject
+from qgis.utils import iface
+
+def exportar_mapa_png(nombre_layout, ruta_salida):
+    """Exporta un layout de mapa a PNG."""
+    manager = QgsProject.instance().layoutManager()
+    layout = manager.layoutByName(nombre_layout)
+
+    if not layout:
+        print(f"Layout no encontrado: {nombre_layout}")
+        return
+
+    exporter = QgsLayoutExporter(layout)
+    settings = QgsLayoutExporter.ImageExportSettings()
+    settings.dpi = 300
+
+    resultado = exporter.exportToImage(ruta_salida, settings)
+    if resultado == QgsLayoutExporter.Success:
+        print(f"Mapa exportado: {ruta_salida}")
+    else:
+        print("Error al exportar el mapa")
+
+# Ejecutar
+exportar_mapa_png("Mi Layout", "/tmp/mapa_final.png")
+```
+
+---
+
+## 5.4 Exportación de resultados
+
+### Exportar capa a diferentes formatos
+
+```python
+from qgis.core import QgsVectorFileWriter, QgsCoordinateTransformContext
+
+def exportar_capa(nombre_capa, ruta_salida, formato="ESRI Shapefile"):
+    """
+    Exporta una capa a shapefile, GeoJSON, GeoPackage, etc.
+    Formatos: "ESRI Shapefile", "GeoJSON", "GPKG", "KML"
+    """
+    capa = QgsProject.instance().mapLayersByName(nombre_capa)
+    if not capa:
+        print(f"Capa no encontrada: {nombre_capa}")
+        return
+    capa = capa[0]
+
+    opciones = QgsVectorFileWriter.SaveVectorOptions()
+    opciones.driverName = formato
+    opciones.fileEncoding = "UTF-8"
+
+    error, msg, _, _ = QgsVectorFileWriter.writeAsVectorFormatV3(
+        capa,
+        ruta_salida,
+        QgsCoordinateTransformContext(),
+        opciones
+    )
+
+    if error == QgsVectorFileWriter.NoError:
+        print(f"Capa exportada exitosamente: {ruta_salida}")
+    else:
+        print(f"Error al exportar: {msg}")
+
+# Exportar a GeoJSON
+exportar_capa("Municipios", "/tmp/municipios.geojson", "GeoJSON")
+# Exportar a GeoPackage
+exportar_capa("Municipios", "/tmp/municipios.gpkg", "GPKG")
+```
+
+---
+
+## 5.5 QGIS Processing Framework y scripts personalizados
+
+### Usar herramientas de processing desde Python
+
+```python
+import processing
+
+# Ejecutar buffer
+resultado = processing.run("native:buffer", {
+    "INPUT": iface.activeLayer(),
+    "DISTANCE": 1000,
+    "SEGMENTS": 8,
+    "END_CAP_STYLE": 0,
+    "JOIN_STYLE": 0,
+    "MITER_LIMIT": 2,
+    "DISSOLVE": False,
+    "OUTPUT": "TEMPORARY_OUTPUT"
+})
+
+# Agregar el resultado al proyecto
+QgsProject.instance().addMapLayer(resultado["OUTPUT"])
+print("Buffer completado.")
+```
+
+### Lista de algoritmos disponibles
+
+```python
+# Ver todos los algoritmos disponibles
+for alg in QgsApplication.processingRegistry().algorithms():
+    print(f"{alg.id()} — {alg.displayName()}")
+```
+
+### Crear un script de processing personalizado
+
+Los scripts de processing pueden guardarse en:
+```
+Configuración → Opciones → Procesamiento → Scripts
+```
+
+Estructura básica de un script de processing:
+
+```python
+from qgis.core import QgsProcessingAlgorithm, QgsProcessingParameterVectorLayer
+from qgis.core import QgsProcessingParameterFileDestination
+
+class MiAlgoritmo(QgsProcessingAlgorithm):
+
+    INPUT = "INPUT"
+    OUTPUT = "OUTPUT"
+
+    def initAlgorithm(self, config=None):
+        self.addParameter(QgsProcessingParameterVectorLayer(
+            self.INPUT, "Capa de entrada"))
+        self.addParameter(QgsProcessingParameterFileDestination(
+            self.OUTPUT, "Archivo de salida", "CSV Files (*.csv)"))
+
+    def processAlgorithm(self, parameters, context, feedback):
+        capa = self.parameterAsVectorLayer(parameters, self.INPUT, context)
+        salida = self.parameterAsFileOutput(parameters, self.OUTPUT, context)
+
+        # Tu lógica aquí
+        feedback.pushInfo(f"Procesando: {capa.name()}")
+
+        return {self.OUTPUT: salida}
+
+    def name(self):
+        return "mi_algoritmo"
+
+    def displayName(self):
+        return "Mi Algoritmo Personalizado"
+
+    def group(self):
+        return "Scripts personalizados"
+
+    def groupId(self):
+        return "scripts_personalizados"
+
+    def createInstance(self):
+        return MiAlgoritmo()
+```
+
+---
+
+## 🛠️ Ejercicios Prácticos
+
+### Ejercicio 5.1: Primeros pasos en la consola
+
+1. Abre la consola de Python en QGIS.
+2. Lista todas las capas del proyecto actual.
+3. Obtén el número de entidades de la capa activa.
+4. Imprime los nombres de todos los campos de la capa activa.
+
+### Ejercicio 5.2: Script de automatización
+
+1. Escribe un script que:
+   - Cargue una capa de puntos (hospitales)
+   - Calcule la distancia desde cada hospital al centroide del mapa
+   - Guarde el resultado en un campo nuevo llamado `dist_centro`
+2. Ejecuta el script y verifica los resultados en la tabla de atributos.
+
+### Ejercicio 5.3: Exportación masiva
+
+1. Escribe un script que exporte automáticamente todas las capas del proyecto a GeoJSON.
+2. Guarda todos los archivos en una carpeta `/tmp/exportaciones/`.
+3. Verifica que los archivos se crearon correctamente.
+
+---
+
+## 📚 Recursos y Referencias
+
+- [PyQGIS Developer Cookbook](https://docs.qgis.org/latest/en/docs/pyqgis_developer_cookbook/)
+- [QGIS API Documentation](https://api.qgis.org/api/)
+- [QGIS Processing — Scripting](https://docs.qgis.org/latest/en/docs/user_manual/processing/scripts.html)
+- [Geopandas — Análisis espacial con Python](https://geopandas.org)
+- [Shapely — Geometrías con Python](https://shapely.readthedocs.io)
+
+---
+
+[← Módulo 4: Análisis espacial para rutas](modulo4.qmd) | [Módulo 6: Visualización avanzada →](modulo6.qmd)

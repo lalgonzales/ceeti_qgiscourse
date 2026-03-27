@@ -1,0 +1,123 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "QGIS y Herramientas Python para el Análisis Geoespacial"
+  description: "Curso básico-intermedio de QGIS ofrecido por el CEETI – UNAH"
+  page-navigation: true
+  back-to-top-navigation: true
+  reader-mode: true
+
+  navbar:
+    title: "CEETI – QGIS"
+    left:
+      - text: "Inicio"
+        href: index.qmd
+      - text: "Temario"
+        href: content/sobre/syllabus.qmd
+      - text: "Módulos"
+        menu:
+          - text: "1. Introducción a QGIS y SIG"
+            href: content/modulos/modulo1.qmd
+          - text: "2. Carga y manejo de datos"
+            href: content/modulos/modulo2.qmd
+          - text: "3. Edición y geoprocesamiento básico"
+            href: content/modulos/modulo3.qmd
+          - text: "4. Análisis espacial para rutas"
+            href: content/modulos/modulo4.qmd
+          - text: "5. Automatización con Python y PyQGIS"
+            href: content/modulos/modulo5.qmd
+          - text: "6. Visualización avanzada y mapas finales"
+            href: content/modulos/modulo6.qmd
+          - text: "7. Integración y casos prácticos"
+            href: content/modulos/modulo7.qmd
+      - text: "Laboratorios"
+        menu:
+          - text: "Instrucciones"
+            href: content/labs/instrucciones_labs.qmd
+          - text: "Lab 1 – Exploración de QGIS"
+            href: content/labs/lab_01.qmd
+          - text: "Lab 2 – Carga y gestión de datos"
+            href: content/labs/lab_02.qmd
+          - text: "Lab 3 – Edición y geoprocesamiento"
+            href: content/labs/lab_03.qmd
+          - text: "Lab 4 – Análisis de redes y rutas"
+            href: content/labs/lab_04.qmd
+          - text: "Lab 5 – Automatización con PyQGIS"
+            href: content/labs/lab_05.qmd
+          - text: "Lab 6 – Cartografía temática"
+            href: content/labs/lab_06.qmd
+          - text: "Lab 7 – Integración y proyecto final"
+            href: content/labs/lab_07.qmd
+      - text: "Instructor"
+        href: content/sobre/instructor.qmd
+    right:
+      - icon: github
+        href: https://github.com/lalgonzales/ceeti_qgiscourse
+        aria-label: GitHub
+
+  sidebar:
+    style: "floating"
+    search: true
+    collapse-level: 1
+    contents:
+      - text: "Inicio"
+        href: index.qmd
+      - text: "Temario"
+        href: content/sobre/syllabus.qmd
+      - section: "Módulos"
+        contents:
+          - text: "1. Introducción a QGIS y SIG"
+            href: content/modulos/modulo1.qmd
+          - text: "2. Carga y manejo de datos"
+            href: content/modulos/modulo2.qmd
+          - text: "3. Edición y geoprocesamiento básico"
+            href: content/modulos/modulo3.qmd
+          - text: "4. Análisis espacial para rutas"
+            href: content/modulos/modulo4.qmd
+          - text: "5. Automatización con Python y PyQGIS"
+            href: content/modulos/modulo5.qmd
+          - text: "6. Visualización avanzada y mapas finales"
+            href: content/modulos/modulo6.qmd
+          - text: "7. Integración y casos prácticos"
+            href: content/modulos/modulo7.qmd
+      - section: "Laboratorios"
+        contents:
+          - text: "Instrucciones"
+            href: content/labs/instrucciones_labs.qmd
+          - text: "Lab 1 – Exploración de QGIS"
+            href: content/labs/lab_01.qmd
+          - text: "Lab 2 – Carga y gestión de datos"
+            href: content/labs/lab_02.qmd
+          - text: "Lab 3 – Edición y geoprocesamiento"
+            href: content/labs/lab_03.qmd
+          - text: "Lab 4 – Análisis de redes y rutas"
+            href: content/labs/lab_04.qmd
+          - text: "Lab 5 – Automatización con PyQGIS"
+            href: content/labs/lab_05.qmd
+          - text: "Lab 6 – Cartografía temática"
+            href: content/labs/lab_06.qmd
+          - text: "Lab 7 – Integración y proyecto final"
+            href: content/labs/lab_07.qmd
+      - text: "Instructor"
+        href: content/sobre/instructor.qmd
+
+  page-footer:
+    left: "© 2026 CEETI – Universidad Nacional Autónoma de Honduras"
+    right:
+      - icon: github
+        href: https://github.com/lalgonzales/ceeti_qgiscourse
+
+format:
+  html:
+    theme:
+      light: [cosmo, assets/styles.css]
+      dark: [darkly, assets/styles-dark.css]
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    highlight-style: github
+    lang: es

@@ -1,0 +1,419 @@
+---
+title: "Módulo 7: Integración y casos prácticos"
+---
+
+## Objetivos del Módulo
+
+Al finalizar este módulo, los participantes podrán:
+
+- Conectar QGIS con APIs externas como OpenStreetMap y Google Maps.
+- Diseñar y evaluar rutas eficientes para trabajo de campo.
+- Importar y procesar rutas GPS recolectadas con aplicaciones móviles.
+- Aplicar técnicas de optimización de recorridos con restricciones reales.
+
+---
+
+## 7.1 Conexión con APIs externas
+
+### OpenStreetMap (OSM)
+
+OpenStreetMap es el mapa colaborativo de código abierto más completo del mundo. QGIS se integra con OSM de múltiples maneras.
+
+#### Tiles (mapas base)
+
+```
+Panel Explorador → Teselas XYZ → Nueva conexión
+```
+
+Agrega estas URLs como capas base:
+
+| Servicio          | URL                                                              |
+|:------------------|:-----------------------------------------------------------------|
+| OpenStreetMap     | `https://tile.openstreetmap.org/{z}/{x}/{y}.png`                |
+| OSM Humanitarian  | `https://tile-c.openstreetmap.fr/hot/{z}/{x}/{y}.png`           |
+| CartoDB Light     | `https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png` |
+| ESRI Satellite    | `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}` |
+
+#### Descarga de datos con QuickOSM
+
+```python
+# Consulta mediante Python (requiere plugin QuickOSM)
+import processing
+
+resultado = processing.run("quickosm:buildqueryextent", {
+    "KEY": "amenity",
+    "VALUE": "hospital",
+    "EXTENT": "-87.3,13.9,-87.1,14.2 [EPSG:4326]",
+    "OUTPUT": "TEMPORARY_OUTPUT"
+})
+```
+
+#### Descarga con la API Overpass
+
+La API Overpass permite consultas avanzadas sobre datos OSM:
+
+```python
+import requests
+import json
+
+def descargar_osm_overpass(query, bbox):
+    """
+    Descarga datos OSM usando la API Overpass.
+    bbox: (sur, oeste, norte, este)
+    """
+    url = "https://overpass-api.de/api/interpreter"
+    overpass_query = f"""
+    [out:json][timeout:30];
+    (
+      node[{query}]({bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]});
+      way[{query}]({bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]});
+    );
+    out body;
+    >;
+    out skel qt;
+    """
+    response = requests.get(url, params={"data": overpass_query})
+    return response.json()
+
+# Ejemplo: hospitales en Tegucigalpa
+datos = descargar_osm_overpass(
+    '"amenity"="hospital"',
+    (13.9, -87.3, 14.2, -87.1)
+)
+print(f"Elementos encontrados: {len(datos['elements'])}")
+```
+
+### Google Maps / Places API
+
+Para conectar con la API de Google Maps desde Python (requiere clave API):
+
+```python
+import requests
+
+def geocodificar_direccion(direccion, api_key):
+    """Convierte una dirección en coordenadas usando Google Maps."""
+    url = "https://maps.googleapis.com/maps/api/geocode/json"
+    params = {
+        "address": direccion,
+        "key": api_key,
+        "language": "es"
+    }
+    response = requests.get(url, params=params)
+    data = response.json()
+
+    if data["status"] == "OK":
+        location = data["results"][0]["geometry"]["location"]
+        return location["lat"], location["lng"]
+    return None
+
+# Uso
+# lat, lon = geocodificar_direccion("UNAH, Tegucigalpa", "TU_API_KEY")
+```
+
+::: {.callout-warning}
+## API Keys
+
+Para usar las APIs de Google Maps necesitas registrarte en Google Cloud Platform y crear una clave de API. Algunas APIs son de pago según el uso.
+:::
+
+### OpenRouteService (ORS)
+
+OpenRouteService ofrece APIs gratuitas para enrutamiento basadas en OSM:
+
+```python
+import requests
+
+def calcular_ruta_ors(origen, destino, api_key, modo="driving-car"):
+    """
+    Calcula una ruta usando OpenRouteService.
+    origen/destino: [longitud, latitud]
+    modos: driving-car, cycling-regular, foot-walking
+    """
+    url = "https://api.openrouteservice.org/v2/directions/" + modo
+    headers = {
+        "Authorization": api_key,
+        "Content-Type": "application/json"
+    }
+    body = {
+        "coordinates": [origen, destino],
+        "format": "geojson"
+    }
+    response = requests.post(url, json=body, headers=headers)
+    return response.json()
+
+# Ejemplo de uso
+# origen = [-87.2068, 14.0818]  # [lon, lat]
+# destino = [-87.1904, 14.0817]
+# ruta = calcular_ruta_ors(origen, destino, "TU_API_KEY_ORS")
+```
+
+---
+
+## 7.2 Proyecto aplicado: diseño de rutas eficientes para campo
+
+### Planteamiento del problema
+
+Un equipo de trabajo de campo necesita visitar 10 puntos de control (comunidades, puntos de monitoreo, etc.) desde una base de operaciones, minimizando el tiempo total de desplazamiento.
+
+Este es un problema de **Ruta del Viajero (TSP - Travelling Salesman Problem)**.
+
+### Solución 1: Herramienta de procesamiento de QGIS
+
+QGIS incluye herramientas para optimizar recorridos:
+
+```
+Procesamiento → Caja de herramientas → Análisis de redes → Optimization of a graph path
+```
+
+### Solución 2: Python con OR-Tools (Google)
+
+```python
+# Requiere: pip install ortools
+from ortools.constraint_solver import routing_enums_pb2
+from ortools.constraint_solver import pywrapcp
+import math
+
+def calcular_distancia(p1, p2):
+    """Distancia euclidiana entre dos puntos (lat, lon)."""
+    return math.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2) * 111000  # metros aprox.
+
+def resolver_tsp(puntos):
+    """
+    Resuelve el TSP para una lista de puntos (lat, lon).
+    Retorna el orden óptimo de visita.
+    """
+    n = len(puntos)
+    # Matriz de distancias
+    matriz = [[int(calcular_distancia(puntos[i], puntos[j]))
+               for j in range(n)] for i in range(n)]
+
+    manager = pywrapcp.RoutingIndexManager(n, 1, 0)
+    routing = pywrapcp.RoutingModel(manager)
+
+    def callback_distancia(from_index, to_index):
+        from_node = manager.IndexToNode(from_index)
+        to_node = manager.IndexToNode(to_index)
+        return matriz[from_node][to_node]
+
+    transit_callback_index = routing.RegisterTransitCallback(callback_distancia)
+    routing.SetArcCostEvaluatorOfAllVehicles(transit_callback_index)
+
+    parametros = pywrapcp.DefaultRoutingSearchParameters()
+    parametros.first_solution_strategy = (
+        routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)
+
+    solucion = routing.SolveWithParameters(parametros)
+
+    if solucion:
+        ruta = []
+        index = routing.Start(0)
+        while not routing.IsEnd(index):
+            ruta.append(manager.IndexToNode(index))
+            index = solucion.Value(routing.NextVar(index))
+        ruta.append(manager.IndexToNode(index))
+        return ruta
+    return None
+
+# Ejemplo con puntos en Honduras
+puntos_visita = [
+    (14.0818, -87.2068),  # Base: UNAH
+    (14.1234, -87.1890),  # Punto 1
+    (14.0500, -87.2200),  # Punto 2
+    (14.0700, -87.1700),  # Punto 3
+]
+
+orden_optimo = resolver_tsp(puntos_visita)
+if orden_optimo:
+    print("Orden óptimo de visita:", orden_optimo)
+```
+
+---
+
+## 7.3 Trazabilidad de rutas GPS con apps móviles
+
+### Aplicaciones para recolección de datos en campo
+
+| Aplicación  | Plataforma | Características principales                         |
+|:------------|:-----------|:----------------------------------------------------|
+| **QField**  | Android/iOS| Versión móvil de QGIS, edita capas directamente    |
+| **Input**   | Android/iOS| Basada en QGIS, sincronización en la nube           |
+| **GPSLogger**| Android   | Registra tracks GPS en varios formatos              |
+| **OSMAnd**  | Android/iOS| Navegación y recolección de datos OSM               |
+| **SW Maps** | Android    | Mapeo GPS de alta precisión                         |
+
+### Flujo de trabajo con QField
+
+1. **Preparar proyecto en QGIS Desktop**:
+   - Crea el proyecto con las capas necesarias
+   - Define formularios de captura de datos
+   - Guarda como GeoPackage
+
+2. **Transferir al dispositivo móvil**:
+   - Usa QFieldCloud (sincronización en la nube)
+   - O copia los archivos via USB/WiFi
+
+3. **Recolección en campo**:
+   - Abre el proyecto en QField
+   - Captura puntos, líneas o polígonos con GPS
+   - Completa los formularios de atributos
+
+4. **Importar datos de vuelta a QGIS**:
+   - Sincroniza con QFieldCloud
+   - O copia el GeoPackage actualizado al computador
+
+### Importar tracks GPX
+
+Los tracks GPS se pueden importar directamente:
+
+```python
+# Importar archivo GPX
+ruta_gpx = "/home/usuario/tracks/recorrido.gpx"
+capa_track = QgsVectorLayer(f"{ruta_gpx}|layername=tracks", "Mi Track", "ogr")
+capa_waypoints = QgsVectorLayer(f"{ruta_gpx}|layername=waypoints", "Waypoints", "ogr")
+
+QgsProject.instance().addMapLayer(capa_track)
+QgsProject.instance().addMapLayer(capa_waypoints)
+
+print(f"Track cargado: {capa_track.featureCount()} segmentos")
+print(f"Waypoints: {capa_waypoints.featureCount()} puntos")
+```
+
+### Análisis de tracks GPS
+
+```python
+# Calcular longitud total de un track
+capa = QgsProject.instance().mapLayersByName("Mi Track")[0]
+longitud_total = sum(
+    entidad.geometry().length()
+    for entidad in capa.getFeatures()
+)
+print(f"Longitud total del recorrido: {longitud_total/1000:.2f} km")
+```
+
+---
+
+## 7.4 Optimización de recorridos con restricciones reales
+
+### Tipos de restricciones comunes
+
+| Restricción                  | Ejemplo                                              |
+|:-----------------------------|:-----------------------------------------------------|
+| **Ventanas de tiempo**       | Visitar un cliente entre 9:00 AM y 12:00 PM          |
+| **Capacidad del vehículo**   | Máximo de 500 kg por camión                         |
+| **Tipo de vehículo**         | Camiones no pueden usar ciertos caminos              |
+| **Prioridades**              | Clientes prioritarios deben visitarse primero        |
+| **Horas de trabajo**         | Máximo 8 horas de trabajo por jornada                |
+
+### Vehicle Routing Problem (VRP) con OR-Tools
+
+```python
+# Ejemplo simplificado de VRP con ventanas de tiempo
+# Requiere: pip install ortools
+
+"""
+Problema: Una empresa tiene una bodega central y 5 clientes a visitar
+con 2 vehículos disponibles, cada uno con ventanas de tiempo.
+"""
+
+# Datos del problema
+datos = {
+    "num_vehicles": 2,
+    "depot": 0,  # índice de la bodega
+    "time_matrix": [
+        # Tiempo en minutos entre cada par de ubicaciones
+        [0, 15, 30, 25, 20, 35],
+        [15, 0, 20, 18, 25, 28],
+        [30, 20, 0, 12, 22, 15],
+        [25, 18, 12, 0, 15, 20],
+        [20, 25, 22, 15, 0, 18],
+        [35, 28, 15, 20, 18, 0],
+    ],
+    "time_windows": [
+        (0, 480),    # Bodega: 8:00 AM - 4:00 PM
+        (60, 180),   # Cliente 1: 9:00 AM - 11:00 AM
+        (120, 240),  # Cliente 2: 10:00 AM - 12:00 PM
+        (0, 300),    # Cliente 3: 8:00 AM - 1:00 PM
+        (180, 360),  # Cliente 4: 11:00 AM - 2:00 PM
+        (240, 420),  # Cliente 5: 12:00 PM - 3:00 PM
+    ],
+}
+
+print("Problema de VRP con ventanas de tiempo definido.")
+print(f"Vehículos disponibles: {datos['num_vehicles']}")
+print(f"Clientes a visitar: {len(datos['time_windows']) - 1}")
+```
+
+### Herramientas adicionales para optimización
+
+| Herramienta          | Descripción                                          |
+|:---------------------|:-----------------------------------------------------|
+| **OR-Tools**         | Biblioteca de Google para optimización combinatoria  |
+| **OpenRouteService** | API con funcionalidad de optimización de rutas       |
+| **pgRouting**        | Extensión de PostgreSQL para análisis de redes        |
+| **OSRM**             | Motor de enrutamiento de alto rendimiento basado en OSM|
+| **Vroom**            | Soluciones para VRP usando OSRM/OpenRouteService     |
+
+---
+
+## 7.5 Proyecto Final del Curso
+
+### Descripción del proyecto
+
+Diseña y evalúa un sistema de rutas para uno de los siguientes escenarios:
+
+::: {.callout-note}
+## Escenario A: Sistema de distribución de productos
+Diseña las rutas óptimas para distribuir productos desde una bodega central a 8–10 clientes en Tegucigalpa, considerando:
+- Ventanas horarias de entrega por cliente
+- Capacidad de 2 vehículos disponibles
+- Minimización del tiempo total de desplazamiento
+:::
+
+::: {.callout-note}
+## Escenario B: Cobertura de servicios de salud
+Evalúa la cobertura geográfica de los centros de salud en un municipio:
+- Calcula el área atendida por cada establecimiento (isócronas de 15 y 30 min)
+- Identifica comunidades sin cobertura adecuada
+- Propone la ubicación óptima para un nuevo centro de salud
+:::
+
+::: {.callout-note}
+## Escenario C: Monitoreo ambiental en campo
+Planifica rutas de campo para monitoreo ambiental:
+- Importa puntos de muestreo desde GPS/aplicación móvil
+- Optimiza el orden de visita
+- Genera un informe con las rutas y estadísticas del recorrido
+:::
+
+### Entregables del proyecto
+
+1. ✅ Mapa final exportado en PDF (calidad de impresión)
+2. ✅ Script Python documentado con la lógica de análisis
+3. ✅ Archivo GeoPackage con todas las capas del proyecto
+4. ✅ Informe breve (máximo 2 páginas) describiendo la metodología y resultados
+
+---
+
+## 📚 Recursos y Referencias
+
+- [QField — Documentación oficial](https://docs.qfield.org)
+- [Input App — Mergin Maps](https://merginmaps.com/docs)
+- [OpenRouteService — API Documentation](https://openrouteservice.org/dev/#/api-docs)
+- [OR-Tools — Google Optimization Tools](https://developers.google.com/optimization)
+- [pgRouting — Documentación](https://docs.pgrouting.org)
+- [OSM Overpass API — Tutorial](https://wiki.openstreetmap.org/wiki/Overpass_API)
+- [VROOM — Vehicle Routing Open-source Optimization Machine](https://github.com/VROOM-Project/vroom)
+
+---
+
+::: {.callout-important}
+## ¡Felicitaciones!
+
+Has completado el **Curso de QGIS y Herramientas Python para el Análisis Geoespacial** del CEETI – UNAH.
+
+Recuerda que la práctica continua es la clave para dominar estas herramientas. Explora los recursos adicionales, participa en la comunidad QGIS y aplica lo aprendido en proyectos reales.
+:::
+
+---
+
+[← Módulo 6: Visualización avanzada](modulo6.qmd) | [↑ Inicio](../index.qmd) | [Ver temario completo](syllabus.qmd)

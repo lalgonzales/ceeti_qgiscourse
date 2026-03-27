@@ -1,0 +1,83 @@
+---
+title: "Laboratorio 4: Análisis de redes y rutas óptimas"
+subtitle: "Módulo 4 – Análisis espacial para rutas"
+---
+
+**Módulo relacionado:** [Módulo 4 – Análisis espacial para rutas](../modulos/modulo4.qmd)
+
+::: {.callout-note}
+## Instrucciones generales
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados según las instrucciones del instructor.
+:::
+
+---
+
+## Tarea 1: Preparación de la red vial
+
+1. Descarga la red vial de un área de tu interés desde **OpenStreetMap** usando el plugin **QuickOSM** o desde [download.geofabrik.de](https://download.geofabrik.de/).
+2. Carga la red vial en QGIS.
+3. Asegúrate de que la capa tenga un CRS proyectado (no geográfico) adecuado para tu área. Reproyecta si es necesario.
+4. Verifica la topología básica: ¿las líneas están conectadas en los nodos?
+
+**Entrega:** Captura de pantalla de la red vial cargada con su CRS correcto.
+
+---
+
+## Tarea 2: Análisis de ruta más corta
+
+Usando el plugin **Network Analysis** de QGIS o **QNEAT3** (si está disponible):
+
+1. Define un **punto de origen** y un **punto de destino** en la red vial.
+2. Calcula la **ruta más corta** entre ambos puntos.
+3. Calcula la **ruta más rápida** (si tienes campo de velocidad o tiempo disponible).
+4. Compara ambas rutas: ¿son iguales? ¿En qué difieren en distancia y tiempo estimado?
+
+**Entrega:** Captura de pantalla con ambas rutas visualizadas + tabla comparativa de distancia y tiempo.
+
+---
+
+## Tarea 3: Zona de servicio (isócrona)
+
+1. Selecciona un punto de interés en tu área (ej. hospital, escuela, mercado).
+2. Usa la herramienta de **zona de servicio** para calcular el área alcanzable en:
+   - 500 metros de distancia
+   - 1,000 metros de distancia
+3. Visualiza las zonas resultantes sobre el mapa base.
+
+**Entrega:** Captura de pantalla con las zonas de servicio + descripción de qué puntos de interés quedan dentro de cada zona.
+
+---
+
+## Tarea 4: Análisis de puntos de interés
+
+1. Carga o crea una capa de **puntos de interés** (ej. clientes, centros de distribución, paradas de bus).
+2. ¿Cuántos puntos quedan dentro de la zona de servicio de 1,000 metros calculada en la Tarea 3?
+3. Usa **Seleccionar por localización** (Vectorial → Herramientas de investigación → Seleccionar por localización) para responder esta pregunta.
+
+**Entrega:** Captura de pantalla de la selección + número de puntos encontrados.
+
+---
+
+## Tarea 5: Reflexión
+
+> Imagina que debes planificar las rutas de distribución para 5 puntos de entrega partiendo desde un depósito central. ¿Qué herramientas de QGIS usarías? ¿Qué datos necesitarías tener disponibles?
+
+Responde en 5–7 oraciones.
+
+---
+
+::: {.callout-important}
+## Criterios de evaluación
+| Criterio                                      | Puntos |
+|:----------------------------------------------|:------:|
+| Red vial preparada correctamente              | 15     |
+| Rutas más corta y más rápida calculadas       | 25     |
+| Zonas de servicio generadas                   | 25     |
+| Análisis de puntos de interés                 | 20     |
+| Reflexión sobre planificación de rutas        | 15     |
+| **Total**                                     | **100** |
+:::
+
+---
+
+[← Lab 3](lab_03.qmd) | [Lab 5 →](lab_05.qmd)

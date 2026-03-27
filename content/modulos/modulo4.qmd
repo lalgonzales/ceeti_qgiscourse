@@ -1,0 +1,264 @@
+---
+title: "Módulo 4: Análisis espacial para rutas"
+---
+
+## Objetivos del Módulo
+
+Al finalizar este módulo, los participantes podrán:
+
+- Utilizar plugins de análisis de redes en QGIS (QNEAT3, Road Graph).
+- Calcular rutas óptimas (más cortas o más rápidas) entre puntos.
+- Construir matrices de origen-destino.
+- Realizar análisis de cobertura y zonificación de servicios.
+- Analizar puntos de interés en el contexto de rutas y servicios.
+
+---
+
+## 4.1 Análisis de redes con QNEAT3 y Road Graph
+
+### ¿Qué es un análisis de redes?
+
+El **análisis de redes** permite modelar y resolver problemas de conectividad sobre una red de elementos lineales (calles, carreteras, tuberías), como:
+
+- Encontrar la ruta más corta entre dos puntos
+- Calcular tiempos de viaje
+- Determinar áreas de cobertura (isócronas)
+- Optimizar rutas para múltiples destinos
+
+### Plugin QNEAT3
+
+**QNEAT3** (QGIS Network Analysis Toolbox 3) es el plugin más completo para análisis de redes en QGIS.
+
+**Instalación**:
+1. Complementos → Administrar e instalar complementos
+2. Busca `QNEAT3`
+3. Haz clic en **Instalar complemento**
+
+**Funcionalidades principales de QNEAT3**:
+
+| Herramienta                    | Descripción                                        |
+|:-------------------------------|:---------------------------------------------------|
+| Shortest Path (Point to Point) | Ruta más corta entre dos puntos                    |
+| Iso-Area as Polygons           | Áreas de cobertura (isócronas) desde un punto      |
+| Iso-Area as Contour Lines      | Líneas de isócrona a distintas distancias/tiempos  |
+| OD Matrix (Layers)             | Matriz de origen-destino entre capas de puntos     |
+| OD Matrix (from Layers)        | Matriz con múltiples orígenes y destinos           |
+
+### Plugin Road Graph (clásico)
+
+El plugin **Road Graph** está incluido en QGIS sin necesidad de instalación adicional:
+
+```
+Complementos → Road Graph → Complemento Road Graph
+```
+
+- Permite calcular rutas entre dos puntos sobre una red de líneas
+- Soporta velocidades por tipo de vía
+- Muestra el resultado como capa temporal
+
+---
+
+## 4.2 Cálculo de rutas óptimas
+
+### Preparación de la red vial
+
+Antes de calcular rutas, la red vial debe estar correctamente preparada:
+
+1. **Topología correcta**: las líneas deben conectarse en sus extremos (nodos)
+2. **Sin duplicados**: eliminar geometrías duplicadas
+3. **CRS proyectado**: usar UTM u otro CRS en metros
+
+**Verificar y reparar topología con GRASS**:
+```
+Procesamiento → Caja de herramientas → GRASS → v.clean
+```
+
+### Ruta más corta con QNEAT3
+
+1. Instala y activa QNEAT3
+2. Ve a: **Procesamiento → Caja de herramientas → QNEAT3 → Shortest Path (Point to Point)**
+3. Parámetros:
+   - **Network Layer**: capa de red vial (líneas)
+   - **Start Point**: punto de origen
+   - **End Point**: punto de destino
+   - **Optimization Criterion**: distancia o tiempo
+   - **Entry cost strategy**: distancia del tramo / tiempo estimado
+
+### Configurar velocidades por tipo de vía
+
+Para calcular tiempos de viaje realistas, asigna velocidades según el tipo de vía:
+
+| Tipo de vía         | Velocidad promedio (km/h) |
+|:--------------------|:--------------------------|
+| Autopista           | 100                       |
+| Carretera primaria  | 80                        |
+| Carretera secundaria| 60                        |
+| Vía urbana          | 40                        |
+| Calle local         | 25                        |
+| Camino de tierra    | 20                        |
+
+::: {.callout-tip}
+## Calcular tiempo desde velocidad
+
+Si tienes un campo de velocidad en tu capa de red, puedes calcular el tiempo de recorrido:
+
+```python
+# Tiempo en minutos = (longitud en metros / 1000) / velocidad_kmh * 60
+($length / 1000) / "velocidad_kmh" * 60
+```
+:::
+
+---
+
+## 4.3 Matrices de origen-destino
+
+Una **matriz de origen-destino (OD)** calcula las distancias o tiempos de viaje entre todos los pares de puntos en dos conjuntos (orígenes y destinos).
+
+### Casos de uso
+
+- Calcular el tiempo de acceso desde cada comunidad al hospital más cercano
+- Evaluar la cobertura de una flota de vehículos de emergencia
+- Optimizar la distribución de productos desde bodegas a clientes
+
+### Generar matriz OD con QNEAT3
+
+1. **Procesamiento → Caja de herramientas → QNEAT3 → OD Matrix (Layers as OD Pairs)**
+2. Parámetros:
+   - Network Layer: red vial
+   - Origin Points: capa con puntos de origen (ej. comunidades)
+   - Destination Points: capa con puntos de destino (ej. hospitales)
+   - Optimization Criterion: distancia o tiempo
+3. El resultado es una tabla con distancia/tiempo de cada par O-D
+
+### Análisis de los resultados
+
+La tabla OD puede exportarse a Excel para análisis adicional:
+
+```
+Clic derecho en la capa resultado → Exportar → Guardar entidades como...
+→ Formato: CSV o XLSX
+```
+
+---
+
+## 4.4 Zonificación y análisis de cobertura de rutas
+
+### Isócronas (áreas de cobertura temporal)
+
+Las **isócronas** son polígonos que representan el área alcanzable desde un punto en un tiempo determinado.
+
+**Generar isócronas con QNEAT3**:
+
+1. **Procesamiento → Caja de herramientas → QNEAT3 → Iso-Area as Polygons**
+2. Parámetros:
+   - Network Layer: red vial
+   - Start Point: punto de origen (ej. hospital, bodega)
+   - Size of Iso-Area: tamaño del intervalo (ej. 1000 metros o 5 minutos)
+   - Maximum cost: límite máximo (ej. 10000 metros o 30 minutos)
+3. El resultado son polígonos que muestran las áreas accesibles
+
+### Visualización de cobertura
+
+Una vez generadas las isócronas:
+
+1. Aplica simbología por colores graduados según el tiempo/distancia
+2. Superpone la capa de población o comunidades
+3. Identifica las zonas sin cobertura adecuada
+
+---
+
+## 4.5 Análisis de puntos de interés
+
+### Unión espacial (Spatial Join)
+
+Combina atributos de dos capas basándose en su relación espacial:
+
+```
+Vector → Herramientas de gestión de datos → Unión de atributos por localización
+```
+
+**Ejemplo**: contar cuántos clientes hay dentro del radio de cobertura de cada tienda.
+
+### Análisis de densidad de puntos
+
+```
+Ráster → Análisis → Mapa de calor (KDE)
+```
+
+Genera un ráster que muestra la concentración espacial de puntos (ej. accidentes de tráfico, clientes).
+
+### Identificar el punto más cercano
+
+```
+Vector → Análisis → Distancia al punto más cercano
+```
+
+**Ejemplo**: para cada comunidad, identificar el hospital más cercano y la distancia a él.
+
+### Análisis con NetworkX (Python)
+
+Para análisis avanzados de redes, puedes usar la biblioteca **NetworkX** desde la consola de Python en QGIS:
+
+```python
+import networkx as nx
+
+# Crear un grafo simple
+G = nx.Graph()
+G.add_edge('A', 'B', weight=10)
+G.add_edge('B', 'C', weight=5)
+G.add_edge('A', 'C', weight=20)
+
+# Ruta más corta
+ruta = nx.shortest_path(G, source='A', target='C', weight='weight')
+print(f"Ruta más corta: {ruta}")
+
+distancia = nx.shortest_path_length(G, source='A', target='C', weight='weight')
+print(f"Distancia: {distancia}")
+```
+
+---
+
+## 🛠️ Ejercicios Prácticos
+
+### Ejercicio 4.1: Preparación de red vial
+
+1. Descarga la red vial de Tegucigalpa desde QuickOSM (highways).
+2. Verifica la topología con la herramienta **Verificar validez**.
+3. Reproyecta a UTM Zona 16N para trabajar en metros.
+4. Agrega un campo `velocidad_kmh` con valores según el tipo de vía.
+
+### Ejercicio 4.2: Rutas óptimas
+
+1. Instala el plugin QNEAT3.
+2. Define dos puntos (origen y destino) en Tegucigalpa.
+3. Calcula la ruta más corta por distancia.
+4. Calcula la ruta más rápida por tiempo.
+5. Compara los resultados.
+
+### Ejercicio 4.3: Isócronas y cobertura
+
+1. Selecciona un hospital en Tegucigalpa.
+2. Genera isócronas de 5, 10, 15 y 30 minutos.
+3. Carga datos de comunidades o barrios.
+4. Determina qué porcentaje de la población está a menos de 15 minutos del hospital.
+
+### Ejercicio 4.4: Matriz origen-destino
+
+1. Crea una capa de 5 puntos origen (ej. barrios) y 3 destinos (ej. hospitales).
+2. Genera la matriz OD con QNEAT3.
+3. Exporta los resultados a CSV.
+4. Identifica el hospital más accesible para cada barrio.
+
+---
+
+## 📚 Recursos y Referencias
+
+- [QNEAT3 — Documentación oficial](https://root676.github.io/QNEAT3/)
+- [QGIS Network Analysis — Tutorial](https://docs.qgis.org/latest/en/docs/training_manual/network_analysis/network_analysis.html)
+- [OpenRouteService — Análisis de rutas online](https://openrouteservice.org)
+- [OpenStreetMap — Datos de transporte](https://www.openstreetmap.org)
+- [Overpass Turbo — Consulta de datos OSM](https://overpass-turbo.eu)
+
+---
+
+[← Módulo 3: Edición y geoprocesamiento](modulo3.qmd) | [Módulo 5: Automatización con Python →](modulo5.qmd)

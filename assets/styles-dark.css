@@ -1,0 +1,48 @@
+/* ============================================================
+   CEETI QGIS Course — Custom Styles (Dark Theme)
+   ============================================================ */
+
+/*-- scss:rules --*/
+
+:root {
+  --ceeti-green:    #4caf72;
+  --ceeti-blue-lt:  #5dade2;
+  --ceeti-gold:     #f4d03f;
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, #1a252f 0%, #1a3a2a 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.hero-banner p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-title {
+  color: white !important;
+  font-size: 2.2rem !important;
+  font-weight: 700;
+}
+
+h1, h2 {
+  border-bottom: 2px solid var(--ceeti-green);
+  padding-bottom: 0.3rem;
+}
+
+h3 {
+  color: var(--ceeti-green);
+}
+
+thead {
+  background-color: #2c3e50;
+  color: white;
+}
+
+pre.sourceCode {
+  border-left: 4px solid var(--ceeti-green);
+}

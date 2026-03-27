@@ -1,0 +1,88 @@
+---
+title: "Laboratorio 6: Cartografía temática y diseño de mapas"
+subtitle: "Módulo 6 – Visualización avanzada y mapas finales"
+---
+
+**Módulo relacionado:** [Módulo 6 – Visualización avanzada y mapas finales](../modulos/modulo6.qmd)
+
+::: {.callout-note}
+## Instrucciones generales
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los mapas exportados y capturas de pantalla indicados según las instrucciones del instructor.
+:::
+
+---
+
+## Tarea 1: Simbología por categorías
+
+1. Carga una capa vectorial con un campo categórico (ej. tipo de uso de suelo, categoría de vía, tipo de establecimiento).
+2. Aplica simbología de tipo **Categorizado** (Propiedades → Simbología → Categorizado).
+3. Asigna colores distintos a cada categoría.
+4. Ordena las categorías para que las más importantes queden en primer lugar en la leyenda.
+
+**Entrega:** Captura de pantalla del mapa con simbología categorizada.
+
+---
+
+## Tarea 2: Simbología graduada
+
+1. Usa una capa con un campo numérico (ej. población, densidad, longitud de vías).
+2. Aplica simbología de tipo **Graduado** con al menos **5 clases**.
+3. Prueba al menos 2 métodos de clasificación (ej. Jenks, Quantil, Intervalo igual) y elige el que mejor represente la distribución de los datos.
+4. Justifica brevemente tu elección del método de clasificación.
+
+**Entrega:** Captura de pantalla del mapa graduado + justificación del método.
+
+---
+
+## Tarea 3: Etiquetado dinámico
+
+1. Con cualquier capa de puntos o polígonos, activa el **etiquetado** (Propiedades → Etiquetas → Etiqueta sencilla).
+2. Configura:
+   - Campo de etiqueta (nombre u otro identificador)
+   - Tamaño y color de fuente
+   - Posición de la etiqueta (sobre el punto o centroide del polígono)
+3. Activa la opción **"Evitar solapamiento de etiquetas"**.
+
+**Entrega:** Captura de pantalla del mapa con etiquetas configuradas.
+
+---
+
+## Tarea 4: Diseño de mapa para impresión
+
+1. Abre el **Diseñador de mapas** (Proyecto → Nuevo diseño de impresión).
+2. Crea un mapa en formato **A4 horizontal** que incluya:
+   - Vista del mapa con las capas de tu proyecto
+   - **Título** del mapa
+   - **Leyenda** con todos los elementos
+   - **Escala gráfica** o numérica
+   - **Norte** (flecha de norte)
+   - **Créditos** (fuente de datos y fecha)
+3. Exporta el mapa como **PDF** e imagen **PNG** (Diseño → Exportar como PDF / Exportar como imagen).
+
+**Entrega:** Archivo PDF del mapa + archivo PNG.
+
+---
+
+## Tarea 5: Reflexión
+
+> ¿Cómo influye la elección de la simbología y el diseño del mapa en la comunicación del mensaje que quieres transmitir? Describe un caso concreto donde una mala elección de colores o clasificación podría llevar a interpretaciones erróneas.
+
+Responde en 4–6 oraciones.
+
+---
+
+::: {.callout-important}
+## Criterios de evaluación
+| Criterio                                          | Puntos |
+|:--------------------------------------------------|:------:|
+| Simbología categorizada aplicada                  | 15     |
+| Simbología graduada con justificación             | 20     |
+| Etiquetado dinámico configurado                   | 15     |
+| Mapa completo con todos los elementos (PDF + PNG) | 35     |
+| Reflexión sobre comunicación cartográfica         | 15     |
+| **Total**                                         | **100** |
+:::
+
+---
+
+[← Lab 5](lab_05.qmd) | [Lab 7 →](lab_07.qmd)

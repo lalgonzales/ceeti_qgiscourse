@@ -1,0 +1,133 @@
+---
+title: "QGIS y Herramientas Python para el Análisis Geoespacial"
+subtitle: "Centro de Excelencia para la Educación en Tecnologías de la Información (CEETI) — Universidad Nacional Autónoma de Honduras"
+page-layout: full
+toc: false
+---
+
+::: {.hero-banner}
+# Bienvenidos al Curso de QGIS {.hero-title}
+
+**Curso básico-intermedio de QGIS y Herramientas Python para el Análisis Geoespacial**
+*CEETI – Universidad Nacional Autónoma de Honduras*
+:::
+
+---
+
+## 📋 Descripción del Curso
+
+Este curso está diseñado para introducir a los participantes en el uso de **QGIS** como plataforma de código abierto para el análisis y visualización de información geoespacial, complementado con el uso de **Python y PyQGIS** para la automatización de procesos.
+
+A lo largo de **20 horas** distribuidas en **13 sesiones** (lunes a jueves a partir del **6 de abril de 2026**), los participantes adquirirán habilidades prácticas para:
+
+- Comprender los fundamentos de los Sistemas de Información Geográfica (SIG)
+- Manejar, editar y analizar datos espaciales
+- Realizar análisis de redes y rutas óptimas
+- Automatizar tareas mediante scripts en Python
+- Crear cartografía temática de calidad profesional
+- Integrar fuentes de datos externas y trabajar con casos reales
+
+---
+
+## 🗓️ Horario y Modalidad
+
+| Detalle         | Información                                      |
+|:----------------|:-------------------------------------------------|
+| **Inicio**      | 6 de abril de 2026                               |
+| **Modalidad**   | Virtual (sesiones 1–12) · Presencial (sesión 13) |
+| **Días**        | Lunes a Jueves                                   |
+| **Horario**     | 6:00 PM – 7:30 PM (hora Honduras)                |
+| **Duración**    | 20 horas (13 sesiones)                           |
+| **Plataforma**  | Zoom                                             |
+
+---
+
+## 📚 Contenido del Curso
+
+El curso está organizado en **7 módulos** que cubren desde los conceptos básicos hasta la integración con herramientas externas y casos prácticos reales:
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### [Módulo 1: Introducción a QGIS y SIG](content/modulos/modulo1.qmd)
+Fundamentos de los SIG, ventajas de QGIS como plataforma open source, interfaz y tipos de datos espaciales.
+
+### [Módulo 2: Carga y manejo de datos](content/modulos/modulo2.qmd)
+Importación de múltiples formatos, conexión a bases de datos, sistemas de referencia de coordenadas.
+
+### [Módulo 3: Edición y geoprocesamiento básico](content/modulos/modulo3.qmd)
+Creación y edición de capas, herramientas de análisis vectorial y validación de geometrías.
+
+### [Módulo 4: Análisis espacial para rutas](content/modulos/modulo4.qmd)
+Análisis de redes, rutas óptimas, matrices origen-destino y análisis de cobertura.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### [Módulo 5: Automatización con Python y PyQGIS](content/modulos/modulo5.qmd)
+Consola Python en QGIS, manipulación de capas y atributos, scripts de automatización.
+
+### [Módulo 6: Visualización avanzada y mapas finales](content/modulos/modulo6.qmd)
+Simbología, etiquetado, mapas temáticos y diseño en el compositor de impresión.
+
+### [Módulo 7: Integración y casos prácticos](content/modulos/modulo7.qmd)
+APIs externas, proyecto aplicado, trazabilidad GPS y optimización de recorridos.
+:::
+
+:::
+
+---
+
+## 🎯 Objetivos de Aprendizaje
+
+Al finalizar el curso, los participantes serán capaces de:
+
+1. **Instalar y configurar** QGIS para proyectos geoespaciales
+2. **Cargar y gestionar** datos espaciales en múltiples formatos
+3. **Aplicar herramientas de geoprocesamiento** para análisis vectorial y ráster
+4. **Diseñar y optimizar rutas** usando análisis de redes
+5. **Automatizar flujos de trabajo** mediante scripts Python/PyQGIS
+6. **Producir cartografía temática** de calidad profesional
+7. **Integrar fuentes externas** como OpenStreetMap y aplicaciones móviles de campo
+
+---
+
+## 🔧 Requisitos Previos
+
+- Computadora con sistema operativo Windows, macOS o Linux
+- Acceso a internet estable para la modalidad virtual
+- Conocimientos básicos de computación (manejo de archivos, navegación web)
+- No se requiere experiencia previa en SIG o programación
+
+---
+
+## 📥 Software Necesario
+
+- **[QGIS](https://qgis.org/download/)** (versión LTR más reciente recomendada)
+- **Python 3.x** (incluido con QGIS)
+- Navegador web moderno (Chrome, Firefox, Edge)
+
+---
+
+## 🏛️ Institución
+
+::: {.callout-note appearance="minimal"}
+**Centro de Excelencia para la Educación en Tecnologías de la Información (CEETI)**
+Universidad Nacional Autónoma de Honduras (UNAH)
+
+El CEETI tiene como misión fortalecer las capacidades tecnológicas de la comunidad universitaria y profesional mediante programas de formación especializados en tecnologías de la información.
+:::
+
+---
+
+## ▶️ ¿Cómo usar este sitio?
+
+Utiliza el menú de navegación superior o lateral para acceder a cada módulo del curso. Cada módulo contiene:
+
+- **Objetivos** del tema
+- **Contenido teórico** con ejemplos
+- **Ejercicios prácticos** guiados
+- **Recursos y referencias** adicionales
+
+Los **[Laboratorios](content/labs/instrucciones_labs.qmd)** son tareas independientes asignadas después de cada módulo, diseñadas para que apliques lo aprendido de forma autónoma y puedan ser utilizadas como instrumento de evaluación.
+
+¡Comencemos! → [Ver el temario completo](content/sobre/syllabus.qmd)

@@ -1,0 +1,76 @@
+---
+title: "Laboratorio 3: Edición vectorial y geoprocesamiento"
+subtitle: "Módulo 3 – Edición y geoprocesamiento básico"
+---
+
+**Módulo relacionado:** [Módulo 3 – Edición y geoprocesamiento básico](../modulos/modulo3.qmd)
+
+::: {.callout-note}
+## Instrucciones generales
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados según las instrucciones del instructor.
+:::
+
+---
+
+## Tarea 1: Creación de una capa vectorial
+
+1. En QGIS, crea una nueva capa vectorial de **polígonos** (Capa → Crear capa → Nueva capa GeoPackage o Shapefile).
+2. Define al menos 2 campos de atributos (ej. `nombre` tipo texto, `area_km2` tipo decimal).
+3. Digitaliza **al menos 3 polígonos** que representen zonas de tu elección (barrios, áreas de interés, zonas de trabajo, etc.).
+4. Completa los atributos de cada polígono.
+
+**Entrega:** Archivo GeoPackage o Shapefile con los polígonos creados + captura de pantalla.
+
+---
+
+## Tarea 2: Herramientas de geoprocesamiento
+
+Utilizando capas existentes (las del Lab 2 u otras), aplica las siguientes herramientas de geoprocesamiento (Vectorial → Herramientas de geoprocesamiento):
+
+1. **Buffer**: Genera una zona de influencia de 500 metros alrededor de una capa de puntos o líneas.
+2. **Recorte (Clip)**: Recorta una capa con los límites de otra capa (ej. recorta una red vial con el polígono de un municipio).
+3. **Disolución (Dissolve)**: Une todos los polígonos de una capa en uno solo (o por categoría).
+
+Para cada herramienta:
+- Describe brevemente los parámetros utilizados.
+- Toma una captura de pantalla del resultado.
+
+**Entrega:** Capturas de pantalla de los 3 resultados + descripción breve.
+
+---
+
+## Tarea 3: Cálculo de geometría
+
+1. Con la capa de polígonos creada en la Tarea 1 (o cualquier capa poligonal), abre la **Calculadora de campos** (Tabla de Atributos → Lápiz → Abrir calculadora de campos).
+2. Crea un nuevo campo llamado `area_m2` que calcule el área de cada polígono en metros cuadrados usando `$area`.
+3. Crea otro campo llamado `perimetro_m` con el perímetro usando `$perimeter`.
+4. Verifica los resultados en la tabla de atributos.
+
+**Entrega:** Captura de pantalla de la tabla de atributos con los nuevos campos calculados.
+
+---
+
+## Tarea 4: Validación de geometrías
+
+1. Ejecuta la herramienta **Verificar validez** (Vectorial → Herramientas de geometría → Verificar validez) sobre una de tus capas.
+2. ¿Se encontraron errores? Si es así, ¿cuántos y de qué tipo?
+3. Si hay errores, intenta corregirlos con la herramienta **Corregir geometrías**.
+
+**Entrega:** Captura de pantalla del resultado de la verificación + respuesta a las preguntas.
+
+---
+
+::: {.callout-important}
+## Criterios de evaluación
+| Criterio                                          | Puntos |
+|:--------------------------------------------------|:------:|
+| Capa vectorial creada con atributos               | 25     |
+| 3 herramientas de geoprocesamiento aplicadas      | 35     |
+| Cálculo de área y perímetro                       | 25     |
+| Validación de geometrías documentada              | 15     |
+| **Total**                                         | **100** |
+:::
+
+---
+
+[← Lab 2](lab_02.qmd) | [Lab 4 →](lab_04.qmd)

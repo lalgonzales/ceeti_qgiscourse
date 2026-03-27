@@ -1,0 +1,276 @@
+---
+title: "Módulo 3: Edición y geoprocesamiento básico"
+---
+
+## Objetivos del Módulo
+
+Al finalizar este módulo, los participantes podrán:
+
+- Crear y editar capas vectoriales en QGIS.
+- Aplicar herramientas de geoprocesamiento: corte, unión, buffer y disolución.
+- Validar y corregir geometrías con errores.
+- Calcular distancias y áreas usando la calculadora de campos.
+
+---
+
+## 3.1 Creación y edición de capas vectoriales
+
+### Crear una nueva capa vectorial
+
+1. **Capa → Crear capa → Nueva capa GeoPackage** (recomendado) o **Nueva capa Shapefile**
+2. Define:
+   - Nombre del archivo y ubicación
+   - Tipo de geometría: Punto, Línea o Polígono
+   - CRS de la capa
+   - Campos de la tabla de atributos (nombre, tipo de dato)
+3. Haz clic en **Aceptar**
+
+### Herramientas de edición
+
+Para editar una capa, activa el **modo edición**:
+
+- Selecciona la capa en el panel de capas
+- Haz clic en el ícono del lápiz ✏️ (o `Ctrl+E`)
+
+**Herramientas principales de edición**:
+
+| Herramienta               | Función                                          |
+|:--------------------------|:-------------------------------------------------|
+| Añadir entidad            | Crear nuevos puntos, líneas o polígonos           |
+| Mover entidades           | Desplazar entidades existentes                    |
+| Editar nodos              | Modificar los vértices de geometrías             |
+| Dividir entidades         | Cortar una entidad en dos partes                 |
+| Combinar entidades        | Unir dos o más entidades en una sola             |
+| Eliminar entidades        | Borrar entidades seleccionadas                   |
+
+::: {.callout-tip}
+## Guardar cambios
+
+Recuerda guardar los cambios al finalizar la edición:
+- Capa → **Guardar cambios de la capa** (`Ctrl+S`)
+- O desactiva el modo edición (ícono del lápiz) y elige **Guardar**
+:::
+
+### Tabla de atributos
+
+Puedes editar atributos directamente en la tabla:
+
+1. Abre la tabla de atributos: `F6` o clic derecho → **Abrir tabla de atributos**
+2. Activa el modo edición (ícono del lápiz)
+3. Edita los valores directamente en las celdas
+
+---
+
+## 3.2 Herramientas de geoprocesamiento
+
+Las herramientas de geoprocesamiento están disponibles en:
+- **Vector → Herramientas de geoprocesamiento**
+- **Caja de herramientas de procesos** (`Ctrl+Alt+T`)
+
+### Buffer (Zona de influencia)
+
+Crea una zona de influencia alrededor de entidades:
+
+```
+Vector → Herramientas de geoprocesamiento → Zonas de influencia (Buffer)
+```
+
+**Parámetros**:
+- Capa de entrada
+- Distancia del buffer (en unidades del CRS)
+- Segmentos por cuarto de círculo (precisión)
+- ¿Disolver resultado? (unir buffers superpuestos)
+
+**Ejemplo de uso**: calcular un radio de 500 m alrededor de hospitales para identificar la población servida.
+
+### Corte (Clip)
+
+Recorta una capa usando los límites de otra:
+
+```
+Vector → Herramientas de geoprocesamiento → Cortar
+```
+
+**Ejemplo**: cortar la red de carreteras nacionales para obtener solo las carreteras dentro de un municipio específico.
+
+### Unión espacial (Intersección)
+
+Combina dos capas manteniendo solo las áreas comunes:
+
+```
+Vector → Herramientas de geoprocesamiento → Intersección
+```
+
+### Disolución
+
+Fusiona entidades que comparten el mismo valor en un campo:
+
+```
+Vector → Herramientas de geoprocesamiento → Disolver
+```
+
+**Ejemplo**: disolver municipios por departamento para crear una capa de departamentos.
+
+### Unión de capas (Union)
+
+Combina dos capas manteniendo todas las entidades de ambas:
+
+```
+Vector → Herramientas de geoprocesamiento → Unión
+```
+
+### Diferencia
+
+Elimina de una capa las áreas cubiertas por otra:
+
+```
+Vector → Herramientas de geoprocesamiento → Diferencia
+```
+
+---
+
+## 3.3 Limpieza y validación de geometrías
+
+Las geometrías inválidas pueden causar errores en los análisis. QGIS ofrece herramientas para detectarlas y corregirlas.
+
+### Verificar validez de geometrías
+
+```
+Vector → Herramientas de geometría → Verificar validez
+```
+
+Genera tres capas de salida:
+- **Válidas**: entidades sin problemas
+- **Inválidas**: entidades con errores
+- **Error**: puntos donde ocurren los errores
+
+### Tipos de errores comunes
+
+| Error                  | Descripción                                         |
+|:-----------------------|:----------------------------------------------------|
+| Autointersección       | Polígono cuyo contorno se cruza a sí mismo          |
+| Anillo duplicado       | Agujeros superpuestos en un polígono                |
+| Geometría nula         | Entidad sin geometría asociada                      |
+| Polígono no cerrado    | Polígono cuyo primer y último vértice no coinciden  |
+
+### Corregir geometrías automáticamente
+
+```
+Vector → Herramientas de geometría → Corregir geometrías
+```
+
+::: {.callout-warning}
+## Validar antes de analizar
+
+Siempre valida las geometrías de tus capas antes de ejecutar análisis de geoprocesamiento. Las geometrías inválidas pueden producir resultados incorrectos o errores de procesamiento.
+:::
+
+---
+
+## 3.4 Cálculo de distancias y áreas
+
+### Calculadora de campos
+
+La **Calculadora de campos** permite agregar o actualizar columnas usando expresiones matemáticas y espaciales:
+
+1. Abre la tabla de atributos (`F6`)
+2. Activa el modo edición
+3. Haz clic en el ícono de la **Calculadora de campos** o `Ctrl+I`
+
+### Expresiones de área
+
+Para calcular el área de polígonos (en m² si el CRS está en metros):
+
+```python
+# Área en metros cuadrados
+$area
+
+# Área en hectáreas
+$area / 10000
+
+# Área en kilómetros cuadrados
+$area / 1000000
+```
+
+::: {.callout-important}
+## Unidades de área
+
+Si el CRS está en grados (geográfico), `$area` devolverá valores incorrectos. Usa siempre un CRS proyectado en metros para cálculos de área y distancia.
+:::
+
+### Expresiones de longitud (para líneas)
+
+```python
+# Longitud en metros
+$length
+
+# Longitud en kilómetros
+$length / 1000
+```
+
+### Distancia entre puntos
+
+Para calcular la distancia entre entidades, usa:
+
+```
+Vector → Análisis → Matriz de distancias
+```
+
+O en la calculadora de campos con expresiones de geometría:
+
+```python
+# Distancia desde un punto al centroide de otra entidad
+distance(
+  $geometry,
+  geometry(get_feature('capa_destino', 'id', 1))
+)
+```
+
+### Uso del campo generado
+
+Para asignar el área a un campo nuevo:
+
+1. Abre la calculadora de campos
+2. Nombre del campo: `area_ha`
+3. Tipo: Número decimal
+4. Precisión: 2 decimales
+5. Expresión: `$area / 10000`
+6. Haz clic en **Aceptar**
+
+---
+
+## 🛠️ Ejercicios Prácticos
+
+### Ejercicio 3.1: Crear y editar capas
+
+1. Crea una nueva capa de puntos GeoPackage llamada `puntos_interes`.
+2. Agrega los siguientes campos: `nombre` (texto), `tipo` (texto), `descripcion` (texto).
+3. En modo edición, agrega al menos 5 puntos de interés en Tegucigalpa.
+4. Completa los atributos de cada punto.
+
+### Ejercicio 3.2: Geoprocesamiento básico
+
+1. Carga la capa de municipios de Honduras.
+2. Aplica un **buffer de 2 km** alrededor del municipio del Distrito Central.
+3. Usa **corte (clip)** para recortar la red de carreteras al límite del municipio.
+4. **Disuelve** los municipios por departamento.
+
+### Ejercicio 3.3: Calcular áreas y distancias
+
+1. Carga la capa de municipios y reproyéctala a UTM Zona 16N.
+2. Abre la calculadora de campos y agrega:
+   - `area_km2`: área en kilómetros cuadrados
+   - `perimetro_km`: perímetro en kilómetros
+3. Identifica el municipio más grande y el más pequeño.
+
+---
+
+## 📚 Recursos y Referencias
+
+- [QGIS — Edición de capas vectoriales](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html)
+- [QGIS — Herramientas de geoprocesamiento](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)
+- [Calculadora de campos — Referencia de expresiones](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/expression.html)
+
+---
+
+[← Módulo 2: Carga y manejo de datos](modulo2.qmd) | [Módulo 4: Análisis espacial para rutas →](modulo4.qmd)
