@@ -115,6 +115,5 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 | 14     | Martes    | Módulo 7 (cont.) + Proyecto final           | 1.5   |
 | **Total** |        |                                             | **21 h** |
 
-> **Nota**: La distribución es aproximada. El instructor podrá ajustar
-> el ritmo según el avance del grupo. La última sesión incluye la
+> **Nota**: La distribución es aproximada. La última sesión incluye la
 > presentación del proyecto final y la clausura del curso.

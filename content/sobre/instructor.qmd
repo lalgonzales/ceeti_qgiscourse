@@ -1,13 +1,13 @@
 ---
 title: "Instructor"
-subtitle: "Luis A. L. González"
+subtitle: "Luis Alfredo López Gonzales"
 toc: false
 ---
 
 ::: {.hero-banner}
-# Luis A. L. González {.hero-title}
+# Luis Alfredo López Gonzales {.hero-title}
 
-**Especialista en SIG & Desarrollo de Herramientas Geoespaciales**  
+**Especialista en SIG & Desarrollo de Herramientas Geoespaciales**
 *CEETI – Universidad Nacional Autónoma de Honduras*
 :::
 
@@ -15,7 +15,7 @@ toc: false
 
 ## 👤 Perfil Profesional
 
-Profesional con **más de una década de experiencia** en Sistemas de Información Geográfica (SIG), con enfoque en programación aplicada al análisis geoespacial. Su trabajo combina el dominio de plataformas SIG de escritorio con el desarrollo de herramientas en Python y R para la automatización de flujos de trabajo espaciales.
+Profesional con **más de una década de experiencia** en Sistemas de Información Geográfica (SIG), con enfoque en programación aplicada al análisis geoespacial. Su trabajo combina el dominio de plataformas SIG de escritorio con el desarrollo de herramientas en Python para la automatización de flujos de trabajo espaciales.
 
 ---
 
@@ -26,7 +26,7 @@ Profesional con **más de una década de experiencia** en Sistemas de Informaci�
 ::: {.g-col-12 .g-col-md-6}
 
 ### 🗺️ SIG & Análisis Geoespacial
-- QGIS (desktop y automatización)
+- QGIS
 - ArcGIS Pro
 - Google Earth Engine (GEE)
 - Análisis vectorial y ráster
@@ -53,7 +53,6 @@ Profesional con **más de una década de experiencia** en Sistemas de Informaci�
 ### 🔧 Proyectos Open Source
 - **[gishndev](https://github.com/lalgonzales/gishndev)** — paquete Python para procesamiento de datos SIG
 - **[geo-intro-py](https://github.com/lalgonzales/geo-intro-py)** — introducción a Python para SIG
-- **[ai-assistance-guides](https://github.com/lalgonzales/ai-assistance-guides)** — guías de asistencia con IA
 
 :::
 
@@ -64,7 +63,7 @@ Profesional con **más de una década de experiencia** en Sistemas de Informaci�
 ## 🏛️ Afiliación Institucional
 
 ::: {.callout-note appearance="minimal"}
-**Centro de Excelencia para la Educación en Tecnologías de la Información (CEETI)**  
+**Centro de Excelencia para la Educación en Tecnologías de la Información (CEETI)**
 Universidad Nacional Autónoma de Honduras (UNAH)
 
 Instructor del programa de formación en QGIS y Herramientas Python para el Análisis Geoespacial, orientado a profesionales y estudiantes de la comunidad universitaria y sector técnico.

@@ -8,7 +8,7 @@ toc: false
 ::: {.hero-banner}
 # Bienvenidos al Curso de QGIS {.hero-title}
 
-**Curso básico-intermedio de QGIS y Herramientas Python para el Análisis Geoespacial**  
+**Curso básico-intermedio de QGIS y Herramientas Python para el Análisis Geoespacial**
 *CEETI – Universidad Nacional Autónoma de Honduras*
 :::
 
@@ -111,7 +111,7 @@ Al finalizar el curso, los participantes serán capaces de:
 ## 🏛️ Institución
 
 ::: {.callout-note appearance="minimal"}
-**Centro de Excelencia para la Educación en Tecnologías de la Información (CEETI)**  
+**Centro de Excelencia para la Educación en Tecnologías de la Información (CEETI)**
 Universidad Nacional Autónoma de Honduras (UNAH)
 
 El CEETI tiene como misión fortalecer las capacidades tecnológicas de la comunidad universitaria y profesional mediante programas de formación especializados en tecnologías de la información.
