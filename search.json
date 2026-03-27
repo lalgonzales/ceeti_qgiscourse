@@ -1,0 +1,1457 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
+    "section": "",
+    "text": "Curso básico-intermedio de QGIS y Herramientas Python para el Análisis Geoespacial CEETI – Universidad Nacional Autónoma de Honduras",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#descripción-del-curso",
+    "href": "index.html#descripción-del-curso",
+    "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
+    "section": "1.1 📋 Descripción del Curso",
+    "text": "1.1 📋 Descripción del Curso\nEste curso está diseñado para introducir a los participantes en el uso de QGIS como plataforma de código abierto para el análisis y visualización de información geoespacial, complementado con el uso de Python y PyQGIS para la automatización de procesos.\nA lo largo de 20 horas distribuidas en 13 sesiones (lunes a jueves a partir del 6 de abril de 2026), los participantes adquirirán habilidades prácticas para:\n\nComprender los fundamentos de los Sistemas de Información Geográfica (SIG)\nManejar, editar y analizar datos espaciales\nRealizar análisis de redes y rutas óptimas\nAutomatizar tareas mediante scripts en Python\nCrear cartografía temática de calidad profesional\nIntegrar fuentes de datos externas y trabajar con casos reales",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#horario-y-modalidad",
+    "href": "index.html#horario-y-modalidad",
+    "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
+    "section": "1.2 🗓️ Horario y Modalidad",
+    "text": "1.2 🗓️ Horario y Modalidad\n\n\n\nDetalle\nInformación\n\n\n\n\nInicio\n6 de abril de 2026\n\n\nModalidad\nVirtual (sesiones 1–12) · Presencial (sesión 13)\n\n\nDías\nLunes a Jueves\n\n\nHorario\n6:00 PM – 7:30 PM (hora Honduras)\n\n\nDuración\n20 horas (13 sesiones)\n\n\nPlataforma\nZoom",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#contenido-del-curso",
+    "href": "index.html#contenido-del-curso",
+    "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
+    "section": "1.3 📚 Contenido del Curso",
+    "text": "1.3 📚 Contenido del Curso\nEl curso está organizado en 7 módulos que cubren desde los conceptos básicos hasta la integración con herramientas externas y casos prácticos reales:\n\n\n\n1.3.1 Módulo 1: Introducción a QGIS y SIG\nFundamentos de los SIG, ventajas de QGIS como plataforma open source, interfaz y tipos de datos espaciales.\n\n\n1.3.2 Módulo 2: Carga y manejo de datos\nImportación de múltiples formatos, conexión a bases de datos, sistemas de referencia de coordenadas.\n\n\n1.3.3 Módulo 3: Edición y geoprocesamiento básico\nCreación y edición de capas, herramientas de análisis vectorial y validación de geometrías.\n\n\n1.3.4 Módulo 4: Análisis espacial para rutas\nAnálisis de redes, rutas óptimas, matrices origen-destino y análisis de cobertura.\n\n\n\n\n1.3.5 Módulo 5: Automatización con Python y PyQGIS\nConsola Python en QGIS, manipulación de capas y atributos, scripts de automatización.\n\n\n1.3.6 Módulo 6: Visualización avanzada y mapas finales\nSimbología, etiquetado, mapas temáticos y diseño en el compositor de impresión.\n\n\n1.3.7 Módulo 7: Integración y casos prácticos\nAPIs externas, proyecto aplicado, trazabilidad GPS y optimización de recorridos.",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#objetivos-de-aprendizaje",
+    "href": "index.html#objetivos-de-aprendizaje",
+    "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
+    "section": "1.4 🎯 Objetivos de Aprendizaje",
+    "text": "1.4 🎯 Objetivos de Aprendizaje\nAl finalizar el curso, los participantes serán capaces de:\n\nInstalar y configurar QGIS para proyectos geoespaciales\nCargar y gestionar datos espaciales en múltiples formatos\nAplicar herramientas de geoprocesamiento para análisis vectorial y ráster\nDiseñar y optimizar rutas usando análisis de redes\nAutomatizar flujos de trabajo mediante scripts Python/PyQGIS\nProducir cartografía temática de calidad profesional\nIntegrar fuentes externas como OpenStreetMap y aplicaciones móviles de campo",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#requisitos-previos",
+    "href": "index.html#requisitos-previos",
+    "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
+    "section": "1.5 🔧 Requisitos Previos",
+    "text": "1.5 🔧 Requisitos Previos\n\nComputadora con sistema operativo Windows, macOS o Linux\nAcceso a internet estable para la modalidad virtual\nConocimientos básicos de computación (manejo de archivos, navegación web)\nNo se requiere experiencia previa en SIG o programación",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#software-necesario",
+    "href": "index.html#software-necesario",
+    "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
+    "section": "1.6 📥 Software Necesario",
+    "text": "1.6 📥 Software Necesario\n\nQGIS (versión LTR más reciente recomendada)\nPython 3.x (incluido con QGIS)\nNavegador web moderno (Chrome, Firefox, Edge)",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#institución",
+    "href": "index.html#institución",
+    "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
+    "section": "1.7 🏛️ Institución",
+    "text": "1.7 🏛️ Institución\n\n\n\n\n\n\nCentro de Excelencia para la Educación en Tecnologías de la Información (CEETI) Universidad Nacional Autónoma de Honduras (UNAH)\nEl CEETI tiene como misión fortalecer las capacidades tecnológicas de la comunidad universitaria y profesional mediante programas de formación especializados en tecnologías de la información.",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#cómo-usar-este-sitio",
+    "href": "index.html#cómo-usar-este-sitio",
+    "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
+    "section": "1.8 ▶️ ¿Cómo usar este sitio?",
+    "text": "1.8 ▶️ ¿Cómo usar este sitio?\nUtiliza el menú de navegación superior o lateral para acceder a cada módulo del curso. Cada módulo contiene:\n\nObjetivos del tema\nContenido teórico con ejemplos\nEjercicios prácticos guiados\nRecursos y referencias adicionales\n\nLos Laboratorios son tareas independientes asignadas después de cada módulo, diseñadas para que apliques lo aprendido de forma autónoma y puedan ser utilizadas como instrumento de evaluación.\n¡Comencemos! → Ver el temario completo",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "content/sobre/instructor.html",
+    "href": "content/sobre/instructor.html",
+    "title": "Instructor",
+    "section": "",
+    "text": "Especialista en SIG & Desarrollo de Herramientas Geoespaciales CEETI – Universidad Nacional Autónoma de Honduras",
+    "crumbs": [
+      "Inicio",
+      "Instructor"
+    ]
+  },
+  {
+    "objectID": "content/sobre/instructor.html#perfil-profesional",
+    "href": "content/sobre/instructor.html#perfil-profesional",
+    "title": "Instructor",
+    "section": "1.1 👤 Perfil Profesional",
+    "text": "1.1 👤 Perfil Profesional\nProfesional con más de una década de experiencia en Sistemas de Información Geográfica (SIG), con enfoque en programación aplicada al análisis geoespacial. Su trabajo combina el dominio de plataformas SIG de escritorio con el desarrollo de herramientas en Python para la automatización de flujos de trabajo espaciales.",
+    "crumbs": [
+      "Inicio",
+      "Instructor"
+    ]
+  },
+  {
+    "objectID": "content/sobre/instructor.html#áreas-de-expertise",
+    "href": "content/sobre/instructor.html#áreas-de-expertise",
+    "title": "Instructor",
+    "section": "1.2 🎓 Áreas de Expertise",
+    "text": "1.2 🎓 Áreas de Expertise\n\n\n\n1.2.1 🗺️ SIG & Análisis Geoespacial\n\nQGIS\nArcGIS Pro\nGoogle Earth Engine (GEE)\nAnálisis vectorial y ráster\nBases de datos espaciales con PostgreSQL + PostGIS\n\n\n\n1.2.2 🐍 Programación\n\nPython — principal lenguaje de trabajo\nR — análisis estadístico y espacial\nSQL — consultas y gestión de datos espaciales\nPyQGIS para automatización de flujos QGIS\n\n\n\n\n\n1.2.3 📦 Herramientas & Librerías\n\n\n\nCategoría\nHerramientas\n\n\n\n\nDatos ráster\nrasterio, GDAL, geemap\n\n\nDatos vectoriales\ngeopandas\n\n\nEarth Engine\ngeemap, API de GEE\n\n\nDesarrollo\nGit, GitHub, Python packaging\n\n\n\n\n\n1.2.4 🔧 Proyectos Open Source\n\ngishndev — paquete Python para procesamiento de datos SIG\ngeo-intro-py — introducción a Python para SIG",
+    "crumbs": [
+      "Inicio",
+      "Instructor"
+    ]
+  },
+  {
+    "objectID": "content/sobre/instructor.html#afiliación-institucional",
+    "href": "content/sobre/instructor.html#afiliación-institucional",
+    "title": "Instructor",
+    "section": "1.3 🏛️ Afiliación Institucional",
+    "text": "1.3 🏛️ Afiliación Institucional\n\n\n\n\n\n\nCentro de Excelencia para la Educación en Tecnologías de la Información (CEETI) Universidad Nacional Autónoma de Honduras (UNAH)\nInstructor del programa de formación en QGIS y Herramientas Python para el Análisis Geoespacial, orientado a profesionales y estudiantes de la comunidad universitaria y sector técnico.",
+    "crumbs": [
+      "Inicio",
+      "Instructor"
+    ]
+  },
+  {
+    "objectID": "content/sobre/instructor.html#contacto-y-redes",
+    "href": "content/sobre/instructor.html#contacto-y-redes",
+    "title": "Instructor",
+    "section": "1.4 📫 Contacto y Redes",
+    "text": "1.4 📫 Contacto y Redes\n\n\n\nCanal\nEnlace\n\n\n\n\n🐙 GitHub\ngithub.com/lalgonzales\n\n\n💼 LinkedIn\nlinkedin.com/in/lalgonzales\n\n\n🌐 Sitio personal\nlalgonzales.github.io",
+    "crumbs": [
+      "Inicio",
+      "Instructor"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo1.html",
+    "href": "content/modulos/modulo1.html",
+    "title": "Módulo 1: Introducción a QGIS y SIG",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nExplicar qué es un Sistema de Información Geográfica (SIG) y sus aplicaciones prácticas.\nIdentificar las ventajas de QGIS frente a otras plataformas SIG.\nNavegar con fluidez por la interfaz de QGIS.\nDistinguir entre datos vectoriales y ráster.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "1. Introducción a QGIS y SIG"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo1.html#objetivos-del-módulo",
+    "href": "content/modulos/modulo1.html#objetivos-del-módulo",
+    "title": "Módulo 1: Introducción a QGIS y SIG",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nExplicar qué es un Sistema de Información Geográfica (SIG) y sus aplicaciones prácticas.\nIdentificar las ventajas de QGIS frente a otras plataformas SIG.\nNavegar con fluidez por la interfaz de QGIS.\nDistinguir entre datos vectoriales y ráster.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "1. Introducción a QGIS y SIG"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo1.html#qué-es-un-sig-y-para-qué-sirve",
+    "href": "content/modulos/modulo1.html#qué-es-un-sig-y-para-qué-sirve",
+    "title": "Módulo 1: Introducción a QGIS y SIG",
+    "section": "2 1.1 ¿Qué es un SIG y para qué sirve?",
+    "text": "2 1.1 ¿Qué es un SIG y para qué sirve?\nUn Sistema de Información Geográfica (SIG) es un sistema informático diseñado para capturar, almacenar, manipular, analizar, gestionar y presentar datos espaciales o geográficos.\n\n2.1 Componentes de un SIG\n\n\n\n\n\n\n\nComponente\nDescripción\n\n\n\n\nHardware\nComputadoras, GPS, scanners, impresoras\n\n\nSoftware\nQGIS, ArcGIS, PostGIS, entre otros\n\n\nDatos\nCapas vectoriales, imágenes ráster, tablas de atributos\n\n\nMétodos\nModelos y procedimientos de análisis espacial\n\n\nPersonas\nUsuarios, analistas y tomadores de decisiones\n\n\n\n\n\n2.2 Aplicaciones prácticas\nLos SIG se utilizan en una amplia variedad de campos:\n\n🏙️ Planificación urbana: diseño de infraestructuras y servicios\n🌿 Medio ambiente: monitoreo de recursos naturales y cambio climático\n🚛 Logística y transporte: optimización de rutas y flotas\n🏥 Salud pública: análisis epidemiológico y cobertura de servicios\n🌾 Agricultura: gestión de cultivos y análisis de suelos\n🔒 Seguridad: análisis de incidentes y cobertura policial",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "1. Introducción a QGIS y SIG"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo1.html#ventajas-de-qgis-como-plataforma-de-código-abierto",
+    "href": "content/modulos/modulo1.html#ventajas-de-qgis-como-plataforma-de-código-abierto",
+    "title": "Módulo 1: Introducción a QGIS y SIG",
+    "section": "3 1.2 Ventajas de QGIS como plataforma de código abierto",
+    "text": "3 1.2 Ventajas de QGIS como plataforma de código abierto\nQGIS (anteriormente Quantum GIS) es la plataforma SIG de escritorio de código abierto más utilizada en el mundo.\n\n\n\n\n\n\nTip¿Por qué elegir QGIS?\n\n\n\n\nGratuito y de código abierto: sin costos de licencia\nMultiplataforma: disponible para Windows, macOS, Linux y Android\nComunidad activa: miles de contribuidores y usuarios en todo el mundo\nExtensible: más de 1,000 plugins disponibles\nEstándares abiertos: compatibilidad con formatos OGC (WMS, WFS, WCS)\nIntegración con Python: automatización mediante PyQGIS\n\n\n\n\n3.1 Comparativa con otras plataformas\n\n\n\nCaracterística\nQGIS\nArcGIS\nMapInfo\n\n\n\n\nCosto\nGratuito\nDe pago\nDe pago\n\n\nCódigo abierto\n✅\n❌\n❌\n\n\nPlataformas\nWin/Mac/Linux\nWindows\nWindows\n\n\nExtensibilidad\nAlta\nAlta\nMedia\n\n\nComunidad\nMuy activa\nActiva\nLimitada\n\n\nIntegración Python\nNativa\nNativa\nLimitada",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "1. Introducción a QGIS y SIG"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo1.html#interfaz-de-qgis-paneles-capas-consola-herramientas",
+    "href": "content/modulos/modulo1.html#interfaz-de-qgis-paneles-capas-consola-herramientas",
+    "title": "Módulo 1: Introducción a QGIS y SIG",
+    "section": "4 1.3 Interfaz de QGIS: paneles, capas, consola, herramientas",
+    "text": "4 1.3 Interfaz de QGIS: paneles, capas, consola, herramientas\n\n4.1 Pantalla principal de QGIS\nLa interfaz de QGIS está compuesta por los siguientes elementos principales:\n┌─────────────────────────────────────────────────────────────┐\n│  Barra de Menús                                              │\n│  Barra de Herramientas                                       │\n├──────────────┬──────────────────────────┬───────────────────┤\n│              │                          │                   │\n│  Panel de    │    Vista del Mapa        │  Panel de         │\n│  Capas       │    (Canvas Principal)    │  Explorador       │\n│  (Layers)    │                          │  de Archivos      │\n│              │                          │                   │\n├──────────────┴──────────────────────────┴───────────────────┤\n│  Barra de Estado / Coordenadas / Escala / CRS               │\n└─────────────────────────────────────────────────────────────┘\n\n\n4.2 Paneles principales\n\nPanel de Capas (Layers Panel): gestión y orden de las capas del proyecto\nVista del Mapa (Map Canvas): área de visualización geoespacial\nPanel del Explorador: navegación de archivos y fuentes de datos\nTabla de Atributos: tabla con los datos alfanuméricos de una capa\nConsola de Python: entorno interactivo para scripts\n\n\n\n4.3 Herramientas esenciales\n\nHerramientas de navegación: zoom, desplazamiento, extensión completa\nHerramientas de selección: seleccionar entidades por área o atributo\nHerramientas de identificación: consultar atributos de entidades\nHerramientas de medición: medir distancias y áreas\n\n\n\n\n\n\n\nNotaAcceso rápido a herramientas\n\n\n\nPuedes activar o desactivar paneles desde el menú Ver → Paneles y las barras de herramientas desde Ver → Barras de herramientas.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "1. Introducción a QGIS y SIG"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo1.html#tipos-de-datos-espaciales-vectoriales-vs-ráster",
+    "href": "content/modulos/modulo1.html#tipos-de-datos-espaciales-vectoriales-vs-ráster",
+    "title": "Módulo 1: Introducción a QGIS y SIG",
+    "section": "5 1.4 Tipos de datos espaciales: vectoriales vs ráster",
+    "text": "5 1.4 Tipos de datos espaciales: vectoriales vs ráster\n\n5.1 Datos vectoriales\nLos datos vectoriales representan objetos geográficos mediante geometrías definidas matemáticamente:\n\n\n\n\n\n\n\n\nTipo\nDescripción\nEjemplos\n\n\n\n\nPunto\nCoordenada X, Y en el espacio\nCiudades, pozos, estaciones\n\n\nLínea\nSecuencia de puntos conectados\nRíos, carreteras, tuberías\n\n\nPolígono\nÁrea cerrada definida por vértices\nParcelas, municipios, edificios\n\n\n\nFormatos comunes: Shapefile (.shp), GeoJSON (.geojson), GeoPackage (.gpkg), KML (.kml)\n\n\n5.2 Datos ráster\nLos datos ráster representan el espacio como una cuadrícula regular de celdas (píxeles), donde cada celda tiene un valor numérico:\n\nImágenes satelitales: Sentinel, Landsat, Google Earth\nModelos de elevación digital (DEM): SRTM, ASTER, LIDAR\nMapas de precipitación, temperatura, uso del suelo\n\nFormatos comunes: GeoTIFF (.tif), NetCDF (.nc), ASCII Grid (.asc)\n\n\n5.3 ¿Cuándo usar cada tipo?\n\n\n\n\n\n\n\n\nCriterio\nVectorial\nRáster\n\n\n\n\nObjetos discretos\n✅ Ideal\n❌ Menos preciso\n\n\nFenómenos continuos\n❌ Complejo\n✅ Ideal\n\n\nEdición de geometrías\n✅ Fácil\n❌ Difícil\n\n\nAnálisis de superficie\n❌ Limitado\n✅ Amplio\n\n\nTamaño de archivo\nMenor (generalmente)\nMayor (depende de resolución)",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "1. Introducción a QGIS y SIG"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo1.html#ejercicio-práctico",
+    "href": "content/modulos/modulo1.html#ejercicio-práctico",
+    "title": "Módulo 1: Introducción a QGIS y SIG",
+    "section": "6 🛠️ Ejercicio Práctico",
+    "text": "6 🛠️ Ejercicio Práctico\n\n6.1 Ejercicio 1.1: Exploración de la interfaz de QGIS\n\nAbre QGIS en tu computadora.\nFamiliarízate con los paneles y herramientas principales.\nActiva el panel del Explorador (Ver → Paneles → Explorador).\nAccede a las capas de muestra incluidas con QGIS:\n\nVe a: C:/Users/[usuario]/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/ (Windows)\n\nCarga una capa de ejemplo y practica el zoom y la navegación.\n\n\n\n6.2 Ejercicio 1.2: Identificar tipos de datos\n\nDescarga el dataset de ejemplo desde la página de QGIS.\nCarga capas de los tres tipos (punto, línea, polígono).\nExamina la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).\nIdentifica el sistema de referencia de coordenadas (CRS) de cada capa.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "1. Introducción a QGIS y SIG"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo1.html#recursos-y-referencias",
+    "href": "content/modulos/modulo1.html#recursos-y-referencias",
+    "title": "Módulo 1: Introducción a QGIS y SIG",
+    "section": "7 📚 Recursos y Referencias",
+    "text": "7 📚 Recursos y Referencias\n\nDocumentación oficial de QGIS en español\nQGIS Training Manual\nPágina de descarga de QGIS\nForo de usuarios de QGIS\nCanal de YouTube de QGIS\n\n\n\n\n\n\n\n\nImportantePara la próxima sesión\n\n\n\nAsegúrate de tener QGIS instalado y funcionando correctamente antes de la sesión 2. Si tienes problemas con la instalación, consulta la guía de instalación oficial.\n\n\n\n← Volver al temario | Módulo 2: Carga y manejo de datos →",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "1. Introducción a QGIS y SIG"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo4.html",
+    "href": "content/modulos/modulo4.html",
+    "title": "Módulo 4: Análisis espacial para rutas",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nUtilizar plugins de análisis de redes en QGIS (QNEAT3, Road Graph).\nCalcular rutas óptimas (más cortas o más rápidas) entre puntos.\nConstruir matrices de origen-destino.\nRealizar análisis de cobertura y zonificación de servicios.\nAnalizar puntos de interés en el contexto de rutas y servicios.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "4. Análisis espacial para rutas"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo4.html#objetivos-del-módulo",
+    "href": "content/modulos/modulo4.html#objetivos-del-módulo",
+    "title": "Módulo 4: Análisis espacial para rutas",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nUtilizar plugins de análisis de redes en QGIS (QNEAT3, Road Graph).\nCalcular rutas óptimas (más cortas o más rápidas) entre puntos.\nConstruir matrices de origen-destino.\nRealizar análisis de cobertura y zonificación de servicios.\nAnalizar puntos de interés en el contexto de rutas y servicios.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "4. Análisis espacial para rutas"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo4.html#análisis-de-redes-con-qneat3-y-road-graph",
+    "href": "content/modulos/modulo4.html#análisis-de-redes-con-qneat3-y-road-graph",
+    "title": "Módulo 4: Análisis espacial para rutas",
+    "section": "2 4.1 Análisis de redes con QNEAT3 y Road Graph",
+    "text": "2 4.1 Análisis de redes con QNEAT3 y Road Graph\n\n2.1 ¿Qué es un análisis de redes?\nEl análisis de redes permite modelar y resolver problemas de conectividad sobre una red de elementos lineales (calles, carreteras, tuberías), como:\n\nEncontrar la ruta más corta entre dos puntos\nCalcular tiempos de viaje\nDeterminar áreas de cobertura (isócronas)\nOptimizar rutas para múltiples destinos\n\n\n\n2.2 Plugin QNEAT3\nQNEAT3 (QGIS Network Analysis Toolbox 3) es el plugin más completo para análisis de redes en QGIS.\nInstalación: 1. Complementos → Administrar e instalar complementos 2. Busca QNEAT3 3. Haz clic en Instalar complemento\nFuncionalidades principales de QNEAT3:\n\n\n\n\n\n\n\nHerramienta\nDescripción\n\n\n\n\nShortest Path (Point to Point)\nRuta más corta entre dos puntos\n\n\nIso-Area as Polygons\nÁreas de cobertura (isócronas) desde un punto\n\n\nIso-Area as Contour Lines\nLíneas de isócrona a distintas distancias/tiempos\n\n\nOD Matrix (Layers)\nMatriz de origen-destino entre capas de puntos\n\n\nOD Matrix (from Layers)\nMatriz con múltiples orígenes y destinos\n\n\n\n\n\n2.3 Plugin Road Graph (clásico)\nEl plugin Road Graph está incluido en QGIS sin necesidad de instalación adicional:\nComplementos → Road Graph → Complemento Road Graph\n\nPermite calcular rutas entre dos puntos sobre una red de líneas\nSoporta velocidades por tipo de vía\nMuestra el resultado como capa temporal",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "4. Análisis espacial para rutas"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo4.html#cálculo-de-rutas-óptimas",
+    "href": "content/modulos/modulo4.html#cálculo-de-rutas-óptimas",
+    "title": "Módulo 4: Análisis espacial para rutas",
+    "section": "3 4.2 Cálculo de rutas óptimas",
+    "text": "3 4.2 Cálculo de rutas óptimas\n\n3.1 Preparación de la red vial\nAntes de calcular rutas, la red vial debe estar correctamente preparada:\n\nTopología correcta: las líneas deben conectarse en sus extremos (nodos)\nSin duplicados: eliminar geometrías duplicadas\nCRS proyectado: usar UTM u otro CRS en metros\n\nVerificar y reparar topología con GRASS:\nProcesamiento → Caja de herramientas → GRASS → v.clean\n\n\n3.2 Ruta más corta con QNEAT3\n\nInstala y activa QNEAT3\nVe a: Procesamiento → Caja de herramientas → QNEAT3 → Shortest Path (Point to Point)\nParámetros:\n\nNetwork Layer: capa de red vial (líneas)\nStart Point: punto de origen\nEnd Point: punto de destino\nOptimization Criterion: distancia o tiempo\nEntry cost strategy: distancia del tramo / tiempo estimado\n\n\n\n\n3.3 Configurar velocidades por tipo de vía\nPara calcular tiempos de viaje realistas, asigna velocidades según el tipo de vía:\n\n\n\nTipo de vía\nVelocidad promedio (km/h)\n\n\n\n\nAutopista\n100\n\n\nCarretera primaria\n80\n\n\nCarretera secundaria\n60\n\n\nVía urbana\n40\n\n\nCalle local\n25\n\n\nCamino de tierra\n20\n\n\n\n\n\n\n\n\n\nTipCalcular tiempo desde velocidad\n\n\n\nSi tienes un campo de velocidad en tu capa de red, puedes calcular el tiempo de recorrido:\n# Tiempo en minutos = (longitud en metros / 1000) / velocidad_kmh * 60\n($length / 1000) / \"velocidad_kmh\" * 60",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "4. Análisis espacial para rutas"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo4.html#matrices-de-origen-destino",
+    "href": "content/modulos/modulo4.html#matrices-de-origen-destino",
+    "title": "Módulo 4: Análisis espacial para rutas",
+    "section": "4 4.3 Matrices de origen-destino",
+    "text": "4 4.3 Matrices de origen-destino\nUna matriz de origen-destino (OD) calcula las distancias o tiempos de viaje entre todos los pares de puntos en dos conjuntos (orígenes y destinos).\n\n4.1 Casos de uso\n\nCalcular el tiempo de acceso desde cada comunidad al hospital más cercano\nEvaluar la cobertura de una flota de vehículos de emergencia\nOptimizar la distribución de productos desde bodegas a clientes\n\n\n\n4.2 Generar matriz OD con QNEAT3\n\nProcesamiento → Caja de herramientas → QNEAT3 → OD Matrix (Layers as OD Pairs)\nParámetros:\n\nNetwork Layer: red vial\nOrigin Points: capa con puntos de origen (ej. comunidades)\nDestination Points: capa con puntos de destino (ej. hospitales)\nOptimization Criterion: distancia o tiempo\n\nEl resultado es una tabla con distancia/tiempo de cada par O-D\n\n\n\n4.3 Análisis de los resultados\nLa tabla OD puede exportarse a Excel para análisis adicional:\nClic derecho en la capa resultado → Exportar → Guardar entidades como...\n→ Formato: CSV o XLSX",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "4. Análisis espacial para rutas"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo4.html#zonificación-y-análisis-de-cobertura-de-rutas",
+    "href": "content/modulos/modulo4.html#zonificación-y-análisis-de-cobertura-de-rutas",
+    "title": "Módulo 4: Análisis espacial para rutas",
+    "section": "5 4.4 Zonificación y análisis de cobertura de rutas",
+    "text": "5 4.4 Zonificación y análisis de cobertura de rutas\n\n5.1 Isócronas (áreas de cobertura temporal)\nLas isócronas son polígonos que representan el área alcanzable desde un punto en un tiempo determinado.\nGenerar isócronas con QNEAT3:\n\nProcesamiento → Caja de herramientas → QNEAT3 → Iso-Area as Polygons\nParámetros:\n\nNetwork Layer: red vial\nStart Point: punto de origen (ej. hospital, bodega)\nSize of Iso-Area: tamaño del intervalo (ej. 1000 metros o 5 minutos)\nMaximum cost: límite máximo (ej. 10000 metros o 30 minutos)\n\nEl resultado son polígonos que muestran las áreas accesibles\n\n\n\n5.2 Visualización de cobertura\nUna vez generadas las isócronas:\n\nAplica simbología por colores graduados según el tiempo/distancia\nSuperpone la capa de población o comunidades\nIdentifica las zonas sin cobertura adecuada",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "4. Análisis espacial para rutas"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo4.html#análisis-de-puntos-de-interés",
+    "href": "content/modulos/modulo4.html#análisis-de-puntos-de-interés",
+    "title": "Módulo 4: Análisis espacial para rutas",
+    "section": "6 4.5 Análisis de puntos de interés",
+    "text": "6 4.5 Análisis de puntos de interés\n\n6.1 Unión espacial (Spatial Join)\nCombina atributos de dos capas basándose en su relación espacial:\nVector → Herramientas de gestión de datos → Unión de atributos por localización\nEjemplo: contar cuántos clientes hay dentro del radio de cobertura de cada tienda.\n\n\n6.2 Análisis de densidad de puntos\nRáster → Análisis → Mapa de calor (KDE)\nGenera un ráster que muestra la concentración espacial de puntos (ej. accidentes de tráfico, clientes).\n\n\n6.3 Identificar el punto más cercano\nVector → Análisis → Distancia al punto más cercano\nEjemplo: para cada comunidad, identificar el hospital más cercano y la distancia a él.\n\n\n6.4 Análisis con NetworkX (Python)\nPara análisis avanzados de redes, puedes usar la biblioteca NetworkX desde la consola de Python en QGIS:\nimport networkx as nx\n\n# Crear un grafo simple\nG = nx.Graph()\nG.add_edge('A', 'B', weight=10)\nG.add_edge('B', 'C', weight=5)\nG.add_edge('A', 'C', weight=20)\n\n# Ruta más corta\nruta = nx.shortest_path(G, source='A', target='C', weight='weight')\nprint(f\"Ruta más corta: {ruta}\")\n\ndistancia = nx.shortest_path_length(G, source='A', target='C', weight='weight')\nprint(f\"Distancia: {distancia}\")",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "4. Análisis espacial para rutas"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo4.html#ejercicios-prácticos",
+    "href": "content/modulos/modulo4.html#ejercicios-prácticos",
+    "title": "Módulo 4: Análisis espacial para rutas",
+    "section": "7 🛠️ Ejercicios Prácticos",
+    "text": "7 🛠️ Ejercicios Prácticos\n\n7.1 Ejercicio 4.1: Preparación de red vial\n\nDescarga la red vial de Tegucigalpa desde QuickOSM (highways).\nVerifica la topología con la herramienta Verificar validez.\nReproyecta a UTM Zona 16N para trabajar en metros.\nAgrega un campo velocidad_kmh con valores según el tipo de vía.\n\n\n\n7.2 Ejercicio 4.2: Rutas óptimas\n\nInstala el plugin QNEAT3.\nDefine dos puntos (origen y destino) en Tegucigalpa.\nCalcula la ruta más corta por distancia.\nCalcula la ruta más rápida por tiempo.\nCompara los resultados.\n\n\n\n7.3 Ejercicio 4.3: Isócronas y cobertura\n\nSelecciona un hospital en Tegucigalpa.\nGenera isócronas de 5, 10, 15 y 30 minutos.\nCarga datos de comunidades o barrios.\nDetermina qué porcentaje de la población está a menos de 15 minutos del hospital.\n\n\n\n7.4 Ejercicio 4.4: Matriz origen-destino\n\nCrea una capa de 5 puntos origen (ej. barrios) y 3 destinos (ej. hospitales).\nGenera la matriz OD con QNEAT3.\nExporta los resultados a CSV.\nIdentifica el hospital más accesible para cada barrio.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "4. Análisis espacial para rutas"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo4.html#recursos-y-referencias",
+    "href": "content/modulos/modulo4.html#recursos-y-referencias",
+    "title": "Módulo 4: Análisis espacial para rutas",
+    "section": "8 📚 Recursos y Referencias",
+    "text": "8 📚 Recursos y Referencias\n\nQNEAT3 — Documentación oficial\nQGIS Network Analysis — Tutorial\nOpenRouteService — Análisis de rutas online\nOpenStreetMap — Datos de transporte\nOverpass Turbo — Consulta de datos OSM\n\n\n← Módulo 3: Edición y geoprocesamiento | Módulo 5: Automatización con Python →",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "4. Análisis espacial para rutas"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo2.html",
+    "href": "content/modulos/modulo2.html",
+    "title": "Módulo 2: Carga y manejo de datos",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nImportar datos geoespaciales en múltiples formatos (Shapefile, GeoJSON, KML, CSV).\nConectar QGIS a bases de datos como PostGIS y SQLite/SpatiaLite.\nComprender y gestionar los sistemas de referencia de coordenadas (CRS).\nVisualizar rutas y redes de transporte en QGIS.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "2. Carga y manejo de datos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo2.html#objetivos-del-módulo",
+    "href": "content/modulos/modulo2.html#objetivos-del-módulo",
+    "title": "Módulo 2: Carga y manejo de datos",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nImportar datos geoespaciales en múltiples formatos (Shapefile, GeoJSON, KML, CSV).\nConectar QGIS a bases de datos como PostGIS y SQLite/SpatiaLite.\nComprender y gestionar los sistemas de referencia de coordenadas (CRS).\nVisualizar rutas y redes de transporte en QGIS.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "2. Carga y manejo de datos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo2.html#importación-de-archivos-espaciales",
+    "href": "content/modulos/modulo2.html#importación-de-archivos-espaciales",
+    "title": "Módulo 2: Carga y manejo de datos",
+    "section": "2 2.1 Importación de archivos espaciales",
+    "text": "2 2.1 Importación de archivos espaciales\nQGIS soporta una gran variedad de formatos de datos geoespaciales. A continuación, se describen los más comunes y cómo cargarlos.\n\n2.1 Formatos vectoriales principales\n\n\n\n\n\n\n\n\nFormato\nExtensión\nDescripción\n\n\n\n\nShapefile\n.shp\nFormato estándar de ESRI, muy difundido\n\n\nGeoJSON\n.geojson\nFormato basado en JSON, ideal para web\n\n\nGeoPackage\n.gpkg\nFormato moderno recomendado por OGC\n\n\nKML/KMZ\n.kml, .kmz\nFormato de Google Earth/Maps\n\n\nCSV\n.csv\nTablas con columnas de coordenadas\n\n\nGPX\n.gpx\nFormato GPS Exchange (tracks, waypoints)\n\n\n\n\n\n2.2 Carga de archivos en QGIS\n\n\n\n\n\n\nTipMétodos para cargar datos\n\n\n\nMétodo 1 — Arrastrar y soltar: Arrastra el archivo desde el explorador de Windows/Mac directamente al canvas de QGIS.\nMétodo 2 — Menú Capa: - Capa → Agregar capa → Agregar capa vectorial (Ctrl+Shift+V) - Capa → Agregar capa → Agregar capa ráster (Ctrl+Shift+R)\nMétodo 3 — Panel del Explorador: Navega hasta el archivo en el panel Explorador y haz doble clic.\nMétodo 4 — Drag & drop desde el explorador del sistema operativo.\n\n\n\n\n2.3 Carga de CSV con coordenadas\nPara cargar un archivo CSV con columnas de latitud y longitud:\n\nCapa → Agregar capa → Agregar capa de texto delimitado (Ctrl+Shift+T)\nSelecciona el archivo CSV\nEn Geometría, elige:\n\nTipo de geometría: Punto\nCampo X (longitud): columna con valores X\nCampo Y (latitud): columna con valores Y\n\nEspecifica el CRS del archivo\nHaz clic en Añadir\n\nEjemplo de CSV válido:\nnombre,longitud,latitud\nHospital Central,-87.2068,14.0818\nMercado Los Dolores,-87.2041,14.0829\nParque Central,-87.2069,14.0839",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "2. Carga y manejo de datos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo2.html#conexión-a-bases-de-datos",
+    "href": "content/modulos/modulo2.html#conexión-a-bases-de-datos",
+    "title": "Módulo 2: Carga y manejo de datos",
+    "section": "3 2.2 Conexión a bases de datos",
+    "text": "3 2.2 Conexión a bases de datos\n\n3.1 PostGIS (PostgreSQL + extensión espacial)\nPostGIS es la extensión espacial para PostgreSQL más utilizada en entornos profesionales.\nPasos para conectar QGIS a PostGIS:\n\nAbre el Administrador de fuentes de datos (Ctrl+L)\nSelecciona la pestaña PostgreSQL\nHaz clic en Nuevo y completa:\n\nNombre de conexión: Mi_BaseDatos_PostGIS\nHost: localhost (o IP del servidor)\nPuerto: 5432\nBase de datos: nombre de tu BD\nUsuario y contraseña\n\nHaz clic en Probar conexión → Aceptar\n\n\n\n3.2 SQLite / SpatiaLite\nSpatiaLite es la versión espacial de SQLite, ideal para proyectos personales o de campo.\nCapa → Agregar capa → Agregar capa SpatiaLite\n\n\n3.3 GeoPackage\nEl formato GeoPackage (.gpkg) es un contenedor SQLite con capacidades espaciales:\nCapa → Agregar capa → Agregar capa vectorial\n→ Tipo de fuente: GeoPackage\n\n\n\n\n\n\nNotaRecomendación de formato\n\n\n\nPara proyectos nuevos, se recomienda usar GeoPackage en lugar de Shapefile, ya que: - Soporta nombres de campos de más de 10 caracteres - Almacena múltiples capas en un solo archivo - Es un estándar OGC abierto",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "2. Carga y manejo de datos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo2.html#sistemas-de-referencia-de-coordenadas-crs",
+    "href": "content/modulos/modulo2.html#sistemas-de-referencia-de-coordenadas-crs",
+    "title": "Módulo 2: Carga y manejo de datos",
+    "section": "4 2.3 Sistemas de referencia de coordenadas (CRS)",
+    "text": "4 2.3 Sistemas de referencia de coordenadas (CRS)\n\n4.1 ¿Qué es un CRS?\nUn Sistema de Referencia de Coordenadas (CRS) define cómo se relacionan las coordenadas de un mapa con las posiciones reales en la superficie terrestre.\n\n\n4.2 Tipos de CRS\n\n\n\n\n\n\n\n\nTipo\nDescripción\nEjemplo\n\n\n\n\nGeográfico (GCS)\nCoordenadas en grados (lat/lon)\nWGS 84 (EPSG:4326)\n\n\nProyectado (PCS)\nCoordenadas en metros/pies sobre plano 2D\nUTM Zona 16N (EPSG:32616)\n\n\nLocal/Nacional\nSistemas de cada país\nMarco Geodésico de Honduras\n\n\n\n\n\n4.3 CRS para Honduras\nPara trabajos en Honduras, se recomienda:\n\nWGS 84 (EPSG:4326): para datos GPS y web\nUTM Zona 16N (EPSG:32616): para análisis que requieren mediciones precisas\nUTM Zona 17N (EPSG:32617): para el oriente del país\n\n\n\n4.4 Gestión de CRS en QGIS\nVer el CRS de una capa: 1. Clic derecho sobre la capa → Propiedades 2. Pestaña Fuente → Sistema de referencia de coordenadas\nReproyectar una capa (cambiar el CRS): 1. Capa en el panel → clic derecho → Exportar → Guardar entidades como… 2. Cambia el CRS en el campo correspondiente 3. Guarda con el nuevo nombre\nTransformación sobre la marcha (OTF): QGIS puede mostrar capas con diferentes CRS juntas activando la reproyección automática.\n\n\n\n\n\n\nAdvertencia¡Importante!\n\n\n\nSi combinas capas con diferentes CRS, asegúrate de usar la reproyección en el análisis, no solo en la visualización. De lo contrario los cálculos de área y distancia serán incorrectos.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "2. Carga y manejo de datos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo2.html#visualización-de-rutas-y-redes-de-transporte",
+    "href": "content/modulos/modulo2.html#visualización-de-rutas-y-redes-de-transporte",
+    "title": "Módulo 2: Carga y manejo de datos",
+    "section": "5 2.4 Visualización de rutas y redes de transporte",
+    "text": "5 2.4 Visualización de rutas y redes de transporte\n\n5.1 Carga de datos OpenStreetMap (OSM)\nQGIS permite cargar datos de OpenStreetMap directamente:\nOpción 1 — Plugin QuickOSM: 1. Instala el plugin: Complementos → Administrar e instalar complementos → QuickOSM 2. Ve a Vector → QuickOSM → QuickOSM 3. Consulta por ejemplo: clave highway, valor primary para carreteras principales 4. Define el área de interés y ejecuta\nOpción 2 — Capas XYZ (fondo de mapa): 1. Panel Explorador → Teselas XYZ → clic derecho → Nueva conexión 2. URL: https://tile.openstreetmap.org/{z}/{x}/{y}.png 3. Nombre: OpenStreetMap\n\n\n5.2 Datos de transporte en Honduras\nFuentes de datos espaciales para Honduras:\n\nINE Honduras — Cartografía\nOpenStreetMap Honduras\nSINIT — Sistema Nacional de Información Territorial\nHOT OSM — Tasking Manager Honduras",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "2. Carga y manejo de datos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo2.html#ejercicios-prácticos",
+    "href": "content/modulos/modulo2.html#ejercicios-prácticos",
+    "title": "Módulo 2: Carga y manejo de datos",
+    "section": "6 🛠️ Ejercicios Prácticos",
+    "text": "6 🛠️ Ejercicios Prácticos\n\n6.1 Ejercicio 2.1: Carga de datos en múltiples formatos\n\nDescarga los datos de ejemplo:\n\nShapefile de municipios de Honduras\nGeoJSON de carreteras principales\nCSV con coordenadas de hospitales\n\nCarga cada archivo en QGIS usando métodos distintos.\nVerifica que se muestren correctamente en el canvas.\n\n\n\n6.2 Ejercicio 2.2: Conexión a OpenStreetMap\n\nInstala el plugin QuickOSM.\nDescarga las carreteras principales de Tegucigalpa.\nDescarga los hospitales y centros de salud de la ciudad.\nVisualiza todas las capas juntas y ajusta la simbología básica.\n\n\n\n6.3 Ejercicio 2.3: Trabajo con CRS\n\nCarga un shapefile con CRS geográfico (EPSG:4326).\nCalcula el área de un polígono en grados² — observa el resultado incorrecto.\nReproyecta la capa a UTM Zona 16N (EPSG:32616).\nCalcula nuevamente el área y compara los resultados.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "2. Carga y manejo de datos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo2.html#recursos-y-referencias",
+    "href": "content/modulos/modulo2.html#recursos-y-referencias",
+    "title": "Módulo 2: Carga y manejo de datos",
+    "section": "7 📚 Recursos y Referencias",
+    "text": "7 📚 Recursos y Referencias\n\nQGIS — Trabajar con proyecciones\nEPSG.io — Buscador de sistemas de referencia\nPlugin QuickOSM — Documentación\nNatural Earth — Datos geográficos gratuitos\nDIVA-GIS — Datos por país\n\n\n← Módulo 1: Introducción a QGIS | Módulo 3: Edición y geoprocesamiento →",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "2. Carga y manejo de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_03.html",
+    "href": "content/labs/lab_03.html",
+    "title": "Laboratorio 3: Edición vectorial y geoprocesamiento",
+    "section": "",
+    "text": "Módulo relacionado: Módulo 3 – Edición y geoprocesamiento básico",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 3 – Edición y geoprocesamiento"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_03.html#tarea-1-creación-de-una-capa-vectorial",
+    "href": "content/labs/lab_03.html#tarea-1-creación-de-una-capa-vectorial",
+    "title": "Laboratorio 3: Edición vectorial y geoprocesamiento",
+    "section": "1 Tarea 1: Creación de una capa vectorial",
+    "text": "1 Tarea 1: Creación de una capa vectorial\n\nEn QGIS, crea una nueva capa vectorial de polígonos (Capa → Crear capa → Nueva capa GeoPackage o Shapefile).\nDefine al menos 2 campos de atributos (ej. nombre tipo texto, area_km2 tipo decimal).\nDigitaliza al menos 3 polígonos que representen zonas de tu elección (barrios, áreas de interés, zonas de trabajo, etc.).\nCompleta los atributos de cada polígono.\n\nEntrega: Archivo GeoPackage o Shapefile con los polígonos creados + captura de pantalla.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 3 – Edición y geoprocesamiento"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_03.html#tarea-2-herramientas-de-geoprocesamiento",
+    "href": "content/labs/lab_03.html#tarea-2-herramientas-de-geoprocesamiento",
+    "title": "Laboratorio 3: Edición vectorial y geoprocesamiento",
+    "section": "2 Tarea 2: Herramientas de geoprocesamiento",
+    "text": "2 Tarea 2: Herramientas de geoprocesamiento\nUtilizando capas existentes (las del Lab 2 u otras), aplica las siguientes herramientas de geoprocesamiento (Vectorial → Herramientas de geoprocesamiento):\n\nBuffer: Genera una zona de influencia de 500 metros alrededor de una capa de puntos o líneas.\nRecorte (Clip): Recorta una capa con los límites de otra capa (ej. recorta una red vial con el polígono de un municipio).\nDisolución (Dissolve): Une todos los polígonos de una capa en uno solo (o por categoría).\n\nPara cada herramienta: - Describe brevemente los parámetros utilizados. - Toma una captura de pantalla del resultado.\nEntrega: Capturas de pantalla de los 3 resultados + descripción breve.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 3 – Edición y geoprocesamiento"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_03.html#tarea-3-cálculo-de-geometría",
+    "href": "content/labs/lab_03.html#tarea-3-cálculo-de-geometría",
+    "title": "Laboratorio 3: Edición vectorial y geoprocesamiento",
+    "section": "3 Tarea 3: Cálculo de geometría",
+    "text": "3 Tarea 3: Cálculo de geometría\n\nCon la capa de polígonos creada en la Tarea 1 (o cualquier capa poligonal), abre la Calculadora de campos (Tabla de Atributos → Lápiz → Abrir calculadora de campos).\nCrea un nuevo campo llamado area_m2 que calcule el área de cada polígono en metros cuadrados usando $area.\nCrea otro campo llamado perimetro_m con el perímetro usando $perimeter.\nVerifica los resultados en la tabla de atributos.\n\nEntrega: Captura de pantalla de la tabla de atributos con los nuevos campos calculados.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 3 – Edición y geoprocesamiento"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_03.html#tarea-4-validación-de-geometrías",
+    "href": "content/labs/lab_03.html#tarea-4-validación-de-geometrías",
+    "title": "Laboratorio 3: Edición vectorial y geoprocesamiento",
+    "section": "4 Tarea 4: Validación de geometrías",
+    "text": "4 Tarea 4: Validación de geometrías\n\nEjecuta la herramienta Verificar validez (Vectorial → Herramientas de geometría → Verificar validez) sobre una de tus capas.\n¿Se encontraron errores? Si es así, ¿cuántos y de qué tipo?\nSi hay errores, intenta corregirlos con la herramienta Corregir geometrías.\n\nEntrega: Captura de pantalla del resultado de la verificación + respuesta a las preguntas.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nCapa vectorial creada con atributos\n25\n\n\n3 herramientas de geoprocesamiento aplicadas\n35\n\n\nCálculo de área y perímetro\n25\n\n\nValidación de geometrías documentada\n15\n\n\nTotal\n100\n\n\n\n\n\n\n← Lab 2 | Lab 4 →",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 3 – Edición y geoprocesamiento"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_01.html",
+    "href": "content/labs/lab_01.html",
+    "title": "Laboratorio 1: Exploración de QGIS y tipos de datos espaciales",
+    "section": "",
+    "text": "Módulo relacionado: Módulo 1 – Introducción a QGIS y SIG",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 1 – Exploración de QGIS"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_01.html#tarea-1-instalación-y-verificación-de-qgis",
+    "href": "content/labs/lab_01.html#tarea-1-instalación-y-verificación-de-qgis",
+    "title": "Laboratorio 1: Exploración de QGIS y tipos de datos espaciales",
+    "section": "1 Tarea 1: Instalación y verificación de QGIS",
+    "text": "1 Tarea 1: Instalación y verificación de QGIS\n\nInstala QGIS LTR (versión de soporte a largo plazo) desde qgis.org/download.\nAbre QGIS y toma una captura de pantalla de la pantalla principal con los paneles visibles (Panel de Capas, Vista del Mapa, Explorador).\nVerifica e indica la versión de QGIS instalada (menú Ayuda → Acerca de QGIS).\n\nEntrega: Captura de pantalla de la pantalla principal con la versión visible.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 1 – Exploración de QGIS"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_01.html#tarea-2-exploración-de-la-interfaz",
+    "href": "content/labs/lab_01.html#tarea-2-exploración-de-la-interfaz",
+    "title": "Laboratorio 1: Exploración de QGIS y tipos de datos espaciales",
+    "section": "2 Tarea 2: Exploración de la interfaz",
+    "text": "2 Tarea 2: Exploración de la interfaz\n\nActiva los siguientes paneles (Ver → Paneles):\n\nPanel de Capas\nPanel del Explorador\nTabla de Atributos (puede abrirse al cargar datos)\n\nIdentifica y describe brevemente (1–2 oraciones cada uno) los 5 componentes principales de la interfaz de QGIS.\n¿Qué hace la barra de estado en la parte inferior de la ventana? Explica qué información muestra.\n\nEntrega: Documento de texto con tus respuestas (formato libre).",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 1 – Exploración de QGIS"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_01.html#tarea-3-carga-y-comparación-de-tipos-de-datos",
+    "href": "content/labs/lab_01.html#tarea-3-carga-y-comparación-de-tipos-de-datos",
+    "title": "Laboratorio 1: Exploración de QGIS y tipos de datos espaciales",
+    "section": "3 Tarea 3: Carga y comparación de tipos de datos",
+    "text": "3 Tarea 3: Carga y comparación de tipos de datos\n\nDescarga uno de los datasets de muestra disponibles en QGIS Sample Data o utiliza cualquier dato shapefile de tu elección.\nCarga al menos:\n\nUna capa de puntos (ej. ciudades, escuelas, hospitales)\nUna capa de líneas (ej. carreteras, ríos)\nUna capa de polígonos (ej. municipios, departamentos)\n\nAbre la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).\nPara cada capa, anota:\n\nNúmero de entidades (features)\nNombre de al menos 3 campos/columnas\nSistema de Referencia de Coordenadas (CRS) — visible en la barra de estado al hacer clic en la capa\n\n\nEntrega: Tabla resumen con la información solicitada + captura de pantalla del proyecto con las tres capas cargadas.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 1 – Exploración de QGIS"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_01.html#tarea-4-reflexión",
+    "href": "content/labs/lab_01.html#tarea-4-reflexión",
+    "title": "Laboratorio 1: Exploración de QGIS y tipos de datos espaciales",
+    "section": "4 Tarea 4: Reflexión",
+    "text": "4 Tarea 4: Reflexión\nResponde brevemente (3–5 oraciones) la siguiente pregunta:\n\n¿En qué situación real de tu área de trabajo o interés profesional aplicarías un SIG? ¿Qué tipo de datos espaciales utilizarías (puntos, líneas, polígonos) y por qué?\n\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nQGIS instalado y captura de pantalla\n20\n\n\nDescripción de componentes de la interfaz\n20\n\n\nCapas cargadas y tabla resumen correcta\n40\n\n\nReflexión fundamentada\n20\n\n\nTotal\n100\n\n\n\n\n\n\n← Instrucciones generales | Lab 2 →",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 1 – Exploración de QGIS"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_06.html",
+    "href": "content/labs/lab_06.html",
+    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
+    "section": "",
+    "text": "Módulo relacionado: Módulo 6 – Visualización avanzada y mapas finales",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 6 – Cartografía temática"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_06.html#tarea-1-simbología-por-categorías",
+    "href": "content/labs/lab_06.html#tarea-1-simbología-por-categorías",
+    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
+    "section": "1 Tarea 1: Simbología por categorías",
+    "text": "1 Tarea 1: Simbología por categorías\n\nCarga una capa vectorial con un campo categórico (ej. tipo de uso de suelo, categoría de vía, tipo de establecimiento).\nAplica simbología de tipo Categorizado (Propiedades → Simbología → Categorizado).\nAsigna colores distintos a cada categoría.\nOrdena las categorías para que las más importantes queden en primer lugar en la leyenda.\n\nEntrega: Captura de pantalla del mapa con simbología categorizada.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 6 – Cartografía temática"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_06.html#tarea-2-simbología-graduada",
+    "href": "content/labs/lab_06.html#tarea-2-simbología-graduada",
+    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
+    "section": "2 Tarea 2: Simbología graduada",
+    "text": "2 Tarea 2: Simbología graduada\n\nUsa una capa con un campo numérico (ej. población, densidad, longitud de vías).\nAplica simbología de tipo Graduado con al menos 5 clases.\nPrueba al menos 2 métodos de clasificación (ej. Jenks, Quantil, Intervalo igual) y elige el que mejor represente la distribución de los datos.\nJustifica brevemente tu elección del método de clasificación.\n\nEntrega: Captura de pantalla del mapa graduado + justificación del método.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 6 – Cartografía temática"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_06.html#tarea-3-etiquetado-dinámico",
+    "href": "content/labs/lab_06.html#tarea-3-etiquetado-dinámico",
+    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
+    "section": "3 Tarea 3: Etiquetado dinámico",
+    "text": "3 Tarea 3: Etiquetado dinámico\n\nCon cualquier capa de puntos o polígonos, activa el etiquetado (Propiedades → Etiquetas → Etiqueta sencilla).\nConfigura:\n\nCampo de etiqueta (nombre u otro identificador)\nTamaño y color de fuente\nPosición de la etiqueta (sobre el punto o centroide del polígono)\n\nActiva la opción “Evitar solapamiento de etiquetas”.\n\nEntrega: Captura de pantalla del mapa con etiquetas configuradas.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 6 – Cartografía temática"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_06.html#tarea-4-diseño-de-mapa-para-impresión",
+    "href": "content/labs/lab_06.html#tarea-4-diseño-de-mapa-para-impresión",
+    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
+    "section": "4 Tarea 4: Diseño de mapa para impresión",
+    "text": "4 Tarea 4: Diseño de mapa para impresión\n\nAbre el Diseñador de mapas (Proyecto → Nuevo diseño de impresión).\nCrea un mapa en formato A4 horizontal que incluya:\n\nVista del mapa con las capas de tu proyecto\nTítulo del mapa\nLeyenda con todos los elementos\nEscala gráfica o numérica\nNorte (flecha de norte)\nCréditos (fuente de datos y fecha)\n\nExporta el mapa como PDF e imagen PNG (Diseño → Exportar como PDF / Exportar como imagen).\n\nEntrega: Archivo PDF del mapa + archivo PNG.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 6 – Cartografía temática"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_06.html#tarea-5-reflexión",
+    "href": "content/labs/lab_06.html#tarea-5-reflexión",
+    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
+    "section": "5 Tarea 5: Reflexión",
+    "text": "5 Tarea 5: Reflexión\n\n¿Cómo influye la elección de la simbología y el diseño del mapa en la comunicación del mensaje que quieres transmitir? Describe un caso concreto donde una mala elección de colores o clasificación podría llevar a interpretaciones erróneas.\n\nResponde en 4–6 oraciones.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nSimbología categorizada aplicada\n15\n\n\nSimbología graduada con justificación\n20\n\n\nEtiquetado dinámico configurado\n15\n\n\nMapa completo con todos los elementos (PDF + PNG)\n35\n\n\nReflexión sobre comunicación cartográfica\n15\n\n\nTotal\n100\n\n\n\n\n\n\n← Lab 5 | Lab 7 →",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 6 – Cartografía temática"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_04.html",
+    "href": "content/labs/lab_04.html",
+    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
+    "section": "",
+    "text": "Módulo relacionado: Módulo 4 – Análisis espacial para rutas",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 4 – Análisis de redes y rutas"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_04.html#tarea-1-preparación-de-la-red-vial",
+    "href": "content/labs/lab_04.html#tarea-1-preparación-de-la-red-vial",
+    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
+    "section": "1 Tarea 1: Preparación de la red vial",
+    "text": "1 Tarea 1: Preparación de la red vial\n\nDescarga la red vial de un área de tu interés desde OpenStreetMap usando el plugin QuickOSM o desde download.geofabrik.de.\nCarga la red vial en QGIS.\nAsegúrate de que la capa tenga un CRS proyectado (no geográfico) adecuado para tu área. Reproyecta si es necesario.\nVerifica la topología básica: ¿las líneas están conectadas en los nodos?\n\nEntrega: Captura de pantalla de la red vial cargada con su CRS correcto.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 4 – Análisis de redes y rutas"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_04.html#tarea-2-análisis-de-ruta-más-corta",
+    "href": "content/labs/lab_04.html#tarea-2-análisis-de-ruta-más-corta",
+    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
+    "section": "2 Tarea 2: Análisis de ruta más corta",
+    "text": "2 Tarea 2: Análisis de ruta más corta\nUsando el plugin Network Analysis de QGIS o QNEAT3 (si está disponible):\n\nDefine un punto de origen y un punto de destino en la red vial.\nCalcula la ruta más corta entre ambos puntos.\nCalcula la ruta más rápida (si tienes campo de velocidad o tiempo disponible).\nCompara ambas rutas: ¿son iguales? ¿En qué difieren en distancia y tiempo estimado?\n\nEntrega: Captura de pantalla con ambas rutas visualizadas + tabla comparativa de distancia y tiempo.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 4 – Análisis de redes y rutas"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_04.html#tarea-3-zona-de-servicio-isócrona",
+    "href": "content/labs/lab_04.html#tarea-3-zona-de-servicio-isócrona",
+    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
+    "section": "3 Tarea 3: Zona de servicio (isócrona)",
+    "text": "3 Tarea 3: Zona de servicio (isócrona)\n\nSelecciona un punto de interés en tu área (ej. hospital, escuela, mercado).\nUsa la herramienta de zona de servicio para calcular el área alcanzable en:\n\n500 metros de distancia\n1,000 metros de distancia\n\nVisualiza las zonas resultantes sobre el mapa base.\n\nEntrega: Captura de pantalla con las zonas de servicio + descripción de qué puntos de interés quedan dentro de cada zona.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 4 – Análisis de redes y rutas"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_04.html#tarea-4-análisis-de-puntos-de-interés",
+    "href": "content/labs/lab_04.html#tarea-4-análisis-de-puntos-de-interés",
+    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
+    "section": "4 Tarea 4: Análisis de puntos de interés",
+    "text": "4 Tarea 4: Análisis de puntos de interés\n\nCarga o crea una capa de puntos de interés (ej. clientes, centros de distribución, paradas de bus).\n¿Cuántos puntos quedan dentro de la zona de servicio de 1,000 metros calculada en la Tarea 3?\nUsa Seleccionar por localización (Vectorial → Herramientas de investigación → Seleccionar por localización) para responder esta pregunta.\n\nEntrega: Captura de pantalla de la selección + número de puntos encontrados.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 4 – Análisis de redes y rutas"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_04.html#tarea-5-reflexión",
+    "href": "content/labs/lab_04.html#tarea-5-reflexión",
+    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
+    "section": "5 Tarea 5: Reflexión",
+    "text": "5 Tarea 5: Reflexión\n\nImagina que debes planificar las rutas de distribución para 5 puntos de entrega partiendo desde un depósito central. ¿Qué herramientas de QGIS usarías? ¿Qué datos necesitarías tener disponibles?\n\nResponde en 5–7 oraciones.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nRed vial preparada correctamente\n15\n\n\nRutas más corta y más rápida calculadas\n25\n\n\nZonas de servicio generadas\n25\n\n\nAnálisis de puntos de interés\n20\n\n\nReflexión sobre planificación de rutas\n15\n\n\nTotal\n100\n\n\n\n\n\n\n← Lab 3 | Lab 5 →",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 4 – Análisis de redes y rutas"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_07.html",
+    "href": "content/labs/lab_07.html",
+    "title": "Laboratorio 7: Integración de datos y preparación del proyecto final",
+    "section": "",
+    "text": "Módulo relacionado: Módulo 7 – Integración y casos prácticos",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 7 – Integración y proyecto final"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_07.html#tarea-1-integración-con-openstreetmap",
+    "href": "content/labs/lab_07.html#tarea-1-integración-con-openstreetmap",
+    "title": "Laboratorio 7: Integración de datos y preparación del proyecto final",
+    "section": "1 Tarea 1: Integración con OpenStreetMap",
+    "text": "1 Tarea 1: Integración con OpenStreetMap\n\nInstala o activa el plugin QuickOSM en QGIS (Complementos → Administrar e instalar complementos).\nDescarga datos de OSM para un área de tu interés (ej. tu ciudad o municipio):\n\nRed vial principal (highway = primary, secondary, tertiary)\nPuntos de interés (ej. amenity = hospital, shop = supermarket u otro de tu elección)\n\nCarga los datos descargados en tu proyecto.\nRealiza un análisis básico: ¿cuántos puntos de interés hay en el área? ¿Cómo se distribuyen respecto a la red vial?\n\nEntrega: Captura de pantalla con los datos OSM cargados + respuestas al análisis.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 7 – Integración y proyecto final"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_07.html#tarea-2-importación-de-rutas-gps-o-datos-de-campo",
+    "href": "content/labs/lab_07.html#tarea-2-importación-de-rutas-gps-o-datos-de-campo",
+    "title": "Laboratorio 7: Integración de datos y preparación del proyecto final",
+    "section": "2 Tarea 2: Importación de rutas GPS o datos de campo",
+    "text": "2 Tarea 2: Importación de rutas GPS o datos de campo\n\nObtén un archivo GPX o KML con rutas o puntos de campo. Puedes:\n\nGrabar una ruta con tu celular usando una app (ej. OsmAnd, Maps.me, Google Maps exportado a KML)\nDescargar un GPX de ejemplo desde OpenStreetMap GPS Traces\n\nImporta el archivo en QGIS.\nVerifica el CRS y reproyecta si es necesario.\nCalcula la longitud total de la ruta.\n\nEntrega: Archivo GPX/KML + captura de pantalla con la ruta en el mapa + longitud calculada.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 7 – Integración y proyecto final"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_07.html#tarea-3-proyecto-integrador",
+    "href": "content/labs/lab_07.html#tarea-3-proyecto-integrador",
+    "title": "Laboratorio 7: Integración de datos y preparación del proyecto final",
+    "section": "3 Tarea 3: Proyecto integrador",
+    "text": "3 Tarea 3: Proyecto integrador\nDiseña y desarrolla un mini-proyecto aplicado que integre las habilidades aprendidas en el curso. Tu proyecto debe:\n\nPlantear un problema o pregunta geoespacial de tu elección (ej. análisis de accesibilidad a servicios de salud, optimización de rutas de distribución, identificación de zonas de riesgo).\nUtilizar al menos 3 tipos de datos diferentes (puntos, líneas, polígonos; o vectorial + OSM + GPS).\nAplicar al menos 2 herramientas de análisis (buffer, clip, análisis de redes, selección espacial, etc.).\nIncluir al menos un proceso automatizado con PyQGIS (puede ser simple: listar entidades, calcular un campo, exportar resultados).\nProducir un mapa final con todos los elementos cartográficos (título, leyenda, escala, norte, créditos).\n\nEntrega: - Proyecto QGIS (.qgz) con todas las capas - Mapa final en PDF - Documento de 1 página describiendo el problema, datos usados, metodología y conclusiones",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 7 – Integración y proyecto final"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_07.html#tarea-4-preparación-de-la-presentación-final",
+    "href": "content/labs/lab_07.html#tarea-4-preparación-de-la-presentación-final",
+    "title": "Laboratorio 7: Integración de datos y preparación del proyecto final",
+    "section": "4 Tarea 4: Preparación de la presentación final",
+    "text": "4 Tarea 4: Preparación de la presentación final\nPrepara una presentación de 5–7 minutos para la Sesión 13 (presencial) que incluya:\n\nTítulo del proyecto y área de estudio\nObjetivo o pregunta que buscaste responder\nDatos utilizados y sus fuentes\nMetodología aplicada (pasos principales)\nMapa(s) resultado(s)\nConclusiones y posibles aplicaciones o mejoras\n\nEntrega: Presentación en formato PDF o PowerPoint.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nIntegración con OSM y análisis básico\n15\n\n\nImportación y análisis de ruta GPS/KML\n15\n\n\nProyecto integrador (datos + análisis + mapa)\n50\n\n\nPreparación de presentación final\n20\n\n\nTotal\n100\n\n\n\n\n\n\n\n\n\n\n\n\nTip¡Éxito en tu proyecto final!\n\n\n\nRecuerda que la Sesión 13 es presencial y la fecha se confirmará oportunamente. Este laboratorio es tu guía de preparación.\n\n\n\n← Lab 6 | ← Instrucciones generales",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 7 – Integración y proyecto final"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_05.html",
+    "href": "content/labs/lab_05.html",
+    "title": "Laboratorio 5: Automatización con Python y PyQGIS",
+    "section": "",
+    "text": "Módulo relacionado: Módulo 5 – Automatización con Python y PyQGIS",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 5 – Automatización con PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_05.html#tarea-1-primeros-pasos-en-la-consola-python-de-qgis",
+    "href": "content/labs/lab_05.html#tarea-1-primeros-pasos-en-la-consola-python-de-qgis",
+    "title": "Laboratorio 5: Automatización con Python y PyQGIS",
+    "section": "1 Tarea 1: Primeros pasos en la consola Python de QGIS",
+    "text": "1 Tarea 1: Primeros pasos en la consola Python de QGIS\n\nAbre la Consola de Python en QGIS (Complementos → Consola de Python, o Ctrl+Alt+P).\nEjecuta el siguiente código para listar todas las capas cargadas en el proyecto:\n\nfor layer in QgsProject.instance().mapLayers().values():\n    print(layer.name(), \"–\", layer.type())\n\nCarga al menos 2 capas en tu proyecto y vuelve a ejecutar el código.\n¿Cuántas capas se listan? ¿Qué valores puede tener layer.type()?\n\nEntrega: Captura de pantalla de la consola con el resultado + respuesta a las preguntas.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 5 – Automatización con PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_05.html#tarea-2-acceso-a-atributos-con-pyqgis",
+    "href": "content/labs/lab_05.html#tarea-2-acceso-a-atributos-con-pyqgis",
+    "title": "Laboratorio 5: Automatización con Python y PyQGIS",
+    "section": "2 Tarea 2: Acceso a atributos con PyQGIS",
+    "text": "2 Tarea 2: Acceso a atributos con PyQGIS\n\nSelecciona una capa vectorial cargada en tu proyecto.\nEscribe un script Python en la consola (o en el editor de scripts) que:\n\nObtenga la referencia a la capa por nombre.\nImprima el nombre de todos los campos (columnas) de la capa.\nImprima los atributos de las primeras 5 entidades.\n\n\n# Plantilla de ejemplo\nlayer = QgsProject.instance().mapLayersByName(\"NOMBRE_DE_TU_CAPA\")[0]\nfor field in layer.fields():\n    print(field.name())\n\nfor feature in list(layer.getFeatures())[:5]:\n    print(feature.attributes())\nEntrega: Script completo + captura de pantalla con la salida en consola.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 5 – Automatización con PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_05.html#tarea-3-selección-y-filtrado-con-pyqgis",
+    "href": "content/labs/lab_05.html#tarea-3-selección-y-filtrado-con-pyqgis",
+    "title": "Laboratorio 5: Automatización con Python y PyQGIS",
+    "section": "3 Tarea 3: Selección y filtrado con PyQGIS",
+    "text": "3 Tarea 3: Selección y filtrado con PyQGIS\n\nUsando la misma capa, escribe un script que seleccione entidades según un criterio de atributo (ej. área mayor a cierto valor, nombre que contenga una cadena específica).\nImprime cuántas entidades cumplen el criterio.\nExporta las entidades seleccionadas a un nuevo archivo GeoPackage usando QgsVectorFileWriter o la herramienta de procesamiento:\n\nprocessing.run(\"native:saveselectedfeatures\", {\n    'INPUT': layer,\n    'OUTPUT': '/ruta/a/tu/archivo.gpkg'\n})\nEntrega: Script completo + archivo exportado + captura de pantalla.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 5 – Automatización con PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_05.html#tarea-4-script-de-automatización",
+    "href": "content/labs/lab_05.html#tarea-4-script-de-automatización",
+    "title": "Laboratorio 5: Automatización con Python y PyQGIS",
+    "section": "4 Tarea 4: Script de automatización",
+    "text": "4 Tarea 4: Script de automatización\nCrea un script que realice el siguiente flujo de trabajo automatizado:\n\nCargue una capa vectorial desde un archivo.\nCalcule el área en metros cuadrados de cada entidad.\nExporte un reporte en formato CSV con las columnas nombre (u otro identificador) y area_m2.\n\nimport csv\n\nlayer = QgsVectorLayer('/ruta/a/tu/archivo.shp', 'mi_capa', 'ogr')\nQgsProject.instance().addMapLayer(layer)\n\nwith open('/ruta/reporte.csv', 'w', newline='') as f:\n    writer = csv.writer(f)\n    writer.writerow(['nombre', 'area_m2'])\n    for feat in layer.getFeatures():\n        geom = feat.geometry()\n        area = geom.area()\n        nombre = feat['NOMBRE_DEL_CAMPO']  # ajusta al nombre real\n        writer.writerow([nombre, round(area, 2)])\n\nprint(\"Reporte generado exitosamente.\")\nEntrega: Script completo + archivo CSV generado + captura de pantalla.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nListado de capas en consola\n15\n\n\nAcceso a atributos con PyQGIS\n25\n\n\nSelección y exportación de entidades\n25\n\n\nScript de automatización y reporte CSV\n35\n\n\nTotal\n100\n\n\n\n\n\n\n← Lab 4 | Lab 6 →",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 5 – Automatización con PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_02.html",
+    "href": "content/labs/lab_02.html",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "",
+    "text": "Módulo relacionado: Módulo 2 – Carga y manejo de datos",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_02.html#tarea-1-importación-de-múltiples-formatos",
+    "href": "content/labs/lab_02.html#tarea-1-importación-de-múltiples-formatos",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "1 Tarea 1: Importación de múltiples formatos",
+    "text": "1 Tarea 1: Importación de múltiples formatos\nDescarga o localiza datos espaciales en al menos tres formatos diferentes. Puedes usar fuentes como GADM, OpenStreetMap, GeoJSON.io u otras.\nFormatos sugeridos: - Shapefile (.shp) - GeoJSON (.geojson) - KML (.kml) o CSV con coordenadas (.csv)\nPara cada formato: 1. Carga la capa en QGIS usando el método adecuado (Capa → Agregar capa…). 2. Verifica que la capa se visualice correctamente. 3. Toma una captura de pantalla con las capas cargadas.\nEntrega: Captura de pantalla con las capas de los tres formatos visibles en el panel de capas.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_02.html#tarea-2-sistemas-de-referencia-de-coordenadas-crs",
+    "href": "content/labs/lab_02.html#tarea-2-sistemas-de-referencia-de-coordenadas-crs",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "2 Tarea 2: Sistemas de referencia de coordenadas (CRS)",
+    "text": "2 Tarea 2: Sistemas de referencia de coordenadas (CRS)\n\nPara cada capa cargada en la Tarea 1, identifica el CRS (clic derecho sobre la capa → Propiedades → Información).\nExporta una de las capas a un CRS diferente (clic derecho → Exportar → Guardar entidades como…, y cambia el CRS de destino).\nCompara visualmente ambas versiones (original y reproyectada) en el mapa.\n\nEntrega: Tabla con el CRS de cada capa + captura de pantalla mostrando la capa original y la reproyectada.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_02.html#tarea-3-unión-de-tabla-csv",
+    "href": "content/labs/lab_02.html#tarea-3-unión-de-tabla-csv",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "3 Tarea 3: Unión de tabla CSV",
+    "text": "3 Tarea 3: Unión de tabla CSV\n\nCrea o descarga un archivo CSV con al menos 5 filas, que incluya:\n\nUna columna con un identificador (ej. código de municipio, nombre)\nUna o más columnas con datos estadísticos (ej. población, área)\n\nCarga el CSV en QGIS (Capa → Agregar capa → Agregar capa de texto delimitado).\nRealiza una unión de tablas (Table Join) entre el CSV y una capa vectorial que comparta el identificador (Propiedades de la capa → Uniones).\nVerifica que los campos del CSV aparecen ahora en la tabla de atributos de la capa vectorial.\n\nEntrega: Captura de pantalla de la tabla de atributos mostrando los campos unidos.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_02.html#tarea-4-reflexión",
+    "href": "content/labs/lab_02.html#tarea-4-reflexión",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "4 Tarea 4: Reflexión",
+    "text": "4 Tarea 4: Reflexión\n\n¿Cuáles son las ventajas y desventajas de los diferentes formatos de datos espaciales (Shapefile, GeoJSON, GeoPackage)? ¿Cuándo usarías cada uno?\n\nResponde en 4–6 oraciones con base en lo aprendido en el módulo.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nCapas en 3 formatos cargadas correctamente\n25\n\n\nCRS identificados y reproyección realizada\n25\n\n\nUnión de tabla CSV completada\n30\n\n\nReflexión sobre formatos\n20\n\n\nTotal\n100\n\n\n\n\n\n\n← Lab 1 | Lab 3 →",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/instrucciones_labs.html",
+    "href": "content/labs/instrucciones_labs.html",
+    "title": "Instrucciones de Laboratorios",
+    "section": "",
+    "text": "Los laboratorios son tareas de trabajo autónomo que se entregan fuera del horario de clase. No forman parte de las sesiones virtuales; son asignaciones diseñadas para que apliques, explores y profundices los conocimientos adquiridos en cada módulo.\nCada laboratorio puede ser utilizado como instrumento de evaluación del curso.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Instrucciones"
+    ]
+  },
+  {
+    "objectID": "content/labs/instrucciones_labs.html#qué-son-los-laboratorios",
+    "href": "content/labs/instrucciones_labs.html#qué-son-los-laboratorios",
+    "title": "Instrucciones de Laboratorios",
+    "section": "",
+    "text": "Los laboratorios son tareas de trabajo autónomo que se entregan fuera del horario de clase. No forman parte de las sesiones virtuales; son asignaciones diseñadas para que apliques, explores y profundices los conocimientos adquiridos en cada módulo.\nCada laboratorio puede ser utilizado como instrumento de evaluación del curso.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Instrucciones"
+    ]
+  },
+  {
+    "objectID": "content/labs/instrucciones_labs.html#cómo-entregar-un-laboratorio",
+    "href": "content/labs/instrucciones_labs.html#cómo-entregar-un-laboratorio",
+    "title": "Instrucciones de Laboratorios",
+    "section": "¿Cómo entregar un laboratorio?",
+    "text": "¿Cómo entregar un laboratorio?\n\nDescarga el archivo del laboratorio correspondiente (indicado por tu instructor).\nRealiza todas las tareas descritas en QGIS y, cuando corresponda, guarda los proyectos, mapas exportados o capturas de pantalla.\nEntrega tu trabajo según las indicaciones del CEETI (plataforma y formato a confirmar).",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Instrucciones"
+    ]
+  },
+  {
+    "objectID": "content/labs/instrucciones_labs.html#laboratorios-disponibles",
+    "href": "content/labs/instrucciones_labs.html#laboratorios-disponibles",
+    "title": "Instrucciones de Laboratorios",
+    "section": "Laboratorios disponibles",
+    "text": "Laboratorios disponibles\n\n\n\nLab\nMódulo relacionado\nEnlace\n\n\n\n\n1\nMódulo 1 – Introducción a QGIS y SIG\nLab 1\n\n\n2\nMódulo 2 – Carga y manejo de datos\nLab 2\n\n\n3\nMódulo 3 – Edición y geoprocesamiento básico\nLab 3\n\n\n4\nMódulo 4 – Análisis espacial para rutas\nLab 4\n\n\n5\nMódulo 5 – Automatización con Python y PyQGIS\nLab 5\n\n\n6\nMódulo 6 – Visualización avanzada\nLab 6\n\n\n7\nMódulo 7 – Integración y casos prácticos\nLab 7\n\n\n\n\n\n\n\n\n\n\nTipRecomendación\n\n\n\nAntes de iniciar cada laboratorio, revisa el módulo correspondiente y los ejercicios prácticos realizados en clase. Los laboratorios amplían esos ejercicios con nuevos escenarios y datos.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Instrucciones"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo5.html",
+    "href": "content/modulos/modulo5.html",
+    "title": "Módulo 5: Automatización con Python y PyQGIS",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nUsar la consola de Python integrada en QGIS.\nManipular capas, geometrías y atributos con PyQGIS.\nEscribir scripts para automatizar tareas repetitivas.\nExportar resultados a Excel, Shapefile, PDF y otros formatos.\nUsar el QGIS Processing Framework para crear flujos de trabajo personalizados.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "5. Automatización con Python y PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo5.html#objetivos-del-módulo",
+    "href": "content/modulos/modulo5.html#objetivos-del-módulo",
+    "title": "Módulo 5: Automatización con Python y PyQGIS",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nUsar la consola de Python integrada en QGIS.\nManipular capas, geometrías y atributos con PyQGIS.\nEscribir scripts para automatizar tareas repetitivas.\nExportar resultados a Excel, Shapefile, PDF y otros formatos.\nUsar el QGIS Processing Framework para crear flujos de trabajo personalizados.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "5. Automatización con Python y PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo5.html#introducción-a-la-consola-de-python-en-qgis",
+    "href": "content/modulos/modulo5.html#introducción-a-la-consola-de-python-en-qgis",
+    "title": "Módulo 5: Automatización con Python y PyQGIS",
+    "section": "2 5.1 Introducción a la consola de Python en QGIS",
+    "text": "2 5.1 Introducción a la consola de Python en QGIS\n\n2.1 Acceso a la consola\nLa consola de Python en QGIS permite ejecutar código directamente sobre el proyecto abierto:\nComplementos → Consola de Python\nO con el atajo de teclado: Ctrl+Alt+P\n\n\n2.2 Interfaz de la consola\nLa consola tiene dos áreas: 1. Área de entrada: escribe y ejecuta comandos línea por línea 2. Editor de scripts: escribe y guarda scripts completos (botón “Mostrar editor”)\n\n\n2.3 Primeros pasos en la consola\n# Importar la interfaz de QGIS\nfrom qgis.core import *\nfrom qgis.gui import *\n\n# Acceder a la instancia de QGIS\niface.mapCanvas()  # Objeto canvas del mapa\n\n# Listar capas del proyecto\nlayers = QgsProject.instance().mapLayers()\nfor layer_id, layer in layers.items():\n    print(f\"Capa: {layer.name()} | Tipo: {layer.type()}\")\n\n# Obtener la capa activa\nlayer = iface.activeLayer()\nprint(f\"Capa activa: {layer.name()}\")\n\n\n2.4 Objetos principales de PyQGIS\n\n\n\n\n\n\n\nClase\nDescripción\n\n\n\n\nQgsProject\nProyecto QGIS actual\n\n\nQgsVectorLayer\nCapa vectorial\n\n\nQgsRasterLayer\nCapa ráster\n\n\nQgsFeature\nEntidad (fila) de una capa vectorial\n\n\nQgsGeometry\nGeometría espacial de una entidad\n\n\nQgsPoint, QgsPointXY\nPunto en el espacio\n\n\nQgsField\nCampo/columna de una tabla de atributos\n\n\nQgsCoordinateTransform\nTransformación de coordenadas entre CRS",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "5. Automatización con Python y PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo5.html#manipulación-de-capas-geometrías-y-atributos",
+    "href": "content/modulos/modulo5.html#manipulación-de-capas-geometrías-y-atributos",
+    "title": "Módulo 5: Automatización con Python y PyQGIS",
+    "section": "3 5.2 Manipulación de capas, geometrías y atributos",
+    "text": "3 5.2 Manipulación de capas, geometrías y atributos\n\n3.1 Cargar una capa desde Python\n# Cargar una capa vectorial\nruta = \"/home/usuario/datos/municipios.shp\"\ncapa = QgsVectorLayer(ruta, \"Municipios\", \"ogr\")\n\nif not capa.isValid():\n    print(\"Error: la capa no se cargó correctamente\")\nelse:\n    QgsProject.instance().addMapLayer(capa)\n    print(f\"Capa cargada: {capa.name()} | Entidades: {capa.featureCount()}\")\n\n\n3.2 Iterar sobre entidades\ncapa = iface.activeLayer()\n\nfor entidad in capa.getFeatures():\n    geom = entidad.geometry()\n    attrs = entidad.attributes()\n    print(f\"ID: {entidad.id()} | Atributos: {attrs}\")\n\n\n3.3 Leer y filtrar por atributos\nfrom qgis.core import QgsFeatureRequest\n\ncapa = iface.activeLayer()\n\n# Filtrar por expresión\nexpresion = '\"departamento\" = \\'Francisco Morazán\\''\nrequest = QgsFeatureRequest().setFilterExpression(expresion)\n\nfor entidad in capa.getFeatures(request):\n    print(entidad[\"municipio\"])\n\n\n3.4 Modificar atributos\ncapa = iface.activeLayer()\ncapa.startEditing()\n\nfor entidad in capa.getFeatures():\n    # Calcular área y actualizar campo\n    area_km2 = entidad.geometry().area() / 1_000_000\n    capa.changeAttributeValue(entidad.id(), capa.fields().indexOf(\"area_km2\"), area_km2)\n\ncapa.commitChanges()\nprint(\"Atributos actualizados correctamente.\")\n\n\n3.5 Trabajar con geometrías\nfrom qgis.core import QgsGeometry, QgsPointXY\n\n# Crear un punto\npunto = QgsGeometry.fromPointXY(QgsPointXY(-87.2068, 14.0818))\n\n# Crear una línea\nlinea = QgsGeometry.fromPolylineXY([\n    QgsPointXY(-87.20, 14.08),\n    QgsPointXY(-87.21, 14.09),\n    QgsPointXY(-87.22, 14.10)\n])\n\n# Calcular distancia entre dos puntos\np1 = QgsGeometry.fromPointXY(QgsPointXY(-87.2068, 14.0818))\np2 = QgsGeometry.fromPointXY(QgsPointXY(-87.2100, 14.0900))\nprint(f\"Distancia: {p1.distance(p2)}\")\n\n# Buffer de 100 metros\nbuffer = punto.buffer(100, 8)\nprint(f\"Área del buffer: {buffer.area()}\")",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "5. Automatización con Python y PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo5.html#scripts-para-automatización-de-rutas-y-reportes",
+    "href": "content/modulos/modulo5.html#scripts-para-automatización-de-rutas-y-reportes",
+    "title": "Módulo 5: Automatización con Python y PyQGIS",
+    "section": "4 5.3 Scripts para automatización de rutas y reportes",
+    "text": "4 5.3 Scripts para automatización de rutas y reportes\n\n4.1 Script: generar múltiples buffers automáticamente\nfrom qgis.core import (\n    QgsVectorLayer, QgsFeature, QgsGeometry,\n    QgsProject, QgsWkbTypes, QgsField\n)\nfrom PyQt5.QtCore import QVariant\n\ndef generar_buffers(nombre_capa, distancias):\n    \"\"\"\n    Genera capas de buffer para una capa de puntos\n    con múltiples distancias.\n    \"\"\"\n    capa_origen = QgsProject.instance().mapLayersByName(nombre_capa)\n    if not capa_origen:\n        print(f\"No se encontró la capa: {nombre_capa}\")\n        return\n\n    capa_origen = capa_origen[0]\n\n    for distancia in distancias:\n        # Crear nueva capa de polígonos\n        crs = capa_origen.crs().authid()\n        capa_buffer = QgsVectorLayer(\n            f\"Polygon?crs={crs}\",\n            f\"Buffer_{distancia}m\",\n            \"memory\"\n        )\n        provider = capa_buffer.dataProvider()\n        provider.addAttributes([QgsField(\"nombre\", QVariant.String)])\n        capa_buffer.updateFields()\n\n        entidades = []\n        for entidad in capa_origen.getFeatures():\n            buffer_geom = entidad.geometry().buffer(distancia, 8)\n            nueva_entidad = QgsFeature()\n            nueva_entidad.setGeometry(buffer_geom)\n            nueva_entidad.setAttributes([entidad[\"nombre\"]])\n            entidades.append(nueva_entidad)\n\n        provider.addFeatures(entidades)\n        QgsProject.instance().addMapLayer(capa_buffer)\n        print(f\"Buffer de {distancia}m creado: {capa_buffer.featureCount()} entidades\")\n\n# Ejecutar la función\ngenerar_buffers(\"Hospitales\", [500, 1000, 2000])\n\n\n4.2 Script: exportar atributos a Excel\nimport csv\nfrom pathlib import Path\n\ndef exportar_a_csv(nombre_capa, ruta_salida):\n    \"\"\"Exporta los atributos de una capa a CSV.\"\"\"\n    capa = QgsProject.instance().mapLayersByName(nombre_capa)\n    if not capa:\n        print(f\"Capa no encontrada: {nombre_capa}\")\n        return\n\n    capa = capa[0]\n    campos = [campo.name() for campo in capa.fields()]\n\n    with open(ruta_salida, \"w\", newline=\"\", encoding=\"utf-8\") as f:\n        writer = csv.writer(f)\n        writer.writerow(campos)  # Encabezados\n        for entidad in capa.getFeatures():\n            writer.writerow(entidad.attributes())\n\n    print(f\"Exportado exitosamente: {ruta_salida}\")\n\n# Ejecutar\nexportar_a_csv(\"Municipios\", \"/tmp/municipios.csv\")\n\n\n4.3 Script: exportar mapa como imagen\nfrom qgis.core import QgsLayoutExporter, QgsProject\nfrom qgis.utils import iface\n\ndef exportar_mapa_png(nombre_layout, ruta_salida):\n    \"\"\"Exporta un layout de mapa a PNG.\"\"\"\n    manager = QgsProject.instance().layoutManager()\n    layout = manager.layoutByName(nombre_layout)\n\n    if not layout:\n        print(f\"Layout no encontrado: {nombre_layout}\")\n        return\n\n    exporter = QgsLayoutExporter(layout)\n    settings = QgsLayoutExporter.ImageExportSettings()\n    settings.dpi = 300\n\n    resultado = exporter.exportToImage(ruta_salida, settings)\n    if resultado == QgsLayoutExporter.Success:\n        print(f\"Mapa exportado: {ruta_salida}\")\n    else:\n        print(\"Error al exportar el mapa\")\n\n# Ejecutar\nexportar_mapa_png(\"Mi Layout\", \"/tmp/mapa_final.png\")",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "5. Automatización con Python y PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo5.html#exportación-de-resultados",
+    "href": "content/modulos/modulo5.html#exportación-de-resultados",
+    "title": "Módulo 5: Automatización con Python y PyQGIS",
+    "section": "5 5.4 Exportación de resultados",
+    "text": "5 5.4 Exportación de resultados\n\n5.1 Exportar capa a diferentes formatos\nfrom qgis.core import QgsVectorFileWriter, QgsCoordinateTransformContext\n\ndef exportar_capa(nombre_capa, ruta_salida, formato=\"ESRI Shapefile\"):\n    \"\"\"\n    Exporta una capa a shapefile, GeoJSON, GeoPackage, etc.\n    Formatos: \"ESRI Shapefile\", \"GeoJSON\", \"GPKG\", \"KML\"\n    \"\"\"\n    capa = QgsProject.instance().mapLayersByName(nombre_capa)\n    if not capa:\n        print(f\"Capa no encontrada: {nombre_capa}\")\n        return\n    capa = capa[0]\n\n    opciones = QgsVectorFileWriter.SaveVectorOptions()\n    opciones.driverName = formato\n    opciones.fileEncoding = \"UTF-8\"\n\n    error, msg, _, _ = QgsVectorFileWriter.writeAsVectorFormatV3(\n        capa,\n        ruta_salida,\n        QgsCoordinateTransformContext(),\n        opciones\n    )\n\n    if error == QgsVectorFileWriter.NoError:\n        print(f\"Capa exportada exitosamente: {ruta_salida}\")\n    else:\n        print(f\"Error al exportar: {msg}\")\n\n# Exportar a GeoJSON\nexportar_capa(\"Municipios\", \"/tmp/municipios.geojson\", \"GeoJSON\")\n# Exportar a GeoPackage\nexportar_capa(\"Municipios\", \"/tmp/municipios.gpkg\", \"GPKG\")",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "5. Automatización con Python y PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo5.html#qgis-processing-framework-y-scripts-personalizados",
+    "href": "content/modulos/modulo5.html#qgis-processing-framework-y-scripts-personalizados",
+    "title": "Módulo 5: Automatización con Python y PyQGIS",
+    "section": "6 5.5 QGIS Processing Framework y scripts personalizados",
+    "text": "6 5.5 QGIS Processing Framework y scripts personalizados\n\n6.1 Usar herramientas de processing desde Python\nimport processing\n\n# Ejecutar buffer\nresultado = processing.run(\"native:buffer\", {\n    \"INPUT\": iface.activeLayer(),\n    \"DISTANCE\": 1000,\n    \"SEGMENTS\": 8,\n    \"END_CAP_STYLE\": 0,\n    \"JOIN_STYLE\": 0,\n    \"MITER_LIMIT\": 2,\n    \"DISSOLVE\": False,\n    \"OUTPUT\": \"TEMPORARY_OUTPUT\"\n})\n\n# Agregar el resultado al proyecto\nQgsProject.instance().addMapLayer(resultado[\"OUTPUT\"])\nprint(\"Buffer completado.\")\n\n\n6.2 Lista de algoritmos disponibles\n# Ver todos los algoritmos disponibles\nfor alg in QgsApplication.processingRegistry().algorithms():\n    print(f\"{alg.id()} — {alg.displayName()}\")\n\n\n6.3 Crear un script de processing personalizado\nLos scripts de processing pueden guardarse en:\nConfiguración → Opciones → Procesamiento → Scripts\nEstructura básica de un script de processing:\nfrom qgis.core import QgsProcessingAlgorithm, QgsProcessingParameterVectorLayer\nfrom qgis.core import QgsProcessingParameterFileDestination\n\nclass MiAlgoritmo(QgsProcessingAlgorithm):\n\n    INPUT = \"INPUT\"\n    OUTPUT = \"OUTPUT\"\n\n    def initAlgorithm(self, config=None):\n        self.addParameter(QgsProcessingParameterVectorLayer(\n            self.INPUT, \"Capa de entrada\"))\n        self.addParameter(QgsProcessingParameterFileDestination(\n            self.OUTPUT, \"Archivo de salida\", \"CSV Files (*.csv)\"))\n\n    def processAlgorithm(self, parameters, context, feedback):\n        capa = self.parameterAsVectorLayer(parameters, self.INPUT, context)\n        salida = self.parameterAsFileOutput(parameters, self.OUTPUT, context)\n\n        # Tu lógica aquí\n        feedback.pushInfo(f\"Procesando: {capa.name()}\")\n\n        return {self.OUTPUT: salida}\n\n    def name(self):\n        return \"mi_algoritmo\"\n\n    def displayName(self):\n        return \"Mi Algoritmo Personalizado\"\n\n    def group(self):\n        return \"Scripts personalizados\"\n\n    def groupId(self):\n        return \"scripts_personalizados\"\n\n    def createInstance(self):\n        return MiAlgoritmo()",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "5. Automatización con Python y PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo5.html#ejercicios-prácticos",
+    "href": "content/modulos/modulo5.html#ejercicios-prácticos",
+    "title": "Módulo 5: Automatización con Python y PyQGIS",
+    "section": "7 🛠️ Ejercicios Prácticos",
+    "text": "7 🛠️ Ejercicios Prácticos\n\n7.1 Ejercicio 5.1: Primeros pasos en la consola\n\nAbre la consola de Python en QGIS.\nLista todas las capas del proyecto actual.\nObtén el número de entidades de la capa activa.\nImprime los nombres de todos los campos de la capa activa.\n\n\n\n7.2 Ejercicio 5.2: Script de automatización\n\nEscribe un script que:\n\nCargue una capa de puntos (hospitales)\nCalcule la distancia desde cada hospital al centroide del mapa\nGuarde el resultado en un campo nuevo llamado dist_centro\n\nEjecuta el script y verifica los resultados en la tabla de atributos.\n\n\n\n7.3 Ejercicio 5.3: Exportación masiva\n\nEscribe un script que exporte automáticamente todas las capas del proyecto a GeoJSON.\nGuarda todos los archivos en una carpeta /tmp/exportaciones/.\nVerifica que los archivos se crearon correctamente.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "5. Automatización con Python y PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo5.html#recursos-y-referencias",
+    "href": "content/modulos/modulo5.html#recursos-y-referencias",
+    "title": "Módulo 5: Automatización con Python y PyQGIS",
+    "section": "8 📚 Recursos y Referencias",
+    "text": "8 📚 Recursos y Referencias\n\nPyQGIS Developer Cookbook\nQGIS API Documentation\nQGIS Processing — Scripting\nGeopandas — Análisis espacial con Python\nShapely — Geometrías con Python\n\n\n← Módulo 4: Análisis espacial para rutas | Módulo 6: Visualización avanzada →",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "5. Automatización con Python y PyQGIS"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo3.html",
+    "href": "content/modulos/modulo3.html",
+    "title": "Módulo 3: Edición y geoprocesamiento básico",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nCrear y editar capas vectoriales en QGIS.\nAplicar herramientas de geoprocesamiento: corte, unión, buffer y disolución.\nValidar y corregir geometrías con errores.\nCalcular distancias y áreas usando la calculadora de campos.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "3. Edición y geoprocesamiento básico"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo3.html#objetivos-del-módulo",
+    "href": "content/modulos/modulo3.html#objetivos-del-módulo",
+    "title": "Módulo 3: Edición y geoprocesamiento básico",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nCrear y editar capas vectoriales en QGIS.\nAplicar herramientas de geoprocesamiento: corte, unión, buffer y disolución.\nValidar y corregir geometrías con errores.\nCalcular distancias y áreas usando la calculadora de campos.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "3. Edición y geoprocesamiento básico"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo3.html#creación-y-edición-de-capas-vectoriales",
+    "href": "content/modulos/modulo3.html#creación-y-edición-de-capas-vectoriales",
+    "title": "Módulo 3: Edición y geoprocesamiento básico",
+    "section": "2 3.1 Creación y edición de capas vectoriales",
+    "text": "2 3.1 Creación y edición de capas vectoriales\n\n2.1 Crear una nueva capa vectorial\n\nCapa → Crear capa → Nueva capa GeoPackage (recomendado) o Nueva capa Shapefile\nDefine:\n\nNombre del archivo y ubicación\nTipo de geometría: Punto, Línea o Polígono\nCRS de la capa\nCampos de la tabla de atributos (nombre, tipo de dato)\n\nHaz clic en Aceptar\n\n\n\n2.2 Herramientas de edición\nPara editar una capa, activa el modo edición:\n\nSelecciona la capa en el panel de capas\nHaz clic en el ícono del lápiz ✏️ (o Ctrl+E)\n\nHerramientas principales de edición:\n\n\n\n\n\n\n\nHerramienta\nFunción\n\n\n\n\nAñadir entidad\nCrear nuevos puntos, líneas o polígonos\n\n\nMover entidades\nDesplazar entidades existentes\n\n\nEditar nodos\nModificar los vértices de geometrías\n\n\nDividir entidades\nCortar una entidad en dos partes\n\n\nCombinar entidades\nUnir dos o más entidades en una sola\n\n\nEliminar entidades\nBorrar entidades seleccionadas\n\n\n\n\n\n\n\n\n\nTipGuardar cambios\n\n\n\nRecuerda guardar los cambios al finalizar la edición: - Capa → Guardar cambios de la capa (Ctrl+S) - O desactiva el modo edición (ícono del lápiz) y elige Guardar\n\n\n\n\n2.3 Tabla de atributos\nPuedes editar atributos directamente en la tabla:\n\nAbre la tabla de atributos: F6 o clic derecho → Abrir tabla de atributos\nActiva el modo edición (ícono del lápiz)\nEdita los valores directamente en las celdas",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "3. Edición y geoprocesamiento básico"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo3.html#herramientas-de-geoprocesamiento",
+    "href": "content/modulos/modulo3.html#herramientas-de-geoprocesamiento",
+    "title": "Módulo 3: Edición y geoprocesamiento básico",
+    "section": "3 3.2 Herramientas de geoprocesamiento",
+    "text": "3 3.2 Herramientas de geoprocesamiento\nLas herramientas de geoprocesamiento están disponibles en: - Vector → Herramientas de geoprocesamiento - Caja de herramientas de procesos (Ctrl+Alt+T)\n\n3.1 Buffer (Zona de influencia)\nCrea una zona de influencia alrededor de entidades:\nVector → Herramientas de geoprocesamiento → Zonas de influencia (Buffer)\nParámetros: - Capa de entrada - Distancia del buffer (en unidades del CRS) - Segmentos por cuarto de círculo (precisión) - ¿Disolver resultado? (unir buffers superpuestos)\nEjemplo de uso: calcular un radio de 500 m alrededor de hospitales para identificar la población servida.\n\n\n3.2 Corte (Clip)\nRecorta una capa usando los límites de otra:\nVector → Herramientas de geoprocesamiento → Cortar\nEjemplo: cortar la red de carreteras nacionales para obtener solo las carreteras dentro de un municipio específico.\n\n\n3.3 Unión espacial (Intersección)\nCombina dos capas manteniendo solo las áreas comunes:\nVector → Herramientas de geoprocesamiento → Intersección\n\n\n3.4 Disolución\nFusiona entidades que comparten el mismo valor en un campo:\nVector → Herramientas de geoprocesamiento → Disolver\nEjemplo: disolver municipios por departamento para crear una capa de departamentos.\n\n\n3.5 Unión de capas (Union)\nCombina dos capas manteniendo todas las entidades de ambas:\nVector → Herramientas de geoprocesamiento → Unión\n\n\n3.6 Diferencia\nElimina de una capa las áreas cubiertas por otra:\nVector → Herramientas de geoprocesamiento → Diferencia",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "3. Edición y geoprocesamiento básico"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo3.html#limpieza-y-validación-de-geometrías",
+    "href": "content/modulos/modulo3.html#limpieza-y-validación-de-geometrías",
+    "title": "Módulo 3: Edición y geoprocesamiento básico",
+    "section": "4 3.3 Limpieza y validación de geometrías",
+    "text": "4 3.3 Limpieza y validación de geometrías\nLas geometrías inválidas pueden causar errores en los análisis. QGIS ofrece herramientas para detectarlas y corregirlas.\n\n4.1 Verificar validez de geometrías\nVector → Herramientas de geometría → Verificar validez\nGenera tres capas de salida: - Válidas: entidades sin problemas - Inválidas: entidades con errores - Error: puntos donde ocurren los errores\n\n\n4.2 Tipos de errores comunes\n\n\n\n\n\n\n\nError\nDescripción\n\n\n\n\nAutointersección\nPolígono cuyo contorno se cruza a sí mismo\n\n\nAnillo duplicado\nAgujeros superpuestos en un polígono\n\n\nGeometría nula\nEntidad sin geometría asociada\n\n\nPolígono no cerrado\nPolígono cuyo primer y último vértice no coinciden\n\n\n\n\n\n4.3 Corregir geometrías automáticamente\nVector → Herramientas de geometría → Corregir geometrías\n\n\n\n\n\n\nAdvertenciaValidar antes de analizar\n\n\n\nSiempre valida las geometrías de tus capas antes de ejecutar análisis de geoprocesamiento. Las geometrías inválidas pueden producir resultados incorrectos o errores de procesamiento.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "3. Edición y geoprocesamiento básico"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo3.html#cálculo-de-distancias-y-áreas",
+    "href": "content/modulos/modulo3.html#cálculo-de-distancias-y-áreas",
+    "title": "Módulo 3: Edición y geoprocesamiento básico",
+    "section": "5 3.4 Cálculo de distancias y áreas",
+    "text": "5 3.4 Cálculo de distancias y áreas\n\n5.1 Calculadora de campos\nLa Calculadora de campos permite agregar o actualizar columnas usando expresiones matemáticas y espaciales:\n\nAbre la tabla de atributos (F6)\nActiva el modo edición\nHaz clic en el ícono de la Calculadora de campos o Ctrl+I\n\n\n\n5.2 Expresiones de área\nPara calcular el área de polígonos (en m² si el CRS está en metros):\n# Área en metros cuadrados\n$area\n\n# Área en hectáreas\n$area / 10000\n\n# Área en kilómetros cuadrados\n$area / 1000000\n\n\n\n\n\n\nImportanteUnidades de área\n\n\n\nSi el CRS está en grados (geográfico), $area devolverá valores incorrectos. Usa siempre un CRS proyectado en metros para cálculos de área y distancia.\n\n\n\n\n5.3 Expresiones de longitud (para líneas)\n# Longitud en metros\n$length\n\n# Longitud en kilómetros\n$length / 1000\n\n\n5.4 Distancia entre puntos\nPara calcular la distancia entre entidades, usa:\nVector → Análisis → Matriz de distancias\nO en la calculadora de campos con expresiones de geometría:\n# Distancia desde un punto al centroide de otra entidad\ndistance(\n  $geometry,\n  geometry(get_feature('capa_destino', 'id', 1))\n)\n\n\n5.5 Uso del campo generado\nPara asignar el área a un campo nuevo:\n\nAbre la calculadora de campos\nNombre del campo: area_ha\nTipo: Número decimal\nPrecisión: 2 decimales\nExpresión: $area / 10000\nHaz clic en Aceptar",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "3. Edición y geoprocesamiento básico"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo3.html#ejercicios-prácticos",
+    "href": "content/modulos/modulo3.html#ejercicios-prácticos",
+    "title": "Módulo 3: Edición y geoprocesamiento básico",
+    "section": "6 🛠️ Ejercicios Prácticos",
+    "text": "6 🛠️ Ejercicios Prácticos\n\n6.1 Ejercicio 3.1: Crear y editar capas\n\nCrea una nueva capa de puntos GeoPackage llamada puntos_interes.\nAgrega los siguientes campos: nombre (texto), tipo (texto), descripcion (texto).\nEn modo edición, agrega al menos 5 puntos de interés en Tegucigalpa.\nCompleta los atributos de cada punto.\n\n\n\n6.2 Ejercicio 3.2: Geoprocesamiento básico\n\nCarga la capa de municipios de Honduras.\nAplica un buffer de 2 km alrededor del municipio del Distrito Central.\nUsa corte (clip) para recortar la red de carreteras al límite del municipio.\nDisuelve los municipios por departamento.\n\n\n\n6.3 Ejercicio 3.3: Calcular áreas y distancias\n\nCarga la capa de municipios y reproyéctala a UTM Zona 16N.\nAbre la calculadora de campos y agrega:\n\narea_km2: área en kilómetros cuadrados\nperimetro_km: perímetro en kilómetros\n\nIdentifica el municipio más grande y el más pequeño.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "3. Edición y geoprocesamiento básico"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo3.html#recursos-y-referencias",
+    "href": "content/modulos/modulo3.html#recursos-y-referencias",
+    "title": "Módulo 3: Edición y geoprocesamiento básico",
+    "section": "7 📚 Recursos y Referencias",
+    "text": "7 📚 Recursos y Referencias\n\nQGIS — Edición de capas vectoriales\nQGIS — Herramientas de geoprocesamiento\nCalculadora de campos — Referencia de expresiones\n\n\n← Módulo 2: Carga y manejo de datos | Módulo 4: Análisis espacial para rutas →",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "3. Edición y geoprocesamiento básico"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo7.html",
+    "href": "content/modulos/modulo7.html",
+    "title": "Módulo 7: Integración y casos prácticos",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nConectar QGIS con APIs externas como OpenStreetMap y Google Maps.\nDiseñar y evaluar rutas eficientes para trabajo de campo.\nImportar y procesar rutas GPS recolectadas con aplicaciones móviles.\nAplicar técnicas de optimización de recorridos con restricciones reales.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "7. Integración y casos prácticos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo7.html#objetivos-del-módulo",
+    "href": "content/modulos/modulo7.html#objetivos-del-módulo",
+    "title": "Módulo 7: Integración y casos prácticos",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nConectar QGIS con APIs externas como OpenStreetMap y Google Maps.\nDiseñar y evaluar rutas eficientes para trabajo de campo.\nImportar y procesar rutas GPS recolectadas con aplicaciones móviles.\nAplicar técnicas de optimización de recorridos con restricciones reales.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "7. Integración y casos prácticos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo7.html#conexión-con-apis-externas",
+    "href": "content/modulos/modulo7.html#conexión-con-apis-externas",
+    "title": "Módulo 7: Integración y casos prácticos",
+    "section": "2 7.1 Conexión con APIs externas",
+    "text": "2 7.1 Conexión con APIs externas\n\n2.1 OpenStreetMap (OSM)\nOpenStreetMap es el mapa colaborativo de código abierto más completo del mundo. QGIS se integra con OSM de múltiples maneras.\n\n2.1.1 Tiles (mapas base)\nPanel Explorador → Teselas XYZ → Nueva conexión\nAgrega estas URLs como capas base:\n\n\n\n\n\n\n\nServicio\nURL\n\n\n\n\nOpenStreetMap\nhttps://tile.openstreetmap.org/{z}/{x}/{y}.png\n\n\nOSM Humanitarian\nhttps://tile-c.openstreetmap.fr/hot/{z}/{x}/{y}.png\n\n\nCartoDB Light\nhttps://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png\n\n\nESRI Satellite\nhttps://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}\n\n\n\n\n\n2.1.2 Descarga de datos con QuickOSM\n# Consulta mediante Python (requiere plugin QuickOSM)\nimport processing\n\nresultado = processing.run(\"quickosm:buildqueryextent\", {\n    \"KEY\": \"amenity\",\n    \"VALUE\": \"hospital\",\n    \"EXTENT\": \"-87.3,13.9,-87.1,14.2 [EPSG:4326]\",\n    \"OUTPUT\": \"TEMPORARY_OUTPUT\"\n})\n\n\n2.1.3 Descarga con la API Overpass\nLa API Overpass permite consultas avanzadas sobre datos OSM:\nimport requests\nimport json\n\ndef descargar_osm_overpass(query, bbox):\n    \"\"\"\n    Descarga datos OSM usando la API Overpass.\n    bbox: (sur, oeste, norte, este)\n    \"\"\"\n    url = \"https://overpass-api.de/api/interpreter\"\n    overpass_query = f\"\"\"\n    [out:json][timeout:30];\n    (\n      node[{query}]({bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]});\n      way[{query}]({bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]});\n    );\n    out body;\n    &gt;;\n    out skel qt;\n    \"\"\"\n    response = requests.get(url, params={\"data\": overpass_query})\n    return response.json()\n\n# Ejemplo: hospitales en Tegucigalpa\ndatos = descargar_osm_overpass(\n    '\"amenity\"=\"hospital\"',\n    (13.9, -87.3, 14.2, -87.1)\n)\nprint(f\"Elementos encontrados: {len(datos['elements'])}\")\n\n\n\n2.2 Google Maps / Places API\nPara conectar con la API de Google Maps desde Python (requiere clave API):\nimport requests\n\ndef geocodificar_direccion(direccion, api_key):\n    \"\"\"Convierte una dirección en coordenadas usando Google Maps.\"\"\"\n    url = \"https://maps.googleapis.com/maps/api/geocode/json\"\n    params = {\n        \"address\": direccion,\n        \"key\": api_key,\n        \"language\": \"es\"\n    }\n    response = requests.get(url, params=params)\n    data = response.json()\n\n    if data[\"status\"] == \"OK\":\n        location = data[\"results\"][0][\"geometry\"][\"location\"]\n        return location[\"lat\"], location[\"lng\"]\n    return None\n\n# Uso\n# lat, lon = geocodificar_direccion(\"UNAH, Tegucigalpa\", \"TU_API_KEY\")\n\n\n\n\n\n\nAdvertenciaAPI Keys\n\n\n\nPara usar las APIs de Google Maps necesitas registrarte en Google Cloud Platform y crear una clave de API. Algunas APIs son de pago según el uso.\n\n\n\n\n2.3 OpenRouteService (ORS)\nOpenRouteService ofrece APIs gratuitas para enrutamiento basadas en OSM:\nimport requests\n\ndef calcular_ruta_ors(origen, destino, api_key, modo=\"driving-car\"):\n    \"\"\"\n    Calcula una ruta usando OpenRouteService.\n    origen/destino: [longitud, latitud]\n    modos: driving-car, cycling-regular, foot-walking\n    \"\"\"\n    url = \"https://api.openrouteservice.org/v2/directions/\" + modo\n    headers = {\n        \"Authorization\": api_key,\n        \"Content-Type\": \"application/json\"\n    }\n    body = {\n        \"coordinates\": [origen, destino],\n        \"format\": \"geojson\"\n    }\n    response = requests.post(url, json=body, headers=headers)\n    return response.json()\n\n# Ejemplo de uso\n# origen = [-87.2068, 14.0818]  # [lon, lat]\n# destino = [-87.1904, 14.0817]\n# ruta = calcular_ruta_ors(origen, destino, \"TU_API_KEY_ORS\")",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "7. Integración y casos prácticos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo7.html#proyecto-aplicado-diseño-de-rutas-eficientes-para-campo",
+    "href": "content/modulos/modulo7.html#proyecto-aplicado-diseño-de-rutas-eficientes-para-campo",
+    "title": "Módulo 7: Integración y casos prácticos",
+    "section": "3 7.2 Proyecto aplicado: diseño de rutas eficientes para campo",
+    "text": "3 7.2 Proyecto aplicado: diseño de rutas eficientes para campo\n\n3.1 Planteamiento del problema\nUn equipo de trabajo de campo necesita visitar 10 puntos de control (comunidades, puntos de monitoreo, etc.) desde una base de operaciones, minimizando el tiempo total de desplazamiento.\nEste es un problema de Ruta del Viajero (TSP - Travelling Salesman Problem).\n\n\n3.2 Solución 1: Herramienta de procesamiento de QGIS\nQGIS incluye herramientas para optimizar recorridos:\nProcesamiento → Caja de herramientas → Análisis de redes → Optimization of a graph path\n\n\n3.3 Solución 2: Python con OR-Tools (Google)\n# Requiere: pip install ortools\nfrom ortools.constraint_solver import routing_enums_pb2\nfrom ortools.constraint_solver import pywrapcp\nimport math\n\ndef calcular_distancia(p1, p2):\n    \"\"\"Distancia euclidiana entre dos puntos (lat, lon).\"\"\"\n    return math.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2) * 111000  # metros aprox.\n\ndef resolver_tsp(puntos):\n    \"\"\"\n    Resuelve el TSP para una lista de puntos (lat, lon).\n    Retorna el orden óptimo de visita.\n    \"\"\"\n    n = len(puntos)\n    # Matriz de distancias\n    matriz = [[int(calcular_distancia(puntos[i], puntos[j]))\n               for j in range(n)] for i in range(n)]\n\n    manager = pywrapcp.RoutingIndexManager(n, 1, 0)\n    routing = pywrapcp.RoutingModel(manager)\n\n    def callback_distancia(from_index, to_index):\n        from_node = manager.IndexToNode(from_index)\n        to_node = manager.IndexToNode(to_index)\n        return matriz[from_node][to_node]\n\n    transit_callback_index = routing.RegisterTransitCallback(callback_distancia)\n    routing.SetArcCostEvaluatorOfAllVehicles(transit_callback_index)\n\n    parametros = pywrapcp.DefaultRoutingSearchParameters()\n    parametros.first_solution_strategy = (\n        routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)\n\n    solucion = routing.SolveWithParameters(parametros)\n\n    if solucion:\n        ruta = []\n        index = routing.Start(0)\n        while not routing.IsEnd(index):\n            ruta.append(manager.IndexToNode(index))\n            index = solucion.Value(routing.NextVar(index))\n        ruta.append(manager.IndexToNode(index))\n        return ruta\n    return None\n\n# Ejemplo con puntos en Honduras\npuntos_visita = [\n    (14.0818, -87.2068),  # Base: UNAH\n    (14.1234, -87.1890),  # Punto 1\n    (14.0500, -87.2200),  # Punto 2\n    (14.0700, -87.1700),  # Punto 3\n]\n\norden_optimo = resolver_tsp(puntos_visita)\nif orden_optimo:\n    print(\"Orden óptimo de visita:\", orden_optimo)",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "7. Integración y casos prácticos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo7.html#trazabilidad-de-rutas-gps-con-apps-móviles",
+    "href": "content/modulos/modulo7.html#trazabilidad-de-rutas-gps-con-apps-móviles",
+    "title": "Módulo 7: Integración y casos prácticos",
+    "section": "4 7.3 Trazabilidad de rutas GPS con apps móviles",
+    "text": "4 7.3 Trazabilidad de rutas GPS con apps móviles\n\n4.1 Aplicaciones para recolección de datos en campo\n\n\n\n\n\n\n\n\nAplicación\nPlataforma\nCaracterísticas principales\n\n\n\n\nQField\nAndroid/iOS\nVersión móvil de QGIS, edita capas directamente\n\n\nInput\nAndroid/iOS\nBasada en QGIS, sincronización en la nube\n\n\nGPSLogger\nAndroid\nRegistra tracks GPS en varios formatos\n\n\nOSMAnd\nAndroid/iOS\nNavegación y recolección de datos OSM\n\n\nSW Maps\nAndroid\nMapeo GPS de alta precisión\n\n\n\n\n\n4.2 Flujo de trabajo con QField\n\nPreparar proyecto en QGIS Desktop:\n\nCrea el proyecto con las capas necesarias\nDefine formularios de captura de datos\nGuarda como GeoPackage\n\nTransferir al dispositivo móvil:\n\nUsa QFieldCloud (sincronización en la nube)\nO copia los archivos via USB/WiFi\n\nRecolección en campo:\n\nAbre el proyecto en QField\nCaptura puntos, líneas o polígonos con GPS\nCompleta los formularios de atributos\n\nImportar datos de vuelta a QGIS:\n\nSincroniza con QFieldCloud\nO copia el GeoPackage actualizado al computador\n\n\n\n\n4.3 Importar tracks GPX\nLos tracks GPS se pueden importar directamente:\n# Importar archivo GPX\nruta_gpx = \"/home/usuario/tracks/recorrido.gpx\"\ncapa_track = QgsVectorLayer(f\"{ruta_gpx}|layername=tracks\", \"Mi Track\", \"ogr\")\ncapa_waypoints = QgsVectorLayer(f\"{ruta_gpx}|layername=waypoints\", \"Waypoints\", \"ogr\")\n\nQgsProject.instance().addMapLayer(capa_track)\nQgsProject.instance().addMapLayer(capa_waypoints)\n\nprint(f\"Track cargado: {capa_track.featureCount()} segmentos\")\nprint(f\"Waypoints: {capa_waypoints.featureCount()} puntos\")\n\n\n4.4 Análisis de tracks GPS\n# Calcular longitud total de un track\ncapa = QgsProject.instance().mapLayersByName(\"Mi Track\")[0]\nlongitud_total = sum(\n    entidad.geometry().length()\n    for entidad in capa.getFeatures()\n)\nprint(f\"Longitud total del recorrido: {longitud_total/1000:.2f} km\")",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "7. Integración y casos prácticos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo7.html#optimización-de-recorridos-con-restricciones-reales",
+    "href": "content/modulos/modulo7.html#optimización-de-recorridos-con-restricciones-reales",
+    "title": "Módulo 7: Integración y casos prácticos",
+    "section": "5 7.4 Optimización de recorridos con restricciones reales",
+    "text": "5 7.4 Optimización de recorridos con restricciones reales\n\n5.1 Tipos de restricciones comunes\n\n\n\n\n\n\n\nRestricción\nEjemplo\n\n\n\n\nVentanas de tiempo\nVisitar un cliente entre 9:00 AM y 12:00 PM\n\n\nCapacidad del vehículo\nMáximo de 500 kg por camión\n\n\nTipo de vehículo\nCamiones no pueden usar ciertos caminos\n\n\nPrioridades\nClientes prioritarios deben visitarse primero\n\n\nHoras de trabajo\nMáximo 8 horas de trabajo por jornada\n\n\n\n\n\n5.2 Vehicle Routing Problem (VRP) con OR-Tools\n# Ejemplo simplificado de VRP con ventanas de tiempo\n# Requiere: pip install ortools\n\n\"\"\"\nProblema: Una empresa tiene una bodega central y 5 clientes a visitar\ncon 2 vehículos disponibles, cada uno con ventanas de tiempo.\n\"\"\"\n\n# Datos del problema\ndatos = {\n    \"num_vehicles\": 2,\n    \"depot\": 0,  # índice de la bodega\n    \"time_matrix\": [\n        # Tiempo en minutos entre cada par de ubicaciones\n        [0, 15, 30, 25, 20, 35],\n        [15, 0, 20, 18, 25, 28],\n        [30, 20, 0, 12, 22, 15],\n        [25, 18, 12, 0, 15, 20],\n        [20, 25, 22, 15, 0, 18],\n        [35, 28, 15, 20, 18, 0],\n    ],\n    \"time_windows\": [\n        (0, 480),    # Bodega: 8:00 AM - 4:00 PM\n        (60, 180),   # Cliente 1: 9:00 AM - 11:00 AM\n        (120, 240),  # Cliente 2: 10:00 AM - 12:00 PM\n        (0, 300),    # Cliente 3: 8:00 AM - 1:00 PM\n        (180, 360),  # Cliente 4: 11:00 AM - 2:00 PM\n        (240, 420),  # Cliente 5: 12:00 PM - 3:00 PM\n    ],\n}\n\nprint(\"Problema de VRP con ventanas de tiempo definido.\")\nprint(f\"Vehículos disponibles: {datos['num_vehicles']}\")\nprint(f\"Clientes a visitar: {len(datos['time_windows']) - 1}\")\n\n\n5.3 Herramientas adicionales para optimización\n\n\n\n\n\n\n\nHerramienta\nDescripción\n\n\n\n\nOR-Tools\nBiblioteca de Google para optimización combinatoria\n\n\nOpenRouteService\nAPI con funcionalidad de optimización de rutas\n\n\npgRouting\nExtensión de PostgreSQL para análisis de redes\n\n\nOSRM\nMotor de enrutamiento de alto rendimiento basado en OSM\n\n\nVroom\nSoluciones para VRP usando OSRM/OpenRouteService",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "7. Integración y casos prácticos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo7.html#proyecto-final-del-curso",
+    "href": "content/modulos/modulo7.html#proyecto-final-del-curso",
+    "title": "Módulo 7: Integración y casos prácticos",
+    "section": "6 7.5 Proyecto Final del Curso",
+    "text": "6 7.5 Proyecto Final del Curso\n\n6.1 Descripción del proyecto\nDiseña y evalúa un sistema de rutas para uno de los siguientes escenarios:\n\n\n\n\n\n\nNotaEscenario A: Sistema de distribución de productos\n\n\n\nDiseña las rutas óptimas para distribuir productos desde una bodega central a 8–10 clientes en Tegucigalpa, considerando: - Ventanas horarias de entrega por cliente - Capacidad de 2 vehículos disponibles - Minimización del tiempo total de desplazamiento\n\n\n\n\n\n\n\n\nNotaEscenario B: Cobertura de servicios de salud\n\n\n\nEvalúa la cobertura geográfica de los centros de salud en un municipio: - Calcula el área atendida por cada establecimiento (isócronas de 15 y 30 min) - Identifica comunidades sin cobertura adecuada - Propone la ubicación óptima para un nuevo centro de salud\n\n\n\n\n\n\n\n\nNotaEscenario C: Monitoreo ambiental en campo\n\n\n\nPlanifica rutas de campo para monitoreo ambiental: - Importa puntos de muestreo desde GPS/aplicación móvil - Optimiza el orden de visita - Genera un informe con las rutas y estadísticas del recorrido\n\n\n\n\n6.2 Entregables del proyecto\n\n✅ Mapa final exportado en PDF (calidad de impresión)\n✅ Script Python documentado con la lógica de análisis\n✅ Archivo GeoPackage con todas las capas del proyecto\n✅ Informe breve (máximo 2 páginas) describiendo la metodología y resultados",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "7. Integración y casos prácticos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo7.html#recursos-y-referencias",
+    "href": "content/modulos/modulo7.html#recursos-y-referencias",
+    "title": "Módulo 7: Integración y casos prácticos",
+    "section": "7 📚 Recursos y Referencias",
+    "text": "7 📚 Recursos y Referencias\n\nQField — Documentación oficial\nInput App — Mergin Maps\nOpenRouteService — API Documentation\nOR-Tools — Google Optimization Tools\npgRouting — Documentación\nOSM Overpass API — Tutorial\nVROOM — Vehicle Routing Open-source Optimization Machine\n\n\n\n\n\n\n\n\nImportante¡Felicitaciones!\n\n\n\nHas completado el Curso de QGIS y Herramientas Python para el Análisis Geoespacial del CEETI – UNAH.\nRecuerda que la práctica continua es la clave para dominar estas herramientas. Explora los recursos adicionales, participa en la comunidad QGIS y aplica lo aprendido en proyectos reales.\n\n\n\n← Módulo 6: Visualización avanzada | ↑ Inicio | Ver temario completo",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "7. Integración y casos prácticos"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo6.html",
+    "href": "content/modulos/modulo6.html",
+    "title": "Módulo 6: Visualización avanzada y mapas finales",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nAplicar simbología por atributos para comunicar información espacial.\nConfigurar etiquetado dinámico en capas vectoriales.\nCrear mapas temáticos (coropletas, puntos proporcionales, etc.).\nDiseñar mapas completos en el Compositor de Impresión.\nExportar mapas en formatos adecuados para presentaciones e informes.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "6. Visualización avanzada y mapas finales"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo6.html#objetivos-del-módulo",
+    "href": "content/modulos/modulo6.html#objetivos-del-módulo",
+    "title": "Módulo 6: Visualización avanzada y mapas finales",
+    "section": "",
+    "text": "Al finalizar este módulo, los participantes podrán:\n\nAplicar simbología por atributos para comunicar información espacial.\nConfigurar etiquetado dinámico en capas vectoriales.\nCrear mapas temáticos (coropletas, puntos proporcionales, etc.).\nDiseñar mapas completos en el Compositor de Impresión.\nExportar mapas en formatos adecuados para presentaciones e informes.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "6. Visualización avanzada y mapas finales"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo6.html#simbología-por-atributos",
+    "href": "content/modulos/modulo6.html#simbología-por-atributos",
+    "title": "Módulo 6: Visualización avanzada y mapas finales",
+    "section": "2 6.1 Simbología por atributos",
+    "text": "2 6.1 Simbología por atributos\nLa simbología define cómo se representan visualmente las entidades geográficas. QGIS ofrece múltiples opciones accesibles desde las Propiedades de la capa → Simbología.\n\n2.1 Tipos de simbología vectorial\n\n\n\n\n\n\n\n\nTipo\nDescripción\nUso típico\n\n\n\n\nSímbolo único\nMismo estilo para todas las entidades\nVisualización básica\n\n\nCategorizado\nColores distintos por categoría (campo de texto)\nTipos de vía, uso del suelo\n\n\nGraduado\nColores o tamaños graduales por valor numérico\nPoblación, área, densidad\n\n\nBasado en reglas\nEstilos condicionales mediante expresiones\nCombinaciones complejas\n\n\nDesplazamiento de puntos\nSepara puntos superpuestos\nEventos en la misma ubicación\n\n\nMapa de calor\nDensidad de puntos como gradiente de color\nAccidentes, ventas, crímenes\n\n\n\n\n\n2.2 Simbología categorizada (ejemplo: tipos de vía)\n\nClic derecho en la capa → Propiedades → Simbología\nEn el menú desplegable, selecciona Categorizado\nEn Valor, elige el campo highway (tipo de vía)\nHaz clic en Clasificar\nPersonaliza los colores y estilos de cada categoría\nHaz clic en Aplicar\n\n\n\n2.3 Simbología graduada (ejemplo: densidad de población)\n\nPropiedades → Simbología → Graduado\nValor: campo poblacion\nMétodo de clasificación: Cuantiles, Intervalos iguales o Jenks\nClases: 5\nRampa de color: elige una rampa apropiada (ej. Blues o RdYlGn)\nHaz clic en Clasificar → Aplicar\n\n\n\n\n\n\n\nTipConsejo de color\n\n\n\nPara mapas coropléticos, usa rampas de color perceptualmente uniformes: - Viridis, Magma, Plasma (secuenciales, para daltonismo) - RdBu, BrBG (divergentes, para valores positivos/negativos) - Evita usar rojo/verde juntos (problema para daltónicos)\n\n\n\n\n2.4 Usar expresiones en simbología\nPuedes basar el tamaño, color u otras propiedades en expresiones:\n# Tamaño proporcional a la población\nsqrt(\"poblacion\") / 100\n\n# Color rojo para municipios sin cobertura, verde para con cobertura\nif(\"cobertura\" = 'Sí', '0,128,0', '255,0,0')",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "6. Visualización avanzada y mapas finales"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo6.html#etiquetado-dinámico",
+    "href": "content/modulos/modulo6.html#etiquetado-dinámico",
+    "title": "Módulo 6: Visualización avanzada y mapas finales",
+    "section": "3 6.2 Etiquetado dinámico",
+    "text": "3 6.2 Etiquetado dinámico\nLas etiquetas muestran información textual sobre las entidades directamente en el mapa.\n\n3.1 Configurar etiquetas básicas\n\nPropiedades de la capa → Etiquetas\nSelecciona Etiquetas simples\nValor: elige el campo a mostrar (ej. nombre)\nConfigura fuente, tamaño, color y posición\n\n\n\n3.2 Opciones avanzadas de etiquetado\nColocación de etiquetas (para evitar solapamientos): - Propiedades → Etiquetas → Posición - Estrategia de colocación: Libre (rápido), Cuadrantes, Horizontal\nEscala de visibilidad: - Muestra etiquetas solo en determinados rangos de escala - Propiedades → Etiquetas → Renderizado → Escala basada en visibilidad\nExpresiones para etiquetas compuestas:\n# Combinar nombre y área\n\"nombre\" || '\\n' || format_number($area / 1000000, 2) || ' km²'\n\n# Etiqueta condicional\nif(\"tipo\" = 'Hospital', '🏥 ' || \"nombre\", \"nombre\")\n\n\n3.3 Evitar solapamiento de etiquetas\nEn el menú Etiquetas → Motor de etiquetado: - Usa el motor PAL (Parallax) para una colocación más inteligente - Activa la opción Separar etiquetas solapadas",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "6. Visualización avanzada y mapas finales"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo6.html#mapas-temáticos",
+    "href": "content/modulos/modulo6.html#mapas-temáticos",
+    "title": "Módulo 6: Visualización avanzada y mapas finales",
+    "section": "4 6.3 Mapas temáticos",
+    "text": "4 6.3 Mapas temáticos\nUn mapa temático comunica un aspecto específico del territorio de forma clara y visualmente atractiva.\n\n4.1 Tipos de mapas temáticos\n\n\n\n\n\n\n\nTipo\nDescripción\n\n\n\n\nCoropleta\nPolígonos coloreados según valor de un atributo\n\n\nPuntos proporcionales\nPuntos con tamaño según un atributo numérico\n\n\nMapa de densidad\nRáster de densidad de puntos (KDE)\n\n\nFlujos\nLíneas con grosor variable para representar flujos\n\n\nDiagrama\nGráficos (torta, barra) sobre cada entidad\n\n\n\n\n\n4.2 Crear un diagrama de pastel sobre entidades\n\nPropiedades de la capa → Diagramas\nTipo: Diagrama de pastel\nAtributos: selecciona las columnas a incluir\nConfigura el tamaño y los colores\n\n\n\n4.3 Mapa de calor (densidad de puntos)\nPara crear un mapa de calor a partir de una capa de puntos:\n\nPropiedades de la capa → Simbología → Mapa de calor\nRadio: define el radio de influencia de cada punto\nMínimo/máximo de color: ajusta la rampa\nPonderación: puedes usar un atributo numérico como peso",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "6. Visualización avanzada y mapas finales"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo6.html#diseño-de-mapas-en-el-compositor-de-impresión",
+    "href": "content/modulos/modulo6.html#diseño-de-mapas-en-el-compositor-de-impresión",
+    "title": "Módulo 6: Visualización avanzada y mapas finales",
+    "section": "5 6.4 Diseño de mapas en el Compositor de Impresión",
+    "text": "5 6.4 Diseño de mapas en el Compositor de Impresión\nEl Compositor de Impresión (Print Layout) permite crear mapas profesionales con todos los elementos cartográficos necesarios.\n\n5.1 Abrir el Compositor de Impresión\nProyecto → Nuevo diseño de impresión\nO desde el menú Proyecto → Administrador de diseños.\n\n\n5.2 Elementos esenciales de un mapa\n\n\n\nElemento\nFunción\n\n\n\n\nVista del mapa\nVentana que muestra el contenido del canvas\n\n\nLeyenda\nExplica los símbolos del mapa\n\n\nEscala\nBarra o texto que indica la escala del mapa\n\n\nNorte\nIndica la orientación geográfica\n\n\nTítulo\nNombre del mapa\n\n\nCréditos\nFuente de datos, autor, fecha\n\n\nCuadrícula\nLíneas de latitud/longitud o coordenadas\n\n\n\n\n\n5.3 Flujo de trabajo en el Compositor\n\nAgregar vista del mapa: Diseño → Agregar elemento → Agregar mapa\nSincronizar con el canvas: clic derecho → Establecer extensión del mapa\nAgregar leyenda: Diseño → Agregar elemento → Agregar leyenda\nAgregar escala: Diseño → Agregar elemento → Agregar barra de escala\nAgregar norte: Diseño → Agregar elemento → Agregar imagen de norte\nAgregar texto: para título, créditos, etc.\n\n\n\n5.4 Configurar la leyenda\nPara personalizar la leyenda: 1. Selecciona la leyenda en el layout 2. En el panel de propiedades → Elementos de la leyenda 3. Desactiva Actualización automática para editar manualmente 4. Renombra, reordena u oculta elementos según necesidad\n\n\n5.5 Ajuste de escala y extensión\n# Desde Python: ajustar la extensión de un layout\nfrom qgis.core import QgsProject, QgsRectangle\n\nmanager = QgsProject.instance().layoutManager()\nlayout = manager.layoutByName(\"Mi Mapa\")\n\n# Obtener el mapa del layout\nfor item in layout.items():\n    if item.type() == 65639:  # QgsLayoutItemMap\n        item.setExtent(QgsRectangle(-87.5, 13.8, -86.9, 14.4))\n        item.refresh()",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "6. Visualización avanzada y mapas finales"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo6.html#exportación-de-mapas",
+    "href": "content/modulos/modulo6.html#exportación-de-mapas",
+    "title": "Módulo 6: Visualización avanzada y mapas finales",
+    "section": "6 6.5 Exportación de mapas",
+    "text": "6 6.5 Exportación de mapas\n\n6.1 Exportar desde el Compositor\nComo imagen (PNG/JPG): - Layout → Exportar como imagen… - Configura la resolución (300 DPI para impresión, 96 DPI para pantalla)\nComo PDF: - Layout → Exportar como PDF… - Activa Exportar capas como grupos PDF para mantener la interactividad\nComo SVG (editable en Inkscape/Illustrator): - Layout → Exportar como SVG…\n\n\n6.2 Exportación por lotes con Atlas\nEl Atlas genera automáticamente un mapa para cada entidad de una capa:\n\nLayout → Atlas → Configurar Atlas\nActiva Generar atlas\nCapa de cobertura: selecciona la capa guía (ej. municipios)\nConfigura la expresión del nombre de archivo\nPrevisualiza con Vista previa del atlas\nExporta todos los mapas: Atlas → Exportar atlas como PDF/imagen",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "6. Visualización avanzada y mapas finales"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo6.html#ejercicios-prácticos",
+    "href": "content/modulos/modulo6.html#ejercicios-prácticos",
+    "title": "Módulo 6: Visualización avanzada y mapas finales",
+    "section": "7 🛠️ Ejercicios Prácticos",
+    "text": "7 🛠️ Ejercicios Prácticos\n\n7.1 Ejercicio 6.1: Mapa coroplético\n\nCarga la capa de municipios de Honduras.\nAplica simbología graduada usando el campo de población.\nUsa el método de clasificación de Jenks con 5 clases.\nUsa la rampa de color YlOrRd.\nAgrega etiquetas con el nombre del municipio.\n\n\n\n7.2 Ejercicio 6.2: Mapa de rutas\n\nCarga las capas de: carreteras, municipios y hospitales.\nAplica simbología categorizada a las carreteras por tipo.\nUsa puntos proporcionales para hospitales basados en capacidad.\nConfigura etiquetas solo para hospitales principales.\n\n\n\n7.3 Ejercicio 6.3: Diseño de mapa final\n\nAbre el Compositor de Impresión.\nCrea un mapa completo con:\n\nVista del mapa de Tegucigalpa con al menos 3 capas\nLeyenda clara y legible\nBarra de escala en metros/kilómetros\nRosa de los vientos\nTítulo del mapa\nCréditos: fuente de datos y fecha\n\nExporta el mapa como PNG a 300 DPI.\nExporta también como PDF.",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "6. Visualización avanzada y mapas finales"
+    ]
+  },
+  {
+    "objectID": "content/modulos/modulo6.html#recursos-y-referencias",
+    "href": "content/modulos/modulo6.html#recursos-y-referencias",
+    "title": "Módulo 6: Visualización avanzada y mapas finales",
+    "section": "8 📚 Recursos y Referencias",
+    "text": "8 📚 Recursos y Referencias\n\nQGIS — Simbología de capas vectoriales\nQGIS — Compositor de impresión\nColorBrewer — Paletas de color para cartografía\nCartography Guide — NACIS\nQGIS Atlas Tutorial\n\n\n← Módulo 5: Automatización con Python | Módulo 7: Integración y casos prácticos →",
+    "crumbs": [
+      "Inicio",
+      "Módulos",
+      "6. Visualización avanzada y mapas finales"
+    ]
+  },
+  {
+    "objectID": "content/sobre/syllabus.html",
+    "href": "content/sobre/syllabus.html",
+    "title": "Temario del Curso",
+    "section": "",
+    "text": "Ítem\nDetalle\n\n\n\n\nInstitución\nUniversidad Nacional Autónoma de Honduras (UNAH)\n\n\nUnidad\nCentro de Excelencia para la Educación en TI (CEETI)\n\n\nModalidad\nVirtual (sesiones 1–12) · Presencial (sesión 13)\n\n\nInicio\n6 de abril de 2026\n\n\nHorario\nLunes a Jueves, 6:00 PM – 7:30 PM (hora Honduras)\n\n\nDuración\n20 horas (13 sesiones)",
+    "crumbs": [
+      "Inicio",
+      "Temario"
+    ]
+  },
+  {
+    "objectID": "content/sobre/syllabus.html#información-general",
+    "href": "content/sobre/syllabus.html#información-general",
+    "title": "Temario del Curso",
+    "section": "",
+    "text": "Ítem\nDetalle\n\n\n\n\nInstitución\nUniversidad Nacional Autónoma de Honduras (UNAH)\n\n\nUnidad\nCentro de Excelencia para la Educación en TI (CEETI)\n\n\nModalidad\nVirtual (sesiones 1–12) · Presencial (sesión 13)\n\n\nInicio\n6 de abril de 2026\n\n\nHorario\nLunes a Jueves, 6:00 PM – 7:30 PM (hora Honduras)\n\n\nDuración\n20 horas (13 sesiones)",
+    "crumbs": [
+      "Inicio",
+      "Temario"
+    ]
+  },
+  {
+    "objectID": "content/sobre/syllabus.html#modulo1",
+    "href": "content/sobre/syllabus.html#modulo1",
+    "title": "Temario del Curso",
+    "section": "2 Módulo 1 — Introducción a QGIS y SIG",
+    "text": "2 Módulo 1 — Introducción a QGIS y SIG\n→ Ir al módulo\n\nQué es un SIG y para qué sirve.\nVentajas de QGIS como plataforma de código abierto.\nInterfaz de QGIS: paneles, capas, consola, herramientas.\nTipos de datos espaciales: vectoriales vs ráster.",
+    "crumbs": [
+      "Inicio",
+      "Temario"
+    ]
+  },
+  {
+    "objectID": "content/sobre/syllabus.html#modulo2",
+    "href": "content/sobre/syllabus.html#modulo2",
+    "title": "Temario del Curso",
+    "section": "3 Módulo 2 — Carga y manejo de datos",
+    "text": "3 Módulo 2 — Carga y manejo de datos\n→ Ir al módulo\n\nImportación de archivos shapefile, GeoJSON, KML, CSV georreferenciado.\nConexión a bases de datos (PostGIS, SQLite).\nUso de coordenadas y sistemas de referencia (CRS).\nVisualización de rutas y redes de transporte.",
+    "crumbs": [
+      "Inicio",
+      "Temario"
+    ]
+  },
+  {
+    "objectID": "content/sobre/syllabus.html#modulo3",
+    "href": "content/sobre/syllabus.html#modulo3",
+    "title": "Temario del Curso",
+    "section": "4 Módulo 3 — Edición y geoprocesamiento básico",
+    "text": "4 Módulo 3 — Edición y geoprocesamiento básico\n→ Ir al módulo\n\nCreación y edición de capas vectoriales.\nHerramientas de corte, unión, buffer y disolución.\nLimpieza y validación de geometrías.\nCálculo de distancias y áreas.",
+    "crumbs": [
+      "Inicio",
+      "Temario"
+    ]
+  },
+  {
+    "objectID": "content/sobre/syllabus.html#modulo4",
+    "href": "content/sobre/syllabus.html#modulo4",
+    "title": "Temario del Curso",
+    "section": "5 Módulo 4 — Análisis espacial para rutas",
+    "text": "5 Módulo 4 — Análisis espacial para rutas\n→ Ir al módulo\n\nAnálisis de redes con el plugin QNEAT3 o Road Graph.\nCálculo de rutas óptimas (más cortas, más rápidas).\nMatrices de origen-destino.\nZonificación y análisis de cobertura de rutas.\nAnálisis de puntos de interés (clientes, riesgos, servicios).",
+    "crumbs": [
+      "Inicio",
+      "Temario"
+    ]
+  },
+  {
+    "objectID": "content/sobre/syllabus.html#modulo5",
+    "href": "content/sobre/syllabus.html#modulo5",
+    "title": "Temario del Curso",
+    "section": "6 Módulo 5 — Automatización con Python y PyQGIS",
+    "text": "6 Módulo 5 — Automatización con Python y PyQGIS\n→ Ir al módulo\n\nIntroducción a la consola de Python en QGIS.\nManipulación de capas, geometrías y atributos con PyQGIS.\nScripts para generación automatizada de rutas y reportes.\nExportación de resultados a Excel, shapefile, PDF, etc.\nIntroducción a QGIS Processing Framework y scripts personalizados.",
+    "crumbs": [
+      "Inicio",
+      "Temario"
+    ]
+  },
+  {
+    "objectID": "content/sobre/syllabus.html#modulo6",
+    "href": "content/sobre/syllabus.html#modulo6",
+    "title": "Temario del Curso",
+    "section": "7 Módulo 6 — Visualización avanzada y mapas finales",
+    "text": "7 Módulo 6 — Visualización avanzada y mapas finales\n→ Ir al módulo\n\nUso de simbología por atributos.\nEtiquetado dinámico.\nCreación de mapas temáticos.\nDiseño de mapas en el compositor de impresión.\nExportación de mapas para presentaciones o informes.",
+    "crumbs": [
+      "Inicio",
+      "Temario"
+    ]
+  },
+  {
+    "objectID": "content/sobre/syllabus.html#modulo7",
+    "href": "content/sobre/syllabus.html#modulo7",
+    "title": "Temario del Curso",
+    "section": "8 Módulo 7 — Integración y casos prácticos",
+    "text": "8 Módulo 7 — Integración y casos prácticos\n→ Ir al módulo\n\nConexión con APIs externas (ej. OpenStreetMap, Google Maps).\nProyecto aplicado: diseño y evaluación de rutas eficientes para campo.\nTrazabilidad de rutas recolectadas con GPS o apps móviles (ej. Input, QField).\nOptimización de recorridos considerando restricciones reales.",
+    "crumbs": [
+      "Inicio",
+      "Temario"
+    ]
+  },
+  {
+    "objectID": "content/sobre/syllabus.html#distribución-de-sesiones",
+    "href": "content/sobre/syllabus.html#distribución-de-sesiones",
+    "title": "Temario del Curso",
+    "section": "9 Distribución de sesiones",
+    "text": "9 Distribución de sesiones\n\n\n\n\n\n\n\n\n\n\nSesión\nFecha\nMódulo\nModalidad\nHoras\n\n\n\n\n1\n6 abr (Lun)\nMódulo 1: Introducción a QGIS y SIG\nVirtual\n1.5\n\n\n2\n7 abr (Mar)\nMódulo 2: Carga y manejo de datos\nVirtual\n1.5\n\n\n3\n8 abr (Mié)\nMódulo 2 (cont.)\nVirtual\n1.5\n\n\n4\n9 abr (Jue)\nMódulo 3: Edición y geoprocesamiento básico\nVirtual\n1.5\n\n\n5\n13 abr (Lun)\nMódulo 3 (cont.)\nVirtual\n1.5\n\n\n6\n14 abr (Mar)\nMódulo 4: Análisis espacial para rutas\nVirtual\n1.5\n\n\n7\n15 abr (Mié)\nMódulo 4 (cont.)\nVirtual\n1.5\n\n\n8\n16 abr (Jue)\nMódulo 5: Automatización con Python y PyQGIS\nVirtual\n1.5\n\n\n9\n20 abr (Lun)\nMódulo 5 (cont.)\nVirtual\n1.5\n\n\n10\n21 abr (Mar)\nMódulo 6: Visualización avanzada y mapas\nVirtual\n1.5\n\n\n11\n22 abr (Mié)\nMódulo 6 (cont.)\nVirtual\n1.5\n\n\n12\n23 abr (Jue)\nMódulo 7: Integración y casos prácticos\nVirtual\n1.5\n\n\n13\nPor coordinar\nPresentación proyecto final y clausura\nPresencial\n2\n\n\nTotal\n\n\n\n20 h\n\n\n\n\nNota: Las sesiones 1–12 son virtuales (1.5 h cada una). La sesión 13 es presencial (2 h) y su fecha se estará coordinando oportunamente. Los laboratorios son tareas independientes de las sesiones, diseñadas para evaluación y práctica autónoma.",
+    "crumbs": [
+      "Inicio",
+      "Temario"
+    ]
+  }
+]

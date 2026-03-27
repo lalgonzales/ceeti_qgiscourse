@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Módulo 3: Edición y geoprocesamiento básico – QGIS y Herramientas Python para el Análisis Geoespacial</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/modulos/modulo4.html" rel="next">
+<link href="../../content/modulos/modulo2.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-557f84ffee5413c7277ff543be8daa9b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5a7dd8d4f0943f6849aa2920e4dd0cec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-557f84ffee5413c7277ff543be8daa9b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CEETI – QGIS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Inicio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/sobre/syllabus.html"> 
+<span class="menu-text">Temario</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-módulos" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Módulos</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-módulos">    
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo1.html">
+ <span class="dropdown-text">1. Introducción a QGIS y SIG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo2.html">
+ <span class="dropdown-text">2. Carga y manejo de datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo3.html">
+ <span class="dropdown-text">3. Edición y geoprocesamiento básico</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo4.html">
+ <span class="dropdown-text">4. Análisis espacial para rutas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo5.html">
+ <span class="dropdown-text">5. Automatización con Python y PyQGIS</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo6.html">
+ <span class="dropdown-text">6. Visualización avanzada y mapas finales</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo7.html">
+ <span class="dropdown-text">7. Integración y casos prácticos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-laboratorios" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Laboratorios</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-laboratorios">    
+        <li>
+    <a class="dropdown-item" href="../../content/labs/instrucciones_labs.html">
+ <span class="dropdown-text">Instrucciones</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/labs/lab_01.html">
+ <span class="dropdown-text">Lab 1 – Exploración de QGIS</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/labs/lab_02.html">
+ <span class="dropdown-text">Lab 2 – Carga y gestión de datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/labs/lab_03.html">
+ <span class="dropdown-text">Lab 3 – Edición y geoprocesamiento</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/labs/lab_04.html">
+ <span class="dropdown-text">Lab 4 – Análisis de redes y rutas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/labs/lab_05.html">
+ <span class="dropdown-text">Lab 5 – Automatización con PyQGIS</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/labs/lab_06.html">
+ <span class="dropdown-text">Lab 6 – Cartografía temática</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/labs/lab_07.html">
+ <span class="dropdown-text">Lab 7 – Integración y proyecto final</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/sobre/instructor.html"> 
+<span class="menu-text">Instructor</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/lalgonzales/ceeti_qgiscourse"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../../content/modulos/modulo3.html">3. Edición y geoprocesamiento básico</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inicio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/sobre/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Temario</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Módulos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Introducción a QGIS y SIG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Carga y manejo de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">3. Edición y geoprocesamiento básico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Análisis espacial para rutas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Automatización con Python y PyQGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Visualización avanzada y mapas finales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Integración y casos prácticos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Laboratorios</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/instrucciones_labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instrucciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/lab_01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1 – Exploración de QGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/lab_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2 – Carga y gestión de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/lab_03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3 – Edición y geoprocesamiento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/lab_04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 4 – Análisis de redes y rutas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/lab_05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 5 – Automatización con PyQGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/lab_06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 6 – Cartografía temática</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/lab_07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 7 – Integración y proyecto final</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/sobre/instructor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructor</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#objetivos-del-módulo" id="toc-objetivos-del-módulo" class="nav-link active" data-scroll-target="#objetivos-del-módulo"><span class="header-section-number">1</span> Objetivos del Módulo</a></li>
+  <li><a href="#creación-y-edición-de-capas-vectoriales" id="toc-creación-y-edición-de-capas-vectoriales" class="nav-link" data-scroll-target="#creación-y-edición-de-capas-vectoriales"><span class="header-section-number">2</span> 3.1 Creación y edición de capas vectoriales</a>
+  <ul class="collapse">
+  <li><a href="#crear-una-nueva-capa-vectorial" id="toc-crear-una-nueva-capa-vectorial" class="nav-link" data-scroll-target="#crear-una-nueva-capa-vectorial"><span class="header-section-number">2.1</span> Crear una nueva capa vectorial</a></li>
+  <li><a href="#herramientas-de-edición" id="toc-herramientas-de-edición" class="nav-link" data-scroll-target="#herramientas-de-edición"><span class="header-section-number">2.2</span> Herramientas de edición</a></li>
+  <li><a href="#tabla-de-atributos" id="toc-tabla-de-atributos" class="nav-link" data-scroll-target="#tabla-de-atributos"><span class="header-section-number">2.3</span> Tabla de atributos</a></li>
+  </ul></li>
+  <li><a href="#herramientas-de-geoprocesamiento" id="toc-herramientas-de-geoprocesamiento" class="nav-link" data-scroll-target="#herramientas-de-geoprocesamiento"><span class="header-section-number">3</span> 3.2 Herramientas de geoprocesamiento</a>
+  <ul class="collapse">
+  <li><a href="#buffer-zona-de-influencia" id="toc-buffer-zona-de-influencia" class="nav-link" data-scroll-target="#buffer-zona-de-influencia"><span class="header-section-number">3.1</span> Buffer (Zona de influencia)</a></li>
+  <li><a href="#corte-clip" id="toc-corte-clip" class="nav-link" data-scroll-target="#corte-clip"><span class="header-section-number">3.2</span> Corte (Clip)</a></li>
+  <li><a href="#unión-espacial-intersección" id="toc-unión-espacial-intersección" class="nav-link" data-scroll-target="#unión-espacial-intersección"><span class="header-section-number">3.3</span> Unión espacial (Intersección)</a></li>
+  <li><a href="#disolución" id="toc-disolución" class="nav-link" data-scroll-target="#disolución"><span class="header-section-number">3.4</span> Disolución</a></li>
+  <li><a href="#unión-de-capas-union" id="toc-unión-de-capas-union" class="nav-link" data-scroll-target="#unión-de-capas-union"><span class="header-section-number">3.5</span> Unión de capas (Union)</a></li>
+  <li><a href="#diferencia" id="toc-diferencia" class="nav-link" data-scroll-target="#diferencia"><span class="header-section-number">3.6</span> Diferencia</a></li>
+  </ul></li>
+  <li><a href="#limpieza-y-validación-de-geometrías" id="toc-limpieza-y-validación-de-geometrías" class="nav-link" data-scroll-target="#limpieza-y-validación-de-geometrías"><span class="header-section-number">4</span> 3.3 Limpieza y validación de geometrías</a>
+  <ul class="collapse">
+  <li><a href="#verificar-validez-de-geometrías" id="toc-verificar-validez-de-geometrías" class="nav-link" data-scroll-target="#verificar-validez-de-geometrías"><span class="header-section-number">4.1</span> Verificar validez de geometrías</a></li>
+  <li><a href="#tipos-de-errores-comunes" id="toc-tipos-de-errores-comunes" class="nav-link" data-scroll-target="#tipos-de-errores-comunes"><span class="header-section-number">4.2</span> Tipos de errores comunes</a></li>
+  <li><a href="#corregir-geometrías-automáticamente" id="toc-corregir-geometrías-automáticamente" class="nav-link" data-scroll-target="#corregir-geometrías-automáticamente"><span class="header-section-number">4.3</span> Corregir geometrías automáticamente</a></li>
+  </ul></li>
+  <li><a href="#cálculo-de-distancias-y-áreas" id="toc-cálculo-de-distancias-y-áreas" class="nav-link" data-scroll-target="#cálculo-de-distancias-y-áreas"><span class="header-section-number">5</span> 3.4 Cálculo de distancias y áreas</a>
+  <ul class="collapse">
+  <li><a href="#calculadora-de-campos" id="toc-calculadora-de-campos" class="nav-link" data-scroll-target="#calculadora-de-campos"><span class="header-section-number">5.1</span> Calculadora de campos</a></li>
+  <li><a href="#expresiones-de-área" id="toc-expresiones-de-área" class="nav-link" data-scroll-target="#expresiones-de-área"><span class="header-section-number">5.2</span> Expresiones de área</a></li>
+  <li><a href="#expresiones-de-longitud-para-líneas" id="toc-expresiones-de-longitud-para-líneas" class="nav-link" data-scroll-target="#expresiones-de-longitud-para-líneas"><span class="header-section-number">5.3</span> Expresiones de longitud (para líneas)</a></li>
+  <li><a href="#distancia-entre-puntos" id="toc-distancia-entre-puntos" class="nav-link" data-scroll-target="#distancia-entre-puntos"><span class="header-section-number">5.4</span> Distancia entre puntos</a></li>
+  <li><a href="#uso-del-campo-generado" id="toc-uso-del-campo-generado" class="nav-link" data-scroll-target="#uso-del-campo-generado"><span class="header-section-number">5.5</span> Uso del campo generado</a></li>
+  </ul></li>
+  <li><a href="#ejercicios-prácticos" id="toc-ejercicios-prácticos" class="nav-link" data-scroll-target="#ejercicios-prácticos"><span class="header-section-number">6</span> 🛠️ Ejercicios Prácticos</a>
+  <ul class="collapse">
+  <li><a href="#ejercicio-3.1-crear-y-editar-capas" id="toc-ejercicio-3.1-crear-y-editar-capas" class="nav-link" data-scroll-target="#ejercicio-3.1-crear-y-editar-capas"><span class="header-section-number">6.1</span> Ejercicio 3.1: Crear y editar capas</a></li>
+  <li><a href="#ejercicio-3.2-geoprocesamiento-básico" id="toc-ejercicio-3.2-geoprocesamiento-básico" class="nav-link" data-scroll-target="#ejercicio-3.2-geoprocesamiento-básico"><span class="header-section-number">6.2</span> Ejercicio 3.2: Geoprocesamiento básico</a></li>
+  <li><a href="#ejercicio-3.3-calcular-áreas-y-distancias" id="toc-ejercicio-3.3-calcular-áreas-y-distancias" class="nav-link" data-scroll-target="#ejercicio-3.3-calcular-áreas-y-distancias"><span class="header-section-number">6.3</span> Ejercicio 3.3: Calcular áreas y distancias</a></li>
+  </ul></li>
+  <li><a href="#recursos-y-referencias" id="toc-recursos-y-referencias" class="nav-link" data-scroll-target="#recursos-y-referencias"><span class="header-section-number">7</span> 📚 Recursos y Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../../content/modulos/modulo3.html">3. Edición y geoprocesamiento básico</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Módulo 3: Edición y geoprocesamiento básico</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="objetivos-del-módulo" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="objetivos-del-módulo"><span class="header-section-number">1</span> Objetivos del Módulo</h2>
+<p>Al finalizar este módulo, los participantes podrán:</p>
+<ul>
+<li>Crear y editar capas vectoriales en QGIS.</li>
+<li>Aplicar herramientas de geoprocesamiento: corte, unión, buffer y disolución.</li>
+<li>Validar y corregir geometrías con errores.</li>
+<li>Calcular distancias y áreas usando la calculadora de campos.</li>
+</ul>
+<hr>
+</section>
+<section id="creación-y-edición-de-capas-vectoriales" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="creación-y-edición-de-capas-vectoriales"><span class="header-section-number">2</span> 3.1 Creación y edición de capas vectoriales</h2>
+<section id="crear-una-nueva-capa-vectorial" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="crear-una-nueva-capa-vectorial"><span class="header-section-number">2.1</span> Crear una nueva capa vectorial</h3>
+<ol type="1">
+<li><strong>Capa → Crear capa → Nueva capa GeoPackage</strong> (recomendado) o <strong>Nueva capa Shapefile</strong></li>
+<li>Define:
+<ul>
+<li>Nombre del archivo y ubicación</li>
+<li>Tipo de geometría: Punto, Línea o Polígono</li>
+<li>CRS de la capa</li>
+<li>Campos de la tabla de atributos (nombre, tipo de dato)</li>
+</ul></li>
+<li>Haz clic en <strong>Aceptar</strong></li>
+</ol>
+</section>
+<section id="herramientas-de-edición" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="herramientas-de-edición"><span class="header-section-number">2.2</span> Herramientas de edición</h3>
+<p>Para editar una capa, activa el <strong>modo edición</strong>:</p>
+<ul>
+<li>Selecciona la capa en el panel de capas</li>
+<li>Haz clic en el ícono del lápiz ✏️ (o <code>Ctrl+E</code>)</li>
+</ul>
+<p><strong>Herramientas principales de edición</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 64%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Herramienta</th>
+<th style="text-align: left;">Función</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Añadir entidad</td>
+<td style="text-align: left;">Crear nuevos puntos, líneas o polígonos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mover entidades</td>
+<td style="text-align: left;">Desplazar entidades existentes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Editar nodos</td>
+<td style="text-align: left;">Modificar los vértices de geometrías</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dividir entidades</td>
+<td style="text-align: left;">Cortar una entidad en dos partes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Combinar entidades</td>
+<td style="text-align: left;">Unir dos o más entidades en una sola</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eliminar entidades</td>
+<td style="text-align: left;">Borrar entidades seleccionadas</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Guardar cambios
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recuerda guardar los cambios al finalizar la edición: - Capa → <strong>Guardar cambios de la capa</strong> (<code>Ctrl+S</code>) - O desactiva el modo edición (ícono del lápiz) y elige <strong>Guardar</strong></p>
+</div>
+</div>
+</section>
+<section id="tabla-de-atributos" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="tabla-de-atributos"><span class="header-section-number">2.3</span> Tabla de atributos</h3>
+<p>Puedes editar atributos directamente en la tabla:</p>
+<ol type="1">
+<li>Abre la tabla de atributos: <code>F6</code> o clic derecho → <strong>Abrir tabla de atributos</strong></li>
+<li>Activa el modo edición (ícono del lápiz)</li>
+<li>Edita los valores directamente en las celdas</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="herramientas-de-geoprocesamiento" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="herramientas-de-geoprocesamiento"><span class="header-section-number">3</span> 3.2 Herramientas de geoprocesamiento</h2>
+<p>Las herramientas de geoprocesamiento están disponibles en: - <strong>Vector → Herramientas de geoprocesamiento</strong> - <strong>Caja de herramientas de procesos</strong> (<code>Ctrl+Alt+T</code>)</p>
+<section id="buffer-zona-de-influencia" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="buffer-zona-de-influencia"><span class="header-section-number">3.1</span> Buffer (Zona de influencia)</h3>
+<p>Crea una zona de influencia alrededor de entidades:</p>
+<pre><code>Vector → Herramientas de geoprocesamiento → Zonas de influencia (Buffer)</code></pre>
+<p><strong>Parámetros</strong>: - Capa de entrada - Distancia del buffer (en unidades del CRS) - Segmentos por cuarto de círculo (precisión) - ¿Disolver resultado? (unir buffers superpuestos)</p>
+<p><strong>Ejemplo de uso</strong>: calcular un radio de 500 m alrededor de hospitales para identificar la población servida.</p>
+</section>
+<section id="corte-clip" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="corte-clip"><span class="header-section-number">3.2</span> Corte (Clip)</h3>
+<p>Recorta una capa usando los límites de otra:</p>
+<pre><code>Vector → Herramientas de geoprocesamiento → Cortar</code></pre>
+<p><strong>Ejemplo</strong>: cortar la red de carreteras nacionales para obtener solo las carreteras dentro de un municipio específico.</p>
+</section>
+<section id="unión-espacial-intersección" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="unión-espacial-intersección"><span class="header-section-number">3.3</span> Unión espacial (Intersección)</h3>
+<p>Combina dos capas manteniendo solo las áreas comunes:</p>
+<pre><code>Vector → Herramientas de geoprocesamiento → Intersección</code></pre>
+</section>
+<section id="disolución" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="disolución"><span class="header-section-number">3.4</span> Disolución</h3>
+<p>Fusiona entidades que comparten el mismo valor en un campo:</p>
+<pre><code>Vector → Herramientas de geoprocesamiento → Disolver</code></pre>
+<p><strong>Ejemplo</strong>: disolver municipios por departamento para crear una capa de departamentos.</p>
+</section>
+<section id="unión-de-capas-union" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="unión-de-capas-union"><span class="header-section-number">3.5</span> Unión de capas (Union)</h3>
+<p>Combina dos capas manteniendo todas las entidades de ambas:</p>
+<pre><code>Vector → Herramientas de geoprocesamiento → Unión</code></pre>
+</section>
+<section id="diferencia" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="diferencia"><span class="header-section-number">3.6</span> Diferencia</h3>
+<p>Elimina de una capa las áreas cubiertas por otra:</p>
+<pre><code>Vector → Herramientas de geoprocesamiento → Diferencia</code></pre>
+<hr>
+</section>
+</section>
+<section id="limpieza-y-validación-de-geometrías" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="limpieza-y-validación-de-geometrías"><span class="header-section-number">4</span> 3.3 Limpieza y validación de geometrías</h2>
+<p>Las geometrías inválidas pueden causar errores en los análisis. QGIS ofrece herramientas para detectarlas y corregirlas.</p>
+<section id="verificar-validez-de-geometrías" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="verificar-validez-de-geometrías"><span class="header-section-number">4.1</span> Verificar validez de geometrías</h3>
+<pre><code>Vector → Herramientas de geometría → Verificar validez</code></pre>
+<p>Genera tres capas de salida: - <strong>Válidas</strong>: entidades sin problemas - <strong>Inválidas</strong>: entidades con errores - <strong>Error</strong>: puntos donde ocurren los errores</p>
+</section>
+<section id="tipos-de-errores-comunes" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="tipos-de-errores-comunes"><span class="header-section-number">4.2</span> Tipos de errores comunes</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Error</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Autointersección</td>
+<td style="text-align: left;">Polígono cuyo contorno se cruza a sí mismo</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Anillo duplicado</td>
+<td style="text-align: left;">Agujeros superpuestos en un polígono</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Geometría nula</td>
+<td style="text-align: left;">Entidad sin geometría asociada</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Polígono no cerrado</td>
+<td style="text-align: left;">Polígono cuyo primer y último vértice no coinciden</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="corregir-geometrías-automáticamente" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="corregir-geometrías-automáticamente"><span class="header-section-number">4.3</span> Corregir geometrías automáticamente</h3>
+<pre><code>Vector → Herramientas de geometría → Corregir geometrías</code></pre>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Validar antes de analizar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Siempre valida las geometrías de tus capas antes de ejecutar análisis de geoprocesamiento. Las geometrías inválidas pueden producir resultados incorrectos o errores de procesamiento.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="cálculo-de-distancias-y-áreas" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="cálculo-de-distancias-y-áreas"><span class="header-section-number">5</span> 3.4 Cálculo de distancias y áreas</h2>
+<section id="calculadora-de-campos" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="calculadora-de-campos"><span class="header-section-number">5.1</span> Calculadora de campos</h3>
+<p>La <strong>Calculadora de campos</strong> permite agregar o actualizar columnas usando expresiones matemáticas y espaciales:</p>
+<ol type="1">
+<li>Abre la tabla de atributos (<code>F6</code>)</li>
+<li>Activa el modo edición</li>
+<li>Haz clic en el ícono de la <strong>Calculadora de campos</strong> o <code>Ctrl+I</code></li>
+</ol>
+</section>
+<section id="expresiones-de-área" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="expresiones-de-área"><span class="header-section-number">5.2</span> Expresiones de área</h3>
+<p>Para calcular el área de polígonos (en m² si el CRS está en metros):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Área en metros cuadrados</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>$area</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Área en hectáreas</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>$area <span class="op">/</span> <span class="dv">10000</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Área en kilómetros cuadrados</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>$area <span class="op">/</span> <span class="dv">1000000</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Unidades de área
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si el CRS está en grados (geográfico), <code>$area</code> devolverá valores incorrectos. Usa siempre un CRS proyectado en metros para cálculos de área y distancia.</p>
+</div>
+</div>
+</section>
+<section id="expresiones-de-longitud-para-líneas" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="expresiones-de-longitud-para-líneas"><span class="header-section-number">5.3</span> Expresiones de longitud (para líneas)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Longitud en metros</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>$length</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Longitud en kilómetros</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>$length <span class="op">/</span> <span class="dv">1000</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="distancia-entre-puntos" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="distancia-entre-puntos"><span class="header-section-number">5.4</span> Distancia entre puntos</h3>
+<p>Para calcular la distancia entre entidades, usa:</p>
+<pre><code>Vector → Análisis → Matriz de distancias</code></pre>
+<p>O en la calculadora de campos con expresiones de geometría:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distancia desde un punto al centroide de otra entidad</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>distance(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  $geometry,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  geometry(get_feature(<span class="st">'capa_destino'</span>, <span class="st">'id'</span>, <span class="dv">1</span>))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="uso-del-campo-generado" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="uso-del-campo-generado"><span class="header-section-number">5.5</span> Uso del campo generado</h3>
+<p>Para asignar el área a un campo nuevo:</p>
+<ol type="1">
+<li>Abre la calculadora de campos</li>
+<li>Nombre del campo: <code>area_ha</code></li>
+<li>Tipo: Número decimal</li>
+<li>Precisión: 2 decimales</li>
+<li>Expresión: <code>$area / 10000</code></li>
+<li>Haz clic en <strong>Aceptar</strong></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="ejercicios-prácticos" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="ejercicios-prácticos"><span class="header-section-number">6</span> 🛠️ Ejercicios Prácticos</h2>
+<section id="ejercicio-3.1-crear-y-editar-capas" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="ejercicio-3.1-crear-y-editar-capas"><span class="header-section-number">6.1</span> Ejercicio 3.1: Crear y editar capas</h3>
+<ol type="1">
+<li>Crea una nueva capa de puntos GeoPackage llamada <code>puntos_interes</code>.</li>
+<li>Agrega los siguientes campos: <code>nombre</code> (texto), <code>tipo</code> (texto), <code>descripcion</code> (texto).</li>
+<li>En modo edición, agrega al menos 5 puntos de interés en Tegucigalpa.</li>
+<li>Completa los atributos de cada punto.</li>
+</ol>
+</section>
+<section id="ejercicio-3.2-geoprocesamiento-básico" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="ejercicio-3.2-geoprocesamiento-básico"><span class="header-section-number">6.2</span> Ejercicio 3.2: Geoprocesamiento básico</h3>
+<ol type="1">
+<li>Carga la capa de municipios de Honduras.</li>
+<li>Aplica un <strong>buffer de 2 km</strong> alrededor del municipio del Distrito Central.</li>
+<li>Usa <strong>corte (clip)</strong> para recortar la red de carreteras al límite del municipio.</li>
+<li><strong>Disuelve</strong> los municipios por departamento.</li>
+</ol>
+</section>
+<section id="ejercicio-3.3-calcular-áreas-y-distancias" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="ejercicio-3.3-calcular-áreas-y-distancias"><span class="header-section-number">6.3</span> Ejercicio 3.3: Calcular áreas y distancias</h3>
+<ol type="1">
+<li>Carga la capa de municipios y reproyéctala a UTM Zona 16N.</li>
+<li>Abre la calculadora de campos y agrega:
+<ul>
+<li><code>area_km2</code>: área en kilómetros cuadrados</li>
+<li><code>perimetro_km</code>: perímetro en kilómetros</li>
+</ul></li>
+<li>Identifica el municipio más grande y el más pequeño.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="recursos-y-referencias" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="recursos-y-referencias"><span class="header-section-number">7</span> 📚 Recursos y Referencias</h2>
+<ul>
+<li><a href="https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html">QGIS — Edición de capas vectoriales</a></li>
+<li><a href="https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html">QGIS — Herramientas de geoprocesamiento</a></li>
+<li><a href="https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/expression.html">Calculadora de campos — Referencia de expresiones</a></li>
+</ul>
+<hr>
+<p><a href="../../content/modulos/modulo2.html">← Módulo 2: Carga y manejo de datos</a> | <a href="../../content/modulos/modulo4.html">Módulo 4: Análisis espacial para rutas →</a></p>
+
+
+<!-- -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/lalgonzales\.github\.io\/ceeti_qgiscourse\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/modulos/modulo2.html" class="pagination-link" aria-label="2. Carga y manejo de datos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. Carga y manejo de datos</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/modulos/modulo4.html" class="pagination-link" aria-label="4. Análisis espacial para rutas">
+        <span class="nav-page-text">4. Análisis espacial para rutas</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Módulo 3: Edición y geoprocesamiento básico"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Objetivos del Módulo</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>Al finalizar este módulo, los participantes podrán:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Crear y editar capas vectoriales en QGIS.</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar herramientas de geoprocesamiento: corte, unión, buffer y disolución.</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Validar y corregir geometrías con errores.</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular distancias y áreas usando la calculadora de campos.</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.1 Creación y edición de capas vectoriales</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">### Crear una nueva capa vectorial</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Capa → Crear capa → Nueva capa GeoPackage** (recomendado) o **Nueva capa Shapefile**</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Define:</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Nombre del archivo y ubicación</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tipo de geometría: Punto, Línea o Polígono</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>CRS de la capa</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Campos de la tabla de atributos (nombre, tipo de dato)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Haz clic en **Aceptar**</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### Herramientas de edición</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>Para editar una capa, activa el **modo edición**:</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Selecciona la capa en el panel de capas</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Haz clic en el ícono del lápiz ✏️ (o <span class="in">`Ctrl+E`</span>)</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>**Herramientas principales de edición**:</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Herramienta               <span class="pp">|</span> Función                                          <span class="pp">|</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|:--------------------------|:-------------------------------------------------|</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Añadir entidad            <span class="pp">|</span> Crear nuevos puntos, líneas o polígonos           <span class="pp">|</span></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mover entidades           <span class="pp">|</span> Desplazar entidades existentes                    <span class="pp">|</span></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Editar nodos              <span class="pp">|</span> Modificar los vértices de geometrías             <span class="pp">|</span></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dividir entidades         <span class="pp">|</span> Cortar una entidad en dos partes                 <span class="pp">|</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Combinar entidades        <span class="pp">|</span> Unir dos o más entidades en una sola             <span class="pp">|</span></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Eliminar entidades        <span class="pp">|</span> Borrar entidades seleccionadas                   <span class="pp">|</span></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Guardar cambios</span></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>Recuerda guardar los cambios al finalizar la edición:</span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Capa → **Guardar cambios de la capa** (<span class="in">`Ctrl+S`</span>)</span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>O desactiva el modo edición (ícono del lápiz) y elige **Guardar**</span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tabla de atributos</span></span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>Puedes editar atributos directamente en la tabla:</span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Abre la tabla de atributos: <span class="in">`F6`</span> o clic derecho → **Abrir tabla de atributos**</span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Activa el modo edición (ícono del lápiz)</span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Edita los valores directamente en las celdas</span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2 Herramientas de geoprocesamiento</span></span>
+<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>Las herramientas de geoprocesamiento están disponibles en:</span>
+<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Vector → Herramientas de geoprocesamiento**</span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Caja de herramientas de procesos** (<span class="in">`Ctrl+Alt+T`</span>)</span>
+<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### Buffer (Zona de influencia)</span></span>
+<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>Crea una zona de influencia alrededor de entidades:</span>
+<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Herramientas de geoprocesamiento → Zonas de influencia (Buffer)</span></span>
+<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a>**Parámetros**:</span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Capa de entrada</span>
+<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Distancia del buffer (en unidades del CRS)</span>
+<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segmentos por cuarto de círculo (precisión)</span>
+<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Disolver resultado? (unir buffers superpuestos)</span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a>**Ejemplo de uso**: calcular un radio de 500 m alrededor de hospitales para identificar la población servida.</span>
+<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Corte (Clip)</span></span>
+<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a>Recorta una capa usando los límites de otra:</span>
+<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Herramientas de geoprocesamiento → Cortar</span></span>
+<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a>**Ejemplo**: cortar la red de carreteras nacionales para obtener solo las carreteras dentro de un municipio específico.</span>
+<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a><span class="fu">### Unión espacial (Intersección)</span></span>
+<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a>Combina dos capas manteniendo solo las áreas comunes:</span>
+<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Herramientas de geoprocesamiento → Intersección</span></span>
+<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a><span class="fu">### Disolución</span></span>
+<span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a>Fusiona entidades que comparten el mismo valor en un campo:</span>
+<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Herramientas de geoprocesamiento → Disolver</span></span>
+<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a>**Ejemplo**: disolver municipios por departamento para crear una capa de departamentos.</span>
+<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a><span class="fu">### Unión de capas (Union)</span></span>
+<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a>Combina dos capas manteniendo todas las entidades de ambas:</span>
+<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Herramientas de geoprocesamiento → Unión</span></span>
+<span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a><span class="fu">### Diferencia</span></span>
+<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a>Elimina de una capa las áreas cubiertas por otra:</span>
+<span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Herramientas de geoprocesamiento → Diferencia</span></span>
+<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3 Limpieza y validación de geometrías</span></span>
+<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a>Las geometrías inválidas pueden causar errores en los análisis. QGIS ofrece herramientas para detectarlas y corregirlas.</span>
+<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a><span class="fu">### Verificar validez de geometrías</span></span>
+<span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Herramientas de geometría → Verificar validez</span></span>
+<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a>Genera tres capas de salida:</span>
+<span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Válidas**: entidades sin problemas</span>
+<span id="cb13-144"><a href="#cb13-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Inválidas**: entidades con errores</span>
+<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Error**: puntos donde ocurren los errores</span>
+<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tipos de errores comunes</span></span>
+<span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-149"><a href="#cb13-149" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Error                  <span class="pp">|</span> Descripción                                         <span class="pp">|</span></span>
+<span id="cb13-150"><a href="#cb13-150" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------------------|:----------------------------------------------------|</span></span>
+<span id="cb13-151"><a href="#cb13-151" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Autointersección       <span class="pp">|</span> Polígono cuyo contorno se cruza a sí mismo          <span class="pp">|</span></span>
+<span id="cb13-152"><a href="#cb13-152" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Anillo duplicado       <span class="pp">|</span> Agujeros superpuestos en un polígono                <span class="pp">|</span></span>
+<span id="cb13-153"><a href="#cb13-153" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Geometría nula         <span class="pp">|</span> Entidad sin geometría asociada                      <span class="pp">|</span></span>
+<span id="cb13-154"><a href="#cb13-154" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Polígono no cerrado    <span class="pp">|</span> Polígono cuyo primer y último vértice no coinciden  <span class="pp">|</span></span>
+<span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-156"><a href="#cb13-156" aria-hidden="true" tabindex="-1"></a><span class="fu">### Corregir geometrías automáticamente</span></span>
+<span id="cb13-157"><a href="#cb13-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-158"><a href="#cb13-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-159"><a href="#cb13-159" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Herramientas de geometría → Corregir geometrías</span></span>
+<span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-161"><a href="#cb13-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb13-163"><a href="#cb13-163" aria-hidden="true" tabindex="-1"></a><span class="fu">## Validar antes de analizar</span></span>
+<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-165"><a href="#cb13-165" aria-hidden="true" tabindex="-1"></a>Siempre valida las geometrías de tus capas antes de ejecutar análisis de geoprocesamiento. Las geometrías inválidas pueden producir resultados incorrectos o errores de procesamiento.</span>
+<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-167"><a href="#cb13-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb13-169"><a href="#cb13-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.4 Cálculo de distancias y áreas</span></span>
+<span id="cb13-171"><a href="#cb13-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### Calculadora de campos</span></span>
+<span id="cb13-173"><a href="#cb13-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a>La **Calculadora de campos** permite agregar o actualizar columnas usando expresiones matemáticas y espaciales:</span>
+<span id="cb13-175"><a href="#cb13-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Abre la tabla de atributos (<span class="in">`F6`</span>)</span>
+<span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Activa el modo edición</span>
+<span id="cb13-178"><a href="#cb13-178" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Haz clic en el ícono de la **Calculadora de campos** o <span class="in">`Ctrl+I`</span></span>
+<span id="cb13-179"><a href="#cb13-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a><span class="fu">### Expresiones de área</span></span>
+<span id="cb13-181"><a href="#cb13-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a>Para calcular el área de polígonos (en m² si el CRS está en metros):</span>
+<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a><span class="co"># Área en metros cuadrados</span></span>
+<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a>$area</span>
+<span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-188"><a href="#cb13-188" aria-hidden="true" tabindex="-1"></a><span class="co"># Área en hectáreas</span></span>
+<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a>$area <span class="op">/</span> <span class="dv">10000</span></span>
+<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a><span class="co"># Área en kilómetros cuadrados</span></span>
+<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a>$area <span class="op">/</span> <span class="dv">1000000</span></span>
+<span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-195"><a href="#cb13-195" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb13-196"><a href="#cb13-196" aria-hidden="true" tabindex="-1"></a><span class="fu">## Unidades de área</span></span>
+<span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-198"><a href="#cb13-198" aria-hidden="true" tabindex="-1"></a>Si el CRS está en grados (geográfico), <span class="in">`$area`</span> devolverá valores incorrectos. Usa siempre un CRS proyectado en metros para cálculos de área y distancia.</span>
+<span id="cb13-199"><a href="#cb13-199" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-200"><a href="#cb13-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-201"><a href="#cb13-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### Expresiones de longitud (para líneas)</span></span>
+<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-203"><a href="#cb13-203" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb13-204"><a href="#cb13-204" aria-hidden="true" tabindex="-1"></a><span class="co"># Longitud en metros</span></span>
+<span id="cb13-205"><a href="#cb13-205" aria-hidden="true" tabindex="-1"></a>$length</span>
+<span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a><span class="co"># Longitud en kilómetros</span></span>
+<span id="cb13-208"><a href="#cb13-208" aria-hidden="true" tabindex="-1"></a>$length <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a><span class="fu">### Distancia entre puntos</span></span>
+<span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a>Para calcular la distancia entre entidades, usa:</span>
+<span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-216"><a href="#cb13-216" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Análisis → Matriz de distancias</span></span>
+<span id="cb13-217"><a href="#cb13-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-218"><a href="#cb13-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-219"><a href="#cb13-219" aria-hidden="true" tabindex="-1"></a>O en la calculadora de campos con expresiones de geometría:</span>
+<span id="cb13-220"><a href="#cb13-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-221"><a href="#cb13-221" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb13-222"><a href="#cb13-222" aria-hidden="true" tabindex="-1"></a><span class="co"># Distancia desde un punto al centroide de otra entidad</span></span>
+<span id="cb13-223"><a href="#cb13-223" aria-hidden="true" tabindex="-1"></a>distance(</span>
+<span id="cb13-224"><a href="#cb13-224" aria-hidden="true" tabindex="-1"></a>  $geometry,</span>
+<span id="cb13-225"><a href="#cb13-225" aria-hidden="true" tabindex="-1"></a>  geometry(get_feature(<span class="st">'capa_destino'</span>, <span class="st">'id'</span>, <span class="dv">1</span>))</span>
+<span id="cb13-226"><a href="#cb13-226" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-227"><a href="#cb13-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-228"><a href="#cb13-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-229"><a href="#cb13-229" aria-hidden="true" tabindex="-1"></a><span class="fu">### Uso del campo generado</span></span>
+<span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a>Para asignar el área a un campo nuevo:</span>
+<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Abre la calculadora de campos</span>
+<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Nombre del campo: <span class="in">`area_ha`</span></span>
+<span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Tipo: Número decimal</span>
+<span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Precisión: 2 decimales</span>
+<span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Expresión: <span class="in">`$area / 10000`</span></span>
+<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Haz clic en **Aceptar**</span>
+<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🛠️ Ejercicios Prácticos</span></span>
+<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 3.1: Crear y editar capas</span></span>
+<span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-246"><a href="#cb13-246" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Crea una nueva capa de puntos GeoPackage llamada <span class="in">`puntos_interes`</span>.</span>
+<span id="cb13-247"><a href="#cb13-247" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Agrega los siguientes campos: <span class="in">`nombre`</span> (texto), <span class="in">`tipo`</span> (texto), <span class="in">`descripcion`</span> (texto).</span>
+<span id="cb13-248"><a href="#cb13-248" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>En modo edición, agrega al menos 5 puntos de interés en Tegucigalpa.</span>
+<span id="cb13-249"><a href="#cb13-249" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Completa los atributos de cada punto.</span>
+<span id="cb13-250"><a href="#cb13-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-251"><a href="#cb13-251" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 3.2: Geoprocesamiento básico</span></span>
+<span id="cb13-252"><a href="#cb13-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-253"><a href="#cb13-253" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Carga la capa de municipios de Honduras.</span>
+<span id="cb13-254"><a href="#cb13-254" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Aplica un **buffer de 2 km** alrededor del municipio del Distrito Central.</span>
+<span id="cb13-255"><a href="#cb13-255" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Usa **corte (clip)** para recortar la red de carreteras al límite del municipio.</span>
+<span id="cb13-256"><a href="#cb13-256" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Disuelve** los municipios por departamento.</span>
+<span id="cb13-257"><a href="#cb13-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-258"><a href="#cb13-258" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 3.3: Calcular áreas y distancias</span></span>
+<span id="cb13-259"><a href="#cb13-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-260"><a href="#cb13-260" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Carga la capa de municipios y reproyéctala a UTM Zona 16N.</span>
+<span id="cb13-261"><a href="#cb13-261" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Abre la calculadora de campos y agrega:</span>
+<span id="cb13-262"><a href="#cb13-262" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`area_km2`</span>: área en kilómetros cuadrados</span>
+<span id="cb13-263"><a href="#cb13-263" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`perimetro_km`</span>: perímetro en kilómetros</span>
+<span id="cb13-264"><a href="#cb13-264" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Identifica el municipio más grande y el más pequeño.</span>
+<span id="cb13-265"><a href="#cb13-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-266"><a href="#cb13-266" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb13-267"><a href="#cb13-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-268"><a href="#cb13-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Recursos y Referencias</span></span>
+<span id="cb13-269"><a href="#cb13-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-270"><a href="#cb13-270" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QGIS — Edición de capas vectoriales</span><span class="co">](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html)</span></span>
+<span id="cb13-271"><a href="#cb13-271" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QGIS — Herramientas de geoprocesamiento</span><span class="co">](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)</span></span>
+<span id="cb13-272"><a href="#cb13-272" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Calculadora de campos — Referencia de expresiones</span><span class="co">](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/expression.html)</span></span>
+<span id="cb13-273"><a href="#cb13-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-274"><a href="#cb13-274" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb13-275"><a href="#cb13-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-276"><a href="#cb13-276" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">← Módulo 2: Carga y manejo de datos</span><span class="co">](modulo2.qmd)</span> | <span class="co">[</span><span class="ot">Módulo 4: Análisis espacial para rutas →</span><span class="co">](modulo4.qmd)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 CEETI – Universidad Nacional Autónoma de Honduras</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/lalgonzales/ceeti_qgiscourse">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
