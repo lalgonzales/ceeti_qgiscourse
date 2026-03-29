@@ -1,22 +1,10 @@
 [
   {
-    "objectID": "content/modulos/modulo3.html",
-    "href": "content/modulos/modulo3.html",
-    "title": "Módulo 3: Edición y geoprocesamiento básico",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nCrear y editar capas vectoriales en QGIS.\nAplicar herramientas de geoprocesamiento: corte, unión, buffer y disolución.\nValidar y corregir geometrías con errores.\nCalcular distancias y áreas usando la calculadora de campos.",
-    "crumbs": [
-      "Inicio",
-      "Módulos",
-      "3. Edición y geoprocesamiento básico"
-    ]
-  },
-  {
     "objectID": "content/modulos/modulo3.html#objetivos-del-módulo",
     "href": "content/modulos/modulo3.html#objetivos-del-módulo",
     "title": "Módulo 3: Edición y geoprocesamiento básico",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nCrear y editar capas vectoriales en QGIS.\nAplicar herramientas de geoprocesamiento: corte, unión, buffer y disolución.\nValidar y corregir geometrías con errores.\nCalcular distancias y áreas usando la calculadora de campos.",
+    "section": "1 Objetivos del Módulo",
+    "text": "1 Objetivos del Módulo\nAl finalizar este módulo, los participantes podrán:\n\nCrear y editar capas vectoriales en QGIS.\nAplicar herramientas de geoprocesamiento: corte, unión, buffer y disolución.\nValidar y corregir geometrías con errores.\nCalcular distancias y áreas usando la calculadora de campos.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -96,23 +84,11 @@
     ]
   },
   {
-    "objectID": "content/modulos/modulo6.html",
-    "href": "content/modulos/modulo6.html",
-    "title": "Módulo 6: Visualización avanzada y mapas finales",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nAplicar simbología por atributos para comunicar información espacial.\nConfigurar etiquetado dinámico en capas vectoriales.\nCrear mapas temáticos (coropletas, puntos proporcionales, etc.).\nDiseñar mapas completos en el Compositor de Impresión.\nExportar mapas en formatos adecuados para presentaciones e informes.",
-    "crumbs": [
-      "Inicio",
-      "Módulos",
-      "6. Visualización avanzada y mapas finales"
-    ]
-  },
-  {
     "objectID": "content/modulos/modulo6.html#objetivos-del-módulo",
     "href": "content/modulos/modulo6.html#objetivos-del-módulo",
     "title": "Módulo 6: Visualización avanzada y mapas finales",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nAplicar simbología por atributos para comunicar información espacial.\nConfigurar etiquetado dinámico en capas vectoriales.\nCrear mapas temáticos (coropletas, puntos proporcionales, etc.).\nDiseñar mapas completos en el Compositor de Impresión.\nExportar mapas en formatos adecuados para presentaciones e informes.",
+    "section": "1 Objetivos del Módulo",
+    "text": "1 Objetivos del Módulo\nAl finalizar este módulo, los participantes podrán:\n\nAplicar simbología por atributos para comunicar información espacial.\nConfigurar etiquetado dinámico en capas vectoriales.\nCrear mapas temáticos (coropletas, puntos proporcionales, etc.).\nDiseñar mapas completos en el Compositor de Impresión.\nExportar mapas en formatos adecuados para presentaciones e informes.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -204,23 +180,11 @@
     ]
   },
   {
-    "objectID": "content/modulos/modulo1.html",
-    "href": "content/modulos/modulo1.html",
-    "title": "Módulo 1: Introducción a QGIS y SIG",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nExplicar qué es un Sistema de Información Geográfica (SIG) y sus aplicaciones prácticas.\nIdentificar las ventajas de QGIS frente a otras plataformas SIG.\nNavegar con fluidez por la interfaz de QGIS.\nDistinguir entre datos vectoriales y ráster.",
-    "crumbs": [
-      "Inicio",
-      "Módulos",
-      "1. Introducción a QGIS y SIG"
-    ]
-  },
-  {
     "objectID": "content/modulos/modulo1.html#objetivos-del-módulo",
     "href": "content/modulos/modulo1.html#objetivos-del-módulo",
     "title": "Módulo 1: Introducción a QGIS y SIG",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nExplicar qué es un Sistema de Información Geográfica (SIG) y sus aplicaciones prácticas.\nIdentificar las ventajas de QGIS frente a otras plataformas SIG.\nNavegar con fluidez por la interfaz de QGIS.\nDistinguir entre datos vectoriales y ráster.",
+    "section": "1 Objetivos del Módulo",
+    "text": "1 Objetivos del Módulo\nAl finalizar este módulo, los participantes podrán:\n\nExplicar qué es un Sistema de Información Geográfica (SIG) y sus aplicaciones prácticas.\nIdentificar las ventajas de QGIS frente a otras plataformas SIG.\nNavegar con fluidez por la interfaz de QGIS.\nDistinguir entre datos vectoriales y ráster.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -300,23 +264,11 @@
     ]
   },
   {
-    "objectID": "content/modulos/modulo5.html",
-    "href": "content/modulos/modulo5.html",
-    "title": "Módulo 5: Automatización con Python y PyQGIS",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nUsar la consola de Python integrada en QGIS.\nManipular capas, geometrías y atributos con PyQGIS.\nEscribir scripts para automatizar tareas repetitivas.\nExportar resultados a Excel, Shapefile, PDF y otros formatos.\nUsar el QGIS Processing Framework para crear flujos de trabajo personalizados.",
-    "crumbs": [
-      "Inicio",
-      "Módulos",
-      "5. Automatización con Python y PyQGIS"
-    ]
-  },
-  {
     "objectID": "content/modulos/modulo5.html#objetivos-del-módulo",
     "href": "content/modulos/modulo5.html#objetivos-del-módulo",
     "title": "Módulo 5: Automatización con Python y PyQGIS",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nUsar la consola de Python integrada en QGIS.\nManipular capas, geometrías y atributos con PyQGIS.\nEscribir scripts para automatizar tareas repetitivas.\nExportar resultados a Excel, Shapefile, PDF y otros formatos.\nUsar el QGIS Processing Framework para crear flujos de trabajo personalizados.",
+    "section": "1 Objetivos del Módulo",
+    "text": "1 Objetivos del Módulo\nAl finalizar este módulo, los participantes podrán:\n\nUsar la consola de Python integrada en QGIS.\nManipular capas, geometrías y atributos con PyQGIS.\nEscribir scripts para automatizar tareas repetitivas.\nExportar resultados a Excel, Shapefile, PDF y otros formatos.\nUsar el QGIS Processing Framework para crear flujos de trabajo personalizados.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -648,22 +600,11 @@
     ]
   },
   {
-    "objectID": "content/sobre/syllabus.html",
-    "href": "content/sobre/syllabus.html",
-    "title": "Temario del Curso",
-    "section": "",
-    "text": "Ítem\nDetalle\n\n\n\n\nInstitución\nUniversidad Nacional Autónoma de Honduras (UNAH)\n\n\nUnidad\nCentro de Excelencia para la Educación en TI (CEETI)\n\n\nModalidad\nVirtual (sesiones 1–12) · Presencial (sesión 13)\n\n\nInicio\n6 de abril de 2026\n\n\nHorario\nLunes a Jueves, 6:00 PM – 7:30 PM (hora Honduras)\n\n\nDuración\n20 horas (13 sesiones)",
-    "crumbs": [
-      "Inicio",
-      "Temario"
-    ]
-  },
-  {
     "objectID": "content/sobre/syllabus.html#información-general",
     "href": "content/sobre/syllabus.html#información-general",
     "title": "Temario del Curso",
-    "section": "",
-    "text": "Ítem\nDetalle\n\n\n\n\nInstitución\nUniversidad Nacional Autónoma de Honduras (UNAH)\n\n\nUnidad\nCentro de Excelencia para la Educación en TI (CEETI)\n\n\nModalidad\nVirtual (sesiones 1–12) · Presencial (sesión 13)\n\n\nInicio\n6 de abril de 2026\n\n\nHorario\nLunes a Jueves, 6:00 PM – 7:30 PM (hora Honduras)\n\n\nDuración\n20 horas (13 sesiones)",
+    "section": "1 Información General",
+    "text": "1 Información General\n\n\n\n\n\n\n\nÍtem\nDetalle\n\n\n\n\nInstitución\nUniversidad Nacional Autónoma de Honduras (UNAH)\n\n\nUnidad\nCentro de Excelencia para la Educación en TI (CEETI)\n\n\nModalidad\nVirtual (sesiones 1–12) · Presencial (sesión 13)\n\n\nInicio\n6 de abril de 2026\n\n\nHorario\nLunes a Jueves, 6:00 PM – 7:30 PM (hora Honduras)\n\n\nDuración\n20 horas (13 sesiones)",
     "crumbs": [
       "Inicio",
       "Temario"
@@ -758,16 +699,6 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
-    "section": "",
-    "text": "Curso básico-intermedio de QGIS y Herramientas Python para el Análisis Geoespacial CEETI – Universidad Nacional Autónoma de Honduras",
-    "crumbs": [
-      "Inicio"
-    ]
-  },
-  {
     "objectID": "index.html#descripción-del-curso",
     "href": "index.html#descripción-del-curso",
     "title": "QGIS y Herramientas Python para el Análisis Geoespacial",
@@ -845,17 +776,6 @@
     "text": "1.8 ▶️ ¿Cómo usar este sitio?\nUtiliza el menú de navegación superior o lateral para acceder a cada módulo del curso. Cada módulo contiene:\n\nObjetivos del tema\nContenido teórico con ejemplos\nEjercicios prácticos guiados\nRecursos y referencias adicionales\n\nLos Laboratorios son tareas independientes asignadas después de cada módulo, diseñadas para que apliques lo aprendido de forma autónoma y puedan ser utilizadas como instrumento de evaluación.\n¡Comencemos! → Ver el temario completo",
     "crumbs": [
       "Inicio"
-    ]
-  },
-  {
-    "objectID": "content/sobre/instructor.html",
-    "href": "content/sobre/instructor.html",
-    "title": "Instructor",
-    "section": "",
-    "text": "Especialista en SIG & Desarrollo de Herramientas Geoespaciales CEETI – Universidad Nacional Autónoma de Honduras",
-    "crumbs": [
-      "Inicio",
-      "Instructor"
     ]
   },
   {
@@ -1107,23 +1027,11 @@
     ]
   },
   {
-    "objectID": "content/labs/instrucciones_labs.html",
-    "href": "content/labs/instrucciones_labs.html",
-    "title": "Instrucciones de Laboratorios",
-    "section": "",
-    "text": "Los laboratorios son tareas de trabajo autónomo que se entregan fuera del horario de clase. No forman parte de las sesiones virtuales; son asignaciones diseñadas para que apliques, explores y profundices los conocimientos adquiridos en cada módulo.\nCada laboratorio puede ser utilizado como instrumento de evaluación del curso.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Instrucciones"
-    ]
-  },
-  {
     "objectID": "content/labs/instrucciones_labs.html#qué-son-los-laboratorios",
     "href": "content/labs/instrucciones_labs.html#qué-son-los-laboratorios",
     "title": "Instrucciones de Laboratorios",
-    "section": "",
-    "text": "Los laboratorios son tareas de trabajo autónomo que se entregan fuera del horario de clase. No forman parte de las sesiones virtuales; son asignaciones diseñadas para que apliques, explores y profundices los conocimientos adquiridos en cada módulo.\nCada laboratorio puede ser utilizado como instrumento de evaluación del curso.",
+    "section": "¿Qué son los laboratorios?",
+    "text": "¿Qué son los laboratorios?\nLos laboratorios son tareas de trabajo autónomo que se entregan fuera del horario de clase. No forman parte de las sesiones virtuales; son asignaciones diseñadas para que apliques, explores y profundices los conocimientos adquiridos en cada módulo.\nCada laboratorio puede ser utilizado como instrumento de evaluación del curso.",
     "crumbs": [
       "Inicio",
       "Laboratorios",
@@ -1155,23 +1063,11 @@
     ]
   },
   {
-    "objectID": "content/modulos/modulo7.html",
-    "href": "content/modulos/modulo7.html",
-    "title": "Módulo 7: Integración y casos prácticos",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nConectar QGIS con APIs externas como OpenStreetMap y Google Maps.\nDiseñar y evaluar rutas eficientes para trabajo de campo.\nImportar y procesar rutas GPS recolectadas con aplicaciones móviles.\nAplicar técnicas de optimización de recorridos con restricciones reales.",
-    "crumbs": [
-      "Inicio",
-      "Módulos",
-      "7. Integración y casos prácticos"
-    ]
-  },
-  {
     "objectID": "content/modulos/modulo7.html#objetivos-del-módulo",
     "href": "content/modulos/modulo7.html#objetivos-del-módulo",
     "title": "Módulo 7: Integración y casos prácticos",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nConectar QGIS con APIs externas como OpenStreetMap y Google Maps.\nDiseñar y evaluar rutas eficientes para trabajo de campo.\nImportar y procesar rutas GPS recolectadas con aplicaciones móviles.\nAplicar técnicas de optimización de recorridos con restricciones reales.",
+    "section": "1 Objetivos del Módulo",
+    "text": "1 Objetivos del Módulo\nAl finalizar este módulo, los participantes podrán:\n\nConectar QGIS con APIs externas como OpenStreetMap y Google Maps.\nDiseñar y evaluar rutas eficientes para trabajo de campo.\nImportar y procesar rutas GPS recolectadas con aplicaciones móviles.\nAplicar técnicas de optimización de recorridos con restricciones reales.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -1251,23 +1147,11 @@
     ]
   },
   {
-    "objectID": "content/modulos/modulo2.html",
-    "href": "content/modulos/modulo2.html",
-    "title": "Módulo 2: Carga y manejo de datos",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nImportar datos geoespaciales en múltiples formatos (Shapefile, GeoJSON, KML, CSV).\nConectar QGIS a bases de datos como PostGIS y SQLite/SpatiaLite.\nComprender y gestionar los sistemas de referencia de coordenadas (CRS).\nVisualizar rutas y redes de transporte en QGIS.",
-    "crumbs": [
-      "Inicio",
-      "Módulos",
-      "2. Carga y manejo de datos"
-    ]
-  },
-  {
     "objectID": "content/modulos/modulo2.html#objetivos-del-módulo",
     "href": "content/modulos/modulo2.html#objetivos-del-módulo",
     "title": "Módulo 2: Carga y manejo de datos",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nImportar datos geoespaciales en múltiples formatos (Shapefile, GeoJSON, KML, CSV).\nConectar QGIS a bases de datos como PostGIS y SQLite/SpatiaLite.\nComprender y gestionar los sistemas de referencia de coordenadas (CRS).\nVisualizar rutas y redes de transporte en QGIS.",
+    "section": "1 Objetivos del Módulo",
+    "text": "1 Objetivos del Módulo\nAl finalizar este módulo, los participantes podrán:\n\nImportar datos geoespaciales en múltiples formatos (Shapefile, GeoJSON, KML, CSV).\nConectar QGIS a bases de datos como PostGIS y SQLite/SpatiaLite.\nComprender y gestionar los sistemas de referencia de coordenadas (CRS).\nVisualizar rutas y redes de transporte en QGIS.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -1347,23 +1231,11 @@
     ]
   },
   {
-    "objectID": "content/modulos/modulo4.html",
-    "href": "content/modulos/modulo4.html",
-    "title": "Módulo 4: Análisis espacial para rutas",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nUtilizar plugins de análisis de redes en QGIS (QNEAT3, Road Graph).\nCalcular rutas óptimas (más cortas o más rápidas) entre puntos.\nConstruir matrices de origen-destino.\nRealizar análisis de cobertura y zonificación de servicios.\nAnalizar puntos de interés en el contexto de rutas y servicios.",
-    "crumbs": [
-      "Inicio",
-      "Módulos",
-      "4. Análisis espacial para rutas"
-    ]
-  },
-  {
     "objectID": "content/modulos/modulo4.html#objetivos-del-módulo",
     "href": "content/modulos/modulo4.html#objetivos-del-módulo",
     "title": "Módulo 4: Análisis espacial para rutas",
-    "section": "",
-    "text": "Al finalizar este módulo, los participantes podrán:\n\nUtilizar plugins de análisis de redes en QGIS (QNEAT3, Road Graph).\nCalcular rutas óptimas (más cortas o más rápidas) entre puntos.\nConstruir matrices de origen-destino.\nRealizar análisis de cobertura y zonificación de servicios.\nAnalizar puntos de interés en el contexto de rutas y servicios.",
+    "section": "1 Objetivos del Módulo",
+    "text": "1 Objetivos del Módulo\nAl finalizar este módulo, los participantes podrán:\n\nUtilizar plugins de análisis de redes en QGIS (QNEAT3, Road Graph).\nCalcular rutas óptimas (más cortas o más rápidas) entre puntos.\nConstruir matrices de origen-destino.\nRealizar análisis de cobertura y zonificación de servicios.\nAnalizar puntos de interés en el contexto de rutas y servicios.",
     "crumbs": [
       "Inicio",
       "Módulos",
