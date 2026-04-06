@@ -222,5 +222,3 @@ Fuentes de datos espaciales para Honduras:
 - [DIVA-GIS — Datos por país](https://www.diva-gis.org/gdata)
 
 ---
-
-[← Módulo 1: Introducción a QGIS](modulo1.qmd) | [Módulo 3: Edición y geoprocesamiento →](modulo3.qmd)

@@ -419,5 +419,3 @@ class MiAlgoritmo(QgsProcessingAlgorithm):
 - [Shapely — Geometrías con Python](https://shapely.readthedocs.io)
 
 ---
-
-[← Módulo 4: Análisis espacial para rutas](modulo4.qmd) | [Módulo 6: Visualización avanzada →](modulo6.qmd)

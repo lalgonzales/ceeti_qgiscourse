@@ -272,5 +272,3 @@ Para asignar el área a un campo nuevo:
 - [Calculadora de campos — Referencia de expresiones](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/expression.html)
 
 ---
-
-[← Módulo 2: Carga y manejo de datos](modulo2.qmd) | [Módulo 4: Análisis espacial para rutas →](modulo4.qmd)
