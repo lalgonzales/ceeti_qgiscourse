@@ -420,4 +420,3 @@ class MiAlgoritmo(QgsProcessingAlgorithm):
 
 ---
 
-[← Módulo 4: Análisis espacial para rutas](modulo4.qmd) | [Módulo 6: Visualización avanzada →](modulo6.qmd)

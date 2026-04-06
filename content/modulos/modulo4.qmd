@@ -260,5 +260,3 @@ print(f"Distancia: {distancia}")
 - [Overpass Turbo — Consulta de datos OSM](https://overpass-turbo.eu)
 
 ---
-
-[← Módulo 3: Edición y geoprocesamiento](modulo3.qmd) | [Módulo 5: Automatización con Python →](modulo5.qmd)

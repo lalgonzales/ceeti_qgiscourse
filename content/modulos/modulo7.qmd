@@ -416,4 +416,3 @@ Recuerda que la práctica continua es la clave para dominar estas herramientas. 
 
 ---
 
-[← Módulo 6: Visualización avanzada](modulo6.qmd) | [↑ Inicio](../index.qmd) | [Ver temario completo](syllabus.qmd)

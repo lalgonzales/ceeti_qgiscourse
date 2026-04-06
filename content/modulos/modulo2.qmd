@@ -223,4 +223,3 @@ Fuentes de datos espaciales para Honduras:
 
 ---
 
-[← Módulo 1: Introducción a QGIS](modulo1.qmd) | [Módulo 3: Edición y geoprocesamiento →](modulo3.qmd)

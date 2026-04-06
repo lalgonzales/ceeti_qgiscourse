@@ -273,4 +273,3 @@ Para asignar el área a un campo nuevo:
 
 ---
 
-[← Módulo 2: Carga y manejo de datos](modulo2.qmd) | [Módulo 4: Análisis espacial para rutas →](modulo4.qmd)
