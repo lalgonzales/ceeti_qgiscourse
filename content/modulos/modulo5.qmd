@@ -419,4 +419,3 @@ class MiAlgoritmo(QgsProcessingAlgorithm):
 - [Shapely — Geometrías con Python](https://shapely.readthedocs.io)
 
 ---
-

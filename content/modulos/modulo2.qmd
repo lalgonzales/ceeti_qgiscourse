@@ -222,4 +222,3 @@ Fuentes de datos espaciales para Honduras:
 - [DIVA-GIS — Datos por país](https://www.diva-gis.org/gdata)
 
 ---
-

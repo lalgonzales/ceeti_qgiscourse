@@ -93,22 +93,22 @@ La interfaz de QGIS está compuesta por los siguientes elementos principales:
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
-![](../../assets/images/nav_map_tools.png){.lightbox}  
+![](../../assets/images/nav_map_tools.png){.lightbox}
 **Herramientas de navegación de mapas**: zoom, desplazamiento, extensión completa, zoom a la capa, etc.
 :::
 
 ::: {.g-col-12 .g-col-md-6}
-![](../../assets/images/selection_tools.png){.lightbox}  
+![](../../assets/images/selection_tools.png){.lightbox}
 **Herramientas de selección**: seleccionar entidades por área, atributo o localización.
 :::
 
 ::: {.g-col-12 .g-col-md-6}
-![](../../assets/images/attributes_tools.png){.lightbox}  
+![](../../assets/images/attributes_tools.png){.lightbox}
 **Herramientas de atributos**: consultar atributos de entidades, medir distancias, áreas y perímetros
 :::
 
 ::: {.g-col-12 .g-col-md-6}
-![](../../assets/images/digitalization_tools.png){.lightbox}  
+![](../../assets/images/digitalization_tools.png){.lightbox}
 **Herramientas de digitalización**: crear y editar geometrías
 :::
 
