@@ -517,42 +517,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  <span class="menu-text">Lab 1 – Exploración de QGIS</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/lab_02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 2 – Carga y gestión de datos</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/lab_03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 3 – Edición y geoprocesamiento</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/lab_04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 4 – Análisis de redes y rutas</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/lab_05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 5 – Automatización con PyQGIS</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/lab_06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 6 – Cartografía temática</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/lab_07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 7 – Integración y proyecto final</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -573,7 +537,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <ul>
   <li><a href="#tarea-1-instalación-y-verificación-de-qgis" id="toc-tarea-1-instalación-y-verificación-de-qgis" class="nav-link active" data-scroll-target="#tarea-1-instalación-y-verificación-de-qgis"><span class="header-section-number">1</span> Tarea 1: Instalación y verificación de QGIS</a></li>
   <li><a href="#tarea-2-exploración-de-la-interfaz" id="toc-tarea-2-exploración-de-la-interfaz" class="nav-link" data-scroll-target="#tarea-2-exploración-de-la-interfaz"><span class="header-section-number">2</span> Tarea 2: Exploración de la interfaz</a></li>
-  <li><a href="#tarea-3-carga-y-comparación-de-tipos-de-datos" id="toc-tarea-3-carga-y-comparación-de-tipos-de-datos" class="nav-link" data-scroll-target="#tarea-3-carga-y-comparación-de-tipos-de-datos"><span class="header-section-number">3</span> Tarea 3: Carga y comparación de tipos de datos</a></li>
+  <li><a href="#tarea-3-comparación-de-tipos-de-datos-espaciales" id="toc-tarea-3-comparación-de-tipos-de-datos-espaciales" class="nav-link" data-scroll-target="#tarea-3-comparación-de-tipos-de-datos-espaciales"><span class="header-section-number">3</span> Tarea 3: Comparación de tipos de datos espaciales</a></li>
   <li><a href="#tarea-4-reflexión" id="toc-tarea-4-reflexión" class="nav-link" data-scroll-target="#tarea-4-reflexión"><span class="header-section-number">4</span> Tarea 4: Reflexión</a></li>
   </ul>
 </nav>
@@ -616,16 +580,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados según las instrucciones del instructor.</p>
+<p>Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados en la tarea correspondiente de Google Classroom.</p>
 </div>
 </div>
 <hr>
 <section id="tarea-1-instalación-y-verificación-de-qgis" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="tarea-1-instalación-y-verificación-de-qgis"><span class="header-section-number">1</span> Tarea 1: Instalación y verificación de QGIS</h2>
 <ol type="1">
-<li>Instala <strong>QGIS LTR</strong> (versión de soporte a largo plazo) desde <a href="https://qgis.org/download/">qgis.org/download</a>.</li>
+<li>Si aun no lo has hecho, instala <strong>QGIS LTR</strong> (versión de soporte a largo plazo) desde <a href="https://qgis.org/download/">qgis.org/download</a>.</li>
 <li>Abre QGIS y toma una captura de pantalla de la pantalla principal con los paneles visibles (Panel de Capas, Vista del Mapa, Explorador).</li>
-<li>Verifica e indica la versión de QGIS instalada (menú Ayuda → Acerca de QGIS).</li>
+<li>Verifica e indica la versión de QGIS instalada (menú Ayuda → Acerca de).</li>
 </ol>
 <p><strong>Entrega:</strong> Captura de pantalla de la pantalla principal con la versión visible.</p>
 <hr>
@@ -633,22 +597,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section id="tarea-2-exploración-de-la-interfaz" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="tarea-2-exploración-de-la-interfaz"><span class="header-section-number">2</span> Tarea 2: Exploración de la interfaz</h2>
 <ol type="1">
-<li>Activa los siguientes paneles (Ver → Paneles):
+<li>Activa los siguientes paneles (Configuración → Paneles):
 <ul>
-<li>Panel de Capas</li>
-<li>Panel del Explorador</li>
-<li>Tabla de Atributos (puede abrirse al cargar datos)</li>
+<li>Panel Capas</li>
+<li>Panel Navegador</li>
+<li>Panel Consola de Python</li>
 </ul></li>
-<li>Identifica y describe brevemente (1–2 oraciones cada uno) los 5 componentes principales de la interfaz de QGIS.</li>
+<li>Identifica y describe brevemente (1–2 oraciones cada uno) al menos 4 componentes principales de la interfaz de QGIS.</li>
 <li>¿Qué hace la barra de estado en la parte inferior de la ventana? Explica qué información muestra.</li>
 </ol>
 <p><strong>Entrega:</strong> Documento de texto con tus respuestas (formato libre).</p>
 <hr>
 </section>
-<section id="tarea-3-carga-y-comparación-de-tipos-de-datos" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="tarea-3-carga-y-comparación-de-tipos-de-datos"><span class="header-section-number">3</span> Tarea 3: Carga y comparación de tipos de datos</h2>
+<section id="tarea-3-comparación-de-tipos-de-datos-espaciales" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="tarea-3-comparación-de-tipos-de-datos-espaciales"><span class="header-section-number">3</span> Tarea 3: Comparación de tipos de datos espaciales</h2>
 <ol type="1">
-<li>Descarga uno de los datasets de muestra disponibles en <a href="https://docs.qgis.org/latest/en/docs/training_manual/foreword/preparing_data.html">QGIS Sample Data</a> o utiliza cualquier dato shapefile de tu elección.</li>
+<li>Descarga el dataset de ejemplo desde la <a href="https://github.com/qgis/QGIS-Training-Data/archive/release_3.44.zip">página de QGIS</a> o usa los datos proporcionados en el módulo dentro de classroom.</li>
 <li>Carga al menos:
 <ul>
 <li>Una capa de <strong>puntos</strong> (ej. ciudades, escuelas, hospitales)</li>
@@ -658,9 +622,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li>Abre la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).</li>
 <li>Para cada capa, anota:
 <ul>
+<li>Tipo de geometría (punto, línea o polígono)</li>
 <li>Número de entidades (features)</li>
-<li>Nombre de al menos 3 campos/columnas</li>
-<li>Sistema de Referencia de Coordenadas (CRS) — visible en la barra de estado al hacer clic en la capa</li>
+<li>Nombre de al menos 3 campos y una breve descripción de qué tipo de información contienen</li>
 </ul></li>
 </ol>
 <p><strong>Entrega:</strong> Tabla resumen con la información solicitada + captura de pantalla del proyecto con las tres capas cargadas.</p>
@@ -683,6 +647,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>La rúbrica detallada de calificación se publica en Google Classroom.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -716,7 +681,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 <hr>
-<p><a href="../../content/labs/instrucciones_labs.html">← Instrucciones generales</a> | <a href="../../content/labs/lab_02.html">Lab 2 →</a></p>
 
 
 <!-- -->
@@ -1209,16 +1173,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instrucciones generales</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados según las instrucciones del instructor.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados en la tarea correspondiente de Google Classroom.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tarea 1: Instalación y verificación de QGIS</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Instala **QGIS LTR** (versión de soporte a largo plazo) desde <span class="co">[</span><span class="ot">qgis.org/download</span><span class="co">](https://qgis.org/download/)</span>.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Si aun no lo has hecho, instala **QGIS LTR** (versión de soporte a largo plazo) desde <span class="co">[</span><span class="ot">qgis.org/download</span><span class="co">](https://qgis.org/download/)</span>.</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Abre QGIS y toma una captura de pantalla de la pantalla principal con los paneles visibles (Panel de Capas, Vista del Mapa, Explorador).</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Verifica e indica la versión de QGIS instalada (menú Ayuda → Acerca de QGIS).</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Verifica e indica la versión de QGIS instalada (menú Ayuda → Acerca de).</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**Entrega:** Captura de pantalla de la pantalla principal con la versión visible.</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
@@ -1226,29 +1190,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tarea 2: Exploración de la interfaz</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Activa los siguientes paneles (Ver → Paneles):</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Panel de Capas</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Panel del Explorador</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tabla de Atributos (puede abrirse al cargar datos)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identifica y describe brevemente (1–2 oraciones cada uno) los 5 componentes principales de la interfaz de QGIS.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Activa los siguientes paneles (Configuración → Paneles):</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Panel Capas</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Panel Navegador</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Panel Consola de Python</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identifica y describe brevemente (1–2 oraciones cada uno) al menos 4  componentes principales de la interfaz de QGIS.</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>¿Qué hace la barra de estado en la parte inferior de la ventana? Explica qué información muestra.</span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>**Entrega:** Documento de texto con tus respuestas (formato libre).</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tarea 3: Carga y comparación de tipos de datos</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tarea 3: Comparación de tipos de datos espaciales</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Descarga uno de los datasets de muestra disponibles en <span class="co">[</span><span class="ot">QGIS Sample Data</span><span class="co">](https://docs.qgis.org/latest/en/docs/training_manual/foreword/preparing_data.html)</span> o utiliza cualquier dato shapefile de tu elección.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Descarga el dataset de ejemplo desde la <span class="co">[</span><span class="ot">página de QGIS</span><span class="co">](https://github.com/qgis/QGIS-Training-Data/archive/release_3.44.zip)</span> o usa los datos proporcionados en el módulo dentro de classroom.</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Carga al menos:</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Una capa de **puntos** (ej. ciudades, escuelas, hospitales)</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Una capa de **líneas** (ej. carreteras, ríos)</span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Una capa de **polígonos** (ej. municipios, departamentos)</span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Abre la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Para cada capa, anota:</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Número de entidades (features)</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Nombre de al menos 3 campos/columnas</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Sistema de Referencia de Coordenadas (CRS) — visible en la barra de estado al hacer clic en la capa</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tipo de geometría (punto, línea o polígono)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Número de entidades (features)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Nombre de al menos 3 campos y una breve descripción de qué tipo de información contienen</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>**Entrega:** Tabla resumen con la información solicitada + captura de pantalla del proyecto con las tres capas cargadas.</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
@@ -1264,18 +1228,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## Criterios de evaluación</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criterio                                   <span class="pp">|</span> Puntos <span class="pp">|</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------------------------------------------|:------:|</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> QGIS instalado y captura de pantalla       <span class="pp">|</span> 20     <span class="pp">|</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Descripción de componentes de la interfaz  <span class="pp">|</span> 20     <span class="pp">|</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Capas cargadas y tabla resumen correcta    <span class="pp">|</span> 40     <span class="pp">|</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reflexión fundamentada                     <span class="pp">|</span> 20     <span class="pp">|</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Total**                                  | **100** <span class="pp">|</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>La rúbrica detallada de calificación se publica en Google Classroom.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criterio                                   <span class="pp">|</span> Puntos <span class="pp">|</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------------------------------------------|:------:|</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> QGIS instalado y captura de pantalla       <span class="pp">|</span> 20     <span class="pp">|</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Descripción de componentes de la interfaz  <span class="pp">|</span> 20     <span class="pp">|</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Capas cargadas y tabla resumen correcta    <span class="pp">|</span> 40     <span class="pp">|</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reflexión fundamentada                     <span class="pp">|</span> 20     <span class="pp">|</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Total**                                  | **100** <span class="pp">|</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">← Instrucciones generales</span><span class="co">](instrucciones_labs.qmd)</span> | <span class="co">[</span><span class="ot">Lab 2 →</span><span class="co">](lab_02.qmd)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>---</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

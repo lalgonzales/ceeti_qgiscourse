@@ -376,7 +376,7 @@
     "href": "content/labs/lab_01.html#tarea-1-instalación-y-verificación-de-qgis",
     "title": "Laboratorio 1: Exploración de QGIS y tipos de datos espaciales",
     "section": "1 Tarea 1: Instalación y verificación de QGIS",
-    "text": "1 Tarea 1: Instalación y verificación de QGIS\n\nInstala QGIS LTR (versión de soporte a largo plazo) desde qgis.org/download.\nAbre QGIS y toma una captura de pantalla de la pantalla principal con los paneles visibles (Panel de Capas, Vista del Mapa, Explorador).\nVerifica e indica la versión de QGIS instalada (menú Ayuda → Acerca de QGIS).\n\nEntrega: Captura de pantalla de la pantalla principal con la versión visible.",
+    "text": "1 Tarea 1: Instalación y verificación de QGIS\n\nSi aun no lo has hecho, instala QGIS LTR (versión de soporte a largo plazo) desde qgis.org/download.\nAbre QGIS y toma una captura de pantalla de la pantalla principal con los paneles visibles (Panel de Capas, Vista del Mapa, Explorador).\nVerifica e indica la versión de QGIS instalada (menú Ayuda → Acerca de).\n\nEntrega: Captura de pantalla de la pantalla principal con la versión visible.",
     "crumbs": [
       "Inicio",
       "Laboratorios",
@@ -388,7 +388,7 @@
     "href": "content/labs/lab_01.html#tarea-2-exploración-de-la-interfaz",
     "title": "Laboratorio 1: Exploración de QGIS y tipos de datos espaciales",
     "section": "2 Tarea 2: Exploración de la interfaz",
-    "text": "2 Tarea 2: Exploración de la interfaz\n\nActiva los siguientes paneles (Ver → Paneles):\n\nPanel de Capas\nPanel del Explorador\nTabla de Atributos (puede abrirse al cargar datos)\n\nIdentifica y describe brevemente (1–2 oraciones cada uno) los 5 componentes principales de la interfaz de QGIS.\n¿Qué hace la barra de estado en la parte inferior de la ventana? Explica qué información muestra.\n\nEntrega: Documento de texto con tus respuestas (formato libre).",
+    "text": "2 Tarea 2: Exploración de la interfaz\n\nActiva los siguientes paneles (Configuración → Paneles):\n\nPanel Capas\nPanel Navegador\nPanel Consola de Python\n\nIdentifica y describe brevemente (1–2 oraciones cada uno) al menos 4 componentes principales de la interfaz de QGIS.\n¿Qué hace la barra de estado en la parte inferior de la ventana? Explica qué información muestra.\n\nEntrega: Documento de texto con tus respuestas (formato libre).",
     "crumbs": [
       "Inicio",
       "Laboratorios",
@@ -396,11 +396,11 @@
     ]
   },
   {
-    "objectID": "content/labs/lab_01.html#tarea-3-carga-y-comparación-de-tipos-de-datos",
-    "href": "content/labs/lab_01.html#tarea-3-carga-y-comparación-de-tipos-de-datos",
+    "objectID": "content/labs/lab_01.html#tarea-3-comparación-de-tipos-de-datos-espaciales",
+    "href": "content/labs/lab_01.html#tarea-3-comparación-de-tipos-de-datos-espaciales",
     "title": "Laboratorio 1: Exploración de QGIS y tipos de datos espaciales",
-    "section": "3 Tarea 3: Carga y comparación de tipos de datos",
-    "text": "3 Tarea 3: Carga y comparación de tipos de datos\n\nDescarga uno de los datasets de muestra disponibles en QGIS Sample Data o utiliza cualquier dato shapefile de tu elección.\nCarga al menos:\n\nUna capa de puntos (ej. ciudades, escuelas, hospitales)\nUna capa de líneas (ej. carreteras, ríos)\nUna capa de polígonos (ej. municipios, departamentos)\n\nAbre la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).\nPara cada capa, anota:\n\nNúmero de entidades (features)\nNombre de al menos 3 campos/columnas\nSistema de Referencia de Coordenadas (CRS) — visible en la barra de estado al hacer clic en la capa\n\n\nEntrega: Tabla resumen con la información solicitada + captura de pantalla del proyecto con las tres capas cargadas.",
+    "section": "3 Tarea 3: Comparación de tipos de datos espaciales",
+    "text": "3 Tarea 3: Comparación de tipos de datos espaciales\n\nDescarga el dataset de ejemplo desde la página de QGIS o usa los datos proporcionados en el módulo dentro de classroom.\nCarga al menos:\n\nUna capa de puntos (ej. ciudades, escuelas, hospitales)\nUna capa de líneas (ej. carreteras, ríos)\nUna capa de polígonos (ej. municipios, departamentos)\n\nAbre la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).\nPara cada capa, anota:\n\nTipo de geometría (punto, línea o polígono)\nNúmero de entidades (features)\nNombre de al menos 3 campos y una breve descripción de qué tipo de información contienen\n\n\nEntrega: Tabla resumen con la información solicitada + captura de pantalla del proyecto con las tres capas cargadas.",
     "crumbs": [
       "Inicio",
       "Laboratorios",
@@ -412,191 +412,11 @@
     "href": "content/labs/lab_01.html#tarea-4-reflexión",
     "title": "Laboratorio 1: Exploración de QGIS y tipos de datos espaciales",
     "section": "4 Tarea 4: Reflexión",
-    "text": "4 Tarea 4: Reflexión\nResponde brevemente (3–5 oraciones) la siguiente pregunta:\n\n¿En qué situación real de tu área de trabajo o interés profesional aplicarías un SIG? ¿Qué tipo de datos espaciales utilizarías (puntos, líneas, polígonos) y por qué?\n\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nQGIS instalado y captura de pantalla\n20\n\n\nDescripción de componentes de la interfaz\n20\n\n\nCapas cargadas y tabla resumen correcta\n40\n\n\nReflexión fundamentada\n20\n\n\nTotal\n100\n\n\n\n\n\n\n← Instrucciones generales | Lab 2 →",
+    "text": "4 Tarea 4: Reflexión\nResponde brevemente (3–5 oraciones) la siguiente pregunta:\n\n¿En qué situación real de tu área de trabajo o interés profesional aplicarías un SIG? ¿Qué tipo de datos espaciales utilizarías (puntos, líneas, polígonos) y por qué?\n\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\nLa rúbrica detallada de calificación se publica en Google Classroom.\n\n\n\nCriterio\nPuntos\n\n\n\n\nQGIS instalado y captura de pantalla\n20\n\n\nDescripción de componentes de la interfaz\n20\n\n\nCapas cargadas y tabla resumen correcta\n40\n\n\nReflexión fundamentada\n20\n\n\nTotal\n100",
     "crumbs": [
       "Inicio",
       "Laboratorios",
       "Lab 1 – Exploración de QGIS"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_07.html",
-    "href": "content/labs/lab_07.html",
-    "title": "Laboratorio 7: Integración de datos y preparación del proyecto final",
-    "section": "",
-    "text": "Módulo relacionado: Módulo 7 – Integración y casos prácticos",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 7 – Integración y proyecto final"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_07.html#tarea-1-integración-con-openstreetmap",
-    "href": "content/labs/lab_07.html#tarea-1-integración-con-openstreetmap",
-    "title": "Laboratorio 7: Integración de datos y preparación del proyecto final",
-    "section": "1 Tarea 1: Integración con OpenStreetMap",
-    "text": "1 Tarea 1: Integración con OpenStreetMap\n\nInstala o activa el plugin QuickOSM en QGIS (Complementos → Administrar e instalar complementos).\nDescarga datos de OSM para un área de tu interés (ej. tu ciudad o municipio):\n\nRed vial principal (highway = primary, secondary, tertiary)\nPuntos de interés (ej. amenity = hospital, shop = supermarket u otro de tu elección)\n\nCarga los datos descargados en tu proyecto.\nRealiza un análisis básico: ¿cuántos puntos de interés hay en el área? ¿Cómo se distribuyen respecto a la red vial?\n\nEntrega: Captura de pantalla con los datos OSM cargados + respuestas al análisis.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 7 – Integración y proyecto final"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_07.html#tarea-2-importación-de-rutas-gps-o-datos-de-campo",
-    "href": "content/labs/lab_07.html#tarea-2-importación-de-rutas-gps-o-datos-de-campo",
-    "title": "Laboratorio 7: Integración de datos y preparación del proyecto final",
-    "section": "2 Tarea 2: Importación de rutas GPS o datos de campo",
-    "text": "2 Tarea 2: Importación de rutas GPS o datos de campo\n\nObtén un archivo GPX o KML con rutas o puntos de campo. Puedes:\n\nGrabar una ruta con tu celular usando una app (ej. OsmAnd, Maps.me, Google Maps exportado a KML)\nDescargar un GPX de ejemplo desde OpenStreetMap GPS Traces\n\nImporta el archivo en QGIS.\nVerifica el CRS y reproyecta si es necesario.\nCalcula la longitud total de la ruta.\n\nEntrega: Archivo GPX/KML + captura de pantalla con la ruta en el mapa + longitud calculada.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 7 – Integración y proyecto final"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_07.html#tarea-3-proyecto-integrador",
-    "href": "content/labs/lab_07.html#tarea-3-proyecto-integrador",
-    "title": "Laboratorio 7: Integración de datos y preparación del proyecto final",
-    "section": "3 Tarea 3: Proyecto integrador",
-    "text": "3 Tarea 3: Proyecto integrador\nDiseña y desarrolla un mini-proyecto aplicado que integre las habilidades aprendidas en el curso. Tu proyecto debe:\n\nPlantear un problema o pregunta geoespacial de tu elección (ej. análisis de accesibilidad a servicios de salud, optimización de rutas de distribución, identificación de zonas de riesgo).\nUtilizar al menos 3 tipos de datos diferentes (puntos, líneas, polígonos; o vectorial + OSM + GPS).\nAplicar al menos 2 herramientas de análisis (buffer, clip, análisis de redes, selección espacial, etc.).\nIncluir al menos un proceso automatizado con PyQGIS (puede ser simple: listar entidades, calcular un campo, exportar resultados).\nProducir un mapa final con todos los elementos cartográficos (título, leyenda, escala, norte, créditos).\n\nEntrega: - Proyecto QGIS (.qgz) con todas las capas - Mapa final en PDF - Documento de 1 página describiendo el problema, datos usados, metodología y conclusiones",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 7 – Integración y proyecto final"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_07.html#tarea-4-preparación-de-la-presentación-final",
-    "href": "content/labs/lab_07.html#tarea-4-preparación-de-la-presentación-final",
-    "title": "Laboratorio 7: Integración de datos y preparación del proyecto final",
-    "section": "4 Tarea 4: Preparación de la presentación final",
-    "text": "4 Tarea 4: Preparación de la presentación final\nPrepara una presentación de 5–7 minutos para la Sesión 13 (presencial) que incluya:\n\nTítulo del proyecto y área de estudio\nObjetivo o pregunta que buscaste responder\nDatos utilizados y sus fuentes\nMetodología aplicada (pasos principales)\nMapa(s) resultado(s)\nConclusiones y posibles aplicaciones o mejoras\n\nEntrega: Presentación en formato PDF o PowerPoint.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nIntegración con OSM y análisis básico\n15\n\n\nImportación y análisis de ruta GPS/KML\n15\n\n\nProyecto integrador (datos + análisis + mapa)\n50\n\n\nPreparación de presentación final\n20\n\n\nTotal\n100\n\n\n\n\n\n\n\n\n\n\n\n\nTip¡Éxito en tu proyecto final!\n\n\n\nRecuerda que la Sesión 13 es presencial y la fecha se confirmará oportunamente. Este laboratorio es tu guía de preparación.\n\n\n\n← Lab 6 | ← Instrucciones generales",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 7 – Integración y proyecto final"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_03.html",
-    "href": "content/labs/lab_03.html",
-    "title": "Laboratorio 3: Edición vectorial y geoprocesamiento",
-    "section": "",
-    "text": "Módulo relacionado: Módulo 3 – Edición y geoprocesamiento básico",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 3 – Edición y geoprocesamiento"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_03.html#tarea-1-creación-de-una-capa-vectorial",
-    "href": "content/labs/lab_03.html#tarea-1-creación-de-una-capa-vectorial",
-    "title": "Laboratorio 3: Edición vectorial y geoprocesamiento",
-    "section": "1 Tarea 1: Creación de una capa vectorial",
-    "text": "1 Tarea 1: Creación de una capa vectorial\n\nEn QGIS, crea una nueva capa vectorial de polígonos (Capa → Crear capa → Nueva capa GeoPackage o Shapefile).\nDefine al menos 2 campos de atributos (ej. nombre tipo texto, area_km2 tipo decimal).\nDigitaliza al menos 3 polígonos que representen zonas de tu elección (barrios, áreas de interés, zonas de trabajo, etc.).\nCompleta los atributos de cada polígono.\n\nEntrega: Archivo GeoPackage o Shapefile con los polígonos creados + captura de pantalla.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 3 – Edición y geoprocesamiento"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_03.html#tarea-2-herramientas-de-geoprocesamiento",
-    "href": "content/labs/lab_03.html#tarea-2-herramientas-de-geoprocesamiento",
-    "title": "Laboratorio 3: Edición vectorial y geoprocesamiento",
-    "section": "2 Tarea 2: Herramientas de geoprocesamiento",
-    "text": "2 Tarea 2: Herramientas de geoprocesamiento\nUtilizando capas existentes (las del Lab 2 u otras), aplica las siguientes herramientas de geoprocesamiento (Vectorial → Herramientas de geoprocesamiento):\n\nBuffer: Genera una zona de influencia de 500 metros alrededor de una capa de puntos o líneas.\nRecorte (Clip): Recorta una capa con los límites de otra capa (ej. recorta una red vial con el polígono de un municipio).\nDisolución (Dissolve): Une todos los polígonos de una capa en uno solo (o por categoría).\n\nPara cada herramienta: - Describe brevemente los parámetros utilizados. - Toma una captura de pantalla del resultado.\nEntrega: Capturas de pantalla de los 3 resultados + descripción breve.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 3 – Edición y geoprocesamiento"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_03.html#tarea-3-cálculo-de-geometría",
-    "href": "content/labs/lab_03.html#tarea-3-cálculo-de-geometría",
-    "title": "Laboratorio 3: Edición vectorial y geoprocesamiento",
-    "section": "3 Tarea 3: Cálculo de geometría",
-    "text": "3 Tarea 3: Cálculo de geometría\n\nCon la capa de polígonos creada en la Tarea 1 (o cualquier capa poligonal), abre la Calculadora de campos (Tabla de Atributos → Lápiz → Abrir calculadora de campos).\nCrea un nuevo campo llamado area_m2 que calcule el área de cada polígono en metros cuadrados usando $area.\nCrea otro campo llamado perimetro_m con el perímetro usando $perimeter.\nVerifica los resultados en la tabla de atributos.\n\nEntrega: Captura de pantalla de la tabla de atributos con los nuevos campos calculados.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 3 – Edición y geoprocesamiento"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_03.html#tarea-4-validación-de-geometrías",
-    "href": "content/labs/lab_03.html#tarea-4-validación-de-geometrías",
-    "title": "Laboratorio 3: Edición vectorial y geoprocesamiento",
-    "section": "4 Tarea 4: Validación de geometrías",
-    "text": "4 Tarea 4: Validación de geometrías\n\nEjecuta la herramienta Verificar validez (Vectorial → Herramientas de geometría → Verificar validez) sobre una de tus capas.\n¿Se encontraron errores? Si es así, ¿cuántos y de qué tipo?\nSi hay errores, intenta corregirlos con la herramienta Corregir geometrías.\n\nEntrega: Captura de pantalla del resultado de la verificación + respuesta a las preguntas.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nCapa vectorial creada con atributos\n25\n\n\n3 herramientas de geoprocesamiento aplicadas\n35\n\n\nCálculo de área y perímetro\n25\n\n\nValidación de geometrías documentada\n15\n\n\nTotal\n100\n\n\n\n\n\n\n← Lab 2 | Lab 4 →",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 3 – Edición y geoprocesamiento"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_05.html",
-    "href": "content/labs/lab_05.html",
-    "title": "Laboratorio 5: Automatización con Python y PyQGIS",
-    "section": "",
-    "text": "Módulo relacionado: Módulo 5 – Automatización con Python y PyQGIS",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 5 – Automatización con PyQGIS"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_05.html#tarea-1-primeros-pasos-en-la-consola-python-de-qgis",
-    "href": "content/labs/lab_05.html#tarea-1-primeros-pasos-en-la-consola-python-de-qgis",
-    "title": "Laboratorio 5: Automatización con Python y PyQGIS",
-    "section": "1 Tarea 1: Primeros pasos en la consola Python de QGIS",
-    "text": "1 Tarea 1: Primeros pasos en la consola Python de QGIS\n\nAbre la Consola de Python en QGIS (Complementos → Consola de Python, o Ctrl+Alt+P).\nEjecuta el siguiente código para listar todas las capas cargadas en el proyecto:\n\nfor layer in QgsProject.instance().mapLayers().values():\n    print(layer.name(), \"–\", layer.type())\n\nCarga al menos 2 capas en tu proyecto y vuelve a ejecutar el código.\n¿Cuántas capas se listan? ¿Qué valores puede tener layer.type()?\n\nEntrega: Captura de pantalla de la consola con el resultado + respuesta a las preguntas.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 5 – Automatización con PyQGIS"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_05.html#tarea-2-acceso-a-atributos-con-pyqgis",
-    "href": "content/labs/lab_05.html#tarea-2-acceso-a-atributos-con-pyqgis",
-    "title": "Laboratorio 5: Automatización con Python y PyQGIS",
-    "section": "2 Tarea 2: Acceso a atributos con PyQGIS",
-    "text": "2 Tarea 2: Acceso a atributos con PyQGIS\n\nSelecciona una capa vectorial cargada en tu proyecto.\nEscribe un script Python en la consola (o en el editor de scripts) que:\n\nObtenga la referencia a la capa por nombre.\nImprima el nombre de todos los campos (columnas) de la capa.\nImprima los atributos de las primeras 5 entidades.\n\n\n# Plantilla de ejemplo\nlayer = QgsProject.instance().mapLayersByName(\"NOMBRE_DE_TU_CAPA\")[0]\nfor field in layer.fields():\n    print(field.name())\n\nfor feature in list(layer.getFeatures())[:5]:\n    print(feature.attributes())\nEntrega: Script completo + captura de pantalla con la salida en consola.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 5 – Automatización con PyQGIS"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_05.html#tarea-3-selección-y-filtrado-con-pyqgis",
-    "href": "content/labs/lab_05.html#tarea-3-selección-y-filtrado-con-pyqgis",
-    "title": "Laboratorio 5: Automatización con Python y PyQGIS",
-    "section": "3 Tarea 3: Selección y filtrado con PyQGIS",
-    "text": "3 Tarea 3: Selección y filtrado con PyQGIS\n\nUsando la misma capa, escribe un script que seleccione entidades según un criterio de atributo (ej. área mayor a cierto valor, nombre que contenga una cadena específica).\nImprime cuántas entidades cumplen el criterio.\nExporta las entidades seleccionadas a un nuevo archivo GeoPackage usando QgsVectorFileWriter o la herramienta de procesamiento:\n\nprocessing.run(\"native:saveselectedfeatures\", {\n    'INPUT': layer,\n    'OUTPUT': '/ruta/a/tu/archivo.gpkg'\n})\nEntrega: Script completo + archivo exportado + captura de pantalla.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 5 – Automatización con PyQGIS"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_05.html#tarea-4-script-de-automatización",
-    "href": "content/labs/lab_05.html#tarea-4-script-de-automatización",
-    "title": "Laboratorio 5: Automatización con Python y PyQGIS",
-    "section": "4 Tarea 4: Script de automatización",
-    "text": "4 Tarea 4: Script de automatización\nCrea un script que realice el siguiente flujo de trabajo automatizado:\n\nCargue una capa vectorial desde un archivo.\nCalcule el área en metros cuadrados de cada entidad.\nExporte un reporte en formato CSV con las columnas nombre (u otro identificador) y area_m2.\n\nimport csv\n\nlayer = QgsVectorLayer('/ruta/a/tu/archivo.shp', 'mi_capa', 'ogr')\nQgsProject.instance().addMapLayer(layer)\n\nwith open('/ruta/reporte.csv', 'w', newline='') as f:\n    writer = csv.writer(f)\n    writer.writerow(['nombre', 'area_m2'])\n    for feat in layer.getFeatures():\n        geom = feat.geometry()\n        area = geom.area()\n        nombre = feat['NOMBRE_DEL_CAMPO']  # ajusta al nombre real\n        writer.writerow([nombre, round(area, 2)])\n\nprint(\"Reporte generado exitosamente.\")\nEntrega: Script completo + archivo CSV generado + captura de pantalla.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nListado de capas en consola\n15\n\n\nAcceso a atributos con PyQGIS\n25\n\n\nSelección y exportación de entidades\n25\n\n\nScript de automatización y reporte CSV\n35\n\n\nTotal\n100\n\n\n\n\n\n\n← Lab 4 | Lab 6 →",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 5 – Automatización con PyQGIS"
     ]
   },
   {
@@ -823,210 +643,6 @@
     ]
   },
   {
-    "objectID": "content/labs/lab_04.html",
-    "href": "content/labs/lab_04.html",
-    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
-    "section": "",
-    "text": "Módulo relacionado: Módulo 4 – Análisis espacial para rutas",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 4 – Análisis de redes y rutas"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_04.html#tarea-1-preparación-de-la-red-vial",
-    "href": "content/labs/lab_04.html#tarea-1-preparación-de-la-red-vial",
-    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
-    "section": "1 Tarea 1: Preparación de la red vial",
-    "text": "1 Tarea 1: Preparación de la red vial\n\nDescarga la red vial de un área de tu interés desde OpenStreetMap usando el plugin QuickOSM o desde download.geofabrik.de.\nCarga la red vial en QGIS.\nAsegúrate de que la capa tenga un CRS proyectado (no geográfico) adecuado para tu área. Reproyecta si es necesario.\nVerifica la topología básica: ¿las líneas están conectadas en los nodos?\n\nEntrega: Captura de pantalla de la red vial cargada con su CRS correcto.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 4 – Análisis de redes y rutas"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_04.html#tarea-2-análisis-de-ruta-más-corta",
-    "href": "content/labs/lab_04.html#tarea-2-análisis-de-ruta-más-corta",
-    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
-    "section": "2 Tarea 2: Análisis de ruta más corta",
-    "text": "2 Tarea 2: Análisis de ruta más corta\nUsando el plugin Network Analysis de QGIS o QNEAT3 (si está disponible):\n\nDefine un punto de origen y un punto de destino en la red vial.\nCalcula la ruta más corta entre ambos puntos.\nCalcula la ruta más rápida (si tienes campo de velocidad o tiempo disponible).\nCompara ambas rutas: ¿son iguales? ¿En qué difieren en distancia y tiempo estimado?\n\nEntrega: Captura de pantalla con ambas rutas visualizadas + tabla comparativa de distancia y tiempo.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 4 – Análisis de redes y rutas"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_04.html#tarea-3-zona-de-servicio-isócrona",
-    "href": "content/labs/lab_04.html#tarea-3-zona-de-servicio-isócrona",
-    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
-    "section": "3 Tarea 3: Zona de servicio (isócrona)",
-    "text": "3 Tarea 3: Zona de servicio (isócrona)\n\nSelecciona un punto de interés en tu área (ej. hospital, escuela, mercado).\nUsa la herramienta de zona de servicio para calcular el área alcanzable en:\n\n500 metros de distancia\n1,000 metros de distancia\n\nVisualiza las zonas resultantes sobre el mapa base.\n\nEntrega: Captura de pantalla con las zonas de servicio + descripción de qué puntos de interés quedan dentro de cada zona.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 4 – Análisis de redes y rutas"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_04.html#tarea-4-análisis-de-puntos-de-interés",
-    "href": "content/labs/lab_04.html#tarea-4-análisis-de-puntos-de-interés",
-    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
-    "section": "4 Tarea 4: Análisis de puntos de interés",
-    "text": "4 Tarea 4: Análisis de puntos de interés\n\nCarga o crea una capa de puntos de interés (ej. clientes, centros de distribución, paradas de bus).\n¿Cuántos puntos quedan dentro de la zona de servicio de 1,000 metros calculada en la Tarea 3?\nUsa Seleccionar por localización (Vectorial → Herramientas de investigación → Seleccionar por localización) para responder esta pregunta.\n\nEntrega: Captura de pantalla de la selección + número de puntos encontrados.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 4 – Análisis de redes y rutas"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_04.html#tarea-5-reflexión",
-    "href": "content/labs/lab_04.html#tarea-5-reflexión",
-    "title": "Laboratorio 4: Análisis de redes y rutas óptimas",
-    "section": "5 Tarea 5: Reflexión",
-    "text": "5 Tarea 5: Reflexión\n\nImagina que debes planificar las rutas de distribución para 5 puntos de entrega partiendo desde un depósito central. ¿Qué herramientas de QGIS usarías? ¿Qué datos necesitarías tener disponibles?\n\nResponde en 5–7 oraciones.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nRed vial preparada correctamente\n15\n\n\nRutas más corta y más rápida calculadas\n25\n\n\nZonas de servicio generadas\n25\n\n\nAnálisis de puntos de interés\n20\n\n\nReflexión sobre planificación de rutas\n15\n\n\nTotal\n100\n\n\n\n\n\n\n← Lab 3 | Lab 5 →",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 4 – Análisis de redes y rutas"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_02.html",
-    "href": "content/labs/lab_02.html",
-    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
-    "section": "",
-    "text": "Módulo relacionado: Módulo 2 – Carga y manejo de datos",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 2 – Carga y gestión de datos"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_02.html#tarea-1-importación-de-múltiples-formatos",
-    "href": "content/labs/lab_02.html#tarea-1-importación-de-múltiples-formatos",
-    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
-    "section": "1 Tarea 1: Importación de múltiples formatos",
-    "text": "1 Tarea 1: Importación de múltiples formatos\nDescarga o localiza datos espaciales en al menos tres formatos diferentes. Puedes usar fuentes como GADM, OpenStreetMap, GeoJSON.io u otras.\nFormatos sugeridos: - Shapefile (.shp) - GeoJSON (.geojson) - KML (.kml) o CSV con coordenadas (.csv)\nPara cada formato: 1. Carga la capa en QGIS usando el método adecuado (Capa → Agregar capa…). 2. Verifica que la capa se visualice correctamente. 3. Toma una captura de pantalla con las capas cargadas.\nEntrega: Captura de pantalla con las capas de los tres formatos visibles en el panel de capas.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 2 – Carga y gestión de datos"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_02.html#tarea-2-sistemas-de-referencia-de-coordenadas-crs",
-    "href": "content/labs/lab_02.html#tarea-2-sistemas-de-referencia-de-coordenadas-crs",
-    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
-    "section": "2 Tarea 2: Sistemas de referencia de coordenadas (CRS)",
-    "text": "2 Tarea 2: Sistemas de referencia de coordenadas (CRS)\n\nPara cada capa cargada en la Tarea 1, identifica el CRS (clic derecho sobre la capa → Propiedades → Información).\nExporta una de las capas a un CRS diferente (clic derecho → Exportar → Guardar entidades como…, y cambia el CRS de destino).\nCompara visualmente ambas versiones (original y reproyectada) en el mapa.\n\nEntrega: Tabla con el CRS de cada capa + captura de pantalla mostrando la capa original y la reproyectada.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 2 – Carga y gestión de datos"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_02.html#tarea-3-unión-de-tabla-csv",
-    "href": "content/labs/lab_02.html#tarea-3-unión-de-tabla-csv",
-    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
-    "section": "3 Tarea 3: Unión de tabla CSV",
-    "text": "3 Tarea 3: Unión de tabla CSV\n\nCrea o descarga un archivo CSV con al menos 5 filas, que incluya:\n\nUna columna con un identificador (ej. código de municipio, nombre)\nUna o más columnas con datos estadísticos (ej. población, área)\n\nCarga el CSV en QGIS (Capa → Agregar capa → Agregar capa de texto delimitado).\nRealiza una unión de tablas (Table Join) entre el CSV y una capa vectorial que comparta el identificador (Propiedades de la capa → Uniones).\nVerifica que los campos del CSV aparecen ahora en la tabla de atributos de la capa vectorial.\n\nEntrega: Captura de pantalla de la tabla de atributos mostrando los campos unidos.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 2 – Carga y gestión de datos"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_02.html#tarea-4-reflexión",
-    "href": "content/labs/lab_02.html#tarea-4-reflexión",
-    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
-    "section": "4 Tarea 4: Reflexión",
-    "text": "4 Tarea 4: Reflexión\n\n¿Cuáles son las ventajas y desventajas de los diferentes formatos de datos espaciales (Shapefile, GeoJSON, GeoPackage)? ¿Cuándo usarías cada uno?\n\nResponde en 4–6 oraciones con base en lo aprendido en el módulo.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nCapas en 3 formatos cargadas correctamente\n25\n\n\nCRS identificados y reproyección realizada\n25\n\n\nUnión de tabla CSV completada\n30\n\n\nReflexión sobre formatos\n20\n\n\nTotal\n100\n\n\n\n\n\n\n← Lab 1 | Lab 3 →",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 2 – Carga y gestión de datos"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_06.html",
-    "href": "content/labs/lab_06.html",
-    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
-    "section": "",
-    "text": "Módulo relacionado: Módulo 6 – Visualización avanzada y mapas finales",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 6 – Cartografía temática"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_06.html#tarea-1-simbología-por-categorías",
-    "href": "content/labs/lab_06.html#tarea-1-simbología-por-categorías",
-    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
-    "section": "1 Tarea 1: Simbología por categorías",
-    "text": "1 Tarea 1: Simbología por categorías\n\nCarga una capa vectorial con un campo categórico (ej. tipo de uso de suelo, categoría de vía, tipo de establecimiento).\nAplica simbología de tipo Categorizado (Propiedades → Simbología → Categorizado).\nAsigna colores distintos a cada categoría.\nOrdena las categorías para que las más importantes queden en primer lugar en la leyenda.\n\nEntrega: Captura de pantalla del mapa con simbología categorizada.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 6 – Cartografía temática"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_06.html#tarea-2-simbología-graduada",
-    "href": "content/labs/lab_06.html#tarea-2-simbología-graduada",
-    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
-    "section": "2 Tarea 2: Simbología graduada",
-    "text": "2 Tarea 2: Simbología graduada\n\nUsa una capa con un campo numérico (ej. población, densidad, longitud de vías).\nAplica simbología de tipo Graduado con al menos 5 clases.\nPrueba al menos 2 métodos de clasificación (ej. Jenks, Quantil, Intervalo igual) y elige el que mejor represente la distribución de los datos.\nJustifica brevemente tu elección del método de clasificación.\n\nEntrega: Captura de pantalla del mapa graduado + justificación del método.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 6 – Cartografía temática"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_06.html#tarea-3-etiquetado-dinámico",
-    "href": "content/labs/lab_06.html#tarea-3-etiquetado-dinámico",
-    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
-    "section": "3 Tarea 3: Etiquetado dinámico",
-    "text": "3 Tarea 3: Etiquetado dinámico\n\nCon cualquier capa de puntos o polígonos, activa el etiquetado (Propiedades → Etiquetas → Etiqueta sencilla).\nConfigura:\n\nCampo de etiqueta (nombre u otro identificador)\nTamaño y color de fuente\nPosición de la etiqueta (sobre el punto o centroide del polígono)\n\nActiva la opción “Evitar solapamiento de etiquetas”.\n\nEntrega: Captura de pantalla del mapa con etiquetas configuradas.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 6 – Cartografía temática"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_06.html#tarea-4-diseño-de-mapa-para-impresión",
-    "href": "content/labs/lab_06.html#tarea-4-diseño-de-mapa-para-impresión",
-    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
-    "section": "4 Tarea 4: Diseño de mapa para impresión",
-    "text": "4 Tarea 4: Diseño de mapa para impresión\n\nAbre el Diseñador de mapas (Proyecto → Nuevo diseño de impresión).\nCrea un mapa en formato A4 horizontal que incluya:\n\nVista del mapa con las capas de tu proyecto\nTítulo del mapa\nLeyenda con todos los elementos\nEscala gráfica o numérica\nNorte (flecha de norte)\nCréditos (fuente de datos y fecha)\n\nExporta el mapa como PDF e imagen PNG (Diseño → Exportar como PDF / Exportar como imagen).\n\nEntrega: Archivo PDF del mapa + archivo PNG.",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 6 – Cartografía temática"
-    ]
-  },
-  {
-    "objectID": "content/labs/lab_06.html#tarea-5-reflexión",
-    "href": "content/labs/lab_06.html#tarea-5-reflexión",
-    "title": "Laboratorio 6: Cartografía temática y diseño de mapas",
-    "section": "5 Tarea 5: Reflexión",
-    "text": "5 Tarea 5: Reflexión\n\n¿Cómo influye la elección de la simbología y el diseño del mapa en la comunicación del mensaje que quieres transmitir? Describe un caso concreto donde una mala elección de colores o clasificación podría llevar a interpretaciones erróneas.\n\nResponde en 4–6 oraciones.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\n\n\n\nCriterio\nPuntos\n\n\n\n\nSimbología categorizada aplicada\n15\n\n\nSimbología graduada con justificación\n20\n\n\nEtiquetado dinámico configurado\n15\n\n\nMapa completo con todos los elementos (PDF + PNG)\n35\n\n\nReflexión sobre comunicación cartográfica\n15\n\n\nTotal\n100\n\n\n\n\n\n\n← Lab 5 | Lab 7 →",
-    "crumbs": [
-      "Inicio",
-      "Laboratorios",
-      "Lab 6 – Cartografía temática"
-    ]
-  },
-  {
     "objectID": "content/labs/instrucciones_labs.html#qué-son-los-laboratorios",
     "href": "content/labs/instrucciones_labs.html#qué-son-los-laboratorios",
     "title": "Instrucciones de Laboratorios",
@@ -1043,7 +659,7 @@
     "href": "content/labs/instrucciones_labs.html#cómo-entregar-un-laboratorio",
     "title": "Instrucciones de Laboratorios",
     "section": "¿Cómo entregar un laboratorio?",
-    "text": "¿Cómo entregar un laboratorio?\n\nDescarga el archivo del laboratorio correspondiente (indicado por tu instructor).\nRealiza todas las tareas descritas en QGIS y, cuando corresponda, guarda los proyectos, mapas exportados o capturas de pantalla.\nEntrega tu trabajo según las indicaciones del CEETI (plataforma y formato a confirmar).",
+    "text": "¿Cómo entregar un laboratorio?\nEste curso utiliza Google Classroom como canal oficial para la entrega, retroalimentación y calificación de laboratorios.\nEl contenido de cada laboratorio se consulta en este sitio del curso, pero la entrega final se realiza en Classroom.\n\nFlujo recomendado por laboratorio\n\nRevisa el laboratorio correspondiente en el sitio del curso.\nDescarga únicamente los datos requeridos (si aplica) y completa las actividades en QGIS.\nExporta tus evidencias (mapa, capturas, proyecto y/o reporte).\nEntrega todo en la tarea del laboratorio en Google Classroom antes de la fecha límite.\nVerifica que tu entrega quedó registrada correctamente.\n\n\n\nEntrega en Google Classroom\nCada tarea en Classroom incluirá:\n\nFecha y hora límite de entrega.\nLista de archivos requeridos.\nRúbrica o criterios de evaluación.\nIndicaciones de reentrega (si aplica).\n\nFormato sugerido para nombrar archivos:\n\nApellido_Nombre_Lab01\nApellido_Nombre_Lab02\nApellido_Nombre_Lab03",
     "crumbs": [
       "Inicio",
       "Laboratorios",
@@ -1055,7 +671,19 @@
     "href": "content/labs/instrucciones_labs.html#laboratorios-disponibles",
     "title": "Instrucciones de Laboratorios",
     "section": "Laboratorios disponibles",
-    "text": "Laboratorios disponibles\n\n\n\nLab\nMódulo relacionado\nEnlace\n\n\n\n\n1\nMódulo 1 – Introducción a QGIS y SIG\nLab 1\n\n\n2\nMódulo 2 – Carga y manejo de datos\nLab 2\n\n\n3\nMódulo 3 – Edición y geoprocesamiento básico\nLab 3\n\n\n4\nMódulo 4 – Análisis espacial para rutas\nLab 4\n\n\n5\nMódulo 5 – Automatización con Python y PyQGIS\nLab 5\n\n\n6\nMódulo 6 – Visualización avanzada\nLab 6\n\n\n7\nMódulo 7 – Integración y casos prácticos\nLab 7\n\n\n\n\n\n\n\n\n\n\nTipRecomendación\n\n\n\nAntes de iniciar cada laboratorio, revisa el módulo correspondiente y los ejercicios prácticos realizados en clase. Los laboratorios amplían esos ejercicios con nuevos escenarios y datos.",
+    "text": "Laboratorios disponibles\n\n\n\nLab\nMódulo relacionado\nEnlace\n\n\n\n\n1\nMódulo 1 – Introducción a QGIS y SIG\nLab 1\n\n\n2\nMódulo 2 – Carga y manejo de datos\nLab 2\n\n\n3\nMódulo 3 – Edición y geoprocesamiento básico\nLab 3\n\n\n4\nMódulo 4 – Análisis espacial para rutas\nLab 4\n\n\n5\nMódulo 5 – Automatización con Python y PyQGIS\nLab 5\n\n\n6\nMódulo 6 – Visualización avanzada\nLab 6\n\n\n7\nMódulo 7 – Integración y casos prácticos\nLab 7",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Instrucciones"
+    ]
+  },
+  {
+    "objectID": "content/labs/instrucciones_labs.html#canales-de-apoyo",
+    "href": "content/labs/instrucciones_labs.html#canales-de-apoyo",
+    "title": "Instrucciones de Laboratorios",
+    "section": "Canales de apoyo",
+    "text": "Canales de apoyo\n\nDudas sobre instrucciones, entregables o fechas: Google Classroom.\nSugerencias de mejora del curso o reporte de errores del material:\n\nIssues\nDiscussions\n\n\n\n\n\n\n\n\n\nTipRecomendación\n\n\n\nAntes de iniciar cada laboratorio, revisa el módulo correspondiente y los ejercicios prácticos realizados en clase. Los laboratorios amplían esos ejercicios con nuevos escenarios y datos.",
     "crumbs": [
       "Inicio",
       "Laboratorios",
