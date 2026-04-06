@@ -27,6 +27,8 @@ Un **Sistema de Información Geográfica (SIG)** es un sistema informático dise
 | **Métodos**     | Modelos y procedimientos de análisis espacial                 |
 | **Personas**    | Usuarios, analistas y tomadores de decisiones                 |
 
+![Componentes de un SIG](../../assets/images/sig_components.png)
+
 ### Aplicaciones prácticas
 
 Los SIG se utilizan en una amplia variedad de campos:
@@ -55,16 +57,16 @@ Los SIG se utilizan en una amplia variedad de campos:
 - **Integración con Python**: automatización mediante PyQGIS
 :::
 
-### Comparativa con otras plataformas
+### Comparativa entre QGIS y ArcGIS
 
-| Característica         | QGIS         | ArcGIS      | MapInfo     |
-|:-----------------------|:-------------|:------------|:------------|
-| Costo                  | Gratuito     | De pago     | De pago     |
-| Código abierto         | ✅            | ❌           | ❌           |
-| Plataformas            | Win/Mac/Linux| Windows     | Windows     |
-| Extensibilidad         | Alta         | Alta        | Media       |
-| Comunidad              | Muy activa   | Activa      | Limitada    |
-| Integración Python     | Nativa       | Nativa      | Limitada    |
+| Característica         | QGIS         | ArcGIS      |
+|:-----------------------|:-------------|:------------|
+| Costo                  | Gratuito     | De pago     |
+| Código abierto         | ✅           |    ❌       |
+| Plataformas            | Win/Mac/Linux| Windows     |
+| Extensibilidad         | Alta         | Alta        |
+| Comunidad              | Muy activa   | Activa      |
+| Integración Python     | Nativa       | Nativa      |
 
 ---
 
@@ -74,40 +76,48 @@ Los SIG se utilizan en una amplia variedad de campos:
 
 La interfaz de QGIS está compuesta por los siguientes elementos principales:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  Barra de Menús                                              │
-│  Barra de Herramientas                                       │
-├──────────────┬──────────────────────────┬───────────────────┤
-│              │                          │                   │
-│  Panel de    │    Vista del Mapa        │  Panel de         │
-│  Capas       │    (Canvas Principal)    │  Explorador       │
-│  (Layers)    │                          │  de Archivos      │
-│              │                          │                   │
-├──────────────┴──────────────────────────┴───────────────────┤
-│  Barra de Estado / Coordenadas / Escala / CRS               │
-└─────────────────────────────────────────────────────────────┘
-```
+![Interfaz de QGIS](../../assets/images/gui_numbered.png){.lightbox}
 
 ### Paneles principales
 
 1. **Panel de Capas (Layers Panel)**: gestión y orden de las capas del proyecto
-2. **Vista del Mapa (Map Canvas)**: área de visualización geoespacial
-3. **Panel del Explorador**: navegación de archivos y fuentes de datos
-4. **Tabla de Atributos**: tabla con los datos alfanuméricos de una capa
-5. **Consola de Python**: entorno interactivo para scripts
+2. **Panel del Explorador**: navegación de archivos y fuentes de datos
+3. **Barra de Herramientas**: acceso rápido a funciones comunes
+4. **Vista del Mapa (Map Canvas)**: área de visualización geoespacial
+5. **Barra de Estado**: información sobre la escala, coordenadas y sistema de referencia de coordenadas (CRS)
+6. **Barra de Herramientas Lateral**: contiene botones para cargar capas y crear nuevas capas
+7. **Barra de Localización**: herramienta de búsqueda rápida para acceder a capas, entidades, algoritmos, marcadores espaciales y otros objetos de QGIS desde un único lugar.
 
 ### Herramientas esenciales
 
-- **Herramientas de navegación**: zoom, desplazamiento, extensión completa
-- **Herramientas de selección**: seleccionar entidades por área o atributo
-- **Herramientas de identificación**: consultar atributos de entidades
-- **Herramientas de medición**: medir distancias y áreas
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+![](../../assets/images/nav_map_tools.png){.lightbox}  
+**Herramientas de navegación de mapas**: zoom, desplazamiento, extensión completa, zoom a la capa, etc.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+![](../../assets/images/selection_tools.png){.lightbox}  
+**Herramientas de selección**: seleccionar entidades por área, atributo o localización.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+![](../../assets/images/attributes_tools.png){.lightbox}  
+**Herramientas de atributos**: consultar atributos de entidades, medir distancias, áreas y perímetros
+:::
+
+::: {.g-col-12 .g-col-md-6}
+![](../../assets/images/digitalization_tools.png){.lightbox}  
+**Herramientas de digitalización**: crear y editar geometrías
+:::
+
+:::
 
 ::: {.callout-note}
 ## Acceso rápido a herramientas
 
-Puedes activar o desactivar paneles desde el menú **Ver → Paneles** y las barras de herramientas desde **Ver → Barras de herramientas**.
+Puedes activar o desactivar paneles desde el menú **Configuración → Paneles** y las barras de herramientas desde **Configuración → Barras de herramientas**.
 :::
 
 ---
@@ -118,33 +128,26 @@ Puedes activar o desactivar paneles desde el menú **Ver → Paneles** y las bar
 
 Los **datos vectoriales** representan objetos geográficos mediante geometrías definidas matemáticamente:
 
-| Tipo        | Descripción                         | Ejemplos                          |
-|:------------|:------------------------------------|:----------------------------------|
-| **Punto**   | Coordenada X, Y en el espacio       | Ciudades, pozos, estaciones       |
-| **Línea**   | Secuencia de puntos conectados      | Ríos, carreteras, tuberías        |
-| **Polígono**| Área cerrada definida por vértices  | Parcelas, municipios, edificios   |
-
-**Formatos comunes**: Shapefile (.shp), GeoJSON (.geojson), GeoPackage (.gpkg), KML (.kml)
+![Ejemplo de datos vectoriales](../../assets/images/vectors_data.png)
 
 ### Datos ráster
 
 Los **datos ráster** representan el espacio como una cuadrícula regular de celdas (píxeles), donde cada celda tiene un valor numérico:
 
-- **Imágenes satelitales**: Sentinel, Landsat, Google Earth
-- **Modelos de elevación digital (DEM)**: SRTM, ASTER, LIDAR
-- **Mapas de precipitación, temperatura, uso del suelo**
-
-**Formatos comunes**: GeoTIFF (.tif), NetCDF (.nc), ASCII Grid (.asc)
+![Ejemplo de datos ráster](../../assets/images/rasters_data.png)
 
 ### ¿Cuándo usar cada tipo?
 
-| Criterio              | Vectorial                    | Ráster                         |
-|:----------------------|:-----------------------------|:-------------------------------|
-| Objetos discretos     | ✅ Ideal                      | ❌ Menos preciso                |
-| Fenómenos continuos   | ❌ Complejo                   | ✅ Ideal                        |
-| Edición de geometrías | ✅ Fácil                      | ❌ Difícil                      |
-| Análisis de superficie| ❌ Limitado                   | ✅ Amplio                       |
-| Tamaño de archivo     | Menor (generalmente)         | Mayor (depende de resolución)  |
+| Criterio              | Vectorial                                      | Ráster                                 |
+|:----------------------|:-----------------------------------------------|:---------------------------------------|
+| Objetos discretos     | ✅ Ideal                                        | ❌ Menos natural                        |
+| Fenómenos continuos   | ❌ Más complejo                                 | ✅ Ideal                                |
+| Edición de geometrías | ✅ Fácil                                        | ❌ Difícil                              |
+| Cálculo de áreas      | ✅ Preciso para polígonos                       | ✅ Posible según resolución             |
+| Análisis de terreno   | ✅ Posible con TIN/contornos, requiere modelado | ✅ Natural para DEM y derivados         |
+| Tamaño de archivo     | Menor para objetos discretos                   | Mayor según resolución                 |
+
+> Nota: en GIS, “superficie” puede referirse al cálculo de áreas de polígonos o al modelado de la superficie del terreno. El vector es ideal para calcular áreas y manejar geometrías discretas; el ráster es más natural para representar un DEM y derivar pendiente, aspecto, cuencas o volúmenes.
 
 ---
 
@@ -154,14 +157,13 @@ Los **datos ráster** representan el espacio como una cuadrícula regular de cel
 
 1. Abre QGIS en tu computadora.
 2. Familiarízate con los paneles y herramientas principales.
-3. Activa el panel del **Explorador** (Ver → Paneles → Explorador).
-4. Accede a las capas de muestra incluidas con QGIS:
-   - Ve a: `C:/Users/[usuario]/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/` (Windows)
-5. Carga una capa de ejemplo y practica el zoom y la navegación.
+3. Activa/Desactiva el panel del **Explorador** (Configuración → Paneles → Explorador).
+4. Activa/Desactiva la barra de herramientas de **Atributos** (Configuración → Barras de herramientas → Atributos).
+5. Localiza la **Consola de Python** en el menú **Complementos → Consola de Python** y ábrela para verificar que PyQGIS está disponible.
 
 ### Ejercicio 1.2: Identificar tipos de datos
 
-1. Descarga el dataset de ejemplo desde la [página de QGIS](https://qgis.org/resources/hub/).
+1. Descarga el dataset de ejemplo desde la [página de QGIS](https://github.com/qgis/QGIS-Training-Data/archive/release_3.44.zip).
 2. Carga capas de los tres tipos (punto, línea, polígono).
 3. Examina la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).
 4. Identifica el sistema de referencia de coordenadas (CRS) de cada capa.
@@ -171,19 +173,21 @@ Los **datos ráster** representan el espacio como una cuadrícula regular de cel
 ## 📚 Recursos y Referencias
 
 - [Documentación oficial de QGIS en español](https://docs.qgis.org/latest/es/)
-- [QGIS Training Manual](https://docs.qgis.org/latest/en/docs/training_manual/)
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)
 - [Página de descarga de QGIS](https://qgis.org/download/)
-- [Foro de usuarios de QGIS](https://lists.osgeo.org/mailman/listinfo/qgis-user)
-- [Canal de YouTube de QGIS](https://www.youtube.com/@QGISProject)
 
 ---
 
 ::: {.callout-important}
 ## Para la próxima sesión
 
-Asegúrate de tener QGIS instalado y funcionando correctamente antes de la sesión 2. Si tienes problemas con la instalación, consulta la [guía de instalación oficial](https://qgis.org/resources/installation-guide/).
+Asegúrate de tener QGIS instalado y funcionando correctamente antes de la sesión 2.
+
+- Revisa la documentación oficial de QGIS:
+  - [docs.qgis.org/latest/es/](https://docs.qgis.org/latest/es/)
+- Si tienes dudas o sugerencias sobre el curso, siéntete libre de publicar un issue en el repositorio del curso:
+  - [github.com/lalgonzales/ceeti_qgiscourse/issues](https://github.com/lalgonzales/ceeti_qgiscourse/issues)
+- También puedes usar las GitHub Discussions del repo para preguntas, ideas de mejora o comentarios generales:
+  - [github.com/lalgonzales/ceeti_qgiscourse/discussions](https://github.com/lalgonzales/ceeti_qgiscourse/discussions)
+
 :::
-
----
-
-[← Volver al temario](syllabus.qmd) | [Módulo 2: Carga y manejo de datos →](modulo2.qmd)
