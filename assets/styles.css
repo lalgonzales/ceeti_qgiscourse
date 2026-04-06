@@ -128,4 +128,5 @@ pre.sourceCode {
 #quarto-back-to-top {
   background-color: var(--ceeti-green);
   border-color: var(--ceeti-green);
+  color: white;
 }
