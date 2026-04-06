@@ -76,7 +76,7 @@
     "href": "content/modulos/modulo3.html#recursos-y-referencias",
     "title": "Módulo 3: Edición y geoprocesamiento básico",
     "section": "7 📚 Recursos y Referencias",
-    "text": "7 📚 Recursos y Referencias\n\nQGIS — Edición de capas vectoriales\nQGIS — Herramientas de geoprocesamiento\nCalculadora de campos — Referencia de expresiones\n\n\n← Módulo 2: Carga y manejo de datos | Módulo 4: Análisis espacial para rutas →",
+    "text": "7 📚 Recursos y Referencias\n\nQGIS — Edición de capas vectoriales\nQGIS — Herramientas de geoprocesamiento\nCalculadora de campos — Referencia de expresiones",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -196,7 +196,7 @@
     "href": "content/modulos/modulo1.html#qué-es-un-sig-y-para-qué-sirve",
     "title": "Módulo 1: Introducción a QGIS y SIG",
     "section": "2 1.1 ¿Qué es un SIG y para qué sirve?",
-    "text": "2 1.1 ¿Qué es un SIG y para qué sirve?\nUn Sistema de Información Geográfica (SIG) es un sistema informático diseñado para capturar, almacenar, manipular, analizar, gestionar y presentar datos espaciales o geográficos.\n\n2.1 Componentes de un SIG\n\n\n\n\n\n\n\nComponente\nDescripción\n\n\n\n\nHardware\nComputadoras, GPS, scanners, impresoras\n\n\nSoftware\nQGIS, ArcGIS, PostGIS, entre otros\n\n\nDatos\nCapas vectoriales, imágenes ráster, tablas de atributos\n\n\nMétodos\nModelos y procedimientos de análisis espacial\n\n\nPersonas\nUsuarios, analistas y tomadores de decisiones\n\n\n\n\n\n2.2 Aplicaciones prácticas\nLos SIG se utilizan en una amplia variedad de campos:\n\n🏙️ Planificación urbana: diseño de infraestructuras y servicios\n🌿 Medio ambiente: monitoreo de recursos naturales y cambio climático\n🚛 Logística y transporte: optimización de rutas y flotas\n🏥 Salud pública: análisis epidemiológico y cobertura de servicios\n🌾 Agricultura: gestión de cultivos y análisis de suelos\n🔒 Seguridad: análisis de incidentes y cobertura policial",
+    "text": "2 1.1 ¿Qué es un SIG y para qué sirve?\nUn Sistema de Información Geográfica (SIG) es un sistema informático diseñado para capturar, almacenar, manipular, analizar, gestionar y presentar datos espaciales o geográficos.\n\n2.1 Componentes de un SIG\n\n\n\n\n\n\n\nComponente\nDescripción\n\n\n\n\nHardware\nComputadoras, GPS, scanners, impresoras\n\n\nSoftware\nQGIS, ArcGIS, PostGIS, entre otros\n\n\nDatos\nCapas vectoriales, imágenes ráster, tablas de atributos\n\n\nMétodos\nModelos y procedimientos de análisis espacial\n\n\nPersonas\nUsuarios, analistas y tomadores de decisiones\n\n\n\n\n\n\nComponentes de un SIG\n\n\n\n\n2.2 Aplicaciones prácticas\nLos SIG se utilizan en una amplia variedad de campos:\n\n🏙️ Planificación urbana: diseño de infraestructuras y servicios\n🌿 Medio ambiente: monitoreo de recursos naturales y cambio climático\n🚛 Logística y transporte: optimización de rutas y flotas\n🏥 Salud pública: análisis epidemiológico y cobertura de servicios\n🌾 Agricultura: gestión de cultivos y análisis de suelos\n🔒 Seguridad: análisis de incidentes y cobertura policial",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -208,7 +208,7 @@
     "href": "content/modulos/modulo1.html#ventajas-de-qgis-como-plataforma-de-código-abierto",
     "title": "Módulo 1: Introducción a QGIS y SIG",
     "section": "3 1.2 Ventajas de QGIS como plataforma de código abierto",
-    "text": "3 1.2 Ventajas de QGIS como plataforma de código abierto\nQGIS (anteriormente Quantum GIS) es la plataforma SIG de escritorio de código abierto más utilizada en el mundo.\n\n\n\n\n\n\nTip¿Por qué elegir QGIS?\n\n\n\n\nGratuito y de código abierto: sin costos de licencia\nMultiplataforma: disponible para Windows, macOS, Linux y Android\nComunidad activa: miles de contribuidores y usuarios en todo el mundo\nExtensible: más de 1,000 plugins disponibles\nEstándares abiertos: compatibilidad con formatos OGC (WMS, WFS, WCS)\nIntegración con Python: automatización mediante PyQGIS\n\n\n\n\n3.1 Comparativa con otras plataformas\n\n\n\nCaracterística\nQGIS\nArcGIS\nMapInfo\n\n\n\n\nCosto\nGratuito\nDe pago\nDe pago\n\n\nCódigo abierto\n✅\n❌\n❌\n\n\nPlataformas\nWin/Mac/Linux\nWindows\nWindows\n\n\nExtensibilidad\nAlta\nAlta\nMedia\n\n\nComunidad\nMuy activa\nActiva\nLimitada\n\n\nIntegración Python\nNativa\nNativa\nLimitada",
+    "text": "3 1.2 Ventajas de QGIS como plataforma de código abierto\nQGIS (anteriormente Quantum GIS) es la plataforma SIG de escritorio de código abierto más utilizada en el mundo.\n\n\n\n\n\n\nTip¿Por qué elegir QGIS?\n\n\n\n\nGratuito y de código abierto: sin costos de licencia\nMultiplataforma: disponible para Windows, macOS, Linux y Android\nComunidad activa: miles de contribuidores y usuarios en todo el mundo\nExtensible: más de 1,000 plugins disponibles\nEstándares abiertos: compatibilidad con formatos OGC (WMS, WFS, WCS)\nIntegración con Python: automatización mediante PyQGIS\n\n\n\n\n3.1 Comparativa entre QGIS y ArcGIS\n\n\n\nCaracterística\nQGIS\nArcGIS\n\n\n\n\nCosto\nGratuito\nDe pago\n\n\nCódigo abierto\n✅\n❌\n\n\nPlataformas\nWin/Mac/Linux\nWindows\n\n\nExtensibilidad\nAlta\nAlta\n\n\nComunidad\nMuy activa\nActiva\n\n\nIntegración Python\nNativa\nNativa",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -220,7 +220,7 @@
     "href": "content/modulos/modulo1.html#interfaz-de-qgis-paneles-capas-consola-herramientas",
     "title": "Módulo 1: Introducción a QGIS y SIG",
     "section": "4 1.3 Interfaz de QGIS: paneles, capas, consola, herramientas",
-    "text": "4 1.3 Interfaz de QGIS: paneles, capas, consola, herramientas\n\n4.1 Pantalla principal de QGIS\nLa interfaz de QGIS está compuesta por los siguientes elementos principales:\n┌─────────────────────────────────────────────────────────────┐\n│  Barra de Menús                                              │\n│  Barra de Herramientas                                       │\n├──────────────┬──────────────────────────┬───────────────────┤\n│              │                          │                   │\n│  Panel de    │    Vista del Mapa        │  Panel de         │\n│  Capas       │    (Canvas Principal)    │  Explorador       │\n│  (Layers)    │                          │  de Archivos      │\n│              │                          │                   │\n├──────────────┴──────────────────────────┴───────────────────┤\n│  Barra de Estado / Coordenadas / Escala / CRS               │\n└─────────────────────────────────────────────────────────────┘\n\n\n4.2 Paneles principales\n\nPanel de Capas (Layers Panel): gestión y orden de las capas del proyecto\nVista del Mapa (Map Canvas): área de visualización geoespacial\nPanel del Explorador: navegación de archivos y fuentes de datos\nTabla de Atributos: tabla con los datos alfanuméricos de una capa\nConsola de Python: entorno interactivo para scripts\n\n\n\n4.3 Herramientas esenciales\n\nHerramientas de navegación: zoom, desplazamiento, extensión completa\nHerramientas de selección: seleccionar entidades por área o atributo\nHerramientas de identificación: consultar atributos de entidades\nHerramientas de medición: medir distancias y áreas\n\n\n\n\n\n\n\nNotaAcceso rápido a herramientas\n\n\n\nPuedes activar o desactivar paneles desde el menú Ver → Paneles y las barras de herramientas desde Ver → Barras de herramientas.",
+    "text": "4 1.3 Interfaz de QGIS: paneles, capas, consola, herramientas\n\n4.1 Pantalla principal de QGIS\nLa interfaz de QGIS está compuesta por los siguientes elementos principales:\n\n\n\nInterfaz de QGIS\n\n\n\n\n4.2 Paneles principales\n\nPanel de Capas (Layers Panel): gestión y orden de las capas del proyecto\nPanel del Explorador: navegación de archivos y fuentes de datos\nBarra de Herramientas: acceso rápido a funciones comunes\nVista del Mapa (Map Canvas): área de visualización geoespacial\nBarra de Estado: información sobre la escala, coordenadas y sistema de referencia de coordenadas (CRS)\nBarra de Herramientas Lateral: contiene botones para cargar capas y crear nuevas capas\nBarra de Localización: herramienta de búsqueda rápida para acceder a capas, entidades, algoritmos, marcadores espaciales y otros objetos de QGIS desde un único lugar.\n\n\n\n4.3 Herramientas esenciales\n\n\n Herramientas de navegación de mapas: zoom, desplazamiento, extensión completa, zoom a la capa, etc.\n\n\n Herramientas de selección: seleccionar entidades por área, atributo o localización.\n\n\n Herramientas de atributos: consultar atributos de entidades, medir distancias, áreas y perímetros\n\n\n Herramientas de digitalización: crear y editar geometrías\n\n\n\n\n\n\n\n\nNotaAcceso rápido a herramientas\n\n\n\nPuedes activar o desactivar paneles desde el menú Configuración → Paneles y las barras de herramientas desde Configuración → Barras de herramientas.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -232,7 +232,7 @@
     "href": "content/modulos/modulo1.html#tipos-de-datos-espaciales-vectoriales-vs-ráster",
     "title": "Módulo 1: Introducción a QGIS y SIG",
     "section": "5 1.4 Tipos de datos espaciales: vectoriales vs ráster",
-    "text": "5 1.4 Tipos de datos espaciales: vectoriales vs ráster\n\n5.1 Datos vectoriales\nLos datos vectoriales representan objetos geográficos mediante geometrías definidas matemáticamente:\n\n\n\n\n\n\n\n\nTipo\nDescripción\nEjemplos\n\n\n\n\nPunto\nCoordenada X, Y en el espacio\nCiudades, pozos, estaciones\n\n\nLínea\nSecuencia de puntos conectados\nRíos, carreteras, tuberías\n\n\nPolígono\nÁrea cerrada definida por vértices\nParcelas, municipios, edificios\n\n\n\nFormatos comunes: Shapefile (.shp), GeoJSON (.geojson), GeoPackage (.gpkg), KML (.kml)\n\n\n5.2 Datos ráster\nLos datos ráster representan el espacio como una cuadrícula regular de celdas (píxeles), donde cada celda tiene un valor numérico:\n\nImágenes satelitales: Sentinel, Landsat, Google Earth\nModelos de elevación digital (DEM): SRTM, ASTER, LIDAR\nMapas de precipitación, temperatura, uso del suelo\n\nFormatos comunes: GeoTIFF (.tif), NetCDF (.nc), ASCII Grid (.asc)\n\n\n5.3 ¿Cuándo usar cada tipo?\n\n\n\n\n\n\n\n\nCriterio\nVectorial\nRáster\n\n\n\n\nObjetos discretos\n✅ Ideal\n❌ Menos preciso\n\n\nFenómenos continuos\n❌ Complejo\n✅ Ideal\n\n\nEdición de geometrías\n✅ Fácil\n❌ Difícil\n\n\nAnálisis de superficie\n❌ Limitado\n✅ Amplio\n\n\nTamaño de archivo\nMenor (generalmente)\nMayor (depende de resolución)",
+    "text": "5 1.4 Tipos de datos espaciales: vectoriales vs ráster\n\n5.1 Datos vectoriales\nLos datos vectoriales representan objetos geográficos mediante geometrías definidas matemáticamente:\n\n\n\nEjemplo de datos vectoriales\n\n\n\n\n5.2 Datos ráster\nLos datos ráster representan el espacio como una cuadrícula regular de celdas (píxeles), donde cada celda tiene un valor numérico:\n\n\n\nEjemplo de datos ráster\n\n\n\n\n5.3 ¿Cuándo usar cada tipo?\n\n\n\n\n\n\n\n\nCriterio\nVectorial\nRáster\n\n\n\n\nObjetos discretos\n✅ Ideal\n❌ Menos natural\n\n\nFenómenos continuos\n❌ Más complejo\n✅ Ideal\n\n\nEdición de geometrías\n✅ Fácil\n❌ Difícil\n\n\nCálculo de áreas\n✅ Preciso para polígonos\n✅ Posible según resolución\n\n\nAnálisis de terreno\n✅ Posible con TIN/contornos, requiere modelado\n✅ Natural para DEM y derivados\n\n\nTamaño de archivo\nMenor para objetos discretos\nMayor según resolución\n\n\n\n\nNota: en GIS, “superficie” puede referirse al cálculo de áreas de polígonos o al modelado de la superficie del terreno. El vector es ideal para calcular áreas y manejar geometrías discretas; el ráster es más natural para representar un DEM y derivar pendiente, aspecto, cuencas o volúmenes.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -244,7 +244,7 @@
     "href": "content/modulos/modulo1.html#ejercicio-práctico",
     "title": "Módulo 1: Introducción a QGIS y SIG",
     "section": "6 🛠️ Ejercicio Práctico",
-    "text": "6 🛠️ Ejercicio Práctico\n\n6.1 Ejercicio 1.1: Exploración de la interfaz de QGIS\n\nAbre QGIS en tu computadora.\nFamiliarízate con los paneles y herramientas principales.\nActiva el panel del Explorador (Ver → Paneles → Explorador).\nAccede a las capas de muestra incluidas con QGIS:\n\nVe a: C:/Users/[usuario]/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/ (Windows)\n\nCarga una capa de ejemplo y practica el zoom y la navegación.\n\n\n\n6.2 Ejercicio 1.2: Identificar tipos de datos\n\nDescarga el dataset de ejemplo desde la página de QGIS.\nCarga capas de los tres tipos (punto, línea, polígono).\nExamina la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).\nIdentifica el sistema de referencia de coordenadas (CRS) de cada capa.",
+    "text": "6 🛠️ Ejercicio Práctico\n\n6.1 Ejercicio 1.1: Exploración de la interfaz de QGIS\n\nAbre QGIS en tu computadora.\nFamiliarízate con los paneles y herramientas principales.\nActiva/Desactiva el panel del Explorador (Configuración → Paneles → Explorador).\nActiva/Desactiva la barra de herramientas de Atributos (Configuración → Barras de herramientas → Atributos).\nLocaliza la Consola de Python en el menú Complementos → Consola de Python y ábrela para verificar que PyQGIS está disponible.\n\n\n\n6.2 Ejercicio 1.2: Identificar tipos de datos\n\nDescarga el dataset de ejemplo desde la página de QGIS.\nCarga capas de los tres tipos (punto, línea, polígono).\nExamina la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).\nIdentifica el sistema de referencia de coordenadas (CRS) de cada capa.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -256,7 +256,7 @@
     "href": "content/modulos/modulo1.html#recursos-y-referencias",
     "title": "Módulo 1: Introducción a QGIS y SIG",
     "section": "7 📚 Recursos y Referencias",
-    "text": "7 📚 Recursos y Referencias\n\nDocumentación oficial de QGIS en español\nQGIS Training Manual\nPágina de descarga de QGIS\nForo de usuarios de QGIS\nCanal de YouTube de QGIS\n\n\n\n\n\n\n\n\nImportantePara la próxima sesión\n\n\n\nAsegúrate de tener QGIS instalado y funcionando correctamente antes de la sesión 2. Si tienes problemas con la instalación, consulta la guía de instalación oficial.\n\n\n\n← Volver al temario | Módulo 2: Carga y manejo de datos →",
+    "text": "7 📚 Recursos y Referencias\n\nDocumentación oficial de QGIS en español\nQGIS Training Manual\nPágina de descarga de QGIS\n\n\n\n\n\n\n\n\nImportantePara la próxima sesión\n\n\n\nAsegúrate de tener QGIS instalado y funcionando correctamente antes de la sesión 2.\n\nRevisa la documentación oficial de QGIS:\n\ndocs.qgis.org/latest/es/\n\nSi tienes dudas o sugerencias sobre el curso, siéntete libre de publicar un issue en el repositorio del curso:\n\ngithub.com/lalgonzales/ceeti_qgiscourse/issues\n\nTambién puedes usar las GitHub Discussions del repo para preguntas, ideas de mejora o comentarios generales:\n\ngithub.com/lalgonzales/ceeti_qgiscourse/discussions",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -352,7 +352,7 @@
     "href": "content/modulos/modulo5.html#recursos-y-referencias",
     "title": "Módulo 5: Automatización con Python y PyQGIS",
     "section": "8 📚 Recursos y Referencias",
-    "text": "8 📚 Recursos y Referencias\n\nPyQGIS Developer Cookbook\nQGIS API Documentation\nQGIS Processing — Scripting\nGeopandas — Análisis espacial con Python\nShapely — Geometrías con Python\n\n\n← Módulo 4: Análisis espacial para rutas | Módulo 6: Visualización avanzada →",
+    "text": "8 📚 Recursos y Referencias\n\nPyQGIS Developer Cookbook\nQGIS API Documentation\nQGIS Processing — Scripting\nGeopandas — Análisis espacial con Python\nShapely — Geometrías con Python",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -1139,7 +1139,7 @@
     "href": "content/modulos/modulo7.html#recursos-y-referencias",
     "title": "Módulo 7: Integración y casos prácticos",
     "section": "7 📚 Recursos y Referencias",
-    "text": "7 📚 Recursos y Referencias\n\nQField — Documentación oficial\nInput App — Mergin Maps\nOpenRouteService — API Documentation\nOR-Tools — Google Optimization Tools\npgRouting — Documentación\nOSM Overpass API — Tutorial\nVROOM — Vehicle Routing Open-source Optimization Machine\n\n\n\n\n\n\n\n\nImportante¡Felicitaciones!\n\n\n\nHas completado el Curso de QGIS y Herramientas Python para el Análisis Geoespacial del CEETI – UNAH.\nRecuerda que la práctica continua es la clave para dominar estas herramientas. Explora los recursos adicionales, participa en la comunidad QGIS y aplica lo aprendido en proyectos reales.\n\n\n\n← Módulo 6: Visualización avanzada | ↑ Inicio | Ver temario completo",
+    "text": "7 📚 Recursos y Referencias\n\nQField — Documentación oficial\nInput App — Mergin Maps\nOpenRouteService — API Documentation\nOR-Tools — Google Optimization Tools\npgRouting — Documentación\nOSM Overpass API — Tutorial\nVROOM — Vehicle Routing Open-source Optimization Machine\n\n\n\n\n\n\n\n\nImportante¡Felicitaciones!\n\n\n\nHas completado el Curso de QGIS y Herramientas Python para el Análisis Geoespacial del CEETI – UNAH.\nRecuerda que la práctica continua es la clave para dominar estas herramientas. Explora los recursos adicionales, participa en la comunidad QGIS y aplica lo aprendido en proyectos reales.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -1223,7 +1223,7 @@
     "href": "content/modulos/modulo2.html#recursos-y-referencias",
     "title": "Módulo 2: Carga y manejo de datos",
     "section": "7 📚 Recursos y Referencias",
-    "text": "7 📚 Recursos y Referencias\n\nQGIS — Trabajar con proyecciones\nEPSG.io — Buscador de sistemas de referencia\nPlugin QuickOSM — Documentación\nNatural Earth — Datos geográficos gratuitos\nDIVA-GIS — Datos por país\n\n\n← Módulo 1: Introducción a QGIS | Módulo 3: Edición y geoprocesamiento →",
+    "text": "7 📚 Recursos y Referencias\n\nQGIS — Trabajar con proyecciones\nEPSG.io — Buscador de sistemas de referencia\nPlugin QuickOSM — Documentación\nNatural Earth — Datos geográficos gratuitos\nDIVA-GIS — Datos por país",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -1319,7 +1319,7 @@
     "href": "content/modulos/modulo4.html#recursos-y-referencias",
     "title": "Módulo 4: Análisis espacial para rutas",
     "section": "8 📚 Recursos y Referencias",
-    "text": "8 📚 Recursos y Referencias\n\nQNEAT3 — Documentación oficial\nQGIS Network Analysis — Tutorial\nOpenRouteService — Análisis de rutas online\nOpenStreetMap — Datos de transporte\nOverpass Turbo — Consulta de datos OSM\n\n\n← Módulo 3: Edición y geoprocesamiento | Módulo 5: Automatización con Python →",
+    "text": "8 📚 Recursos y Referencias\n\nQNEAT3 — Documentación oficial\nQGIS Network Analysis — Tutorial\nOpenRouteService — Análisis de rutas online\nOpenStreetMap — Datos de transporte\nOverpass Turbo — Consulta de datos OSM",
     "crumbs": [
       "Inicio",
       "Módulos",
