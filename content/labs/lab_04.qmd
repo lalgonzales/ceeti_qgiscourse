@@ -1,13 +1,14 @@
 ---
 title: "Laboratorio 4: Análisis de redes y rutas óptimas"
 subtitle: "Módulo 4 – Análisis espacial para rutas"
+draft: true
 ---
 
 **Módulo relacionado:** [Módulo 4 – Análisis espacial para rutas](../modulos/modulo4.qmd)
 
 ::: {.callout-note}
 ## Instrucciones generales
-Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados según las instrucciones del instructor.
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados en la tarea correspondiente de Google Classroom.
 :::
 
 ---
@@ -68,6 +69,8 @@ Responde en 5–7 oraciones.
 
 ::: {.callout-important}
 ## Criterios de evaluación
+La rúbrica detallada de calificación se publica en Google Classroom.
+
 | Criterio                                      | Puntos |
 |:----------------------------------------------|:------:|
 | Red vial preparada correctamente              | 15     |
@@ -80,4 +83,4 @@ Responde en 5–7 oraciones.
 
 ---
 
-[← Lab 3](lab_03.qmd) | [Lab 5 →](lab_05.qmd)
+

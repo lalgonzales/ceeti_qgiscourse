@@ -1,13 +1,14 @@
 ---
 title: "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales"
 subtitle: "Módulo 2 – Carga y manejo de datos"
+draft: true
 ---
 
 **Módulo relacionado:** [Módulo 2 – Carga y manejo de datos](../modulos/modulo2.qmd)
 
 ::: {.callout-note}
 ## Instrucciones generales
-Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados según las instrucciones del instructor.
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados en la tarea correspondiente de Google Classroom.
 :::
 
 ---
@@ -63,6 +64,8 @@ Responde en 4–6 oraciones con base en lo aprendido en el módulo.
 
 ::: {.callout-important}
 ## Criterios de evaluación
+La rúbrica detallada de calificación se publica en Google Classroom.
+
 | Criterio                                     | Puntos |
 |:---------------------------------------------|:------:|
 | Capas en 3 formatos cargadas correctamente   | 25     |
@@ -74,4 +77,4 @@ Responde en 4–6 oraciones con base en lo aprendido en el módulo.
 
 ---
 
-[← Lab 1](lab_01.qmd) | [Lab 3 →](lab_03.qmd)
+

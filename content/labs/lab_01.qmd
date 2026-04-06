@@ -7,16 +7,16 @@ subtitle: "Módulo 1 – Introducción a QGIS y SIG"
 
 ::: {.callout-note}
 ## Instrucciones generales
-Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados según las instrucciones del instructor.
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados en la tarea correspondiente de Google Classroom.
 :::
 
 ---
 
 ## Tarea 1: Instalación y verificación de QGIS
 
-1. Instala **QGIS LTR** (versión de soporte a largo plazo) desde [qgis.org/download](https://qgis.org/download/).
+1. Si aun no lo has hecho, instala **QGIS LTR** (versión de soporte a largo plazo) desde [qgis.org/download](https://qgis.org/download/).
 2. Abre QGIS y toma una captura de pantalla de la pantalla principal con los paneles visibles (Panel de Capas, Vista del Mapa, Explorador).
-3. Verifica e indica la versión de QGIS instalada (menú Ayuda → Acerca de QGIS).
+3. Verifica e indica la versión de QGIS instalada (menú Ayuda → Acerca de).
 
 **Entrega:** Captura de pantalla de la pantalla principal con la versión visible.
 
@@ -24,29 +24,29 @@ Este laboratorio es una tarea individual que debes completar de forma autónoma.
 
 ## Tarea 2: Exploración de la interfaz
 
-1. Activa los siguientes paneles (Ver → Paneles):
-   - Panel de Capas
-   - Panel del Explorador
-   - Tabla de Atributos (puede abrirse al cargar datos)
-2. Identifica y describe brevemente (1–2 oraciones cada uno) los 5 componentes principales de la interfaz de QGIS.
+1. Activa los siguientes paneles (Configuración → Paneles):
+   - Panel Capas
+   - Panel Navegador
+   - Panel Consola de Python
+2. Identifica y describe brevemente (1–2 oraciones cada uno) al menos 4  componentes principales de la interfaz de QGIS.
 3. ¿Qué hace la barra de estado en la parte inferior de la ventana? Explica qué información muestra.
 
 **Entrega:** Documento de texto con tus respuestas (formato libre).
 
 ---
 
-## Tarea 3: Carga y comparación de tipos de datos
+## Tarea 3: Comparación de tipos de datos espaciales
 
-1. Descarga uno de los datasets de muestra disponibles en [QGIS Sample Data](https://docs.qgis.org/latest/en/docs/training_manual/foreword/preparing_data.html) o utiliza cualquier dato shapefile de tu elección.
+1. Descarga el dataset de ejemplo desde la [página de QGIS](https://github.com/qgis/QGIS-Training-Data/archive/release_3.44.zip) o usa los datos proporcionados en el módulo dentro de classroom.
 2. Carga al menos:
    - Una capa de **puntos** (ej. ciudades, escuelas, hospitales)
    - Una capa de **líneas** (ej. carreteras, ríos)
    - Una capa de **polígonos** (ej. municipios, departamentos)
 3. Abre la tabla de atributos de cada capa (clic derecho → Abrir tabla de atributos).
 4. Para cada capa, anota:
+   - Tipo de geometría (punto, línea o polígono)
    - Número de entidades (features)
-   - Nombre de al menos 3 campos/columnas
-   - Sistema de Referencia de Coordenadas (CRS) — visible en la barra de estado al hacer clic en la capa
+   - Nombre de al menos 3 campos y una breve descripción de qué tipo de información contienen
 
 **Entrega:** Tabla resumen con la información solicitada + captura de pantalla del proyecto con las tres capas cargadas.
 
@@ -62,6 +62,8 @@ Responde brevemente (3–5 oraciones) la siguiente pregunta:
 
 ::: {.callout-important}
 ## Criterios de evaluación
+La rúbrica detallada de calificación se publica en Google Classroom.
+
 | Criterio                                   | Puntos |
 |:-------------------------------------------|:------:|
 | QGIS instalado y captura de pantalla       | 20     |
@@ -73,4 +75,3 @@ Responde brevemente (3–5 oraciones) la siguiente pregunta:
 
 ---
 
-[← Instrucciones generales](instrucciones_labs.qmd) | [Lab 2 →](lab_02.qmd)

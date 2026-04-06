@@ -1,13 +1,14 @@
 ---
 title: "Laboratorio 3: Edición vectorial y geoprocesamiento"
 subtitle: "Módulo 3 – Edición y geoprocesamiento básico"
+draft: true
 ---
 
 **Módulo relacionado:** [Módulo 3 – Edición y geoprocesamiento básico](../modulos/modulo3.qmd)
 
 ::: {.callout-note}
 ## Instrucciones generales
-Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados según las instrucciones del instructor.
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados en la tarea correspondiente de Google Classroom.
 :::
 
 ---
@@ -62,6 +63,8 @@ Para cada herramienta:
 
 ::: {.callout-important}
 ## Criterios de evaluación
+La rúbrica detallada de calificación se publica en Google Classroom.
+
 | Criterio                                          | Puntos |
 |:--------------------------------------------------|:------:|
 | Capa vectorial creada con atributos               | 25     |
@@ -73,4 +76,4 @@ Para cada herramienta:
 
 ---
 
-[← Lab 2](lab_02.qmd) | [Lab 4 →](lab_04.qmd)
+

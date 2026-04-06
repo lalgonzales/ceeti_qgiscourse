@@ -4,3 +4,4 @@
 **/*.quarto_ipynb
 assets/QGIS-Training-Data-release_3.44/
 assets/QGIS-Sample-Data-master/
+private/
