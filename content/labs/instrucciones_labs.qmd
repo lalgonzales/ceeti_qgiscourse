@@ -15,9 +15,32 @@ Cada laboratorio puede ser utilizado como **instrumento de evaluación** del cur
 
 ## ¿Cómo entregar un laboratorio?
 
-1. Descarga el archivo del laboratorio correspondiente (indicado por tu instructor).
-2. Realiza todas las tareas descritas en QGIS y, cuando corresponda, guarda los proyectos, mapas exportados o capturas de pantalla.
-3. Entrega tu trabajo según las indicaciones del CEETI (plataforma y formato a confirmar).
+Este curso utiliza **Google Classroom** como canal oficial para la **entrega, retroalimentación y calificación** de laboratorios.
+
+El contenido de cada laboratorio se consulta en este sitio del curso, pero la entrega final se realiza en Classroom.
+
+### Flujo recomendado por laboratorio
+
+1. Revisa el laboratorio correspondiente en el sitio del curso.
+2. Descarga únicamente los datos requeridos (si aplica) y completa las actividades en QGIS.
+3. Exporta tus evidencias (mapa, capturas, proyecto y/o reporte).
+4. Entrega todo en la tarea del laboratorio en Google Classroom antes de la fecha límite.
+5. Verifica que tu entrega quedó registrada correctamente.
+
+### Entrega en Google Classroom
+
+Cada tarea en Classroom incluirá:
+
+- Fecha y hora límite de entrega.
+- Lista de archivos requeridos.
+- Rúbrica o criterios de evaluación.
+- Indicaciones de reentrega (si aplica).
+
+Formato sugerido para nombrar archivos:
+
+- `Apellido_Nombre_Lab01`
+- `Apellido_Nombre_Lab02`
+- `Apellido_Nombre_Lab03`
 
 ---
 
@@ -32,6 +55,15 @@ Cada laboratorio puede ser utilizado como **instrumento de evaluación** del cur
 | 5   | Módulo 5 – Automatización con Python y PyQGIS   | [Lab 5](lab_05.qmd)     |
 | 6   | Módulo 6 – Visualización avanzada               | [Lab 6](lab_06.qmd)     |
 | 7   | Módulo 7 – Integración y casos prácticos        | [Lab 7](lab_07.qmd)     |
+
+---
+
+## Canales de apoyo
+
+- Dudas sobre instrucciones, entregables o fechas: Google Classroom.
+- Sugerencias de mejora del curso o reporte de errores del material:
+  - [Issues](https://github.com/lalgonzales/ceeti_qgiscourse/issues)
+  - [Discussions](https://github.com/lalgonzales/ceeti_qgiscourse/discussions)
 
 ---
 

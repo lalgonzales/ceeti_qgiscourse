@@ -1,13 +1,14 @@
 ---
 title: "Laboratorio 7: Integración de datos y preparación del proyecto final"
 subtitle: "Módulo 7 – Integración y casos prácticos"
+draft: true
 ---
 
 **Módulo relacionado:** [Módulo 7 – Integración y casos prácticos](../modulos/modulo7.qmd)
 
 ::: {.callout-note}
 ## Instrucciones generales
-Este laboratorio es una tarea individual que debes completar de forma autónoma. Constituye la práctica preparatoria para la **presentación del proyecto final** (Sesión 13). Entrega todos los archivos y el mapa final según las instrucciones del instructor.
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Constituye la práctica preparatoria para la **presentación del proyecto final** (Sesión 13). Entrega todos los archivos y el mapa final en la tarea correspondiente de Google Classroom.
 :::
 
 ---
@@ -72,6 +73,8 @@ Prepara una **presentación de 5–7 minutos** para la Sesión 13 (presencial) q
 
 ::: {.callout-important}
 ## Criterios de evaluación
+La rúbrica detallada de calificación se publica en Google Classroom.
+
 | Criterio                                          | Puntos |
 |:--------------------------------------------------|:------:|
 | Integración con OSM y análisis básico             | 15     |
@@ -89,5 +92,3 @@ Recuerda que la Sesión 13 es **presencial** y la fecha se confirmará oportunam
 :::
 
 ---
-
-[← Lab 6](lab_06.qmd) | [← Instrucciones generales](instrucciones_labs.qmd)

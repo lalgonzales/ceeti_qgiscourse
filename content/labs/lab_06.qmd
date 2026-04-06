@@ -1,13 +1,14 @@
 ---
 title: "Laboratorio 6: Cartografía temática y diseño de mapas"
 subtitle: "Módulo 6 – Visualización avanzada y mapas finales"
+draft: true
 ---
 
 **Módulo relacionado:** [Módulo 6 – Visualización avanzada y mapas finales](../modulos/modulo6.qmd)
 
 ::: {.callout-note}
 ## Instrucciones generales
-Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los mapas exportados y capturas de pantalla indicados según las instrucciones del instructor.
+Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los mapas exportados y capturas de pantalla indicados en la tarea correspondiente de Google Classroom.
 :::
 
 ---
@@ -73,6 +74,8 @@ Responde en 4–6 oraciones.
 
 ::: {.callout-important}
 ## Criterios de evaluación
+La rúbrica detallada de calificación se publica en Google Classroom.
+
 | Criterio                                          | Puntos |
 |:--------------------------------------------------|:------:|
 | Simbología categorizada aplicada                  | 15     |
@@ -84,5 +87,3 @@ Responde en 4–6 oraciones.
 :::
 
 ---
-
-[← Lab 5](lab_05.qmd) | [Lab 7 →](lab_07.qmd)
