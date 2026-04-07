@@ -41,17 +41,17 @@ QGIS soporta una gran variedad de formatos de datos geoespaciales. A continuaci�
 ::: {.callout-tip}
 ## 4 Métodos para cargar datos
 
-**Método 1 — Arrastrar y soltar**: 
+**Método 1 — Arrastrar y soltar**:
 Arrastra el archivo desde el explorador de Windows/Mac directamente al canvas de QGIS.
 
 **Método 2 — Menú Capa**:
 - Capa → Agregar capa → Agregar capa vectorial (`Ctrl+Shift+V`)
 - Capa → Agregar capa → Agregar capa ráster (`Ctrl+Shift+R`)
 
-**Método 3 — Panel del Explorador**: 
+**Método 3 — Panel del Explorador**:
 Navega hasta el archivo en el panel Explorador y haz doble clic.
 
-**Método 4 — Administrador de fuentes de datos**: 
+**Método 4 — Administrador de fuentes de datos**:
 `Ctrl+L` para acceso rápido a todas las fuentes.
 :::
 
@@ -135,7 +135,7 @@ Un **Sistema de Referencia de Coordenadas (CRS)** define cómo se relacionan las
 ::: {.callout-warning}
 ## ¡Importante para análisis!
 
-**Coordenadas geográficas (grados)**: 
+**Coordenadas geográficas (grados)**:
 - ✅ Buenas para: visualización, GPS, web
 - ❌ Malas para: cálculos de área, distancia, análisis espacial
 
@@ -200,7 +200,7 @@ OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, ex
 
 **Consultas útiles para Honduras**:
 - `highway = primary`: Carreteras principales
-- `highway = secondary`: Carreteras secundarias  
+- `highway = secondary`: Carreteras secundarias
 - `amenity = hospital`: Hospitales
 - `amenity = school`: Escuelas
 - `public_transport = station`: Estaciones de transporte
