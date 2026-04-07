@@ -72,10 +72,10 @@ Para cargar un archivo CSV con columnas de latitud y longitud:
 
 ```csv
 nombre,longitud,latitud,tipo
-Hospital Escuela,-87.2068,14.0818,hospital
-Mercado Los Dolores,-87.2041,14.0829,mercado
-Parque Central Tegucigalpa,-87.2069,14.0839,parque
-Universidad Nacional,-87.1656,14.0723,universidad
+Hospital Escuela,-87.197231,14.089023,hospital
+Mercado Los Dolores,-87.206327,14.107672,mercado
+Parque Central Tegucigalpa,-87.204693,14.105473,parque
+Universidad Nacional,-87.16487,14.08612,universidad
 ```
 
 ### Bases de datos espaciales
@@ -85,7 +85,7 @@ El formato **recomendado** para proyectos nuevos:
 
 ```
 Capa → Agregar capa → Agregar capa vectorial
-→ Tipo de fuente: GeoPackage
+→ Tipo de fuente: Archivo
 ```
 
 #### PostGIS (PostgreSQL + extensión espacial)
