@@ -9,112 +9,116 @@ Al finalizar este módulo, los participantes podrán:
 - Importar datos geoespaciales en múltiples formatos (Shapefile, GeoJSON, KML, CSV).
 - Conectar QGIS a bases de datos como PostGIS y SQLite/SpatiaLite.
 - Comprender y gestionar los sistemas de referencia de coordenadas (CRS).
-- Visualizar rutas y redes de transporte en QGIS.
+- Visualizar rutas y redes de transporte en QGIS usando OpenStreetMap.
 
 ---
 
-## 2.1 Importación de archivos espaciales
+## Importación de archivos espaciales
 
 QGIS soporta una gran variedad de formatos de datos geoespaciales. A continuación, se describen los más comunes y cómo cargarlos.
 
 ### Formatos vectoriales principales
 
-| Formato     | Extensión      | Descripción                                     |
-|:------------|:---------------|:------------------------------------------------|
-| Shapefile   | `.shp`         | Formato estándar de ESRI, muy difundido         |
-| GeoJSON     | `.geojson`     | Formato basado en JSON, ideal para web          |
-| GeoPackage  | `.gpkg`        | Formato moderno recomendado por OGC             |
-| KML/KMZ     | `.kml`, `.kmz` | Formato de Google Earth/Maps                    |
-| CSV         | `.csv`         | Tablas con columnas de coordenadas              |
-| GPX         | `.gpx`         | Formato GPS Exchange (tracks, waypoints)        |
+| Formato     | Extensión      | Descripción                                     | Recomendación |
+|:------------|:---------------|:------------------------------------------------|:--------------|
+| **Shapefile**   | `.shp`         | Formato estándar de ESRI, muy difundido         | ⚠️ Limitado |
+| **GeoPackage**  | `.gpkg`        | Formato moderno recomendado por OGC             | ✅ **Recomendado** |
+| **GeoJSON**     | `.geojson`     | Formato basado en JSON, ideal para web          | ✅ Web/APIs |
+| **KML/KMZ**     | `.kml`, `.kmz` | Formato de Google Earth/Maps                    | 📱 Móvil/GPS |
+| **CSV**         | `.csv`         | Tablas con columnas de coordenadas              | 📊 Datos tabulares |
+| **GPX**         | `.gpx`         | Formato GPS Exchange (tracks, waypoints)        | 🗺️ GPS/Rutas |
 
-### Carga de archivos en QGIS
+::: {.callout-note}
+## Migración recomendada: Shapefile → GeoPackage
+
+**¿Por qué cambiar?**
+- **Shapefile**: Límite de 10 caracteres en nombres de campos, múltiples archivos (.shp, .dbf, .shx, .prj)
+- **GeoPackage**: Sin límites de caracteres, un solo archivo, estándar OGC abierto, múltiples capas
+:::
+
+### Métodos de carga en QGIS
 
 ::: {.callout-tip}
-## Métodos para cargar datos
+## 4 Métodos para cargar datos
 
-**Método 1 — Arrastrar y soltar**: Arrastra el archivo desde el explorador de Windows/Mac directamente al canvas de QGIS.
+**Método 1 — Arrastrar y soltar**: 
+Arrastra el archivo desde el explorador de Windows/Mac directamente al canvas de QGIS.
 
 **Método 2 — Menú Capa**:
 - Capa → Agregar capa → Agregar capa vectorial (`Ctrl+Shift+V`)
 - Capa → Agregar capa → Agregar capa ráster (`Ctrl+Shift+R`)
 
-**Método 3 — Panel del Explorador**: Navega hasta el archivo en el panel Explorador y haz doble clic.
+**Método 3 — Panel del Explorador**: 
+Navega hasta el archivo en el panel Explorador y haz doble clic.
 
-**Método 4 — Drag & drop desde el explorador del sistema operativo**.
+**Método 4 — Administrador de fuentes de datos**: 
+`Ctrl+L` para acceso rápido a todas las fuentes.
 :::
 
 ### Carga de CSV con coordenadas
 
 Para cargar un archivo CSV con columnas de latitud y longitud:
 
-1. Capa → Agregar capa → **Agregar capa de texto delimitado** (`Ctrl+Shift+T`)
+1. **Capa → Agregar capa → Agregar capa de texto delimitado** (`Ctrl+Shift+T`)
 2. Selecciona el archivo CSV
-3. En **Geometría**, elige:
-   - Tipo de geometría: Punto
+3. En **Geometría**, configura:
+   - Tipo de geometría: **Punto**
    - Campo X (longitud): columna con valores X
    - Campo Y (latitud): columna con valores Y
-4. Especifica el CRS del archivo
-5. Haz clic en **Añadir**
+   - CRS: **EPSG:4326 - WGS 84** (para coordenadas GPS)
+4. Haz clic en **Añadir**
 
-**Ejemplo de CSV válido**:
+**Ejemplo de CSV válido para Honduras**:
 
 ```csv
-nombre,longitud,latitud
-Hospital Central,-87.2068,14.0818
-Mercado Los Dolores,-87.2041,14.0829
-Parque Central,-87.2069,14.0839
+nombre,longitud,latitud,tipo
+Hospital Escuela,-87.2068,14.0818,hospital
+Mercado Los Dolores,-87.2041,14.0829,mercado
+Parque Central Tegucigalpa,-87.2069,14.0839,parque
+Universidad Nacional,-87.1656,14.0723,universidad
 ```
 
----
+### Bases de datos espaciales
 
-## 2.2 Conexión a bases de datos
-
-### PostGIS (PostgreSQL + extensión espacial)
-
-PostGIS es la extensión espacial para PostgreSQL más utilizada en entornos profesionales.
-
-**Pasos para conectar QGIS a PostGIS**:
-
-1. Abre el **Administrador de fuentes de datos** (`Ctrl+L`)
-2. Selecciona la pestaña **PostgreSQL**
-3. Haz clic en **Nuevo** y completa:
-   - Nombre de conexión: `Mi_BaseDatos_PostGIS`
-   - Host: `localhost` (o IP del servidor)
-   - Puerto: `5432`
-   - Base de datos: nombre de tu BD
-   - Usuario y contraseña
-4. Haz clic en **Probar conexión** → **Aceptar**
-
-### SQLite / SpatiaLite
-
-SpatiaLite es la versión espacial de SQLite, ideal para proyectos personales o de campo.
-
-```
-Capa → Agregar capa → Agregar capa SpatiaLite
-```
-
-### GeoPackage
-
-El formato GeoPackage (`.gpkg`) es un contenedor SQLite con capacidades espaciales:
+#### GeoPackage (.gpkg)
+El formato **recomendado** para proyectos nuevos:
 
 ```
 Capa → Agregar capa → Agregar capa vectorial
 → Tipo de fuente: GeoPackage
 ```
 
-::: {.callout-note}
-## Recomendación de formato
+#### PostGIS (PostgreSQL + extensión espacial)
+Para entornos profesionales y colaborativos:
 
-Para proyectos nuevos, se recomienda usar **GeoPackage** en lugar de Shapefile, ya que:
-- Soporta nombres de campos de más de 10 caracteres
-- Almacena múltiples capas en un solo archivo
-- Es un estándar OGC abierto
-:::
+**Pasos para conectar QGIS a PostGIS**:
+1. Abre el **Administrador de fuentes de datos** (`Ctrl+L`)
+2. Selecciona la pestaña **PostgreSQL**
+3. Haz clic en **Nuevo** y completa:
+   - Nombre de conexión: `Honduras_PostGIS`
+   - Host: `localhost` (o IP del servidor)
+   - Puerto: `5432`
+   - Base de datos: nombre de tu BD
+   - Usuario y contraseña
+4. **Probar conexión** → **Aceptar**
+
+#### SQLite / SpatiaLite
+Ideal para proyectos de campo o personales:
+
+```
+Capa → Agregar capa → Agregar capa SpatiaLite
+```
+
+### Ejercicio 2.1: Carga de datos en múltiples formatos
+
+1. Descarga datos de ejemplo de Honduras
+2. Carga un Shapefile usando arrastrar y soltar
+3. Carga un CSV con coordenadas de hospitales de Tegucigalpa
+4. Verifica que ambas capas se muestren correctamente
 
 ---
 
-## 2.3 Sistemas de referencia de coordenadas (CRS)
+## Sistemas de referencia de coordenadas (CRS)
 
 ### ¿Qué es un CRS?
 
@@ -122,103 +126,136 @@ Un **Sistema de Referencia de Coordenadas (CRS)** define cómo se relacionan las
 
 ### Tipos de CRS
 
-| Tipo                          | Descripción                                      | Ejemplo                    |
-|:------------------------------|:-------------------------------------------------|:---------------------------|
-| **Geográfico (GCS)**          | Coordenadas en grados (lat/lon)                  | WGS 84 (EPSG:4326)         |
-| **Proyectado (PCS)**          | Coordenadas en metros/pies sobre plano 2D        | UTM Zona 16N (EPSG:32616)  |
-| **Local/Nacional**            | Sistemas de cada país                            | Marco Geodésico de Honduras|
+| Tipo                          | Descripción                                      | Unidades | Ejemplo                    |
+|:------------------------------|:-------------------------------------------------|:---------|:---------------------------|
+| **Geográfico (GCS)**          | Coordenadas en grados (lat/lon)                  | Grados   | WGS 84 (EPSG:4326)         |
+| **Proyectado (PCS)**          | Coordenadas en metros/pies sobre plano 2D        | Metros   | UTM Zona 16N (EPSG:32616)  |
+| **Local/Nacional**            | Sistemas específicos de cada país                | Metros   | Marco Geodésico de Honduras|
 
-### CRS para Honduras
+::: {.callout-warning}
+## ¡Importante para análisis!
 
-Para trabajos en Honduras, se recomienda:
+**Coordenadas geográficas (grados)**: 
+- ✅ Buenas para: visualización, GPS, web
+- ❌ Malas para: cálculos de área, distancia, análisis espacial
 
-- **WGS 84 (EPSG:4326)**: para datos GPS y web
-- **UTM Zona 16N (EPSG:32616)**: para análisis que requieren mediciones precisas
-- **UTM Zona 17N (EPSG:32617)**: para el oriente del país
+**Coordenadas proyectadas (metros)**:
+- ✅ Buenas para: análisis espacial, mediciones precisas
+- ❌ Malas para: áreas muy grandes (distorsión)
+:::
 
-### Gestión de CRS en QGIS
+### CRS recomendados para Honduras
 
-**Ver el CRS de una capa**:
+| Uso                           | CRS Recomendado           | Código EPSG | Cuándo usar |
+|:------------------------------|:--------------------------|:------------|:------------|
+| **Datos GPS y web**           | WGS 84                    | EPSG:4326   | Coordenadas de GPS, mapas web |
+| **Análisis nacional**         | UTM Zona 16N              | EPSG:32616  | Centro y oeste de Honduras |
+| **Análisis oriente**          | UTM Zona 17N              | EPSG:32617  | Oriente de Honduras |
+| **Análisis locales precisos** | UTM correspondiente       | 32616/32617 | Mediciones, áreas, distancias |
+
+**Ejemplo práctico - Tegucigalpa**:
+- **Coordenadas geográficas**: 14.0818°N, -87.2068°W
+- **Coordenadas UTM 16N**: 308,394 E, 1,556,789 N
+
+### Configuración de CRS en QGIS
+
+#### Ver el CRS de una capa:
 1. Clic derecho sobre la capa → **Propiedades**
 2. Pestaña **Fuente** → Sistema de referencia de coordenadas
 
-**Reproyectar una capa** (cambiar el CRS):
+#### Reproyectar una capa (cambiar el CRS):
 1. Capa en el panel → clic derecho → **Exportar → Guardar entidades como...**
-2. Cambia el CRS en el campo correspondiente
-3. Guarda con el nuevo nombre
+2. Cambia el CRS en el campo **SRC**
+3. Guarda con nuevo nombre
 
-**Transformación sobre la marcha (OTF)**:
-QGIS puede mostrar capas con diferentes CRS juntas activando la reproyección automática.
+#### Configurar CRS del proyecto:
+- **Proyecto → Propiedades → SRC**
+- Recomendado: **EPSG:32616** para análisis en Honduras
 
-::: {.callout-warning}
-## ¡Importante!
+::: {.callout-tip}
+## Transformación sobre la marcha (OTF)
 
-Si combinas capas con diferentes CRS, asegúrate de usar la reproyección en el análisis, no solo en la visualización. De lo contrario los cálculos de área y distancia serán incorrectos.
+QGIS puede mostrar capas con diferentes CRS juntas automáticamente. Sin embargo, para **análisis espacial** siempre reproyecta a un CRS apropiado.
 :::
 
----
+## Visualización de rutas y redes de transporte
 
-## 2.4 Visualización de rutas y redes de transporte
+### OpenStreetMap como fuente de datos
 
-### Carga de datos OpenStreetMap (OSM)
+OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, excelente para datos de transporte.
 
-QGIS permite cargar datos de OpenStreetMap directamente:
+#### Opción 1 — Plugin QuickOSM (Recomendado):
 
-**Opción 1 — Plugin QuickOSM**:
-1. Instala el plugin: **Complementos → Administrar e instalar complementos → QuickOSM**
-2. Ve a **Vector → QuickOSM → QuickOSM**
-3. Consulta por ejemplo: clave `highway`, valor `primary` para carreteras principales
-4. Define el área de interés y ejecuta
+**Instalación**:
+1. **Complementos → Administrar e instalar complementos**
+2. Buscar **"QuickOSM"** → Instalar
 
-**Opción 2 — Capas XYZ (fondo de mapa)**:
-1. Panel Explorador → **Teselas XYZ** → clic derecho → **Nueva conexión**
-2. URL: `https://tile.openstreetmap.org/{z}/{x}/{y}.png`
-3. Nombre: `OpenStreetMap`
+**Uso básico**:
+1. **Vector → QuickOSM → QuickOSM**
+2. Configurar consulta:
+   - **Clave**: `highway`
+   - **Valor**: `primary` (carreteras principales)
+   - **En**: Tegucigalpa, Honduras
+3. **Ejecutar consulta**
 
-### Datos de transporte en Honduras
+**Consultas útiles para Honduras**:
+- `highway = primary`: Carreteras principales
+- `highway = secondary`: Carreteras secundarias  
+- `amenity = hospital`: Hospitales
+- `amenity = school`: Escuelas
+- `public_transport = station`: Estaciones de transporte
 
-Fuentes de datos espaciales para Honduras:
+#### Opción 2 — Capas XYZ (fondo de mapa):
+1. **Panel Explorador → Teselas XYZ** → clic derecho → **Nueva conexión**
+2. **URL**: `https://tile.openstreetmap.org/{z}/{x}/{y}.png`
+3. **Nombre**: `OpenStreetMap`
 
-- [INE Honduras — Cartografía](https://www.ine.gob.hn)
-- [OpenStreetMap Honduras](https://www.openstreetmap.org)
-- [SINIT — Sistema Nacional de Información Territorial](https://www.sinit.hn)
-- [HOT OSM — Tasking Manager Honduras](https://tasks.hotosm.org)
+### Fuentes de datos oficiales para Honduras
 
----
+| Fuente | Descripción | URL |
+|:-------|:------------|:----|
+| **INE Honduras** | Cartografía oficial | https://www.ine.gob.hn |
+| **SINIT** | Sistema Nacional de Información Territorial | https://www.sinit.hn |
+| **OpenStreetMap Honduras** | Datos colaborativos | https://www.openstreetmap.org |
+| **HOT OSM** | Tasking Manager Honduras | https://tasks.hotosm.org |
 
-## 🛠️ Ejercicios Prácticos
+### Ejercicios 2.2 y 2.3: Práctica integral
 
-### Ejercicio 2.1: Carga de datos en múltiples formatos
+#### Ejercicio 2.2: Conexión a OpenStreetMap
+1. Instala el plugin **QuickOSM**
+2. Descarga las carreteras principales de Tegucigalpa
+3. Descarga los hospitales de la ciudad
+4. Visualiza ambas capas con simbología apropiada
 
-1. Descarga los datos de ejemplo:
-   - Shapefile de municipios de Honduras
-   - GeoJSON de carreteras principales
-   - CSV con coordenadas de hospitales
-2. Carga cada archivo en QGIS usando métodos distintos.
-3. Verifica que se muestren correctamente en el canvas.
-
-### Ejercicio 2.2: Conexión a OpenStreetMap
-
-1. Instala el plugin **QuickOSM**.
-2. Descarga las carreteras principales de Tegucigalpa.
-3. Descarga los hospitales y centros de salud de la ciudad.
-4. Visualiza todas las capas juntas y ajusta la simbología básica.
-
-### Ejercicio 2.3: Trabajo con CRS
-
-1. Carga un shapefile con CRS geográfico (EPSG:4326).
-2. Calcula el área de un polígono en grados² — observa el resultado incorrecto.
-3. Reproyecta la capa a UTM Zona 16N (EPSG:32616).
-4. Calcula nuevamente el área y compara los resultados.
+#### Ejercicio 2.3: Trabajo con CRS
+1. Carga un shapefile con CRS geográfico (EPSG:4326)
+2. Calcula el área de un polígono → observa resultado en grados²
+3. Reproyecta la capa a UTM Zona 16N (EPSG:32616)
+4. Calcula nuevamente el área → compara resultados en metros²
 
 ---
 
 ## 📚 Recursos y Referencias
 
+### Documentación oficial:
 - [QGIS — Trabajar con proyecciones](https://docs.qgis.org/latest/es/docs/user_manual/working_with_projections/working_with_projections.html)
-- [EPSG.io — Buscador de sistemas de referencia](https://epsg.io)
 - [Plugin QuickOSM — Documentación](https://docs.3liz.org/QuickOSM/)
+
+### Herramientas útiles:
+- [EPSG.io — Buscador de sistemas de referencia](https://epsg.io)
 - [Natural Earth — Datos geográficos gratuitos](https://www.naturalearthdata.com)
 - [DIVA-GIS — Datos por país](https://www.diva-gis.org/gdata)
 
+### Datos para Honduras:
+- [Portal de Datos Abiertos de Honduras](https://www.datosabiertos.gob.hn)
+- [Humanitarian Data Exchange - Honduras](https://data.humdata.org/group/hnd)
+
 ---
+
+::: {.callout-important}
+## Para la próxima sesión
+
+Asegúrate de tener instalado el plugin **QuickOSM** y practica la carga de diferentes formatos de datos.
+
+**Tarea opcional**: Descarga datos de tu municipio desde OpenStreetMap y cárgalos en QGIS usando diferentes métodos.
+:::
