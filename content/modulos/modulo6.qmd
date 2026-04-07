@@ -14,7 +14,7 @@ Al finalizar este módulo, los participantes podrán:
 
 ---
 
-## 6.1 Simbología por atributos
+## Simbología por atributos
 
 La **simbología** define cómo se representan visualmente las entidades geográficas. QGIS ofrece múltiples opciones accesibles desde las **Propiedades de la capa → Simbología**.
 
@@ -70,7 +70,7 @@ if("cobertura" = 'Sí', '0,128,0', '255,0,0')
 
 ---
 
-## 6.2 Etiquetado dinámico
+## Etiquetado dinámico
 
 Las **etiquetas** muestran información textual sobre las entidades directamente en el mapa.
 
@@ -108,7 +108,7 @@ En el menú **Etiquetas → Motor de etiquetado**:
 
 ---
 
-## 6.3 Mapas temáticos
+## Mapas temáticos
 
 Un **mapa temático** comunica un aspecto específico del territorio de forma clara y visualmente atractiva.
 
@@ -140,7 +140,7 @@ Para crear un mapa de calor a partir de una capa de puntos:
 
 ---
 
-## 6.4 Diseño de mapas en el Compositor de Impresión
+## Diseño de mapas en el Compositor de Impresión
 
 El **Compositor de Impresión** (Print Layout) permite crear mapas profesionales con todos los elementos cartográficos necesarios.
 
@@ -198,7 +198,7 @@ for item in layout.items():
 
 ---
 
-## 6.5 Exportación de mapas
+## Exportación de mapas
 
 ### Exportar desde el Compositor
 

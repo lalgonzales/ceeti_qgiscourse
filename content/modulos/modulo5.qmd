@@ -14,7 +14,7 @@ Al finalizar este módulo, los participantes podrán:
 
 ---
 
-## 5.1 Introducción a la consola de Python en QGIS
+## Introducción a la consola de Python en QGIS
 
 ### Acceso a la consola
 
@@ -66,7 +66,7 @@ print(f"Capa activa: {layer.name()}")
 
 ---
 
-## 5.2 Manipulación de capas, geometrías y atributos
+## Manipulación de capas, geometrías y atributos
 
 ### Cargar una capa desde Python
 
@@ -150,7 +150,7 @@ print(f"Área del buffer: {buffer.area()}")
 
 ---
 
-## 5.3 Scripts para automatización de rutas y reportes
+## Scripts para automatización de rutas y reportes
 
 ### Script: generar múltiples buffers automáticamente
 
@@ -260,7 +260,7 @@ exportar_mapa_png("Mi Layout", "/tmp/mapa_final.png")
 
 ---
 
-## 5.4 Exportación de resultados
+## Exportación de resultados
 
 ### Exportar capa a diferentes formatos
 
@@ -302,7 +302,7 @@ exportar_capa("Municipios", "/tmp/municipios.gpkg", "GPKG")
 
 ---
 
-## 5.5 QGIS Processing Framework y scripts personalizados
+## QGIS Processing Framework y scripts personalizados
 
 ### Usar herramientas de processing desde Python
 

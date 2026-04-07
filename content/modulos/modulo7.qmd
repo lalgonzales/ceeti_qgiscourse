@@ -13,7 +13,7 @@ Al finalizar este módulo, los participantes podrán:
 
 ---
 
-## 7.1 Conexión con APIs externas
+## Conexión con APIs externas
 
 ### OpenStreetMap (OSM)
 
@@ -149,7 +149,7 @@ def calcular_ruta_ors(origen, destino, api_key, modo="driving-car"):
 
 ---
 
-## 7.2 Proyecto aplicado: diseño de rutas eficientes para campo
+## Proyecto aplicado: diseño de rutas eficientes para campo
 
 ### Planteamiento del problema
 
@@ -229,7 +229,7 @@ if orden_optimo:
 
 ---
 
-## 7.3 Trazabilidad de rutas GPS con apps móviles
+## Trazabilidad de rutas GPS con apps móviles
 
 ### Aplicaciones para recolección de datos en campo
 
@@ -292,7 +292,7 @@ print(f"Longitud total del recorrido: {longitud_total/1000:.2f} km")
 
 ---
 
-## 7.4 Optimización de recorridos con restricciones reales
+## Optimización de recorridos con restricciones reales
 
 ### Tipos de restricciones comunes
 
@@ -355,7 +355,7 @@ print(f"Clientes a visitar: {len(datos['time_windows']) - 1}")
 
 ---
 
-## 7.5 Proyecto Final del Curso
+## Proyecto Final del Curso
 
 ### Descripción del proyecto
 

@@ -14,7 +14,7 @@ Al finalizar este módulo, los participantes podrán:
 
 ---
 
-## 4.1 Análisis de redes con QNEAT3 y Road Graph
+## Análisis de redes con QNEAT3 y Road Graph
 
 ### ¿Qué es un análisis de redes?
 
@@ -58,7 +58,7 @@ Complementos → Road Graph → Complemento Road Graph
 
 ---
 
-## 4.2 Cálculo de rutas óptimas
+## Cálculo de rutas óptimas
 
 ### Preparación de la red vial
 
@@ -110,7 +110,7 @@ Si tienes un campo de velocidad en tu capa de red, puedes calcular el tiempo de 
 
 ---
 
-## 4.3 Matrices de origen-destino
+## Matrices de origen-destino
 
 Una **matriz de origen-destino (OD)** calcula las distancias o tiempos de viaje entre todos los pares de puntos en dos conjuntos (orígenes y destinos).
 
@@ -141,7 +141,7 @@ Clic derecho en la capa resultado → Exportar → Guardar entidades como...
 
 ---
 
-## 4.4 Zonificación y análisis de cobertura de rutas
+## Zonificación y análisis de cobertura de rutas
 
 ### Isócronas (áreas de cobertura temporal)
 
@@ -167,7 +167,7 @@ Una vez generadas las isócronas:
 
 ---
 
-## 4.5 Análisis de puntos de interés
+## Análisis de puntos de interés
 
 ### Unión espacial (Spatial Join)
 
