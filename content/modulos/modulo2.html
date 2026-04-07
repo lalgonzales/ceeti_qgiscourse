@@ -712,10 +712,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ol>
 <p><strong>Ejemplo de CSV válido para Honduras</strong>:</p>
 <pre class="csv"><code>nombre,longitud,latitud,tipo
-Hospital Escuela,-87.2068,14.0818,hospital
-Mercado Los Dolores,-87.2041,14.0829,mercado
-Parque Central Tegucigalpa,-87.2069,14.0839,parque
-Universidad Nacional,-87.1656,14.0723,universidad</code></pre>
+Hospital Escuela,-87.197231,14.089023,hospital
+Mercado Los Dolores,-87.206327,14.107672,mercado
+Parque Central Tegucigalpa,-87.204693,14.105473,parque
+Universidad Nacional,-87.16487,14.08612,universidad</code></pre>
 </section>
 <section id="bases-de-datos-espaciales" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="bases-de-datos-espaciales"><span class="header-section-number">2.4</span> Bases de datos espaciales</h3>
@@ -723,7 +723,7 @@ Universidad Nacional,-87.1656,14.0723,universidad</code></pre>
 <h4 data-number="2.4.1" class="anchored" data-anchor-id="geopackage-.gpkg"><span class="header-section-number">2.4.1</span> GeoPackage (.gpkg)</h4>
 <p>El formato <strong>recomendado</strong> para proyectos nuevos:</p>
 <pre><code>Capa → Agregar capa → Agregar capa vectorial
-→ Tipo de fuente: GeoPackage</code></pre>
+→ Tipo de fuente: Archivo</code></pre>
 </section>
 <section id="postgis-postgresql-extensión-espacial" class="level4" data-number="2.4.2">
 <h4 data-number="2.4.2" class="anchored" data-anchor-id="postgis-postgresql-extensión-espacial"><span class="header-section-number">2.4.2</span> PostGIS (PostgreSQL + extensión espacial)</h4>
@@ -1569,10 +1569,10 @@ Universidad Nacional,-87.1656,14.0723,universidad</code></pre>
 <span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a><span class="in">```csv</span></span>
 <span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>nombre<span class="op">,</span>longitud<span class="op">,</span>latitud<span class="op">,</span>tipo</span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>Hospital Escuela<span class="op">,-</span><span class="fl">87.2068</span><span class="op">,</span><span class="fl">14.0818</span><span class="op">,</span>hospital</span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>Mercado Los Dolores<span class="op">,-</span><span class="fl">87.2041</span><span class="op">,</span><span class="fl">14.0829</span><span class="op">,</span>mercado</span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>Parque Central Tegucigalpa<span class="op">,-</span><span class="fl">87.2069</span><span class="op">,</span><span class="fl">14.0839</span><span class="op">,</span>parque</span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>Universidad Nacional<span class="op">,-</span><span class="fl">87.1656</span><span class="op">,</span><span class="fl">14.0723</span><span class="op">,</span>universidad</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>Hospital Escuela<span class="op">,-</span><span class="fl">87.197231</span><span class="op">,</span><span class="fl">14.089023</span><span class="op">,</span>hospital</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>Mercado Los Dolores<span class="op">,-</span><span class="fl">87.206327</span><span class="op">,</span><span class="fl">14.107672</span><span class="op">,</span>mercado</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>Parque Central Tegucigalpa<span class="op">,-</span><span class="fl">87.204693</span><span class="op">,</span><span class="fl">14.105473</span><span class="op">,</span>parque</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>Universidad Nacional<span class="op">,-</span><span class="fl">87.16487</span><span class="op">,</span><span class="fl">14.08612</span><span class="op">,</span>universidad</span>
 <span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bases de datos espaciales</span></span>
@@ -1582,7 +1582,7 @@ Universidad Nacional,-87.1656,14.0723,universidad</code></pre>
 <span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="in">Capa → Agregar capa → Agregar capa vectorial</span></span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a><span class="in">→ Tipo de fuente: GeoPackage</span></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a><span class="in">→ Tipo de fuente: Archivo</span></span>
 <span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="fu">#### PostGIS (PostgreSQL + extensión espacial)</span></span>
