@@ -91,16 +91,16 @@ Capa → Agregar capa → Agregar capa vectorial
 #### PostGIS (PostgreSQL + extensión espacial)
 Para entornos profesionales y colaborativos:
 
-**Pasos para conectar QGIS a PostGIS**:  
-1. Abre el **Administrador de fuentes de datos** (`Ctrl+L`)  
-2. Selecciona la pestaña **PostgreSQL**  
-3. Haz clic en **Nuevo** y completa:  
-   - Nombre de conexión: `Honduras_PostGIS`  
-   - Host: `localhost` (o IP del servidor)  
-   - Puerto: `5432`  
-   - Base de datos: nombre de tu BD  
-   - Usuario y contraseña  
-4. **Probar conexión** → **Aceptar**  
+**Pasos para conectar QGIS a PostGIS**:
+1. Abre el **Administrador de fuentes de datos** (`Ctrl+L`)
+2. Selecciona la pestaña **PostgreSQL**
+3. Haz clic en **Nuevo** y completa:
+   - Nombre de conexión: `Honduras_PostGIS`
+   - Host: `localhost` (o IP del servidor)
+   - Puerto: `5432`
+   - Base de datos: nombre de tu BD
+   - Usuario y contraseña
+4. **Probar conexión** → **Aceptar**
 
 #### SQLite / SpatiaLite
 Ideal para proyectos de campo o personales:
