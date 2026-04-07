@@ -13,7 +13,7 @@ Al finalizar este módulo, los participantes podrán:
 
 ---
 
-## 3.1 Creación y edición de capas vectoriales
+## Creación y edición de capas vectoriales
 
 ### Crear una nueva capa vectorial
 
@@ -61,7 +61,7 @@ Puedes editar atributos directamente en la tabla:
 
 ---
 
-## 3.2 Herramientas de geoprocesamiento
+## Herramientas de geoprocesamiento
 
 Las herramientas de geoprocesamiento están disponibles en:
 - **Vector → Herramientas de geoprocesamiento**
@@ -129,7 +129,7 @@ Vector → Herramientas de geoprocesamiento → Diferencia
 
 ---
 
-## 3.3 Limpieza y validación de geometrías
+## Limpieza y validación de geometrías
 
 Las geometrías inválidas pueden causar errores en los análisis. QGIS ofrece herramientas para detectarlas y corregirlas.
 
@@ -167,7 +167,7 @@ Siempre valida las geometrías de tus capas antes de ejecutar análisis de geopr
 
 ---
 
-## 3.4 Cálculo de distancias y áreas
+## Cálculo de distancias y áreas
 
 ### Calculadora de campos
 
