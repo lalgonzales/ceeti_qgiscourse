@@ -9,7 +9,7 @@ Al finalizar este módulo, los participantes podrán:
 - Importar datos geoespaciales en múltiples formatos (Shapefile, GeoJSON, KML, CSV).
 - Conectar QGIS a bases de datos como PostGIS y SQLite/SpatiaLite.
 - Comprender y gestionar los sistemas de referencia de coordenadas (CRS).
-- Visualizar rutas y redes de transporte en QGIS usando OpenStreetMap.
+- Visualizar rutas de trabajo y redes de transporte.
 
 ---
 
@@ -180,62 +180,126 @@ Un **Sistema de Referencia de Coordenadas (CRS)** define cómo se relacionan las
 QGIS puede mostrar capas con diferentes CRS juntas automáticamente. Sin embargo, para **análisis espacial** siempre reproyecta a un CRS apropiado.
 :::
 
-## Visualización de rutas y redes de transporte
+## Visualización de rutas de trabajo y redes de transporte para empresas eléctricas
 
-### OpenStreetMap como fuente de datos
+### OpenStreetMap como fuente de datos para operaciones eléctricas
 
-OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, excelente para datos de transporte.
+OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, excelente para planificar rutas de trabajo y operaciones de mantenimiento eléctrico.
 
-#### Opción 1 — Plugin QuickOSM (Recomendado):
+#### Plugin QuickOSM para datos de transporte
 
 **Instalación**:
 
 1. **Complementos → Administrar e instalar complementos**
 2. Buscar **"QuickOSM"** → Instalar
 
-**Uso básico**:
+**Consultas específicas para empresas eléctricas**:
 
 1. **Vectorial → QuickOSM → QuickOSM**
-2. Configurar consulta:
-   - **Clave**: `highway`
-   - **Valor**: `primary` (carreteras principales)
-   - **En**: Tegucigalpa, Honduras
-3. **Ejecutar consulta**
+2. Configurar consultas según necesidades operativas:
 
-**Consultas útiles para Honduras**:
+**Rutas de acceso a infraestructura eléctrica**:
 
-- `highway = primary`: Carreteras principales
-- `highway = secondary`: Carreteras secundarias
-- `amenity = hospital`: Hospitales
-- `amenity = school`: Escuelas
-- `public_transport = station`: Estaciones de transporte
+- `highway = primary`: Carreteras principales (acceso a subestaciones)
+- `highway = secondary`: Carreteras secundarias (rutas de mantenimiento)
+- `highway = tertiary`: Carreteras terciarias (acceso a torres de transmisión)
+- `highway = track`: Caminos rurales (acceso a líneas de distribución)
 
-#### Opción 2 — Capas XYZ (fondo de mapa):
+**Infraestructura relacionada**:
+
+- `power = line`: Líneas de transmisión eléctrica
+- `power = tower`: Torres de transmisión
+- `power = substation`: Subestaciones eléctricas
+- `amenity = hospital`: Hospitales (servicios críticos)
+- `amenity = school`: Escuelas (servicios prioritarios)
+
+**Ejemplo práctico - Rutas de mantenimiento en Tegucigalpa**:
+
+1. **Clave**: `highway`
+2. **Valor**: `secondary`
+3. **En**: Tegucigalpa, Honduras
+4. **Ejecutar consulta**
+
+### Mapas base satelitales para reconocimiento de terreno
+
+#### Google Satellite para planificación de rutas
+
+**Configuración de Google Satellite**:
+
 1. **Panel Explorador → Teselas XYZ** → clic derecho → **Nueva conexión**
-2. **URL**: `https://tile.openstreetmap.org/{z}/{x}/{y}.png`
-3. **Nombre**: `OpenStreetMap`
+2. **Nombre**: `Google Satellite`
+3. **URL**: `https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}`
+
+**Ventajas para empresas eléctricas**:
+
+- ✅ **Reconocimiento de terreno**: Identificar obstáculos antes de salir al campo
+- ✅ **Planificación de acceso**: Evaluar accesibilidad a torres y subestaciones
+- ✅ **Verificación de rutas**: Confirmar estado de caminos rurales
+- ✅ **Identificación de riesgos**: Detectar áreas inundables o de difícil acceso
+
+#### OpenStreetMap estándar (ya incluido por defecto)
+
+QGIS incluye OpenStreetMap por defecto en **Panel Explorador → Teselas XYZ → OpenStreetMap**.
+
+**Cuándo usar cada mapa base**:
+
+- **Google Satellite**: Reconocimiento de terreno, planificación de nuevas rutas
+- **OpenStreetMap**: Navegación urbana, identificación de calles y servicios
+
+### Casos de uso específicos para empresas eléctricas
+
+#### Caso 1: Planificación de ruta de mantenimiento
+1. Cargar **Google Satellite** como mapa base
+2. Usar **QuickOSM** para descargar:
+   - `power = line` (líneas eléctricas)
+   - `highway = secondary` (carreteras de acceso)
+3. Planificar ruta óptima considerando:
+   - Accesibilidad del terreno (satellite)
+   - Estado de carreteras (OSM)
+   - Ubicación de infraestructura eléctrica
+
+#### Caso 2: Respuesta a emergencias
+1. Identificar área afectada en **Google Satellite**
+2. Descargar con **QuickOSM**:
+   - `amenity = hospital` (servicios críticos)
+   - `highway = primary` (rutas de acceso rápido)
+   - `power = substation` (infraestructura de respaldo)
+3. Priorizar reparaciones según criticidad de servicios
+
+#### Caso 3: Expansión de red eléctrica
+1. Usar **Google Satellite** para evaluar terreno
+2. Descargar con **QuickOSM**:
+   - `landuse = residential` (áreas residenciales)
+   - `highway = *` (todas las carreteras)
+   - `power = *` (infraestructura eléctrica existente)
+3. Planificar nueva infraestructura considerando:
+   - Densidad poblacional
+   - Accesibilidad para construcción
+   - Conexión con red existente
 
 ### Fuentes de datos oficiales para Honduras
 
-| Fuente | Descripción | URL |
-|:-------|:------------|:----|
-| **SINIT** | Sistema Nacional de Información Territorial | [https://www.sinit.hn](https://www.sinit.hn) |
-| **OpenStreetMap Honduras** | Datos colaborativos | [https://www.openstreetmap.org](https://www.openstreetmap.org) |
-| **HOT OSM** | Tasking Manager Honduras | [https://tasks.hotosm.org](https://tasks.hotosm.org) |
+| Fuente | Descripción | URL | Utilidad para empresas eléctricas |
+|:-------|:------------|:----|:----------------------------------|
+| **SINIT** | Sistema Nacional de Información Territorial | [https://www.sinit.hn](https://www.sinit.hn) | Datos oficiales de infraestructura |
+| **OpenStreetMap Honduras** | Datos colaborativos | [https://www.openstreetmap.org](https://www.openstreetmap.org) | Rutas y carreteras actualizadas |
+| **HOT OSM** | Tasking Manager Honduras | [https://tasks.hotosm.org](https://tasks.hotosm.org) | Datos de emergencias y desastres |
 
-### Ejercicios 2.2 y 2.3: Práctica integral
+### Ejercicios 2.2 y 2.3: Práctica integral para operaciones eléctricas
 
-#### Ejercicio 2.2: Conexión a OpenStreetMap
-1. Instala el plugin **QuickOSM**
-2. Descarga las carreteras principales de Tegucigalpa
-3. Descarga los hospitales de la ciudad
-4. Visualiza ambas capas con simbología apropiada
+#### Ejercicio 2.2: Configuración de mapas base y datos de transporte
+1. Configura **Google Satellite** como mapa base
+2. Instala el plugin **QuickOSM**
+3. Descarga las carreteras secundarias de tu área de trabajo
+4. Descarga las líneas de transmisión eléctrica disponibles
+5. Visualiza ambas capas sobre el mapa satelital
 
-#### Ejercicio 2.3: Trabajo con CRS
+#### Ejercicio 2.3: Planificación de ruta de mantenimiento
 1. Carga un shapefile con CRS geográfico (EPSG:4326)
 2. Calcula el área de un polígono → observa resultado en grados²
 3. Reproyecta la capa a UTM Zona 16N (EPSG:32616)
 4. Calcula nuevamente el área → compara resultados en metros²
+5. **Aplicación práctica**: Calcula la distancia real entre dos torres de transmisión usando coordenadas proyectadas
 
 ---
 
@@ -243,23 +307,25 @@ OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, ex
 
 ### Documentación oficial:
 - [QGIS — Trabajar con proyecciones](https://docs.qgis.org/latest/es/docs/user_manual/working_with_projections/working_with_projections.html)
-- [Plugin QuickOSM — Documentación](https://docs.3liz.org/QuickOSM/)
+- [Plugin QuickOSM — Documentación](https://quickosm.github.io/QuickOSM/)
 
 ### Herramientas útiles:
 - [EPSG.io — Buscador de sistemas de referencia](https://epsg.io)
 - [Natural Earth — Datos geográficos gratuitos](https://www.naturalearthdata.com)
-- [DIVA-GIS — Datos por país](https://www.diva-gis.org/gdata)
 
 ### Datos para Honduras:
-- [Portal de Datos Abiertos de Honduras](https://www.datosabiertos.gob.hn)
 - [Humanitarian Data Exchange - Honduras](https://data.humdata.org/group/hnd)
+
+### Recursos específicos para empresas eléctricas:
+- [OpenInfraMap — Infraestructura eléctrica mundial](https://openinframap.org)
+- [OSM Power Infrastructure](https://wiki.openstreetmap.org/wiki/Power)
 
 ---
 
 ::: {.callout-important}
 ## Para la próxima sesión
 
-Asegúrate de tener instalado el plugin **QuickOSM** y practica la carga de diferentes formatos de datos.
+Asegúrate de tener instalado el plugin **QuickOSM** y configurado **Google Satellite** como mapa base.
 
-**Tarea opcional**: Descarga datos de tu municipio desde OpenStreetMap y cárgalos en QGIS usando diferentes métodos.
+**Tarea opcional**: Descarga datos de infraestructura eléctrica de tu área de trabajo desde OpenStreetMap y planifica una ruta de mantenimiento usando diferentes mapas base.
 :::
