@@ -62,7 +62,7 @@ Realiza las siguientes consultas en **Vectorial → QuickOSM → QuickOSM** para
    - **Valor**: `hospital`
    - **En**: [Tu ciudad/área de trabajo]
 
-**Entrega:** 
+**Entrega:**
 - Captura de pantalla con las tres capas descargadas visibles sobre Google Satellite
 - Tabla indicando el número de elementos descargados para cada consulta
 
@@ -92,7 +92,7 @@ Realiza las siguientes consultas en **Vectorial → QuickOSM → QuickOSM** para
    - Mide la misma distancia
    - Compara los resultados
 
-**Entrega:** 
+**Entrega:**
 - Tabla con el CRS de cada capa descargada
 - Captura de pantalla mostrando las mediciones en ambos sistemas
 - Análisis breve (2-3 oraciones) sobre las diferencias observadas
