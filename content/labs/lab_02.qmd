@@ -1,7 +1,7 @@
 ---
 title: "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales"
 subtitle: "Módulo 2 – Carga y manejo de datos"
-draft: false
+draft: False
 ---
 
 **Módulo relacionado:** [Módulo 2 – Carga y manejo de datos](../modulos/modulo2.qmd)
@@ -9,142 +9,81 @@ draft: false
 ::: {.callout-note}
 ## Instrucciones generales
 Este laboratorio es una tarea individual que debes completar de forma autónoma. Entrega los archivos y capturas de pantalla indicados en la tarea correspondiente de Google Classroom.
-
-**Enfoque especial**: Los ejercicios están diseñados para personal de empresas eléctricas, enfocándose en rutas de trabajo, infraestructura eléctrica y planificación operativa.
 :::
 
 ---
 
-## Tarea 1: Configuración de mapas base para operaciones eléctricas
+## Tarea 1: Importación de múltiples formatos
 
-Configura diferentes mapas base que son esenciales para la planificación de rutas y reconocimiento de terreno en operaciones eléctricas.
+Descarga o localiza datos espaciales en **al menos tres formatos diferentes**. Puedes usar fuentes como [GADM](https://gadm.org/), [OpenStreetMap](https://www.openstreetmap.org/export), [GeoJSON.io](https://geojson.io) u otras.
 
-### Parte A: Google Satellite
-1. **Panel Explorador → Teselas XYZ** → clic derecho → **Nueva conexión**
-2. Configura:
-   - **Nombre**: `Google Satellite`
-   - **URL**: `https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}`
-   - **Zoom máximo**: 20
-3. Agrega la capa al proyecto y navega a tu área de trabajo
+Formatos sugeridos:
 
-### Parte B: OpenStreetMap (verificación)
-1. Verifica que **OpenStreetMap** esté disponible en **Panel Explorador → Teselas XYZ**
-2. Agrega ambos mapas base al proyecto
-3. Compara la información disponible en cada uno
+- Shapefile (`.shp`)
+- GeoJSON (`.geojson`)
+- KML (`.kml`) o CSV con coordenadas (`.csv`)
 
-**Entrega:** Captura de pantalla mostrando ambos mapas base cargados en el panel de capas, enfocados en un área con infraestructura eléctrica visible.
+Para cada formato:
+
+1. Carga la capa en QGIS usando el método adecuado (Capa → Agregar capa…).
+2. Verifica que la capa se visualice correctamente.
+3. Toma una captura de pantalla con las capas cargadas.
+
+**Entrega:** Captura de pantalla con las capas de los tres formatos visibles en el panel de capas.
 
 ---
 
-## Tarea 2: Descarga de datos de transporte e infraestructura eléctrica
+## Tarea 2: Sistemas de referencia de coordenadas (CRS)
 
-Utiliza el plugin QuickOSM para descargar datos relevantes para operaciones de empresas eléctricas.
-
-### Instalación de QuickOSM
-1. **Complementos → Administrar e instalar complementos**
-2. Buscar **"QuickOSM"** → Instalar
-
-### Descarga de datos específicos
-Realiza las siguientes consultas en **Vectorial → QuickOSM → QuickOSM** para tu área de trabajo:
-
-1. **Carreteras de acceso**:
-   - **Clave**: `highway`
-   - **Valor**: `secondary`
-   - **En**: [Tu ciudad/área de trabajo]
-
-2. **Infraestructura eléctrica**:
-   - **Clave**: `power`
-   - **Valor**: `line`
-   - **En**: [Tu ciudad/área de trabajo]
-
-3. **Servicios críticos**:
-   - **Clave**: `amenity`
-   - **Valor**: `hospital`
-   - **En**: [Tu ciudad/área de trabajo]
+1. Para cada capa cargada en la Tarea 1, identifica el CRS (clic derecho sobre la capa → Propiedades → Información).
+2. Exporta una de las capas a un CRS diferente (clic derecho → Exportar → Guardar entidades como…, y cambia el CRS de destino).
+3. Compara visualmente ambas versiones (original y reproyectada) en el mapa.
+4. **Medición práctica**: Usa la herramienta de medición para medir la misma distancia en ambos CRS y compara los resultados.
 
 **Entrega:**
-- Captura de pantalla con las tres capas descargadas visibles sobre Google Satellite
-- Tabla indicando el número de elementos descargados para cada consulta
+
+- Tabla con el CRS de cada capa
+- Captura de pantalla mostrando la capa original y la reproyectada
+- Comparación de mediciones entre ambos CRS
 
 ---
 
-## Tarea 3: Análisis de sistemas de referencia de coordenadas (CRS)
+## Tarea 3: Unión de tabla CSV
 
-### Parte A: Identificación de CRS
-1. Para cada capa descargada en la Tarea 2, identifica el CRS:
-   - Clic derecho sobre la capa → **Propiedades** → **Información**
-   - Anota el código EPSG de cada capa
+1. Crea o descarga un archivo **CSV** con al menos 5 filas, que incluya:
+   - Una columna con un identificador (ej. código de municipio, nombre)
+   - Una o más columnas con datos estadísticos (ej. población, área)
+2. Carga el CSV en QGIS (Capa → Agregar capa → Agregar capa de texto delimitado).
+3. Realiza una **unión de tablas** (Table Join) entre el CSV y una capa vectorial que comparta el identificador (Propiedades de la capa → Uniones).
+4. Verifica que los campos del CSV aparecen ahora en la tabla de atributos de la capa vectorial.
 
-### Parte B: Reproyección para análisis
-1. Selecciona la capa de carreteras (`highway = secondary`)
-2. Reproyecta a UTM Zona 16N (EPSG:32616):
-   - Clic derecho → **Exportar → Guardar entidades como...**
-   - Cambia el CRS a **EPSG:32616**
-   - Guarda como `carreteras_utm16n.shp`
-
-### Parte C: Medición de distancias
-1. **Con CRS geográfico (EPSG:4326)**:
-   - Usa la herramienta de medición para medir la distancia entre dos puntos de infraestructura eléctrica
-   - Anota el resultado
-
-2. **Con CRS proyectado (EPSG:32616)**:
-   - Configura el CRS del proyecto a EPSG:32616
-   - Mide la misma distancia
-   - Compara los resultados
-
-**Entrega:**
-- Tabla con el CRS de cada capa descargada
-- Captura de pantalla mostrando las mediciones en ambos sistemas
-- Análisis breve (2-3 oraciones) sobre las diferencias observadas
+**Entrega:** Captura de pantalla de la tabla de atributos mostrando los campos unidos.
 
 ---
 
-## Tarea 4: Planificación de ruta de mantenimiento
+## Tarea 4: Exploración de OpenStreetMap
 
-Simula la planificación de una ruta de mantenimiento eléctrico usando los datos descargados.
+Explora el plugin **QuickOSM**:
 
-### Escenario
-Necesitas planificar una ruta para inspeccionar líneas de transmisión eléctrica, considerando:
-- Accesibilidad por carreteras
-- Proximidad a servicios críticos (hospitales)
-- Condiciones del terreno (visible en satellite)
+1. Instala el plugin QuickOSM (Complementos → Administrar e instalar complementos).
+2. Descarga un tipo de dato simple de tu área (ej. hospitales: clave `amenity`, valor `hospital`).
+3. Visualiza los datos descargados sobre un mapa base.
 
-### Pasos
-1. **Análisis visual**:
-   - Usa **Google Satellite** para identificar el terreno
-   - Superpón las capas de líneas eléctricas y carreteras
-   - Identifica 3-5 puntos de inspección a lo largo de las líneas eléctricas
-
-2. **Evaluación de accesibilidad**:
-   - Para cada punto de inspección, identifica la carretera de acceso más cercana
-   - Evalúa la distancia desde la carretera hasta la línea eléctrica
-
-3. **Consideración de servicios críticos**:
-   - Identifica hospitales cercanos a tu ruta
-   - Prioriza inspecciones cerca de servicios críticos
-
-**Entrega:**
-- Mapa final mostrando:
-  - Puntos de inspección marcados
-  - Ruta de acceso propuesta
-  - Servicios críticos identificados
-- Justificación escrita (4-6 oraciones) de tu planificación de ruta
+**Entrega:** Captura de pantalla con los datos de OSM cargados.
 
 ---
 
-## Tarea 5: Reflexión sobre aplicaciones en empresas eléctricas
+## Tarea 5: Reflexión
 
-Responde las siguientes preguntas basándote en tu experiencia con el laboratorio:
+Responde las siguientes preguntas con base en lo aprendido en el módulo:
 
-1. **¿Cuáles son las ventajas de usar Google Satellite vs OpenStreetMap para planificación de rutas de mantenimiento eléctrico?**
+1. **¿Cuáles son las ventajas y desventajas de los diferentes formatos de datos espaciales (Shapefile, GeoJSON, GeoPackage)? ¿Cuándo usarías cada uno?**
 
-2. **¿Por qué es importante usar coordenadas proyectadas (UTM) en lugar de geográficas para mediciones de distancia en operaciones eléctricas?**
+2. **¿Por qué es importante considerar el CRS al realizar mediciones o análisis espaciales?**
 
-3. **¿Cómo podría QuickOSM ayudar en situaciones de emergencia eléctrica (cortes de energía, tormentas)?**
+3. **¿Qué ventajas ofrece la unión de tablas para enriquecer datos espaciales?**
 
-4. **¿Qué otros tipos de datos de OpenStreetMap serían útiles para empresas eléctricas que no exploramos en este laboratorio?**
-
-Responde cada pregunta en 3-4 oraciones con base en lo aprendido en el módulo y tu experiencia práctica.
+Responde en 4–6 oraciones con base en lo aprendido en el módulo.
 
 ---
 
@@ -154,11 +93,11 @@ La rúbrica detallada de calificación se publica en Google Classroom.
 
 | Criterio                                     | Puntos |
 |:---------------------------------------------|:------:|
-| Configuración correcta de mapas base         | 15     |
-| Descarga exitosa de datos con QuickOSM       | 25     |
-| Análisis de CRS y reproyección              | 20     |
-| Planificación de ruta de mantenimiento       | 25     |
-| Reflexión sobre aplicaciones eléctricas      | 15     |
+| Capas en 3 formatos cargadas correctamente   | 25     |
+| CRS identificados, reproyección y mediciones | 30     |
+| Unión de tabla CSV completada                | 25     |
+| Reflexión sobre conceptos del módulo         | 15     |
+| Exploración OSM                              | 5      |
 | **Total**                                    | **100** |
 :::
 
@@ -167,15 +106,9 @@ La rúbrica detallada de calificación se publica en Google Classroom.
 ::: {.callout-tip}
 ## Consejos para el éxito
 
-**Para empresas eléctricas:**
-- Siempre verifica la accesibilidad del terreno antes de planificar rutas de campo
-- Considera la proximidad a servicios críticos al priorizar reparaciones
-- Usa coordenadas proyectadas para cálculos precisos de distancia y área
-- Mantén mapas base actualizados para reconocimiento de terreno efectivo
-
-**Técnicos:**
 - Guarda tu proyecto QGIS frecuentemente durante el laboratorio
-- Organiza las capas en grupos temáticos (Infraestructura, Transporte, Servicios)
-- Usa simbología clara y distintiva para cada tipo de dato
+- Organiza las capas con nombres descriptivos
+- Para las mediciones de CRS, usa el mismo par de puntos en ambos sistemas
 - Documenta las fuentes de tus datos para referencia futura
+- La tarea de OSM te dará experiencia con datos reales
 :::
