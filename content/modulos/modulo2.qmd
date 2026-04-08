@@ -92,6 +92,7 @@ Capa → Agregar capa → Agregar capa vectorial
 Para entornos profesionales y colaborativos:
 
 **Pasos para conectar QGIS a PostGIS**:
+
 1. Abre el **Administrador de fuentes de datos** (`Ctrl+L`)
 2. Selecciona la pestaña **PostgreSQL**
 3. Haz clic en **Nuevo** y completa:
@@ -154,6 +155,7 @@ Un **Sistema de Referencia de Coordenadas (CRS)** define cómo se relacionan las
 | **Análisis locales precisos** | UTM correspondiente       | 32616/32617 | Mediciones, áreas, distancias |
 
 **Ejemplo práctico - Tegucigalpa**:
+
 - **Coordenadas geográficas**: 14.0818°N, -87.2068°W
 - **Coordenadas UTM 16N**: 308,394 E, 1,556,789 N
 
@@ -187,11 +189,13 @@ OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, ex
 #### Opción 1 — Plugin QuickOSM (Recomendado):
 
 **Instalación**:
+
 1. **Complementos → Administrar e instalar complementos**
 2. Buscar **"QuickOSM"** → Instalar
 
 **Uso básico**:
-1. **Vector → QuickOSM → QuickOSM**
+
+1. **Vectorial → QuickOSM → QuickOSM**
 2. Configurar consulta:
    - **Clave**: `highway`
    - **Valor**: `primary` (carreteras principales)
@@ -199,6 +203,7 @@ OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, ex
 3. **Ejecutar consulta**
 
 **Consultas útiles para Honduras**:
+
 - `highway = primary`: Carreteras principales
 - `highway = secondary`: Carreteras secundarias
 - `amenity = hospital`: Hospitales
@@ -214,10 +219,9 @@ OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, ex
 
 | Fuente | Descripción | URL |
 |:-------|:------------|:----|
-| **INE Honduras** | Cartografía oficial | https://www.ine.gob.hn |
-| **SINIT** | Sistema Nacional de Información Territorial | https://www.sinit.hn |
-| **OpenStreetMap Honduras** | Datos colaborativos | https://www.openstreetmap.org |
-| **HOT OSM** | Tasking Manager Honduras | https://tasks.hotosm.org |
+| **SINIT** | Sistema Nacional de Información Territorial | [https://www.sinit.hn](https://www.sinit.hn) |
+| **OpenStreetMap Honduras** | Datos colaborativos | [https://www.openstreetmap.org](https://www.openstreetmap.org) |
+| **HOT OSM** | Tasking Manager Honduras | [https://tasks.hotosm.org](https://tasks.hotosm.org) |
 
 ### Ejercicios 2.2 y 2.3: Práctica integral
 
