@@ -18,7 +18,7 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 
 ## Módulo 1 — Introducción a QGIS y SIG {#modulo1}
 
-[→ Ir al módulo](modulo1.qmd)
+[→ Ir al módulo](../modulos/modulo1.qmd)
 
 1. Qué es un SIG y para qué sirve.
 2. Ventajas de QGIS como plataforma de código abierto.
@@ -29,7 +29,7 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 
 ## Módulo 2 — Carga y manejo de datos {#modulo2}
 
-[→ Ir al módulo](modulo2.qmd)
+[→ Ir al módulo](../modulos/modulo2.qmd)
 
 1. Importación de archivos shapefile, GeoJSON, KML, CSV georreferenciado.
 2. Conexión a bases de datos (PostGIS, SQLite).
@@ -40,7 +40,7 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 
 ## Módulo 3 — Edición y geoprocesamiento básico {#modulo3}
 
-[→ Ir al módulo](modulo3.qmd)
+[→ Ir al módulo](../modulos/modulo3.`qmd)
 
 1. Creación y edición de capas vectoriales.
 2. Herramientas de corte, unión, buffer y disolución.
@@ -51,7 +51,7 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 
 ## Módulo 4 — Análisis espacial para rutas {#modulo4}
 
-[→ Ir al módulo](modulo4.qmd)
+[→ Ir al módulo](../modulos/modulo4.qmd)
 
 1. Análisis de redes con el plugin QNEAT3 o Road Graph.
 2. Cálculo de rutas óptimas (más cortas, más rápidas).
@@ -63,7 +63,7 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 
 ## Módulo 5 — Automatización con Python y PyQGIS {#modulo5}
 
-[→ Ir al módulo](modulo5.qmd)
+[→ Ir al módulo](../modulos/modulo5.qmd)
 
 1. Introducción a la consola de Python en QGIS.
 2. Manipulación de capas, geometrías y atributos con PyQGIS.
@@ -75,7 +75,7 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 
 ## Módulo 6 — Visualización avanzada y mapas finales {#modulo6}
 
-[→ Ir al módulo](modulo6.qmd)
+[→ Ir al módulo](../modulos/modulo6.qmd)
 
 1. Uso de simbología por atributos.
 2. Etiquetado dinámico.
@@ -87,7 +87,7 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 
 ## Módulo 7 — Integración y casos prácticos {#modulo7}
 
-[→ Ir al módulo](modulo7.qmd)
+[→ Ir al módulo](../modulos/modulo7.qmd)
 
 1. Conexión con APIs externas (ej. OpenStreetMap, Google Maps).
 2. Proyecto aplicado: diseño y evaluación de rutas eficientes para campo.
