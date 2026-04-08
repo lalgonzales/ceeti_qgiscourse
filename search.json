@@ -643,6 +643,78 @@
     ]
   },
   {
+    "objectID": "content/labs/lab_02.html",
+    "href": "content/labs/lab_02.html",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "",
+    "text": "Módulo relacionado: Módulo 2 – Carga y manejo de datos",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_02.html#tarea-1-configuración-de-mapas-base-para-operaciones-eléctricas",
+    "href": "content/labs/lab_02.html#tarea-1-configuración-de-mapas-base-para-operaciones-eléctricas",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "1 Tarea 1: Configuración de mapas base para operaciones eléctricas",
+    "text": "1 Tarea 1: Configuración de mapas base para operaciones eléctricas\nConfigura diferentes mapas base que son esenciales para la planificación de rutas y reconocimiento de terreno en operaciones eléctricas.\n\n1.1 Parte A: Google Satellite\n\nPanel Explorador → Teselas XYZ → clic derecho → Nueva conexión\nConfigura:\n\nNombre: Google Satellite\nURL: https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}\nZoom máximo: 20\n\nAgrega la capa al proyecto y navega a tu área de trabajo\n\n\n\n1.2 Parte B: OpenStreetMap (verificación)\n\nVerifica que OpenStreetMap esté disponible en Panel Explorador → Teselas XYZ\nAgrega ambos mapas base al proyecto\nCompara la información disponible en cada uno\n\nEntrega: Captura de pantalla mostrando ambos mapas base cargados en el panel de capas, enfocados en un área con infraestructura eléctrica visible.",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_02.html#tarea-2-descarga-de-datos-de-transporte-e-infraestructura-eléctrica",
+    "href": "content/labs/lab_02.html#tarea-2-descarga-de-datos-de-transporte-e-infraestructura-eléctrica",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "2 Tarea 2: Descarga de datos de transporte e infraestructura eléctrica",
+    "text": "2 Tarea 2: Descarga de datos de transporte e infraestructura eléctrica\nUtiliza el plugin QuickOSM para descargar datos relevantes para operaciones de empresas eléctricas.\n\n2.1 Instalación de QuickOSM\n\nComplementos → Administrar e instalar complementos\nBuscar “QuickOSM” → Instalar\n\n\n\n2.2 Descarga de datos específicos\nRealiza las siguientes consultas en Vectorial → QuickOSM → QuickOSM para tu área de trabajo:\n\nCarreteras de acceso:\n\nClave: highway\nValor: secondary\nEn: [Tu ciudad/área de trabajo]\n\nInfraestructura eléctrica:\n\nClave: power\nValor: line\nEn: [Tu ciudad/área de trabajo]\n\nServicios críticos:\n\nClave: amenity\nValor: hospital\nEn: [Tu ciudad/área de trabajo]\n\n\nEntrega: - Captura de pantalla con las tres capas descargadas visibles sobre Google Satellite - Tabla indicando el número de elementos descargados para cada consulta",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_02.html#tarea-3-análisis-de-sistemas-de-referencia-de-coordenadas-crs",
+    "href": "content/labs/lab_02.html#tarea-3-análisis-de-sistemas-de-referencia-de-coordenadas-crs",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "3 Tarea 3: Análisis de sistemas de referencia de coordenadas (CRS)",
+    "text": "3 Tarea 3: Análisis de sistemas de referencia de coordenadas (CRS)\n\n3.1 Parte A: Identificación de CRS\n\nPara cada capa descargada en la Tarea 2, identifica el CRS:\n\nClic derecho sobre la capa → Propiedades → Información\nAnota el código EPSG de cada capa\n\n\n\n\n3.2 Parte B: Reproyección para análisis\n\nSelecciona la capa de carreteras (highway = secondary)\nReproyecta a UTM Zona 16N (EPSG:32616):\n\nClic derecho → Exportar → Guardar entidades como…\nCambia el CRS a EPSG:32616\nGuarda como carreteras_utm16n.shp\n\n\n\n\n3.3 Parte C: Medición de distancias\n\nCon CRS geográfico (EPSG:4326):\n\nUsa la herramienta de medición para medir la distancia entre dos puntos de infraestructura eléctrica\nAnota el resultado\n\nCon CRS proyectado (EPSG:32616):\n\nConfigura el CRS del proyecto a EPSG:32616\nMide la misma distancia\nCompara los resultados\n\n\nEntrega: - Tabla con el CRS de cada capa descargada - Captura de pantalla mostrando las mediciones en ambos sistemas - Análisis breve (2-3 oraciones) sobre las diferencias observadas",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_02.html#tarea-4-planificación-de-ruta-de-mantenimiento",
+    "href": "content/labs/lab_02.html#tarea-4-planificación-de-ruta-de-mantenimiento",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "4 Tarea 4: Planificación de ruta de mantenimiento",
+    "text": "4 Tarea 4: Planificación de ruta de mantenimiento\nSimula la planificación de una ruta de mantenimiento eléctrico usando los datos descargados.\n\n4.1 Escenario\nNecesitas planificar una ruta para inspeccionar líneas de transmisión eléctrica, considerando: - Accesibilidad por carreteras - Proximidad a servicios críticos (hospitales) - Condiciones del terreno (visible en satellite)\n\n\n4.2 Pasos\n\nAnálisis visual:\n\nUsa Google Satellite para identificar el terreno\nSuperpón las capas de líneas eléctricas y carreteras\nIdentifica 3-5 puntos de inspección a lo largo de las líneas eléctricas\n\nEvaluación de accesibilidad:\n\nPara cada punto de inspección, identifica la carretera de acceso más cercana\nEvalúa la distancia desde la carretera hasta la línea eléctrica\n\nConsideración de servicios críticos:\n\nIdentifica hospitales cercanos a tu ruta\nPrioriza inspecciones cerca de servicios críticos\n\n\nEntrega: - Mapa final mostrando: - Puntos de inspección marcados - Ruta de acceso propuesta - Servicios críticos identificados - Justificación escrita (4-6 oraciones) de tu planificación de ruta",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
+    "objectID": "content/labs/lab_02.html#tarea-5-reflexión-sobre-aplicaciones-en-empresas-eléctricas",
+    "href": "content/labs/lab_02.html#tarea-5-reflexión-sobre-aplicaciones-en-empresas-eléctricas",
+    "title": "Laboratorio 2: Carga, gestión y sistemas de referencia de datos espaciales",
+    "section": "5 Tarea 5: Reflexión sobre aplicaciones en empresas eléctricas",
+    "text": "5 Tarea 5: Reflexión sobre aplicaciones en empresas eléctricas\nResponde las siguientes preguntas basándote en tu experiencia con el laboratorio:\n\n¿Cuáles son las ventajas de usar Google Satellite vs OpenStreetMap para planificación de rutas de mantenimiento eléctrico?\n¿Por qué es importante usar coordenadas proyectadas (UTM) en lugar de geográficas para mediciones de distancia en operaciones eléctricas?\n¿Cómo podría QuickOSM ayudar en situaciones de emergencia eléctrica (cortes de energía, tormentas)?\n¿Qué otros tipos de datos de OpenStreetMap serían útiles para empresas eléctricas que no exploramos en este laboratorio?\n\nResponde cada pregunta en 3-4 oraciones con base en lo aprendido en el módulo y tu experiencia práctica.\n\n\n\n\n\n\n\nImportanteCriterios de evaluación\n\n\n\nLa rúbrica detallada de calificación se publica en Google Classroom.\n\n\n\nCriterio\nPuntos\n\n\n\n\nConfiguración correcta de mapas base\n15\n\n\nDescarga exitosa de datos con QuickOSM\n25\n\n\nAnálisis de CRS y reproyección\n20\n\n\nPlanificación de ruta de mantenimiento\n25\n\n\nReflexión sobre aplicaciones eléctricas\n15\n\n\nTotal\n100\n\n\n\n\n\n\n\n\n\n\n\n\nTipConsejos para el éxito\n\n\n\nPara empresas eléctricas: - Siempre verifica la accesibilidad del terreno antes de planificar rutas de campo - Considera la proximidad a servicios críticos al priorizar reparaciones - Usa coordenadas proyectadas para cálculos precisos de distancia y área - Mantén mapas base actualizados para reconocimiento de terreno efectivo\nTécnicos: - Guarda tu proyecto QGIS frecuentemente durante el laboratorio - Organiza las capas en grupos temáticos (Infraestructura, Transporte, Servicios) - Usa simbología clara y distintiva para cada tipo de dato - Documenta las fuentes de tus datos para referencia futura",
+    "crumbs": [
+      "Inicio",
+      "Laboratorios",
+      "Lab 2 – Carga y gestión de datos"
+    ]
+  },
+  {
     "objectID": "content/labs/instrucciones_labs.html#qué-son-los-laboratorios",
     "href": "content/labs/instrucciones_labs.html#qué-son-los-laboratorios",
     "title": "Instrucciones de Laboratorios",
@@ -779,7 +851,7 @@
     "href": "content/modulos/modulo2.html#objetivos-del-módulo",
     "title": "Módulo 2: Carga y manejo de datos",
     "section": "1 Objetivos del Módulo",
-    "text": "1 Objetivos del Módulo\nAl finalizar este módulo, los participantes podrán:\n\nImportar datos geoespaciales en múltiples formatos (Shapefile, GeoJSON, KML, CSV).\nConectar QGIS a bases de datos como PostGIS y SQLite/SpatiaLite.\nComprender y gestionar los sistemas de referencia de coordenadas (CRS).\nVisualizar rutas y redes de transporte en QGIS usando OpenStreetMap.",
+    "text": "1 Objetivos del Módulo\nAl finalizar este módulo, los participantes podrán:\n\nImportar datos geoespaciales en múltiples formatos (Shapefile, GeoJSON, KML, CSV).\nConectar QGIS a bases de datos como PostGIS y SQLite/SpatiaLite.\nComprender y gestionar los sistemas de referencia de coordenadas (CRS).\nVisualizar rutas de trabajo y redes de transporte.",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -811,11 +883,11 @@
     ]
   },
   {
-    "objectID": "content/modulos/modulo2.html#visualización-de-rutas-y-redes-de-transporte",
-    "href": "content/modulos/modulo2.html#visualización-de-rutas-y-redes-de-transporte",
+    "objectID": "content/modulos/modulo2.html#visualización-de-rutas-de-trabajo-y-redes-de-transporte-para-empresas-eléctricas",
+    "href": "content/modulos/modulo2.html#visualización-de-rutas-de-trabajo-y-redes-de-transporte-para-empresas-eléctricas",
     "title": "Módulo 2: Carga y manejo de datos",
-    "section": "4 Visualización de rutas y redes de transporte",
-    "text": "4 Visualización de rutas y redes de transporte\n\n4.1 OpenStreetMap como fuente de datos\nOpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, excelente para datos de transporte.\n\n4.1.1 Opción 1 — Plugin QuickOSM (Recomendado):\nInstalación:\n\nComplementos → Administrar e instalar complementos\nBuscar “QuickOSM” → Instalar\n\nUso básico:\n\nVectorial → QuickOSM → QuickOSM\nConfigurar consulta:\n\nClave: highway\nValor: primary (carreteras principales)\nEn: Tegucigalpa, Honduras\n\nEjecutar consulta\n\nConsultas útiles para Honduras:\n\nhighway = primary: Carreteras principales\nhighway = secondary: Carreteras secundarias\namenity = hospital: Hospitales\namenity = school: Escuelas\npublic_transport = station: Estaciones de transporte\n\n\n\n4.1.2 Opción 2 — Capas XYZ (fondo de mapa):\n\nPanel Explorador → Teselas XYZ → clic derecho → Nueva conexión\nURL: https://tile.openstreetmap.org/{z}/{x}/{y}.png\nNombre: OpenStreetMap\n\n\n\n\n4.2 Fuentes de datos oficiales para Honduras\n\n\n\nFuente\nDescripción\nURL\n\n\n\n\nSINIT\nSistema Nacional de Información Territorial\nhttps://www.sinit.hn\n\n\nOpenStreetMap Honduras\nDatos colaborativos\nhttps://www.openstreetmap.org\n\n\nHOT OSM\nTasking Manager Honduras\nhttps://tasks.hotosm.org\n\n\n\n\n\n4.3 Ejercicios 2.2 y 2.3: Práctica integral\n\n4.3.1 Ejercicio 2.2: Conexión a OpenStreetMap\n\nInstala el plugin QuickOSM\nDescarga las carreteras principales de Tegucigalpa\nDescarga los hospitales de la ciudad\nVisualiza ambas capas con simbología apropiada\n\n\n\n4.3.2 Ejercicio 2.3: Trabajo con CRS\n\nCarga un shapefile con CRS geográfico (EPSG:4326)\nCalcula el área de un polígono → observa resultado en grados²\nReproyecta la capa a UTM Zona 16N (EPSG:32616)\nCalcula nuevamente el área → compara resultados en metros²",
+    "section": "4 Visualización de rutas de trabajo y redes de transporte para empresas eléctricas",
+    "text": "4 Visualización de rutas de trabajo y redes de transporte para empresas eléctricas\n\n4.1 OpenStreetMap como fuente de datos para operaciones eléctricas\nOpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, excelente para planificar rutas de trabajo y operaciones de mantenimiento eléctrico.\n\n4.1.1 Plugin QuickOSM para datos de transporte\nInstalación:\n\nComplementos → Administrar e instalar complementos\nBuscar “QuickOSM” → Instalar\n\nConsultas específicas para empresas eléctricas:\n\nVectorial → QuickOSM → QuickOSM\nConfigurar consultas según necesidades operativas:\n\nRutas de acceso a infraestructura eléctrica:\n\nhighway = primary: Carreteras principales (acceso a subestaciones)\nhighway = secondary: Carreteras secundarias (rutas de mantenimiento)\nhighway = tertiary: Carreteras terciarias (acceso a torres de transmisión)\nhighway = track: Caminos rurales (acceso a líneas de distribución)\n\nInfraestructura relacionada:\n\npower = line: Líneas de transmisión eléctrica\npower = tower: Torres de transmisión\npower = substation: Subestaciones eléctricas\namenity = hospital: Hospitales (servicios críticos)\namenity = school: Escuelas (servicios prioritarios)\n\nEjemplo práctico - Rutas de mantenimiento en Tegucigalpa:\n\nClave: highway\nValor: secondary\nEn: Tegucigalpa, Honduras\nEjecutar consulta\n\n\n\n\n4.2 Mapas base satelitales para reconocimiento de terreno\n\n4.2.1 Google Satellite para planificación de rutas\nConfiguración de Google Satellite:\n\nPanel Explorador → Teselas XYZ → clic derecho → Nueva conexión\nNombre: Google Satellite\nURL: https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}\n\nVentajas para empresas eléctricas:\n\n✅ Reconocimiento de terreno: Identificar obstáculos antes de salir al campo\n✅ Planificación de acceso: Evaluar accesibilidad a torres y subestaciones\n✅ Verificación de rutas: Confirmar estado de caminos rurales\n✅ Identificación de riesgos: Detectar áreas inundables o de difícil acceso\n\n\n\n4.2.2 OpenStreetMap estándar (ya incluido por defecto)\nQGIS incluye OpenStreetMap por defecto en Panel Explorador → Teselas XYZ → OpenStreetMap.\nCuándo usar cada mapa base:\n\nGoogle Satellite: Reconocimiento de terreno, planificación de nuevas rutas\nOpenStreetMap: Navegación urbana, identificación de calles y servicios\n\n\n\n\n4.3 Casos de uso específicos para empresas eléctricas\n\n4.3.1 Caso 1: Planificación de ruta de mantenimiento\n\nCargar Google Satellite como mapa base\nUsar QuickOSM para descargar:\n\npower = line (líneas eléctricas)\nhighway = secondary (carreteras de acceso)\n\nPlanificar ruta óptima considerando:\n\nAccesibilidad del terreno (satellite)\nEstado de carreteras (OSM)\nUbicación de infraestructura eléctrica\n\n\n\n\n4.3.2 Caso 2: Respuesta a emergencias\n\nIdentificar área afectada en Google Satellite\nDescargar con QuickOSM:\n\namenity = hospital (servicios críticos)\nhighway = primary (rutas de acceso rápido)\npower = substation (infraestructura de respaldo)\n\nPriorizar reparaciones según criticidad de servicios\n\n\n\n4.3.3 Caso 3: Expansión de red eléctrica\n\nUsar Google Satellite para evaluar terreno\nDescargar con QuickOSM:\n\nlanduse = residential (áreas residenciales)\nhighway = * (todas las carreteras)\npower = * (infraestructura eléctrica existente)\n\nPlanificar nueva infraestructura considerando:\n\nDensidad poblacional\nAccesibilidad para construcción\nConexión con red existente\n\n\n\n\n\n4.4 Fuentes de datos oficiales para Honduras\n\n\n\nFuente\nDescripción\nURL\nUtilidad para empresas eléctricas\n\n\n\n\nSINIT\nSistema Nacional de Información Territorial\nhttps://www.sinit.hn\nDatos oficiales de infraestructura\n\n\nOpenStreetMap Honduras\nDatos colaborativos\nhttps://www.openstreetmap.org\nRutas y carreteras actualizadas\n\n\nHOT OSM\nTasking Manager Honduras\nhttps://tasks.hotosm.org\nDatos de emergencias y desastres\n\n\n\n\n\n4.5 Ejercicios 2.2 y 2.3: Práctica integral para operaciones eléctricas\n\n4.5.1 Ejercicio 2.2: Configuración de mapas base y datos de transporte\n\nConfigura Google Satellite como mapa base\nInstala el plugin QuickOSM\nDescarga las carreteras secundarias de tu área de trabajo\nDescarga las líneas de transmisión eléctrica disponibles\nVisualiza ambas capas sobre el mapa satelital\n\n\n\n4.5.2 Ejercicio 2.3: Planificación de ruta de mantenimiento\n\nCarga un shapefile con CRS geográfico (EPSG:4326)\nCalcula el área de un polígono → observa resultado en grados²\nReproyecta la capa a UTM Zona 16N (EPSG:32616)\nCalcula nuevamente el área → compara resultados en metros²\nAplicación práctica: Calcula la distancia real entre dos torres de transmisión usando coordenadas proyectadas",
     "crumbs": [
       "Inicio",
       "Módulos",
@@ -827,7 +899,7 @@
     "href": "content/modulos/modulo2.html#recursos-y-referencias",
     "title": "Módulo 2: Carga y manejo de datos",
     "section": "5 📚 Recursos y Referencias",
-    "text": "5 📚 Recursos y Referencias\n\n5.1 Documentación oficial:\n\nQGIS — Trabajar con proyecciones\nPlugin QuickOSM — Documentación\n\n\n\n5.2 Herramientas útiles:\n\nEPSG.io — Buscador de sistemas de referencia\nNatural Earth — Datos geográficos gratuitos\nDIVA-GIS — Datos por país\n\n\n\n5.3 Datos para Honduras:\n\nPortal de Datos Abiertos de Honduras\nHumanitarian Data Exchange - Honduras\n\n\n\n\n\n\n\n\nImportantePara la próxima sesión\n\n\n\nAsegúrate de tener instalado el plugin QuickOSM y practica la carga de diferentes formatos de datos.\nTarea opcional: Descarga datos de tu municipio desde OpenStreetMap y cárgalos en QGIS usando diferentes métodos.",
+    "text": "5 📚 Recursos y Referencias\n\n5.1 Documentación oficial:\n\nQGIS — Trabajar con proyecciones\nPlugin QuickOSM — Documentación\n\n\n\n5.2 Herramientas útiles:\n\nEPSG.io — Buscador de sistemas de referencia\nNatural Earth — Datos geográficos gratuitos\n\n\n\n5.3 Datos para Honduras:\n\nHumanitarian Data Exchange - Honduras\n\n\n\n5.4 Recursos específicos para empresas eléctricas:\n\nOpenInfraMap — Infraestructura eléctrica mundial\nOSM Power Infrastructure\n\n\n\n\n\n\n\n\nImportantePara la próxima sesión\n\n\n\nAsegúrate de tener instalado el plugin QuickOSM y configurado Google Satellite como mapa base.\nTarea opcional: Descarga datos de infraestructura eléctrica de tu área de trabajo desde OpenStreetMap y planifica una ruta de mantenimiento usando diferentes mapas base.",
     "crumbs": [
       "Inicio",
       "Módulos",
