@@ -728,7 +728,20 @@ Universidad Nacional,-87.16487,14.08612,universidad</code></pre>
 <section id="postgis-postgresql-extensión-espacial" class="level4" data-number="2.4.2">
 <h4 data-number="2.4.2" class="anchored" data-anchor-id="postgis-postgresql-extensión-espacial"><span class="header-section-number">2.4.2</span> PostGIS (PostgreSQL + extensión espacial)</h4>
 <p>Para entornos profesionales y colaborativos:</p>
-<p><strong>Pasos para conectar QGIS a PostGIS</strong>: 1. Abre el <strong>Administrador de fuentes de datos</strong> (<code>Ctrl+L</code>) 2. Selecciona la pestaña <strong>PostgreSQL</strong> 3. Haz clic en <strong>Nuevo</strong> y completa: - Nombre de conexión: <code>Honduras_PostGIS</code> - Host: <code>localhost</code> (o IP del servidor) - Puerto: <code>5432</code> - Base de datos: nombre de tu BD - Usuario y contraseña 4. <strong>Probar conexión</strong> → <strong>Aceptar</strong></p>
+<p><strong>Pasos para conectar QGIS a PostGIS</strong>:</p>
+<ol type="1">
+<li>Abre el <strong>Administrador de fuentes de datos</strong> (<code>Ctrl+L</code>)</li>
+<li>Selecciona la pestaña <strong>PostgreSQL</strong></li>
+<li>Haz clic en <strong>Nuevo</strong> y completa:
+<ul>
+<li>Nombre de conexión: <code>Honduras_PostGIS</code></li>
+<li>Host: <code>localhost</code> (o IP del servidor)</li>
+<li>Puerto: <code>5432</code></li>
+<li>Base de datos: nombre de tu BD</li>
+<li>Usuario y contraseña</li>
+</ul></li>
+<li><strong>Probar conexión</strong> → <strong>Aceptar</strong></li>
+</ol>
 </section>
 <section id="sqlite-spatialite" class="level4" data-number="2.4.3">
 <h4 data-number="2.4.3" class="anchored" data-anchor-id="sqlite-spatialite"><span class="header-section-number">2.4.3</span> SQLite / SpatiaLite</h4>
@@ -850,7 +863,11 @@ Universidad Nacional,-87.16487,14.08612,universidad</code></pre>
 </tr>
 </tbody>
 </table>
-<p><strong>Ejemplo práctico - Tegucigalpa</strong>: - <strong>Coordenadas geográficas</strong>: 14.0818°N, -87.2068°W - <strong>Coordenadas UTM 16N</strong>: 308,394 E, 1,556,789 N</p>
+<p><strong>Ejemplo práctico - Tegucigalpa</strong>:</p>
+<ul>
+<li><strong>Coordenadas geográficas</strong>: 14.0818°N, -87.2068°W</li>
+<li><strong>Coordenadas UTM 16N</strong>: 308,394 E, 1,556,789 N</li>
+</ul>
 </section>
 <section id="configuración-de-crs-en-qgis" class="level3" data-number="3.4">
 <h3 data-number="3.4" class="anchored" data-anchor-id="configuración-de-crs-en-qgis"><span class="header-section-number">3.4</span> Configuración de CRS en QGIS</h3>
@@ -898,9 +915,30 @@ Universidad Nacional,-87.16487,14.08612,universidad</code></pre>
 <p>OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, excelente para datos de transporte.</p>
 <section id="opción-1-plugin-quickosm-recomendado" class="level4" data-number="4.1.1">
 <h4 data-number="4.1.1" class="anchored" data-anchor-id="opción-1-plugin-quickosm-recomendado"><span class="header-section-number">4.1.1</span> Opción 1 — Plugin QuickOSM (Recomendado):</h4>
-<p><strong>Instalación</strong>: 1. <strong>Complementos → Administrar e instalar complementos</strong> 2. Buscar <strong>“QuickOSM”</strong> → Instalar</p>
-<p><strong>Uso básico</strong>: 1. <strong>Vector → QuickOSM → QuickOSM</strong> 2. Configurar consulta: - <strong>Clave</strong>: <code>highway</code> - <strong>Valor</strong>: <code>primary</code> (carreteras principales) - <strong>En</strong>: Tegucigalpa, Honduras 3. <strong>Ejecutar consulta</strong></p>
-<p><strong>Consultas útiles para Honduras</strong>: - <code>highway = primary</code>: Carreteras principales - <code>highway = secondary</code>: Carreteras secundarias - <code>amenity = hospital</code>: Hospitales - <code>amenity = school</code>: Escuelas - <code>public_transport = station</code>: Estaciones de transporte</p>
+<p><strong>Instalación</strong>:</p>
+<ol type="1">
+<li><strong>Complementos → Administrar e instalar complementos</strong></li>
+<li>Buscar <strong>“QuickOSM”</strong> → Instalar</li>
+</ol>
+<p><strong>Uso básico</strong>:</p>
+<ol type="1">
+<li><strong>Vectorial → QuickOSM → QuickOSM</strong></li>
+<li>Configurar consulta:
+<ul>
+<li><strong>Clave</strong>: <code>highway</code></li>
+<li><strong>Valor</strong>: <code>primary</code> (carreteras principales)</li>
+<li><strong>En</strong>: Tegucigalpa, Honduras</li>
+</ul></li>
+<li><strong>Ejecutar consulta</strong></li>
+</ol>
+<p><strong>Consultas útiles para Honduras</strong>:</p>
+<ul>
+<li><code>highway = primary</code>: Carreteras principales</li>
+<li><code>highway = secondary</code>: Carreteras secundarias</li>
+<li><code>amenity = hospital</code>: Hospitales</li>
+<li><code>amenity = school</code>: Escuelas</li>
+<li><code>public_transport = station</code>: Estaciones de transporte</li>
+</ul>
 </section>
 <section id="opción-2-capas-xyz-fondo-de-mapa" class="level4" data-number="4.1.2">
 <h4 data-number="4.1.2" class="anchored" data-anchor-id="opción-2-capas-xyz-fondo-de-mapa"><span class="header-section-number">4.1.2</span> Opción 2 — Capas XYZ (fondo de mapa):</h4>
@@ -914,11 +952,6 @@ Universidad Nacional,-87.16487,14.08612,universidad</code></pre>
 <section id="fuentes-de-datos-oficiales-para-honduras" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="fuentes-de-datos-oficiales-para-honduras"><span class="header-section-number">4.2</span> Fuentes de datos oficiales para Honduras</h3>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 50%">
-<col style="width: 19%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Fuente</th>
@@ -928,24 +961,19 @@ Universidad Nacional,-87.16487,14.08612,universidad</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>INE Honduras</strong></td>
-<td style="text-align: left;">Cartografía oficial</td>
-<td style="text-align: left;">https://www.ine.gob.hn</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"><strong>SINIT</strong></td>
 <td style="text-align: left;">Sistema Nacional de Información Territorial</td>
-<td style="text-align: left;">https://www.sinit.hn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>OpenStreetMap Honduras</strong></td>
-<td style="text-align: left;">Datos colaborativos</td>
-<td style="text-align: left;">https://www.openstreetmap.org</td>
+<td style="text-align: left;"><a href="https://www.sinit.hn">https://www.sinit.hn</a></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"><strong>OpenStreetMap Honduras</strong></td>
+<td style="text-align: left;">Datos colaborativos</td>
+<td style="text-align: left;"><a href="https://www.openstreetmap.org">https://www.openstreetmap.org</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"><strong>HOT OSM</strong></td>
 <td style="text-align: left;">Tasking Manager Honduras</td>
-<td style="text-align: left;">https://tasks.hotosm.org</td>
+<td style="text-align: left;"><a href="https://tasks.hotosm.org">https://tasks.hotosm.org</a></td>
 </tr>
 </tbody>
 </table>
@@ -1589,173 +1617,177 @@ Universidad Nacional,-87.16487,14.08612,universidad</code></pre>
 <span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>Para entornos profesionales y colaborativos:</span>
 <span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>**Pasos para conectar QGIS a PostGIS**:</span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Abre el **Administrador de fuentes de datos** (<span class="in">`Ctrl+L`</span>)</span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Selecciona la pestaña **PostgreSQL**</span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Haz clic en **Nuevo** y completa:</span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Nombre de conexión: <span class="in">`Honduras_PostGIS`</span></span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Host: <span class="in">`localhost`</span> (o IP del servidor)</span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Puerto: <span class="in">`5432`</span></span>
-<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Base de datos: nombre de tu BD</span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usuario y contraseña</span>
-<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Probar conexión** → **Aceptar**</span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a><span class="fu">#### SQLite / SpatiaLite</span></span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>Ideal para proyectos de campo o personales:</span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a><span class="in">Capa → Agregar capa → Agregar capa SpatiaLite</span></span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 2.1: Carga de datos en múltiples formatos</span></span>
-<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Descarga datos de ejemplo de Honduras</span>
-<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Carga un Shapefile usando arrastrar y soltar</span>
-<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Carga un CSV con coordenadas de hospitales de Tegucigalpa</span>
-<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Verifica que ambas capas se muestren correctamente</span>
-<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sistemas de referencia de coordenadas (CRS)</span></span>
-<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a><span class="fu">### ¿Qué es un CRS?</span></span>
-<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>Un **Sistema de Referencia de Coordenadas (CRS)** define cómo se relacionan las coordenadas de un mapa con las posiciones reales en la superficie terrestre.</span>
-<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tipos de CRS</span></span>
-<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Tipo                          <span class="pp">|</span> Descripción                                      <span class="pp">|</span> Unidades <span class="pp">|</span> Ejemplo                    <span class="pp">|</span></span>
-<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a><span class="pp">|:------------------------------|:-------------------------------------------------|:---------|:---------------------------|</span></span>
-<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Geográfico (GCS)**          <span class="pp">|</span> Coordenadas en grados (lat/lon)                  <span class="pp">|</span> Grados   <span class="pp">|</span> WGS 84 (EPSG:4326)         <span class="pp">|</span></span>
-<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Proyectado (PCS)**          <span class="pp">|</span> Coordenadas en metros/pies sobre plano 2D        <span class="pp">|</span> Metros   <span class="pp">|</span> UTM Zona 16N (EPSG:32616)  <span class="pp">|</span></span>
-<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Local/Nacional**            <span class="pp">|</span> Sistemas específicos de cada país                <span class="pp">|</span> Metros   <span class="pp">|</span> Marco Geodésico de Honduras<span class="pp">|</span></span>
-<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a><span class="fu">## ¡Importante para análisis!</span></span>
-<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>**Coordenadas geográficas (grados)**:</span>
-<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>✅ Buenas para: visualización, GPS, web</span>
-<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>❌ Malas para: cálculos de área, distancia, análisis espacial</span>
-<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a>**Coordenadas proyectadas (metros)**:</span>
-<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>✅ Buenas para: análisis espacial, mediciones precisas</span>
-<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>❌ Malas para: áreas muy grandes (distorsión)</span>
-<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### CRS recomendados para Honduras</span></span>
-<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Uso                           <span class="pp">|</span> CRS Recomendado           <span class="pp">|</span> Código EPSG <span class="pp">|</span> Cuándo usar <span class="pp">|</span></span>
-<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a><span class="pp">|:------------------------------|:--------------------------|:------------|:------------|</span></span>
-<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Datos GPS y web**           <span class="pp">|</span> WGS 84                    <span class="pp">|</span> EPSG:4326   <span class="pp">|</span> Coordenadas de GPS, mapas web <span class="pp">|</span></span>
-<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Análisis nacional**         <span class="pp">|</span> UTM Zona 16N              <span class="pp">|</span> EPSG:32616  <span class="pp">|</span> Centro y oeste de Honduras <span class="pp">|</span></span>
-<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Análisis oriente**          <span class="pp">|</span> UTM Zona 17N              <span class="pp">|</span> EPSG:32617  <span class="pp">|</span> Oriente de Honduras <span class="pp">|</span></span>
-<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Análisis locales precisos** <span class="pp">|</span> UTM correspondiente       <span class="pp">|</span> 32616/32617 <span class="pp">|</span> Mediciones, áreas, distancias <span class="pp">|</span></span>
-<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a>**Ejemplo práctico - Tegucigalpa**:</span>
-<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Coordenadas geográficas**: 14.0818°N, -87.2068°W</span>
-<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Coordenadas UTM 16N**: 308,394 E, 1,556,789 N</span>
-<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuración de CRS en QGIS</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Abre el **Administrador de fuentes de datos** (<span class="in">`Ctrl+L`</span>)</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Selecciona la pestaña **PostgreSQL**</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Haz clic en **Nuevo** y completa:</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Nombre de conexión: <span class="in">`Honduras_PostGIS`</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Host: <span class="in">`localhost`</span> (o IP del servidor)</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Puerto: <span class="in">`5432`</span></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Base de datos: nombre de tu BD</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usuario y contraseña</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Probar conexión** → **Aceptar**</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a><span class="fu">#### SQLite / SpatiaLite</span></span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>Ideal para proyectos de campo o personales:</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="in">Capa → Agregar capa → Agregar capa SpatiaLite</span></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 2.1: Carga de datos en múltiples formatos</span></span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Descarga datos de ejemplo de Honduras</span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Carga un Shapefile usando arrastrar y soltar</span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Carga un CSV con coordenadas de hospitales de Tegucigalpa</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Verifica que ambas capas se muestren correctamente</span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sistemas de referencia de coordenadas (CRS)</span></span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="fu">### ¿Qué es un CRS?</span></span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>Un **Sistema de Referencia de Coordenadas (CRS)** define cómo se relacionan las coordenadas de un mapa con las posiciones reales en la superficie terrestre.</span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tipos de CRS</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Tipo                          <span class="pp">|</span> Descripción                                      <span class="pp">|</span> Unidades <span class="pp">|</span> Ejemplo                    <span class="pp">|</span></span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a><span class="pp">|:------------------------------|:-------------------------------------------------|:---------|:---------------------------|</span></span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Geográfico (GCS)**          <span class="pp">|</span> Coordenadas en grados (lat/lon)                  <span class="pp">|</span> Grados   <span class="pp">|</span> WGS 84 (EPSG:4326)         <span class="pp">|</span></span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Proyectado (PCS)**          <span class="pp">|</span> Coordenadas en metros/pies sobre plano 2D        <span class="pp">|</span> Metros   <span class="pp">|</span> UTM Zona 16N (EPSG:32616)  <span class="pp">|</span></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Local/Nacional**            <span class="pp">|</span> Sistemas específicos de cada país                <span class="pp">|</span> Metros   <span class="pp">|</span> Marco Geodésico de Honduras<span class="pp">|</span></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## ¡Importante para análisis!</span></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>**Coordenadas geográficas (grados)**:</span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>✅ Buenas para: visualización, GPS, web</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>❌ Malas para: cálculos de área, distancia, análisis espacial</span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>**Coordenadas proyectadas (metros)**:</span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>✅ Buenas para: análisis espacial, mediciones precisas</span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>❌ Malas para: áreas muy grandes (distorsión)</span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a><span class="fu">### CRS recomendados para Honduras</span></span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Uso                           <span class="pp">|</span> CRS Recomendado           <span class="pp">|</span> Código EPSG <span class="pp">|</span> Cuándo usar <span class="pp">|</span></span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a><span class="pp">|:------------------------------|:--------------------------|:------------|:------------|</span></span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Datos GPS y web**           <span class="pp">|</span> WGS 84                    <span class="pp">|</span> EPSG:4326   <span class="pp">|</span> Coordenadas de GPS, mapas web <span class="pp">|</span></span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Análisis nacional**         <span class="pp">|</span> UTM Zona 16N              <span class="pp">|</span> EPSG:32616  <span class="pp">|</span> Centro y oeste de Honduras <span class="pp">|</span></span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Análisis oriente**          <span class="pp">|</span> UTM Zona 17N              <span class="pp">|</span> EPSG:32617  <span class="pp">|</span> Oriente de Honduras <span class="pp">|</span></span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Análisis locales precisos** <span class="pp">|</span> UTM correspondiente       <span class="pp">|</span> 32616/32617 <span class="pp">|</span> Mediciones, áreas, distancias <span class="pp">|</span></span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a>**Ejemplo práctico - Tegucigalpa**:</span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Coordenadas geográficas**: 14.0818°N, -87.2068°W</span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Coordenadas UTM 16N**: 308,394 E, 1,556,789 N</span>
 <span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ver el CRS de una capa:</span></span>
-<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Clic derecho sobre la capa → **Propiedades**</span>
-<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Pestaña **Fuente** → Sistema de referencia de coordenadas</span>
-<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Reproyectar una capa (cambiar el CRS):</span></span>
-<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Capa en el panel → clic derecho → **Exportar → Guardar entidades como...**</span>
-<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Cambia el CRS en el campo **SRC**</span>
-<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Guarda con nuevo nombre</span>
-<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Configurar CRS del proyecto:</span></span>
-<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Proyecto → Propiedades → SRC**</span>
-<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Recomendado: **EPSG:32616** para análisis en Honduras</span>
-<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a><span class="fu">## Transformación sobre la marcha (OTF)</span></span>
-<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a>QGIS puede mostrar capas con diferentes CRS juntas automáticamente. Sin embargo, para **análisis espacial** siempre reproyecta a un CRS apropiado.</span>
-<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualización de rutas y redes de transporte</span></span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuración de CRS en QGIS</span></span>
+<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ver el CRS de una capa:</span></span>
+<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Clic derecho sobre la capa → **Propiedades**</span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Pestaña **Fuente** → Sistema de referencia de coordenadas</span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Reproyectar una capa (cambiar el CRS):</span></span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Capa en el panel → clic derecho → **Exportar → Guardar entidades como...**</span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Cambia el CRS en el campo **SRC**</span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Guarda con nuevo nombre</span>
+<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Configurar CRS del proyecto:</span></span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Proyecto → Propiedades → SRC**</span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Recomendado: **EPSG:32616** para análisis en Honduras</span>
+<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a><span class="fu">## Transformación sobre la marcha (OTF)</span></span>
+<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a>QGIS puede mostrar capas con diferentes CRS juntas automáticamente. Sin embargo, para **análisis espacial** siempre reproyecta a un CRS apropiado.</span>
+<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a><span class="fu">### OpenStreetMap como fuente de datos</span></span>
+<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualización de rutas y redes de transporte</span></span>
 <span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a>OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, excelente para datos de transporte.</span>
+<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a><span class="fu">### OpenStreetMap como fuente de datos</span></span>
 <span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Opción 1 — Plugin QuickOSM (Recomendado):</span></span>
+<span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a>OpenStreetMap (OSM) es una base de datos geográfica colaborativa y gratuita, excelente para datos de transporte.</span>
 <span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a>**Instalación**:</span>
-<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Complementos → Administrar e instalar complementos**</span>
-<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Buscar **"QuickOSM"** → Instalar</span>
+<span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Opción 1 — Plugin QuickOSM (Recomendado):</span></span>
+<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a>**Instalación**:</span>
 <span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a>**Uso básico**:</span>
-<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Vector → QuickOSM → QuickOSM**</span>
-<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Configurar consulta:</span>
-<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Clave**: <span class="in">`highway`</span></span>
-<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Valor**: <span class="in">`primary`</span> (carreteras principales)</span>
-<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**En**: Tegucigalpa, Honduras</span>
-<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Ejecutar consulta**</span>
-<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a>**Consultas útiles para Honduras**:</span>
-<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`highway = primary`</span>: Carreteras principales</span>
-<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`highway = secondary`</span>: Carreteras secundarias</span>
-<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`amenity = hospital`</span>: Hospitales</span>
-<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`amenity = school`</span>: Escuelas</span>
-<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`public_transport = station`</span>: Estaciones de transporte</span>
-<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Opción 2 — Capas XYZ (fondo de mapa):</span></span>
-<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Panel Explorador → Teselas XYZ** → clic derecho → **Nueva conexión**</span>
-<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**URL**: <span class="in">`https://tile.openstreetmap.org/{z}/{x}/{y}.png`</span></span>
-<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Nombre**: <span class="in">`OpenStreetMap`</span></span>
+<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Complementos → Administrar e instalar complementos**</span>
+<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Buscar **"QuickOSM"** → Instalar</span>
+<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a>**Uso básico**:</span>
+<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Vectorial → QuickOSM → QuickOSM**</span>
+<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Configurar consulta:</span>
+<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Clave**: <span class="in">`highway`</span></span>
+<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Valor**: <span class="in">`primary`</span> (carreteras principales)</span>
+<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**En**: Tegucigalpa, Honduras</span>
+<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Ejecutar consulta**</span>
+<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a>**Consultas útiles para Honduras**:</span>
+<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`highway = primary`</span>: Carreteras principales</span>
+<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`highway = secondary`</span>: Carreteras secundarias</span>
+<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`amenity = hospital`</span>: Hospitales</span>
+<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`amenity = school`</span>: Escuelas</span>
+<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`public_transport = station`</span>: Estaciones de transporte</span>
 <span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fuentes de datos oficiales para Honduras</span></span>
-<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fuente <span class="pp">|</span> Descripción <span class="pp">|</span> URL <span class="pp">|</span></span>
-<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------|:------------|:----|</span></span>
-<span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **INE Honduras** <span class="pp">|</span> Cartografía oficial <span class="pp">|</span> https://www.ine.gob.hn <span class="pp">|</span></span>
-<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **SINIT** <span class="pp">|</span> Sistema Nacional de Información Territorial <span class="pp">|</span> https://www.sinit.hn <span class="pp">|</span></span>
-<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **OpenStreetMap Honduras** <span class="pp">|</span> Datos colaborativos <span class="pp">|</span> https://www.openstreetmap.org <span class="pp">|</span></span>
-<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **HOT OSM** <span class="pp">|</span> Tasking Manager Honduras <span class="pp">|</span> https://tasks.hotosm.org <span class="pp">|</span></span>
-<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicios 2.2 y 2.3: Práctica integral</span></span>
-<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ejercicio 2.2: Conexión a OpenStreetMap</span></span>
-<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Instala el plugin **QuickOSM**</span>
-<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Descarga las carreteras principales de Tegucigalpa</span>
-<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Descarga los hospitales de la ciudad</span>
-<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Visualiza ambas capas con simbología apropiada</span>
-<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ejercicio 2.3: Trabajo con CRS</span></span>
-<span id="cb4-231"><a href="#cb4-231" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Carga un shapefile con CRS geográfico (EPSG:4326)</span>
-<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Calcula el área de un polígono → observa resultado en grados²</span>
-<span id="cb4-233"><a href="#cb4-233" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Reproyecta la capa a UTM Zona 16N (EPSG:32616)</span>
-<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Calcula nuevamente el área → compara resultados en metros²</span>
-<span id="cb4-235"><a href="#cb4-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb4-237"><a href="#cb4-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Recursos y Referencias</span></span>
+<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Opción 2 — Capas XYZ (fondo de mapa):</span></span>
+<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Panel Explorador → Teselas XYZ** → clic derecho → **Nueva conexión**</span>
+<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**URL**: <span class="in">`https://tile.openstreetmap.org/{z}/{x}/{y}.png`</span></span>
+<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Nombre**: <span class="in">`OpenStreetMap`</span></span>
+<span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fuentes de datos oficiales para Honduras</span></span>
+<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fuente <span class="pp">|</span> Descripción <span class="pp">|</span> URL <span class="pp">|</span></span>
+<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------|:------------|:----|</span></span>
+<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **SINIT** <span class="pp">|</span> Sistema Nacional de Información Territorial <span class="pp">|</span> <span class="co">[</span><span class="ot">https://www.sinit.hn</span><span class="co">](https://www.sinit.hn)</span> <span class="pp">|</span></span>
+<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **OpenStreetMap Honduras** <span class="pp">|</span> Datos colaborativos <span class="pp">|</span> <span class="co">[</span><span class="ot">https://www.openstreetmap.org</span><span class="co">](https://www.openstreetmap.org)</span> <span class="pp">|</span></span>
+<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **HOT OSM** <span class="pp">|</span> Tasking Manager Honduras <span class="pp">|</span> <span class="co">[</span><span class="ot">https://tasks.hotosm.org</span><span class="co">](https://tasks.hotosm.org)</span> <span class="pp">|</span></span>
+<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicios 2.2 y 2.3: Práctica integral</span></span>
+<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ejercicio 2.2: Conexión a OpenStreetMap</span></span>
+<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Instala el plugin **QuickOSM**</span>
+<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Descarga las carreteras principales de Tegucigalpa</span>
+<span id="cb4-231"><a href="#cb4-231" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Descarga los hospitales de la ciudad</span>
+<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Visualiza ambas capas con simbología apropiada</span>
+<span id="cb4-233"><a href="#cb4-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ejercicio 2.3: Trabajo con CRS</span></span>
+<span id="cb4-235"><a href="#cb4-235" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Carga un shapefile con CRS geográfico (EPSG:4326)</span>
+<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Calcula el área de un polígono → observa resultado en grados²</span>
+<span id="cb4-237"><a href="#cb4-237" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Reproyecta la capa a UTM Zona 16N (EPSG:32616)</span>
+<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Calcula nuevamente el área → compara resultados en metros²</span>
 <span id="cb4-239"><a href="#cb4-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a><span class="fu">### Documentación oficial:</span></span>
-<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QGIS — Trabajar con proyecciones</span><span class="co">](https://docs.qgis.org/latest/es/docs/user_manual/working_with_projections/working_with_projections.html)</span></span>
-<span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Plugin QuickOSM — Documentación</span><span class="co">](https://docs.3liz.org/QuickOSM/)</span></span>
+<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Recursos y Referencias</span></span>
 <span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### Herramientas útiles:</span></span>
-<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">EPSG.io — Buscador de sistemas de referencia</span><span class="co">](https://epsg.io)</span></span>
-<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Natural Earth — Datos geográficos gratuitos</span><span class="co">](https://www.naturalearthdata.com)</span></span>
-<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">DIVA-GIS — Datos por país</span><span class="co">](https://www.diva-gis.org/gdata)</span></span>
-<span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-249"><a href="#cb4-249" aria-hidden="true" tabindex="-1"></a><span class="fu">### Datos para Honduras:</span></span>
-<span id="cb4-250"><a href="#cb4-250" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Portal de Datos Abiertos de Honduras</span><span class="co">](https://www.datosabiertos.gob.hn)</span></span>
-<span id="cb4-251"><a href="#cb4-251" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Humanitarian Data Exchange - Honduras</span><span class="co">](https://data.humdata.org/group/hnd)</span></span>
+<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### Documentación oficial:</span></span>
+<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QGIS — Trabajar con proyecciones</span><span class="co">](https://docs.qgis.org/latest/es/docs/user_manual/working_with_projections/working_with_projections.html)</span></span>
+<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Plugin QuickOSM — Documentación</span><span class="co">](https://docs.3liz.org/QuickOSM/)</span></span>
+<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### Herramientas útiles:</span></span>
+<span id="cb4-249"><a href="#cb4-249" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">EPSG.io — Buscador de sistemas de referencia</span><span class="co">](https://epsg.io)</span></span>
+<span id="cb4-250"><a href="#cb4-250" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Natural Earth — Datos geográficos gratuitos</span><span class="co">](https://www.naturalearthdata.com)</span></span>
+<span id="cb4-251"><a href="#cb4-251" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">DIVA-GIS — Datos por país</span><span class="co">](https://www.diva-gis.org/gdata)</span></span>
 <span id="cb4-252"><a href="#cb4-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-253"><a href="#cb4-253" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb4-254"><a href="#cb4-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
-<span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a><span class="fu">## Para la próxima sesión</span></span>
-<span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a>Asegúrate de tener instalado el plugin **QuickOSM** y practica la carga de diferentes formatos de datos.</span>
-<span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a>**Tarea opcional**: Descarga datos de tu municipio desde OpenStreetMap y cárgalos en QGIS usando diferentes métodos.</span>
-<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb4-253"><a href="#cb4-253" aria-hidden="true" tabindex="-1"></a><span class="fu">### Datos para Honduras:</span></span>
+<span id="cb4-254"><a href="#cb4-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Portal de Datos Abiertos de Honduras</span><span class="co">](https://www.datosabiertos.gob.hn)</span></span>
+<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Humanitarian Data Exchange - Honduras</span><span class="co">](https://data.humdata.org/group/hnd)</span></span>
+<span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a><span class="fu">## Para la próxima sesión</span></span>
+<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a>Asegúrate de tener instalado el plugin **QuickOSM** y practica la carga de diferentes formatos de datos.</span>
+<span id="cb4-263"><a href="#cb4-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-264"><a href="#cb4-264" aria-hidden="true" tabindex="-1"></a>**Tarea opcional**: Descarga datos de tu municipio desde OpenStreetMap y cárgalos en QGIS usando diferentes métodos.</span>
+<span id="cb4-265"><a href="#cb4-265" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
