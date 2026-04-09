@@ -40,7 +40,7 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 
 ## Módulo 3 — Edición y geoprocesamiento básico {#modulo3}
 
-[→ Ir al módulo](../modulos/modulo3.`qmd)
+[→ Ir al módulo](../modulos/modulo3.qmd)
 
 1. Creación y edición de capas vectoriales.
 2. Herramientas de corte, unión, buffer y disolución.
