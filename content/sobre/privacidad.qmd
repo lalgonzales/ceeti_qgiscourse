@@ -9,7 +9,7 @@ toc: true
 
 ## Quiénes somos
 
-Este sitio web es mantenido de forma personal por **Luis Alfredo López Gonzales**, instructor del curso *QGIS y Herramientas Python para el Análisis Geoespacial*. El sitio está alojado en **GitHub Pages** ([github.com/lalgonzales/ceeti_qgiscourse](https://github.com/lalgonzales/ceeti_qgiscourse)) y el contenido es responsabilidad exclusiva del instructor; no representa ni es operado oficialmente por la UNAH ni por CEETI.
+Este sitio corresponde al curso *QGIS y Herramientas Python para el Análisis Geoespacial*, impartido por **Luis Alfredo López Gonzales**. El sitio está publicado en **GitHub Pages** y el responsable del contenido es el instructor del curso.
 
 Repositorio del curso: <https://github.com/lalgonzales/ceeti_qgiscourse>
 
