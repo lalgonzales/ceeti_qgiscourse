@@ -53,7 +53,8 @@ Los conjuntos de datos utilizados en los laboratorios incluyen datos del reposit
 ## Materiales de Referencia
 
 - **QGIS Documentation** — [docs.qgis.org](https://docs.qgis.org/), licencia CC BY 3.0.
-- **QGIS User Guide** — QGIS Development Team, disponible en <https://docs.qgis.org/latest/es/docs/user_manual/>.
+- **QGIS User Manual** — QGIS Development Team, disponible en <https://docs.qgis.org/latest/es/docs/user_manual/>.
+- **QGIS Training Manual** — QGIS Development Team, disponible en <https://docs.qgis.org/latest/es/docs/training_manual/>.
 
 ---
 
