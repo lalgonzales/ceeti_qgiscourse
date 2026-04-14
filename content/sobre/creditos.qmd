@@ -60,13 +60,17 @@ Los conjuntos de datos utilizados en los laboratorios incluyen datos del reposit
 
 ## Licencia del Curso
 
-El contenido original de este curso (texto, diagramas, código y demás materiales didácticos
-desarrollados por el instructor) está protegido por derechos de autor.
+El contenido original de este curso (texto, diagramas, código y demás materiales didácticos)
+es propiedad de la **Universidad Nacional Autónoma de Honduras (UNAH)** a través del
+**Centro de Estudios y Entrenamiento en Tecnologías de la Información (CEETI)**.
 
-**Todos los derechos reservados © 2026 Luis Alfredo López Gonzales.**
+**Todos los derechos reservados © 2026 UNAH – CEETI.**
+
+Autor y creador del contenido: **Luis Alfredo López Gonzales**, instructor del curso.
 
 Queda prohibida la reproducción, distribución, comunicación pública o transformación del
-material, total o parcial, sin contar con la **autorización escrita previa del autor**.
+material, total o parcial, sin contar con la **autorización escrita previa de la UNAH/CEETI
+y del autor**.
 
-Para solicitar permiso de uso, contacte al instructor a través del repositorio del curso:
+Para solicitar permiso de uso, contacte a través del repositorio del curso:
 <https://github.com/lalgonzales/ceeti_qgiscourse>
