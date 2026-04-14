@@ -542,44 +542,65 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    
   <ul>
   <li><a href="#objetivos-del-módulo" id="toc-objetivos-del-módulo" class="nav-link active" data-scroll-target="#objetivos-del-módulo"><span class="header-section-number">1</span> Objetivos del Módulo</a></li>
-  <li><a href="#análisis-de-redes-con-qneat3-y-road-graph" id="toc-análisis-de-redes-con-qneat3-y-road-graph" class="nav-link" data-scroll-target="#análisis-de-redes-con-qneat3-y-road-graph"><span class="header-section-number">2</span> Análisis de redes con QNEAT3 y Road Graph</a>
+  <li><a href="#conceptos-fundamentales-del-análisis-de-redes" id="toc-conceptos-fundamentales-del-análisis-de-redes" class="nav-link" data-scroll-target="#conceptos-fundamentales-del-análisis-de-redes"><span class="header-section-number">2</span> Conceptos fundamentales del análisis de redes</a>
   <ul class="collapse">
   <li><a href="#qué-es-un-análisis-de-redes" id="toc-qué-es-un-análisis-de-redes" class="nav-link" data-scroll-target="#qué-es-un-análisis-de-redes"><span class="header-section-number">2.1</span> ¿Qué es un análisis de redes?</a></li>
-  <li><a href="#plugin-qneat3" id="toc-plugin-qneat3" class="nav-link" data-scroll-target="#plugin-qneat3"><span class="header-section-number">2.2</span> Plugin QNEAT3</a></li>
-  <li><a href="#plugin-road-graph-clásico" id="toc-plugin-road-graph-clásico" class="nav-link" data-scroll-target="#plugin-road-graph-clásico"><span class="header-section-number">2.3</span> Plugin Road Graph (clásico)</a></li>
+  <li><a href="#componentes-de-una-red" id="toc-componentes-de-una-red" class="nav-link" data-scroll-target="#componentes-de-una-red"><span class="header-section-number">2.2</span> Componentes de una red</a></li>
+  <li><a href="#tipos-de-análisis-de-redes" id="toc-tipos-de-análisis-de-redes" class="nav-link" data-scroll-target="#tipos-de-análisis-de-redes"><span class="header-section-number">2.3</span> Tipos de análisis de redes</a></li>
   </ul></li>
-  <li><a href="#cálculo-de-rutas-óptimas" id="toc-cálculo-de-rutas-óptimas" class="nav-link" data-scroll-target="#cálculo-de-rutas-óptimas"><span class="header-section-number">3</span> Cálculo de rutas óptimas</a>
+  <li><a href="#análisis-de-redes-con-herramientas-nativas-y-qneat3" id="toc-análisis-de-redes-con-herramientas-nativas-y-qneat3" class="nav-link" data-scroll-target="#análisis-de-redes-con-herramientas-nativas-y-qneat3"><span class="header-section-number">3</span> Análisis de redes con herramientas nativas y QNEAT3</a>
   <ul class="collapse">
-  <li><a href="#preparación-de-la-red-vial" id="toc-preparación-de-la-red-vial" class="nav-link" data-scroll-target="#preparación-de-la-red-vial"><span class="header-section-number">3.1</span> Preparación de la red vial</a></li>
-  <li><a href="#ruta-más-corta-con-qneat3" id="toc-ruta-más-corta-con-qneat3" class="nav-link" data-scroll-target="#ruta-más-corta-con-qneat3"><span class="header-section-number">3.2</span> Ruta más corta con QNEAT3</a></li>
-  <li><a href="#configurar-velocidades-por-tipo-de-vía" id="toc-configurar-velocidades-por-tipo-de-vía" class="nav-link" data-scroll-target="#configurar-velocidades-por-tipo-de-vía"><span class="header-section-number">3.3</span> Configurar velocidades por tipo de vía</a></li>
+  <li><a href="#herramientas-nativas-de-qgis" id="toc-herramientas-nativas-de-qgis" class="nav-link" data-scroll-target="#herramientas-nativas-de-qgis"><span class="header-section-number">3.1</span> Herramientas nativas de QGIS</a></li>
+  <li><a href="#plugin-qneat3-para-análisis-avanzados" id="toc-plugin-qneat3-para-análisis-avanzados" class="nav-link" data-scroll-target="#plugin-qneat3-para-análisis-avanzados"><span class="header-section-number">3.2</span> Plugin QNEAT3 (para análisis avanzados)</a></li>
+  <li><a href="#comparación-nativo-vs-qneat3" id="toc-comparación-nativo-vs-qneat3" class="nav-link" data-scroll-target="#comparación-nativo-vs-qneat3"><span class="header-section-number">3.3</span> Comparación: Nativo vs QNEAT3</a></li>
+  <li><a href="#preparación-de-datos-para-análisis-de-redes" id="toc-preparación-de-datos-para-análisis-de-redes" class="nav-link" data-scroll-target="#preparación-de-datos-para-análisis-de-redes"><span class="header-section-number">3.4</span> Preparación de datos para análisis de redes</a></li>
   </ul></li>
-  <li><a href="#matrices-de-origen-destino" id="toc-matrices-de-origen-destino" class="nav-link" data-scroll-target="#matrices-de-origen-destino"><span class="header-section-number">4</span> Matrices de origen-destino</a>
+  <li><a href="#cálculo-de-rutas-óptimas" id="toc-cálculo-de-rutas-óptimas" class="nav-link" data-scroll-target="#cálculo-de-rutas-óptimas"><span class="header-section-number">4</span> Cálculo de rutas óptimas</a>
   <ul class="collapse">
-  <li><a href="#casos-de-uso" id="toc-casos-de-uso" class="nav-link" data-scroll-target="#casos-de-uso"><span class="header-section-number">4.1</span> Casos de uso</a></li>
-  <li><a href="#generar-matriz-od-con-qneat3" id="toc-generar-matriz-od-con-qneat3" class="nav-link" data-scroll-target="#generar-matriz-od-con-qneat3"><span class="header-section-number">4.2</span> Generar matriz OD con QNEAT3</a></li>
-  <li><a href="#análisis-de-los-resultados" id="toc-análisis-de-los-resultados" class="nav-link" data-scroll-target="#análisis-de-los-resultados"><span class="header-section-number">4.3</span> Análisis de los resultados</a></li>
+  <li><a href="#ruta-más-corta-por-distancia" id="toc-ruta-más-corta-por-distancia" class="nav-link" data-scroll-target="#ruta-más-corta-por-distancia"><span class="header-section-number">4.1</span> Ruta más corta por distancia</a></li>
+  <li><a href="#ruta-más-rápida-por-tiempo" id="toc-ruta-más-rápida-por-tiempo" class="nav-link" data-scroll-target="#ruta-más-rápida-por-tiempo"><span class="header-section-number">4.2</span> Ruta más rápida por tiempo</a></li>
   </ul></li>
-  <li><a href="#zonificación-y-análisis-de-cobertura-de-rutas" id="toc-zonificación-y-análisis-de-cobertura-de-rutas" class="nav-link" data-scroll-target="#zonificación-y-análisis-de-cobertura-de-rutas"><span class="header-section-number">5</span> Zonificación y análisis de cobertura de rutas</a>
+  <li><a href="#matrices-de-origen-destino" id="toc-matrices-de-origen-destino" class="nav-link" data-scroll-target="#matrices-de-origen-destino"><span class="header-section-number">5</span> Matrices de origen-destino</a>
   <ul class="collapse">
-  <li><a href="#isócronas-áreas-de-cobertura-temporal" id="toc-isócronas-áreas-de-cobertura-temporal" class="nav-link" data-scroll-target="#isócronas-áreas-de-cobertura-temporal"><span class="header-section-number">5.1</span> Isócronas (áreas de cobertura temporal)</a></li>
-  <li><a href="#visualización-de-cobertura" id="toc-visualización-de-cobertura" class="nav-link" data-scroll-target="#visualización-de-cobertura"><span class="header-section-number">5.2</span> Visualización de cobertura</a></li>
+  <li><a href="#cuándo-usar-matrices-od" id="toc-cuándo-usar-matrices-od" class="nav-link" data-scroll-target="#cuándo-usar-matrices-od"><span class="header-section-number">5.1</span> ¿Cuándo usar matrices OD?</a></li>
+  <li><a href="#generar-matriz-básica-con-herramientas-nativas" id="toc-generar-matriz-básica-con-herramientas-nativas" class="nav-link" data-scroll-target="#generar-matriz-básica-con-herramientas-nativas"><span class="header-section-number">5.2</span> Generar matriz básica con herramientas nativas</a></li>
+  <li><a href="#interpretar-resultados-de-matriz-od" id="toc-interpretar-resultados-de-matriz-od" class="nav-link" data-scroll-target="#interpretar-resultados-de-matriz-od"><span class="header-section-number">5.3</span> Interpretar resultados de matriz OD</a></li>
   </ul></li>
-  <li><a href="#análisis-de-puntos-de-interés" id="toc-análisis-de-puntos-de-interés" class="nav-link" data-scroll-target="#análisis-de-puntos-de-interés"><span class="header-section-number">6</span> Análisis de puntos de interés</a>
+  <li><a href="#zonificación-y-análisis-de-cobertura-de-rutas" id="toc-zonificación-y-análisis-de-cobertura-de-rutas" class="nav-link" data-scroll-target="#zonificación-y-análisis-de-cobertura-de-rutas"><span class="header-section-number">6</span> Zonificación y análisis de cobertura de rutas</a>
   <ul class="collapse">
-  <li><a href="#unión-espacial-spatial-join" id="toc-unión-espacial-spatial-join" class="nav-link" data-scroll-target="#unión-espacial-spatial-join"><span class="header-section-number">6.1</span> Unión espacial (Spatial Join)</a></li>
-  <li><a href="#análisis-de-densidad-de-puntos" id="toc-análisis-de-densidad-de-puntos" class="nav-link" data-scroll-target="#análisis-de-densidad-de-puntos"><span class="header-section-number">6.2</span> Análisis de densidad de puntos</a></li>
-  <li><a href="#identificar-el-punto-más-cercano" id="toc-identificar-el-punto-más-cercano" class="nav-link" data-scroll-target="#identificar-el-punto-más-cercano"><span class="header-section-number">6.3</span> Identificar el punto más cercano</a></li>
-  <li><a href="#análisis-con-networkx-python" id="toc-análisis-con-networkx-python" class="nav-link" data-scroll-target="#análisis-con-networkx-python"><span class="header-section-number">6.4</span> Análisis con NetworkX (Python)</a></li>
+  <li><a href="#generar-isócronas-áreas-de-tiempo" id="toc-generar-isócronas-áreas-de-tiempo" class="nav-link" data-scroll-target="#generar-isócronas-áreas-de-tiempo"><span class="header-section-number">6.1</span> Generar isócronas (áreas de tiempo)</a></li>
+  <li><a href="#múltiples-áreas-de-cobertura" id="toc-múltiples-áreas-de-cobertura" class="nav-link" data-scroll-target="#múltiples-áreas-de-cobertura"><span class="header-section-number">6.2</span> Múltiples áreas de cobertura</a></li>
+  <li><a href="#zonificación-de-servicios" id="toc-zonificación-de-servicios" class="nav-link" data-scroll-target="#zonificación-de-servicios"><span class="header-section-number">6.3</span> Zonificación de servicios</a></li>
+  <li><a href="#visualización-de-resultados" id="toc-visualización-de-resultados" class="nav-link" data-scroll-target="#visualización-de-resultados"><span class="header-section-number">6.4</span> Visualización de resultados</a></li>
   </ul></li>
-  <li><a href="#ejercicios-prácticos" id="toc-ejercicios-prácticos" class="nav-link" data-scroll-target="#ejercicios-prácticos"><span class="header-section-number">7</span> 🛠️ Ejercicios Prácticos</a>
+  <li><a href="#aplicaciones-para-empresa-eléctrica" id="toc-aplicaciones-para-empresa-eléctrica" class="nav-link" data-scroll-target="#aplicaciones-para-empresa-eléctrica"><span class="header-section-number">7</span> Aplicaciones para empresa eléctrica</a>
   <ul class="collapse">
-  <li><a href="#ejercicio-4.1-preparación-de-red-vial" id="toc-ejercicio-4.1-preparación-de-red-vial" class="nav-link" data-scroll-target="#ejercicio-4.1-preparación-de-red-vial"><span class="header-section-number">7.1</span> Ejercicio 4.1: Preparación de red vial</a></li>
-  <li><a href="#ejercicio-4.2-rutas-óptimas" id="toc-ejercicio-4.2-rutas-óptimas" class="nav-link" data-scroll-target="#ejercicio-4.2-rutas-óptimas"><span class="header-section-number">7.2</span> Ejercicio 4.2: Rutas óptimas</a></li>
-  <li><a href="#ejercicio-4.3-isócronas-y-cobertura" id="toc-ejercicio-4.3-isócronas-y-cobertura" class="nav-link" data-scroll-target="#ejercicio-4.3-isócronas-y-cobertura"><span class="header-section-number">7.3</span> Ejercicio 4.3: Isócronas y cobertura</a></li>
-  <li><a href="#ejercicio-4.4-matriz-origen-destino" id="toc-ejercicio-4.4-matriz-origen-destino" class="nav-link" data-scroll-target="#ejercicio-4.4-matriz-origen-destino"><span class="header-section-number">7.4</span> Ejercicio 4.4: Matriz origen-destino</a></li>
+  <li><a href="#casos-de-uso-específicos" id="toc-casos-de-uso-específicos" class="nav-link" data-scroll-target="#casos-de-uso-específicos"><span class="header-section-number">7.1</span> Casos de uso específicos</a></li>
+  <li><a href="#datos-típicos-en-empresas-eléctricas" id="toc-datos-típicos-en-empresas-eléctricas" class="nav-link" data-scroll-target="#datos-típicos-en-empresas-eléctricas"><span class="header-section-number">7.2</span> Datos típicos en empresas eléctricas</a></li>
   </ul></li>
-  <li><a href="#recursos-y-referencias" id="toc-recursos-y-referencias" class="nav-link" data-scroll-target="#recursos-y-referencias"><span class="header-section-number">8</span> 📚 Recursos y Referencias</a></li>
+  <li><a href="#análisis-de-puntos-de-interés-clientes-riesgos-servicios" id="toc-análisis-de-puntos-de-interés-clientes-riesgos-servicios" class="nav-link" data-scroll-target="#análisis-de-puntos-de-interés-clientes-riesgos-servicios"><span class="header-section-number">8</span> Análisis de puntos de interés (clientes, riesgos, servicios)</a>
+  <ul class="collapse">
+  <li><a href="#tipos-de-puntos-de-interés-en-empresa-eléctrica" id="toc-tipos-de-puntos-de-interés-en-empresa-eléctrica" class="nav-link" data-scroll-target="#tipos-de-puntos-de-interés-en-empresa-eléctrica"><span class="header-section-number">8.1</span> Tipos de puntos de interés en empresa eléctrica</a></li>
+  <li><a href="#identificar-servicios-más-cercanos" id="toc-identificar-servicios-más-cercanos" class="nav-link" data-scroll-target="#identificar-servicios-más-cercanos"><span class="header-section-number">8.2</span> Identificar servicios más cercanos</a></li>
+  <li><a href="#análisis-de-accesibilidad-a-clientes-prioritarios" id="toc-análisis-de-accesibilidad-a-clientes-prioritarios" class="nav-link" data-scroll-target="#análisis-de-accesibilidad-a-clientes-prioritarios"><span class="header-section-number">8.3</span> Análisis de accesibilidad a clientes prioritarios</a></li>
+  <li><a href="#análisis-de-zonas-de-riesgo" id="toc-análisis-de-zonas-de-riesgo" class="nav-link" data-scroll-target="#análisis-de-zonas-de-riesgo"><span class="header-section-number">8.4</span> Análisis de zonas de riesgo</a></li>
+  <li><a href="#optimización-de-rutas-de-inspección" id="toc-optimización-de-rutas-de-inspección" class="nav-link" data-scroll-target="#optimización-de-rutas-de-inspección"><span class="header-section-number">8.5</span> Optimización de rutas de inspección</a></li>
+  </ul></li>
+  <li><a href="#plugin-qneat3" id="toc-plugin-qneat3" class="nav-link" data-scroll-target="#plugin-qneat3"><span class="header-section-number">9</span> Plugin QNEAT3</a>
+  <ul class="collapse">
+  <li><a href="#instalación" id="toc-instalación" class="nav-link" data-scroll-target="#instalación"><span class="header-section-number">9.1</span> Instalación</a></li>
+  <li><a href="#funcionalidades-avanzadas" id="toc-funcionalidades-avanzadas" class="nav-link" data-scroll-target="#funcionalidades-avanzadas"><span class="header-section-number">9.2</span> Funcionalidades avanzadas</a></li>
+  </ul></li>
+  <li><a href="#ejercicios-prácticos" id="toc-ejercicios-prácticos" class="nav-link" data-scroll-target="#ejercicios-prácticos"><span class="header-section-number">10</span> 🛠️ Ejercicios Prácticos</a>
+  <ul class="collapse">
+  <li><a href="#ejercicio-4.1-preparación-de-red-vial" id="toc-ejercicio-4.1-preparación-de-red-vial" class="nav-link" data-scroll-target="#ejercicio-4.1-preparación-de-red-vial"><span class="header-section-number">10.1</span> Ejercicio 4.1: Preparación de red vial</a></li>
+  <li><a href="#ejercicio-4.2-ruta-más-corta" id="toc-ejercicio-4.2-ruta-más-corta" class="nav-link" data-scroll-target="#ejercicio-4.2-ruta-más-corta"><span class="header-section-number">10.2</span> Ejercicio 4.2: Ruta más corta</a></li>
+  <li><a href="#ejercicio-4.3-análisis-de-cobertura" id="toc-ejercicio-4.3-análisis-de-cobertura" class="nav-link" data-scroll-target="#ejercicio-4.3-análisis-de-cobertura"><span class="header-section-number">10.3</span> Ejercicio 4.3: Análisis de cobertura</a></li>
+  <li><a href="#ejercicio-4.4-matriz-origen-destino" id="toc-ejercicio-4.4-matriz-origen-destino" class="nav-link" data-scroll-target="#ejercicio-4.4-matriz-origen-destino"><span class="header-section-number">10.4</span> Ejercicio 4.4: Matriz origen-destino</a></li>
+  <li><a href="#ejercicio-4.5-análisis-de-puntos-de-interés" id="toc-ejercicio-4.5-análisis-de-puntos-de-interés" class="nav-link" data-scroll-target="#ejercicio-4.5-análisis-de-puntos-de-interés"><span class="header-section-number">10.5</span> Ejercicio 4.5: Análisis de puntos de interés</a></li>
+  <li><a href="#ejercicio-4.6-proyecto-integrador" id="toc-ejercicio-4.6-proyecto-integrador" class="nav-link" data-scroll-target="#ejercicio-4.6-proyecto-integrador"><span class="header-section-number">10.6</span> Ejercicio 4.6: Proyecto integrador</a></li>
+  </ul></li>
+  <li><a href="#recursos-y-referencias" id="toc-recursos-y-referencias" class="nav-link" data-scroll-target="#recursos-y-referencias"><span class="header-section-number">11</span> 📚 Recursos y Referencias</a></li>
   </ul>
 </nav>
     </div>
@@ -613,312 +634,807 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 data-number="1" class="anchored" data-anchor-id="objetivos-del-módulo"><span class="header-section-number">1</span> Objetivos del Módulo</h2>
 <p>Al finalizar este módulo, los participantes podrán:</p>
 <ul>
-<li>Utilizar plugins de análisis de redes en QGIS (QNEAT3, Road Graph).</li>
-<li>Calcular rutas óptimas (más cortas o más rápidas) entre puntos.</li>
-<li>Construir matrices de origen-destino.</li>
-<li>Realizar análisis de cobertura y zonificación de servicios.</li>
-<li>Analizar puntos de interés en el contexto de rutas y servicios.</li>
+<li>Comprender los conceptos fundamentales del análisis de redes.</li>
+<li>Utilizar las herramientas nativas de análisis de redes en QGIS.</li>
+<li>Calcular rutas óptimas entre puntos usando criterios de distancia y tiempo.</li>
+<li>Generar áreas de cobertura (isócronas) desde puntos de servicio.</li>
+<li>Aplicar análisis de redes a casos prácticos de empresa eléctrica.</li>
 </ul>
 <hr>
 </section>
-<section id="análisis-de-redes-con-qneat3-y-road-graph" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="análisis-de-redes-con-qneat3-y-road-graph"><span class="header-section-number">2</span> Análisis de redes con QNEAT3 y Road Graph</h2>
+<section id="conceptos-fundamentales-del-análisis-de-redes" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="conceptos-fundamentales-del-análisis-de-redes"><span class="header-section-number">2</span> Conceptos fundamentales del análisis de redes</h2>
 <section id="qué-es-un-análisis-de-redes" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="qué-es-un-análisis-de-redes"><span class="header-section-number">2.1</span> ¿Qué es un análisis de redes?</h3>
-<p>El <strong>análisis de redes</strong> permite modelar y resolver problemas de conectividad sobre una red de elementos lineales (calles, carreteras, tuberías), como:</p>
+<p>El <strong>análisis de redes</strong> permite modelar y resolver problemas de conectividad sobre una red de elementos lineales (calles, carreteras, líneas eléctricas), respondiendo preguntas como:</p>
 <ul>
-<li>Encontrar la ruta más corta entre dos puntos</li>
-<li>Calcular tiempos de viaje</li>
-<li>Determinar áreas de cobertura (isócronas)</li>
-<li>Optimizar rutas para múltiples destinos</li>
+<li>¿Cuál es la ruta más corta entre dos puntos?</li>
+<li>¿Qué áreas puedo alcanzar en 15 minutos desde mi ubicación?</li>
+<li>¿Cuál es el tiempo de respuesta promedio a emergencias?</li>
+<li>¿Dónde ubicar un nuevo centro de servicio para optimizar cobertura?</li>
 </ul>
 </section>
-<section id="plugin-qneat3" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="plugin-qneat3"><span class="header-section-number">2.2</span> Plugin QNEAT3</h3>
-<p><strong>QNEAT3</strong> (QGIS Network Analysis Toolbox 3) es el plugin más completo para análisis de redes en QGIS.</p>
-<p><strong>Instalación</strong>: 1. Complementos → Administrar e instalar complementos 2. Busca <code>QNEAT3</code> 3. Haz clic en <strong>Instalar complemento</strong></p>
-<p><strong>Funcionalidades principales de QNEAT3</strong>:</p>
+<section id="componentes-de-una-red" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="componentes-de-una-red"><span class="header-section-number">2.2</span> Componentes de una red</h3>
+<p>Una red espacial está compuesta por:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 38%">
-<col style="width: 61%">
+<col style="width: 21%">
+<col style="width: 23%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Componente</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Ejemplo en empresa eléctrica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Nodos</strong></td>
+<td style="text-align: left;">Puntos de conexión o intersección</td>
+<td style="text-align: left;">Subestaciones, transformadores</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Arcos/Edges</strong></td>
+<td style="text-align: left;">Segmentos que conectan nodos</td>
+<td style="text-align: left;">Líneas de transmisión, cables</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Atributos</strong></td>
+<td style="text-align: left;">Propiedades de los arcos</td>
+<td style="text-align: left;">Voltaje, capacidad, estado</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Costos</strong></td>
+<td style="text-align: left;">Valores para cálculo de rutas</td>
+<td style="text-align: left;">Distancia, tiempo, impedancia</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tipos-de-análisis-de-redes" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="tipos-de-análisis-de-redes"><span class="header-section-number">2.3</span> Tipos de análisis de redes</h3>
+<p><strong>1. Ruta más corta (Shortest Path)</strong></p>
+<ul>
+<li>Encuentra el camino óptimo entre dos puntos</li>
+<li>Criterios: distancia mínima o tiempo mínimo</li>
+</ul>
+<p><strong>2. Área de servicio (Service Area)</strong></p>
+<ul>
+<li>Determina qué zonas son accesibles desde un punto</li>
+<li>Útil para análisis de cobertura y planificación</li>
+</ul>
+<p><strong>3. Punto más cercano (Closest Facility)</strong></p>
+<ul>
+<li>Identifica el servicio más próximo a cada ubicación</li>
+<li>Aplicación: asignación de cuadrillas de mantenimiento</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="análisis-de-redes-con-herramientas-nativas-y-qneat3" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="análisis-de-redes-con-herramientas-nativas-y-qneat3"><span class="header-section-number">3</span> Análisis de redes con herramientas nativas y QNEAT3</h2>
+<section id="herramientas-nativas-de-qgis" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="herramientas-nativas-de-qgis"><span class="header-section-number">3.1</span> Herramientas nativas de QGIS</h3>
+<p>QGIS incluye algoritmos integrados para análisis de redes que no requieren plugins adicionales:</p>
+<pre><code>Procesamiento → Caja de herramientas → Análisis de redes</code></pre>
+<p><strong>Algoritmos principales:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 25%">
+<col style="width: 37%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Herramienta</th>
-<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Función</th>
+<th style="text-align: left;">Caso de uso</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Shortest Path (Point to Point)</td>
-<td style="text-align: left;">Ruta más corta entre dos puntos</td>
+<td style="text-align: left;"><strong>Área de servicio (desde capa)</strong></td>
+<td style="text-align: left;">Este algoritmo crea una nueva capa vectorial con todos los segmentos o partes de segmentos de una capa de líneas de red que se pueden alcanzar dentro de una distancia o un tiempo, comenzando desde las características de una capa de puntos. La distancia y el tiempo (ambos referidos como “costo de viaje”) deben especificarse respectivamente en las unidades de la capa de red o en horas.</td>
+<td style="text-align: left;">Cobertura de cuadrilla de emergencia</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Iso-Area as Polygons</td>
-<td style="text-align: left;">Áreas de cobertura (isócronas) desde un punto</td>
+<td style="text-align: left;"><strong>Área de servicio (desde punto)</strong></td>
+<td style="text-align: left;">Este algoritmo crea una nueva capa vectorial con todos los segmentos o partes de segmentos de una capa de líneas de red que se pueden alcanzar dentro de una distancia o un tiempo, comenzando desde un punto específico. La distancia y el tiempo (ambos referidos como “costo de viaje”) deben especificarse respectivamente en las unidades de la capa de red o en horas.</td>
+<td style="text-align: left;">Planificar ruta de inspección</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Iso-Area as Contour Lines</td>
-<td style="text-align: left;">Líneas de isócrona a distintas distancias/tiempos</td>
+<td style="text-align: left;"><strong>Ruta más corta (capa a punto)</strong></td>
+<td style="text-align: left;">Este algoritmo calcula rutas óptimas (más cortas o más rápidas) desde múltiples puntos de inicio definidos por una capa vectorial hasta un punto final dado.</td>
+<td style="text-align: left;">Desde cuadrillas a transformador</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">OD Matrix (Layers)</td>
-<td style="text-align: left;">Matriz de origen-destino entre capas de puntos</td>
+<td style="text-align: left;"><strong>Ruta más corta (punto a capa)</strong></td>
+<td style="text-align: left;">Este algoritmo calcula rutas óptimas (más cortas o más rápidas) desde un punto de inicio dado hasta múltiples puntos finales definidos por una capa vectorial de puntos. Este algoritmo elimina las claves primarias existentes o los valores FID y los regenera en las capas de salida.</td>
+<td style="text-align: left;">Cobertura de cuadrilla de emergencia</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">OD Matrix (from Layers)</td>
-<td style="text-align: left;">Matriz con múltiples orígenes y destinos</td>
+<td style="text-align: left;"><strong>Ruta más corta (punto a punto)</strong></td>
+<td style="text-align: left;">Este algoritmo calcula la ruta óptima (la más corta o la más rápida) entre los puntos inicial y final indicados.</td>
+<td style="text-align: left;">Analizar la ruta más corta o más rápida desde un punto (Cuadrilla) a otro (punto final)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ventajas de herramientas nativas:</strong></p>
+<ul>
+<li>✅ Incluidas en QGIS por defecto</li>
+<li>✅ Estables y bien documentadas</li>
+<li>✅ Suficientes para análisis básicos-intermedios</li>
+<li>✅ Integración perfecta con Processing Framework</li>
+</ul>
+</section>
+<section id="plugin-qneat3-para-análisis-avanzados" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="plugin-qneat3-para-análisis-avanzados"><span class="header-section-number">3.2</span> Plugin QNEAT3 (para análisis avanzados)</h3>
+<p><strong>QNEAT3</strong> (QGIS Network Analysis Toolbox 3) ofrece funcionalidades adicionales para usuarios avanzados.</p>
+<p><strong>Instalación:</strong></p>
+<pre><code>Complementos → Administrar e instalar complementos → Buscar "QNEAT3"</code></pre>
+<p><strong>Funcionalidades avanzadas de QNEAT3:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 20%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Herramienta QNEAT3</th>
+<th style="text-align: left;">Función</th>
+<th style="text-align: left;">Cuándo usarla</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>OD Matrix (Layers)</strong></td>
+<td style="text-align: left;">Matriz completa origen-destino</td>
+<td style="text-align: left;">Análisis masivos (&gt;50 puntos)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Iso-Area as Polygons</strong></td>
+<td style="text-align: left;">Isócronas con múltiples intervalos</td>
+<td style="text-align: left;">Análisis detallado de cobertura</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Iso-Area as Contours</strong></td>
+<td style="text-align: left;">Líneas de isócrona</td>
+<td style="text-align: left;">Visualización de gradientes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Shortest Path (Point to Point)</strong></td>
+<td style="text-align: left;">Versión avanzada con más opciones</td>
+<td style="text-align: left;">Análisis complejos con restricciones</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cuándo usar cada herramienta:</strong></p>
+<pre><code>ANÁLISIS BÁSICO → Herramientas nativas QGIS
+ANÁLISIS MASIVO → QNEAT3</code></pre>
+</section>
+<section id="comparación-nativo-vs-qneat3" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="comparación-nativo-vs-qneat3"><span class="header-section-number">3.3</span> Comparación: Nativo vs QNEAT3</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Aspecto</th>
+<th style="text-align: left;">Herramientas Nativas</th>
+<th style="text-align: left;">QNEAT3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Instalación</strong></td>
+<td style="text-align: left;">Incluido</td>
+<td style="text-align: left;">Requiere plugin</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Estabilidad</strong></td>
+<td style="text-align: left;">Muy alta</td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Facilidad de uso</strong></td>
+<td style="text-align: left;">Simple</td>
+<td style="text-align: left;">Más opciones</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Matrices OD</strong></td>
+<td style="text-align: left;">Limitado</td>
+<td style="text-align: left;">Completo</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Isócronas</strong></td>
+<td style="text-align: left;">Básico</td>
+<td style="text-align: left;">Avanzado</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Documentación</strong></td>
+<td style="text-align: left;">Oficial QGIS</td>
+<td style="text-align: left;">Comunidad</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rendimiento</strong></td>
+<td style="text-align: left;">Bueno</td>
+<td style="text-align: left;">Optimizado</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="plugin-road-graph-clásico" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="plugin-road-graph-clásico"><span class="header-section-number">2.3</span> Plugin Road Graph (clásico)</h3>
-<p>El plugin <strong>Road Graph</strong> está incluido en QGIS sin necesidad de instalación adicional:</p>
-<pre><code>Complementos → Road Graph → Complemento Road Graph</code></pre>
+<section id="preparación-de-datos-para-análisis-de-redes" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="preparación-de-datos-para-análisis-de-redes"><span class="header-section-number">3.4</span> Preparación de datos para análisis de redes</h3>
+<p><strong>Requisitos básicos:</strong></p>
+<ol type="1">
+<li><strong>Red topológicamente correcta</strong>
 <ul>
-<li>Permite calcular rutas entre dos puntos sobre una red de líneas</li>
-<li>Soporta velocidades por tipo de vía</li>
-<li>Muestra el resultado como capa temporal</li>
+<li>Los segmentos deben conectarse en sus extremos</li>
+<li>Sin gaps ni overlaps no deseados</li>
+<li>Usar herramientas de validación del Módulo 3</li>
+</ul></li>
+<li><strong>Sistema de coordenadas proyectado</strong>
+<ul>
+<li>Preferible UTM para mediciones precisas</li>
+<li>Evitar coordenadas geográficas (grados)</li>
+</ul></li>
+<li><strong>Campos de costo configurados</strong>
+<ul>
+<li>Distancia: usar longitud de segmento</li>
+<li>Tiempo: calcular según velocidad permitida</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="cálculo-de-rutas-óptimas" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="cálculo-de-rutas-óptimas"><span class="header-section-number">4</span> Cálculo de rutas óptimas</h2>
+<section id="ruta-más-corta-por-distancia" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="ruta-más-corta-por-distancia"><span class="header-section-number">4.1</span> Ruta más corta por distancia</h3>
+<p><strong>Ejemplo práctico: Ruta de inspección entre subestaciones</strong></p>
+<ol type="1">
+<li><p><strong>Cargar datos de red vial</strong></p>
+<pre><code>Capa → Añadir capa → Capa vectorial</code></pre></li>
+<li><p><strong>Abrir herramienta de ruta más corta</strong></p>
+<pre><code>Procesamiento → Caja de herramientas → Análisis de redes →
+Ruta más corta (punto a punto)</code></pre></li>
+<li><p><strong>Configurar parámetros:</strong></p>
+<ul>
+<li><strong>Vector layer representing network</strong>: capa de calles/carreteras</li>
+<li><strong>Path type to calculate</strong>: <code>Shortest</code> (distancia)</li>
+<li><strong>Start point</strong>: coordenadas del punto de origen</li>
+<li><strong>End point</strong>: coordenadas del punto de destino</li>
+</ul></li>
+<li><p><strong>Interpretar resultados:</strong></p>
+<ul>
+<li>Nueva capa con la ruta óptima</li>
+<li>Tabla de atributos con distancia total</li>
+<li>Tiempo estimado (si se configuró velocidad)</li>
+</ul></li>
+</ol>
+</section>
+<section id="ruta-más-rápida-por-tiempo" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="ruta-más-rápida-por-tiempo"><span class="header-section-number">4.2</span> Ruta más rápida por tiempo</h3>
+<p>Para calcular la ruta más rápida, necesitas configurar velocidades:</p>
+<p><strong>Paso 1: Agregar campo de velocidad</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En la calculadora de campos, crear campo 'velocidad_kmh'</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>CASE</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  WHEN <span class="st">"highway"</span> <span class="op">=</span> <span class="st">'motorway'</span> THEN <span class="dv">100</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  WHEN <span class="st">"highway"</span> <span class="op">=</span> <span class="st">'primary'</span> THEN <span class="dv">80</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  WHEN <span class="st">"highway"</span> <span class="op">=</span> <span class="st">'secondary'</span> THEN <span class="dv">60</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  WHEN <span class="st">"highway"</span> <span class="op">=</span> <span class="st">'residential'</span> THEN <span class="dv">40</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  ELSE <span class="dv">30</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>END</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Paso 2: Configurar análisis por tiempo</strong></p>
+<ul>
+<li><strong>Capa vectorial que representa la red</strong>: <code>network_lines</code> (capa de calles)</li>
+<li><strong>Tipo de ruta a calcular</strong>: <code>Más rápida</code> (tiempo en porciones de hora)</li>
+<li><strong>Campo de velocidad</strong>: seleccionar campo <code>velocidad_kmh</code></li>
+<li><strong>Velocidad predeterminada km/h</strong>: velocidad por defecto (ej. 50 km/h)</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="cálculo-de-rutas-óptimas" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="cálculo-de-rutas-óptimas"><span class="header-section-number">3</span> Cálculo de rutas óptimas</h2>
-<section id="preparación-de-la-red-vial" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="preparación-de-la-red-vial"><span class="header-section-number">3.1</span> Preparación de la red vial</h3>
-<p>Antes de calcular rutas, la red vial debe estar correctamente preparada:</p>
-<ol type="1">
-<li><strong>Topología correcta</strong>: las líneas deben conectarse en sus extremos (nodos)</li>
-<li><strong>Sin duplicados</strong>: eliminar geometrías duplicadas</li>
-<li><strong>CRS proyectado</strong>: usar UTM u otro CRS en metros</li>
-</ol>
-<p><strong>Verificar y reparar topología con GRASS</strong>:</p>
-<pre><code>Procesamiento → Caja de herramientas → GRASS → v.clean</code></pre>
-</section>
-<section id="ruta-más-corta-con-qneat3" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="ruta-más-corta-con-qneat3"><span class="header-section-number">3.2</span> Ruta más corta con QNEAT3</h3>
-<ol type="1">
-<li>Instala y activa QNEAT3</li>
-<li>Ve a: <strong>Procesamiento → Caja de herramientas → QNEAT3 → Shortest Path (Point to Point)</strong></li>
-<li>Parámetros:
+<section id="matrices-de-origen-destino" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="matrices-de-origen-destino"><span class="header-section-number">5</span> Matrices de origen-destino</h2>
+<p>Una <strong>matriz de origen-destino (OD)</strong> calcula las distancias o tiempos de viaje entre todos los pares de puntos en dos conjuntos (orígenes y destinos).</p>
+<section id="cuándo-usar-matrices-od" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="cuándo-usar-matrices-od"><span class="header-section-number">5.1</span> ¿Cuándo usar matrices OD?</h3>
+<p><strong>Casos de uso en empresa eléctrica:</strong></p>
 <ul>
-<li><strong>Network Layer</strong>: capa de red vial (líneas)</li>
-<li><strong>Start Point</strong>: punto de origen</li>
-<li><strong>End Point</strong>: punto de destino</li>
-<li><strong>Optimization Criterion</strong>: distancia o tiempo</li>
-<li><strong>Entry cost strategy</strong>: distancia del tramo / tiempo estimado</li>
+<li>Calcular tiempo de acceso desde cada centro de operación a transformadores</li>
+<li>Evaluar cobertura de cuadrillas de mantenimiento</li>
+<li>Optimizar asignación de personal a zonas de trabajo</li>
+<li>Planificar rutas de inspección múltiples</li>
+</ul>
+</section>
+<section id="generar-matriz-básica-con-herramientas-nativas" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="generar-matriz-básica-con-herramientas-nativas"><span class="header-section-number">5.2</span> Generar matriz básica con herramientas nativas</h3>
+<p><strong>Opción 1: Análisis punto a capa</strong></p>
+<pre><code>Procesamiento → Análisis de redes → Ruta más corta (punto a capa)</code></pre>
+<p><strong>Parámetros:</strong></p>
+<ul>
+<li><strong>Capa de red</strong>: red vial</li>
+<li><strong>Punto de inicio</strong>: centro de operación (coordenadas)</li>
+<li><strong>Capa de puntos de destino</strong>: capa de transformadores</li>
+<li><strong>Tipo de ruta</strong>: <code>Más corta</code> o <code>Más rápida</code></li>
+</ul>
+<p><strong>Resultado:</strong> Rutas desde un punto a múltiples destinos con distancias/tiempos</p>
+<p><strong>Opción 2: Para matrices completas (avanzado)</strong></p>
+<ul>
+<li>Usar QNEAT3 para matrices OD completas</li>
+<li>Recomendado solo para análisis masivos (&gt;50 puntos)</li>
+</ul>
+</section>
+<section id="interpretar-resultados-de-matriz-od" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="interpretar-resultados-de-matriz-od"><span class="header-section-number">5.3</span> Interpretar resultados de matriz OD</h3>
+<p>La tabla resultante contiene:</p>
+<ul>
+<li><strong>origin_id</strong>: identificador del punto de origen</li>
+<li><strong>destination_id</strong>: identificador del punto de destino</li>
+<li><strong>total_cost</strong>: distancia o tiempo total</li>
+<li><strong>route_geometry</strong>: geometría de la ruta (opcional)</li>
+</ul>
+<p><strong>Análisis típicos:</strong></p>
+<ul>
+<li>Identificar destino más cercano para cada origen</li>
+<li>Calcular tiempo promedio de respuesta</li>
+<li>Detectar zonas con acceso deficiente</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="zonificación-y-análisis-de-cobertura-de-rutas" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="zonificación-y-análisis-de-cobertura-de-rutas"><span class="header-section-number">6</span> Zonificación y análisis de cobertura de rutas</h2>
+<section id="generar-isócronas-áreas-de-tiempo" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="generar-isócronas-áreas-de-tiempo"><span class="header-section-number">6.1</span> Generar isócronas (áreas de tiempo)</h3>
+<p>Las <strong>isócronas</strong> muestran qué áreas son accesibles en un tiempo determinado desde un punto de servicio.</p>
+<p><strong>Ejemplo: Cobertura de cuadrilla de emergencia</strong></p>
+<ol type="1">
+<li><p><strong>Abrir herramienta Service Area</strong></p>
+<pre><code>Procesamiento → Análisis de redes → Service area (from point)</code></pre></li>
+<li><p><strong>Configurar parámetros:</strong></p>
+<ul>
+<li><strong>Capa vectorial que representa la red</strong>: red vial</li>
+<li><strong>Tipo de ruta</strong>: <code>Más rápida</code> (por tiempo)</li>
+<li><strong>Costo de viaje</strong>: <code>900</code> (15 minutos en segundos)</li>
+<li><strong>Campo de velocidad</strong>: campo de velocidades</li>
+<li><strong>Punto de inicio</strong>: ubicación del centro de servicio</li>
+</ul></li>
+<li><p><strong>Resultado:</strong></p>
+<ul>
+<li>Polígono mostrando área accesible en 15 minutos</li>
+<li>Útil para evaluar cobertura de servicios de emergencia</li>
 </ul></li>
 </ol>
 </section>
-<section id="configurar-velocidades-por-tipo-de-vía" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="configurar-velocidades-por-tipo-de-vía"><span class="header-section-number">3.3</span> Configurar velocidades por tipo de vía</h3>
-<p>Para calcular tiempos de viaje realistas, asigna velocidades según el tipo de vía:</p>
+<section id="múltiples-áreas-de-cobertura" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="múltiples-áreas-de-cobertura"><span class="header-section-number">6.2</span> Múltiples áreas de cobertura</h3>
+<p>Para analizar cobertura desde varios puntos simultáneamente:</p>
+<ol type="1">
+<li><strong>Crear capa de puntos de servicio</strong>
+<ul>
+<li>Ubicaciones de subestaciones, centros de operación</li>
+<li>Incluir atributos: nombre, tipo, capacidad</li>
+</ul></li>
+<li><strong>Usar Service area (from layer)</strong>
+<ul>
+<li><strong>Puntos de inicio</strong>: capa de centros de servicio</li>
+<li><strong>Costo de viaje</strong>: tiempo máximo deseado</li>
+<li>Genera un polígono por cada punto de servicio</li>
+</ul></li>
+</ol>
+</section>
+<section id="zonificación-de-servicios" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="zonificación-de-servicios"><span class="header-section-number">6.3</span> Zonificación de servicios</h3>
+<p><strong>Crear zonas de responsabilidad:</strong></p>
+<ol type="1">
+<li><strong>Generar áreas de cobertura</strong> para cada centro de servicio</li>
+<li><strong>Identificar superposiciones</strong> entre zonas</li>
+<li><strong>Asignar prioridades</strong> según capacidad o especialización</li>
+<li><strong>Crear mapa de zonificación</strong> final</li>
+</ol>
+<p><strong>Aplicación práctica:</strong></p>
+<ul>
+<li>Dividir territorio en zonas de mantenimiento</li>
+<li>Asignar cuadrillas a sectores específicos</li>
+<li>Optimizar distribución de recursos</li>
+</ul>
+</section>
+<section id="visualización-de-resultados" class="level3" data-number="6.4">
+<h3 data-number="6.4" class="anchored" data-anchor-id="visualización-de-resultados"><span class="header-section-number">6.4</span> Visualización de resultados</h3>
+<p><strong>Simbolización por tiempo de acceso:</strong></p>
+<ol type="1">
+<li>Propiedades de capa → Simbología</li>
+<li>Graduado → Campo: <code>cost</code> (tiempo)</li>
+<li>Colores: verde (cerca) → rojo (lejos)</li>
+<li>Etiquetas: mostrar tiempo en minutos</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="aplicaciones-para-empresa-eléctrica" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="aplicaciones-para-empresa-eléctrica"><span class="header-section-number">7</span> Aplicaciones para empresa eléctrica</h2>
+<section id="casos-de-uso-específicos" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="casos-de-uso-específicos"><span class="header-section-number">7.1</span> Casos de uso específicos</h3>
+<p><strong>1. Planificación de rutas de mantenimiento</strong> - Optimizar recorridos diarios de cuadrillas - Minimizar tiempo de desplazamiento entre sitios - Considerar restricciones de acceso vehicular</p>
+<p><strong>2. Análisis de tiempo de respuesta</strong> - Evaluar cobertura actual de centros de operación - Identificar zonas con tiempo de respuesta elevado - Planificar ubicación de nuevos centros</p>
+<p><strong>3. Gestión de emergencias</strong> - Rutas rápidas a sitios de fallas eléctricas - Coordinación de múltiples cuadrillas - Rutas alternativas durante bloqueos</p>
+<p><strong>4. Planificación de infraestructura</strong> - Ubicación óptima de nuevas subestaciones - Análisis de accesibilidad para mantenimiento - Evaluación de rutas de construcción</p>
+</section>
+<section id="datos-típicos-en-empresas-eléctricas" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="datos-típicos-en-empresas-eléctricas"><span class="header-section-number">7.2</span> Datos típicos en empresas eléctricas</h3>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 26%">
+<col style="width: 40%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Tipo de vía</th>
-<th style="text-align: left;">Velocidad promedio (km/h)</th>
+<th style="text-align: left;">Tipo de dato</th>
+<th style="text-align: left;">Geometría</th>
+<th style="text-align: left;">Atributos clave</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Autopista</td>
-<td style="text-align: left;">100</td>
+<td style="text-align: left;"><strong>Red vial</strong></td>
+<td style="text-align: left;">Líneas</td>
+<td style="text-align: left;">Tipo de vía, velocidad, restricciones</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Carretera primaria</td>
-<td style="text-align: left;">80</td>
+<td style="text-align: left;"><strong>Subestaciones</strong></td>
+<td style="text-align: left;">Puntos</td>
+<td style="text-align: left;">Voltaje, capacidad, estado operativo</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Carretera secundaria</td>
-<td style="text-align: left;">60</td>
+<td style="text-align: left;"><strong>Transformadores</strong></td>
+<td style="text-align: left;">Puntos</td>
+<td style="text-align: left;">Potencia, ubicación, fecha instalación</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Vía urbana</td>
-<td style="text-align: left;">40</td>
+<td style="text-align: left;"><strong>Centros de operación</strong></td>
+<td style="text-align: left;">Puntos</td>
+<td style="text-align: left;">Personal disponible, equipos, horarios</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Calle local</td>
-<td style="text-align: left;">25</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Camino de tierra</td>
-<td style="text-align: left;">20</td>
+<td style="text-align: left;"><strong>Zonas de servicio</strong></td>
+<td style="text-align: left;">Polígonos</td>
+<td style="text-align: left;">Población servida, demanda, prioridad</td>
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-tip callout-titled">
+<hr>
+</section>
+</section>
+<section id="análisis-de-puntos-de-interés-clientes-riesgos-servicios" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="análisis-de-puntos-de-interés-clientes-riesgos-servicios"><span class="header-section-number">8</span> Análisis de puntos de interés (clientes, riesgos, servicios)</h2>
+<section id="tipos-de-puntos-de-interés-en-empresa-eléctrica" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="tipos-de-puntos-de-interés-en-empresa-eléctrica"><span class="header-section-number">8.1</span> Tipos de puntos de interés en empresa eléctrica</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 30%">
+<col style="width: 51%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Ejemplos</th>
+<th style="text-align: left;">Análisis típico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Clientes</strong></td>
+<td style="text-align: left;">Grandes consumidores, hospitales, industrias</td>
+<td style="text-align: left;">Prioridad de atención, rutas de inspección</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Riesgos</strong></td>
+<td style="text-align: left;">Zonas de fallas frecuentes, áreas inundables</td>
+<td style="text-align: left;">Tiempo de respuesta, rutas de emergencia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Servicios</strong></td>
+<td style="text-align: left;">Subestaciones, centros de control, bodegas</td>
+<td style="text-align: left;">Cobertura, asignación de recursos</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="identificar-servicios-más-cercanos" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="identificar-servicios-más-cercanos"><span class="header-section-number">8.2</span> Identificar servicios más cercanos</h3>
+<p><strong>Ejemplo: Asignar transformadores a centros de mantenimiento</strong></p>
+<ol type="1">
+<li><p><strong>Preparar datos:</strong></p>
+<ul>
+<li>Capa de transformadores (puntos)</li>
+<li>Capa de centros de mantenimiento (puntos)</li>
+<li>Red vial conectando ambos</li>
+</ul></li>
+<li><p><strong>Análisis con herramientas de red:</strong></p>
+<pre><code>Procesamiento → Análisis de redes → Shortest path (layer to point)</code></pre></li>
+<li><p><strong>Configurar parámetros:</strong></p>
+<ul>
+<li><strong>Capa de red</strong>: red vial</li>
+<li><strong>Puntos de inicio</strong>: capa de transformadores</li>
+<li><strong>Punto de destino</strong>: centro de mantenimiento específico</li>
+<li><strong>Tipo de ruta</strong>: <code>Más rápida</code> (tiempo de respuesta)</li>
+</ul></li>
+<li><p><strong>Interpretar resultados:</strong></p>
+<ul>
+<li>Cada transformador con ruta al centro asignado</li>
+<li>Tiempo de acceso calculado</li>
+<li>Base para planificación de rutas diarias</li>
+</ul></li>
+</ol>
+</section>
+<section id="análisis-de-accesibilidad-a-clientes-prioritarios" class="level3" data-number="8.3">
+<h3 data-number="8.3" class="anchored" data-anchor-id="análisis-de-accesibilidad-a-clientes-prioritarios"><span class="header-section-number">8.3</span> Análisis de accesibilidad a clientes prioritarios</h3>
+<p><strong>Ejemplo: Hospitales y servicios críticos</strong></p>
+<ol type="1">
+<li><p><strong>Identificar clientes críticos:</strong></p>
+<ul>
+<li>Hospitales, centros de salud</li>
+<li>Industrias con procesos críticos</li>
+<li>Servicios públicos esenciales</li>
+</ul></li>
+<li><p><strong>Calcular tiempo de respuesta:</strong></p>
+<pre><code>Procesamiento → Análisis de redes → Service area (from layer)</code></pre></li>
+<li><p><strong>Evaluar cobertura:</strong></p>
+<ul>
+<li>¿Todos los clientes críticos están dentro de 30 min?</li>
+<li>¿Qué zonas requieren centros de servicio adicionales?</li>
+<li>¿Cómo optimizar ubicación de cuadrillas?</li>
+</ul></li>
+</ol>
+</section>
+<section id="análisis-de-zonas-de-riesgo" class="level3" data-number="8.4">
+<h3 data-number="8.4" class="anchored" data-anchor-id="análisis-de-zonas-de-riesgo"><span class="header-section-number">8.4</span> Análisis de zonas de riesgo</h3>
+<p><strong>Identificar patrones espaciales de fallas:</strong></p>
+<ol type="1">
+<li><p><strong>Preparar datos de incidentes:</strong></p>
+<ul>
+<li>Ubicación de fallas históricas</li>
+<li>Tipo de falla, fecha, duración</li>
+<li>Condiciones climáticas asociadas</li>
+</ul></li>
+<li><p><strong>Análisis de densidad:</strong></p>
+<pre><code>Ráster → Análisis → Mapa de calor (KDE)</code></pre></li>
+<li><p><strong>Análisis de accesibilidad a zonas de riesgo:</strong></p>
+<ul>
+<li>Tiempo de respuesta a zonas críticas</li>
+<li>Rutas alternativas durante emergencias</li>
+<li>Ubicación estratégica de equipos de emergencia</li>
+</ul></li>
+</ol>
+</section>
+<section id="optimización-de-rutas-de-inspección" class="level3" data-number="8.5">
+<h3 data-number="8.5" class="anchored" data-anchor-id="optimización-de-rutas-de-inspección"><span class="header-section-number">8.5</span> Optimización de rutas de inspección</h3>
+<p><strong>Planificar recorridos eficientes:</strong></p>
+<ol type="1">
+<li><p><strong>Agrupar puntos de interés por proximidad:</strong></p>
+<pre><code>Vector → Herramientas de análisis → Análisis de agrupamiento K-means</code></pre></li>
+<li><p><strong>Calcular rutas entre grupos:</strong></p>
+<ul>
+<li>Usar ruta más corta entre centroides de grupos</li>
+<li>Minimizar tiempo total de recorrido</li>
+<li>Considerar restricciones operativas</li>
+</ul></li>
+<li><p><strong>Validar rutas propuestas:</strong></p>
+<ul>
+<li>Verificar accesibilidad real</li>
+<li>Considerar horarios de trabajo</li>
+<li>Ajustar según capacidad de cuadrillas</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="plugin-qneat3" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="plugin-qneat3"><span class="header-section-number">9</span> Plugin QNEAT3</h2>
+<p>Para usuarios que requieran análisis más sofisticados, QNEAT3 ofrece funcionalidades adicionales:</p>
+<section id="instalación" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="instalación"><span class="header-section-number">9.1</span> Instalación</h3>
+<pre><code>Complementos → Administrar e instalar complementos → Buscar "QNEAT3"</code></pre>
+</section>
+<section id="funcionalidades-avanzadas" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="funcionalidades-avanzadas"><span class="header-section-number">9.2</span> Funcionalidades avanzadas</h3>
+<ul>
+<li><strong>Matrices origen-destino completas</strong></li>
+<li><strong>Isócronas con múltiples intervalos</strong></li>
+<li><strong>Optimización de rutas complejas</strong></li>
+<li><strong>Análisis de centralidad de red</strong></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Calcular tiempo desde velocidad
+<span class="screen-reader-only">Nota</span>Cuándo usar QNEAT3
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si tienes un campo de velocidad en tu capa de red, puedes calcular el tiempo de recorrido:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tiempo en minutos = (longitud en metros / 1000) / velocidad_kmh * 60</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>($length <span class="op">/</span> <span class="dv">1000</span>) <span class="op">/</span> <span class="st">"velocidad_kmh"</span> <span class="op">*</span> <span class="dv">60</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<hr>
-</section>
-</section>
-<section id="matrices-de-origen-destino" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="matrices-de-origen-destino"><span class="header-section-number">4</span> Matrices de origen-destino</h2>
-<p>Una <strong>matriz de origen-destino (OD)</strong> calcula las distancias o tiempos de viaje entre todos los pares de puntos en dos conjuntos (orígenes y destinos).</p>
-<section id="casos-de-uso" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="casos-de-uso"><span class="header-section-number">4.1</span> Casos de uso</h3>
+<p>QNEAT3 es recomendable cuando necesites:</p>
 <ul>
-<li>Calcular el tiempo de acceso desde cada comunidad al hospital más cercano</li>
-<li>Evaluar la cobertura de una flota de vehículos de emergencia</li>
-<li>Optimizar la distribución de productos desde bodegas a clientes</li>
+<li>Análisis masivos (cientos de puntos)</li>
+<li>Matrices OD completas para optimización</li>
+<li>Isócronas con intervalos múltiples</li>
+<li>Análisis de accesibilidad complejos</li>
 </ul>
+<p>Para análisis básicos, las herramientas nativas de QGIS son suficientes y más estables.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="generar-matriz-od-con-qneat3" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="generar-matriz-od-con-qneat3"><span class="header-section-number">4.2</span> Generar matriz OD con QNEAT3</h3>
+</section>
+<section id="ejercicios-prácticos" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="ejercicios-prácticos"><span class="header-section-number">10</span> 🛠️ Ejercicios Prácticos</h2>
+<section id="ejercicio-4.1-preparación-de-red-vial" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="ejercicio-4.1-preparación-de-red-vial"><span class="header-section-number">10.1</span> Ejercicio 4.1: Preparación de red vial</h3>
 <ol type="1">
-<li><strong>Procesamiento → Caja de herramientas → QNEAT3 → OD Matrix (Layers as OD Pairs)</strong></li>
-<li>Parámetros:
+<li><p>Descarga datos de red vial usando QuickOSM:</p>
 <ul>
-<li>Network Layer: red vial</li>
-<li>Origin Points: capa con puntos de origen (ej. comunidades)</li>
-<li>Destination Points: capa con puntos de destino (ej. hospitales)</li>
-<li>Optimization Criterion: distancia o tiempo</li>
+<li>Área: Tegucigalpa, Honduras</li>
+<li>Consulta: <code>highway=primary OR highway=secondary OR highway=residential</code></li>
 </ul></li>
-<li>El resultado es una tabla con distancia/tiempo de cada par O-D</li>
-</ol>
-</section>
-<section id="análisis-de-los-resultados" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="análisis-de-los-resultados"><span class="header-section-number">4.3</span> Análisis de los resultados</h3>
-<p>La tabla OD puede exportarse a Excel para análisis adicional:</p>
-<pre><code>Clic derecho en la capa resultado → Exportar → Guardar entidades como...
-→ Formato: CSV o XLSX</code></pre>
-<hr>
-</section>
-</section>
-<section id="zonificación-y-análisis-de-cobertura-de-rutas" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="zonificación-y-análisis-de-cobertura-de-rutas"><span class="header-section-number">5</span> Zonificación y análisis de cobertura de rutas</h2>
-<section id="isócronas-áreas-de-cobertura-temporal" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="isócronas-áreas-de-cobertura-temporal"><span class="header-section-number">5.1</span> Isócronas (áreas de cobertura temporal)</h3>
-<p>Las <strong>isócronas</strong> son polígonos que representan el área alcanzable desde un punto en un tiempo determinado.</p>
-<p><strong>Generar isócronas con QNEAT3</strong>:</p>
-<ol type="1">
-<li><strong>Procesamiento → Caja de herramientas → QNEAT3 → Iso-Area as Polygons</strong></li>
-<li>Parámetros:
+<li><p>Verifica la topología:</p>
 <ul>
-<li>Network Layer: red vial</li>
-<li>Start Point: punto de origen (ej. hospital, bodega)</li>
-<li>Size of Iso-Area: tamaño del intervalo (ej. 1000 metros o 5 minutos)</li>
-<li>Maximum cost: límite máximo (ej. 10000 metros o 30 minutos)</li>
+<li><code>Vector → Herramientas de geometría → Verificar validez</code></li>
+<li>Corrige errores encontrados</li>
 </ul></li>
-<li>El resultado son polígonos que muestran las áreas accesibles</li>
+<li><p>Reproyecta a UTM Zona 16N para mediciones precisas</p></li>
+<li><p>Agrega campo de velocidad según tipo de vía</p></li>
 </ol>
 </section>
-<section id="visualización-de-cobertura" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="visualización-de-cobertura"><span class="header-section-number">5.2</span> Visualización de cobertura</h3>
-<p>Una vez generadas las isócronas:</p>
+<section id="ejercicio-4.2-ruta-más-corta" class="level3" data-number="10.2">
+<h3 data-number="10.2" class="anchored" data-anchor-id="ejercicio-4.2-ruta-más-corta"><span class="header-section-number">10.2</span> Ejercicio 4.2: Ruta más corta</h3>
 <ol type="1">
-<li>Aplica simbología por colores graduados según el tiempo/distancia</li>
-<li>Superpone la capa de población o comunidades</li>
-<li>Identifica las zonas sin cobertura adecuada</li>
-</ol>
-<hr>
-</section>
-</section>
-<section id="análisis-de-puntos-de-interés" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="análisis-de-puntos-de-interés"><span class="header-section-number">6</span> Análisis de puntos de interés</h2>
-<section id="unión-espacial-spatial-join" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="unión-espacial-spatial-join"><span class="header-section-number">6.1</span> Unión espacial (Spatial Join)</h3>
-<p>Combina atributos de dos capas basándose en su relación espacial:</p>
-<pre><code>Vector → Herramientas de gestión de datos → Unión de atributos por localización</code></pre>
-<p><strong>Ejemplo</strong>: contar cuántos clientes hay dentro del radio de cobertura de cada tienda.</p>
-</section>
-<section id="análisis-de-densidad-de-puntos" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="análisis-de-densidad-de-puntos"><span class="header-section-number">6.2</span> Análisis de densidad de puntos</h3>
-<pre><code>Ráster → Análisis → Mapa de calor (KDE)</code></pre>
-<p>Genera un ráster que muestra la concentración espacial de puntos (ej. accidentes de tráfico, clientes).</p>
-</section>
-<section id="identificar-el-punto-más-cercano" class="level3" data-number="6.3">
-<h3 data-number="6.3" class="anchored" data-anchor-id="identificar-el-punto-más-cercano"><span class="header-section-number">6.3</span> Identificar el punto más cercano</h3>
-<pre><code>Vector → Análisis → Distancia al punto más cercano</code></pre>
-<p><strong>Ejemplo</strong>: para cada comunidad, identificar el hospital más cercano y la distancia a él.</p>
-</section>
-<section id="análisis-con-networkx-python" class="level3" data-number="6.4">
-<h3 data-number="6.4" class="anchored" data-anchor-id="análisis-con-networkx-python"><span class="header-section-number">6.4</span> Análisis con NetworkX (Python)</h3>
-<p>Para análisis avanzados de redes, puedes usar la biblioteca <strong>NetworkX</strong> desde la consola de Python en QGIS:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un grafo simple</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>G.add_edge(<span class="st">'A'</span>, <span class="st">'B'</span>, weight<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>G.add_edge(<span class="st">'B'</span>, <span class="st">'C'</span>, weight<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>G.add_edge(<span class="st">'A'</span>, <span class="st">'C'</span>, weight<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ruta más corta</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> nx.shortest_path(G, source<span class="op">=</span><span class="st">'A'</span>, target<span class="op">=</span><span class="st">'C'</span>, weight<span class="op">=</span><span class="st">'weight'</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Ruta más corta: </span><span class="sc">{</span>ruta<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>distancia <span class="op">=</span> nx.shortest_path_length(G, source<span class="op">=</span><span class="st">'A'</span>, target<span class="op">=</span><span class="st">'C'</span>, weight<span class="op">=</span><span class="st">'weight'</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Distancia: </span><span class="sc">{</span>distancia<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-</section>
-<section id="ejercicios-prácticos" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="ejercicios-prácticos"><span class="header-section-number">7</span> 🛠️ Ejercicios Prácticos</h2>
-<section id="ejercicio-4.1-preparación-de-red-vial" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="ejercicio-4.1-preparación-de-red-vial"><span class="header-section-number">7.1</span> Ejercicio 4.1: Preparación de red vial</h3>
-<ol type="1">
-<li>Descarga la red vial de Tegucigalpa desde QuickOSM (highways).</li>
-<li>Verifica la topología con la herramienta <strong>Verificar validez</strong>.</li>
-<li>Reproyecta a UTM Zona 16N para trabajar en metros.</li>
-<li>Agrega un campo <code>velocidad_kmh</code> con valores según el tipo de vía.</li>
-</ol>
-</section>
-<section id="ejercicio-4.2-rutas-óptimas" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="ejercicio-4.2-rutas-óptimas"><span class="header-section-number">7.2</span> Ejercicio 4.2: Rutas óptimas</h3>
-<ol type="1">
-<li>Instala el plugin QNEAT3.</li>
-<li>Define dos puntos (origen y destino) en Tegucigalpa.</li>
-<li>Calcula la ruta más corta por distancia.</li>
-<li>Calcula la ruta más rápida por tiempo.</li>
-<li>Compara los resultados.</li>
-</ol>
-</section>
-<section id="ejercicio-4.3-isócronas-y-cobertura" class="level3" data-number="7.3">
-<h3 data-number="7.3" class="anchored" data-anchor-id="ejercicio-4.3-isócronas-y-cobertura"><span class="header-section-number">7.3</span> Ejercicio 4.3: Isócronas y cobertura</h3>
-<ol type="1">
-<li>Selecciona un hospital en Tegucigalpa.</li>
-<li>Genera isócronas de 5, 10, 15 y 30 minutos.</li>
-<li>Carga datos de comunidades o barrios.</li>
-<li>Determina qué porcentaje de la población está a menos de 15 minutos del hospital.</li>
-</ol>
-</section>
-<section id="ejercicio-4.4-matriz-origen-destino" class="level3" data-number="7.4">
-<h3 data-number="7.4" class="anchored" data-anchor-id="ejercicio-4.4-matriz-origen-destino"><span class="header-section-number">7.4</span> Ejercicio 4.4: Matriz origen-destino</h3>
-<ol type="1">
-<li>Crea una capa de 5 puntos origen (ej. barrios) y 3 destinos (ej. hospitales).</li>
-<li>Genera la matriz OD con QNEAT3.</li>
-<li>Exporta los resultados a CSV.</li>
-<li>Identifica el hospital más accesible para cada barrio.</li>
-</ol>
-<hr>
-</section>
-</section>
-<section id="recursos-y-referencias" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="recursos-y-referencias"><span class="header-section-number">8</span> 📚 Recursos y Referencias</h2>
+<li><p>Define dos puntos en Tegucigalpa (ej. Hospital Escuela → Aeropuerto)</p></li>
+<li><p>Calcula ruta más corta por distancia:</p>
 <ul>
-<li><a href="https://root676.github.io/QNEAT3/">QNEAT3 — Documentación oficial</a></li>
-<li><a href="https://docs.qgis.org/latest/en/docs/training_manual/network_analysis/network_analysis.html">QGIS Network Analysis — Tutorial</a></li>
-<li><a href="https://openrouteservice.org">OpenRouteService — Análisis de rutas online</a></li>
+<li>Usa <code>Ruta más corta (punto a punto)</code></li>
+<li>Anota distancia total</li>
+</ul></li>
+<li><p>Calcula ruta más rápida por tiempo:</p>
+<ul>
+<li>Configura campo de velocidades</li>
+<li>Compara con ruta anterior</li>
+</ul></li>
+<li><p>Valida resultados comparando con Google Maps</p></li>
+</ol>
+</section>
+<section id="ejercicio-4.3-análisis-de-cobertura" class="level3" data-number="10.3">
+<h3 data-number="10.3" class="anchored" data-anchor-id="ejercicio-4.3-análisis-de-cobertura"><span class="header-section-number">10.3</span> Ejercicio 4.3: Análisis de cobertura</h3>
+<ol type="1">
+<li><p>Selecciona ubicación de un centro de emergencias</p></li>
+<li><p>Genera isócronas de 5, 10 y 15 minutos:</p>
+<ul>
+<li>Usa <code>Área de servicio (desde punto)</code></li>
+<li>Configura múltiples costos: <code>300,600,900</code> segundos</li>
+</ul></li>
+<li><p>Carga datos de población o comunidades</p></li>
+<li><p>Calcula qué porcentaje de población está cubierto en cada intervalo</p></li>
+</ol>
+</section>
+<section id="ejercicio-4.4-matriz-origen-destino" class="level3" data-number="10.4">
+<h3 data-number="10.4" class="anchored" data-anchor-id="ejercicio-4.4-matriz-origen-destino"><span class="header-section-number">10.4</span> Ejercicio 4.4: Matriz origen-destino</h3>
+<p><strong>Escenario:</strong> Asignar transformadores a centros de mantenimiento</p>
+<ol type="1">
+<li><p>Crea una capa con 3 centros de mantenimiento en Tegucigalpa</p></li>
+<li><p>Crea una capa con 8-10 transformadores distribuidos en la ciudad</p></li>
+<li><p>Calcula matriz OD usando herramientas nativas:</p>
+<ul>
+<li><code>Ruta más corta (punto a capa)</code> desde cada centro</li>
+<li>Configura análisis por tiempo (más rápida)</li>
+</ul></li>
+<li><p>Analiza resultados:</p>
+<ul>
+<li>¿Qué transformadores están más alejados?</li>
+<li>¿Cómo distribuir zonas de responsabilidad?</li>
+<li>¿Se necesitan centros adicionales?</li>
+</ul></li>
+</ol>
+</section>
+<section id="ejercicio-4.5-análisis-de-puntos-de-interés" class="level3" data-number="10.5">
+<h3 data-number="10.5" class="anchored" data-anchor-id="ejercicio-4.5-análisis-de-puntos-de-interés"><span class="header-section-number">10.5</span> Ejercicio 4.5: Análisis de puntos de interés</h3>
+<p><strong>Escenario:</strong> Evaluar accesibilidad a servicios críticos</p>
+<ol type="1">
+<li>Identifica 5 puntos de interés críticos:
+<ul>
+<li>2 hospitales</li>
+<li>1 aeropuerto</li>
+<li>1 universidad</li>
+<li>1 centro comercial</li>
+</ul></li>
+<li>Desde el centro de operaciones principal:
+<ul>
+<li>Calcula ruta más rápida a cada punto crítico</li>
+<li>Genera isócrona de 20 minutos</li>
+</ul></li>
+<li>Evalúa cobertura:
+<ul>
+<li>¿Todos los puntos críticos están cubiertos?</li>
+<li>¿Qué puntos requieren atención especial?</li>
+<li>¿Dónde ubicar centro de emergencias adicional?</li>
+</ul></li>
+</ol>
+</section>
+<section id="ejercicio-4.6-proyecto-integrador" class="level3" data-number="10.6">
+<h3 data-number="10.6" class="anchored" data-anchor-id="ejercicio-4.6-proyecto-integrador"><span class="header-section-number">10.6</span> Ejercicio 4.6: Proyecto integrador</h3>
+<p><strong>Escenario completo:</strong> Optimización de red de servicios eléctricos</p>
+<ol type="1">
+<li><strong>Preparación de datos:</strong>
+<ul>
+<li>Red vial de Tegucigalpa (QuickOSM)</li>
+<li>3 centros de operación (crear)</li>
+<li>15 transformadores (distribuir)</li>
+<li>5 clientes críticos (hospitales, industrias)</li>
+</ul></li>
+<li><strong>Análisis de rutas óptimas:</strong>
+<ul>
+<li>Ruta más corta entre centros de operación</li>
+<li>Rutas de emergencia a clientes críticos</li>
+</ul></li>
+<li><strong>Análisis de cobertura:</strong>
+<ul>
+<li>Isócronas de 15 y 30 minutos desde cada centro</li>
+<li>Identificar zonas sin cobertura adecuada</li>
+</ul></li>
+<li><strong>Matriz origen-destino:</strong>
+<ul>
+<li>Tiempo de acceso de cada centro a transformadores</li>
+<li>Asignación óptima de responsabilidades</li>
+</ul></li>
+<li><strong>Análisis de puntos de interés:</strong>
+<ul>
+<li>Priorización de clientes por accesibilidad</li>
+<li>Identificación de zonas de riesgo</li>
+</ul></li>
+<li><strong>Recomendaciones finales:</strong>
+<ul>
+<li>Mapa de zonificación propuesta</li>
+<li>Ubicaciones sugeridas para nuevos centros</li>
+<li>Plan de rutas de mantenimiento optimizado</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="recursos-y-referencias" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="recursos-y-referencias"><span class="header-section-number">11</span> 📚 Recursos y Referencias</h2>
+<ul>
+<li><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/networkanalysis.html">QGIS Network Analysis — Documentación oficial</a></li>
+<li><a href="https://docs.qgis.org/latest/en/docs/training_manual/vector_analysis/network_analysis.html">QGIS Training Manual — Network Analysis</a></li>
 <li><a href="https://www.openstreetmap.org">OpenStreetMap — Datos de transporte</a></li>
-<li><a href="https://overpass-turbo.eu">Overpass Turbo — Consulta de datos OSM</a></li>
+<li><a href="https://plugins.qgis.org/plugins/QuickOSM/">QuickOSM — Plugin para descargar datos OSM</a></li>
 </ul>
 <hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Para la próxima sesión
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Asegúrate de tener:</p>
+<ul>
+<li>QGIS funcionando correctamente</li>
+<li>Plugin QuickOSM instalado</li>
+<li>Datos de red vial descargados y preparados</li>
+<li>Comprensión clara de conceptos de análisis de redes</li>
+</ul>
+<p>El Módulo 5 construirá sobre estos conceptos para automatizar análisis repetitivos con Python.</p>
+</div>
+</div>
 
 
 <!-- -->
@@ -1402,268 +1918,605 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Módulo 4: Análisis espacial para rutas"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Objetivos del Módulo</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>Al finalizar este módulo, los participantes podrán:</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilizar plugins de análisis de redes en QGIS (QNEAT3, Road Graph).</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular rutas óptimas (más cortas o más rápidas) entre puntos.</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Construir matrices de origen-destino.</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Realizar análisis de cobertura y zonificación de servicios.</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Analizar puntos de interés en el contexto de rutas y servicios.</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análisis de redes con QNEAT3 y Road Graph</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### ¿Qué es un análisis de redes?</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>El **análisis de redes** permite modelar y resolver problemas de conectividad sobre una red de elementos lineales (calles, carreteras, tuberías), como:</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Encontrar la ruta más corta entre dos puntos</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular tiempos de viaje</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Determinar áreas de cobertura (isócronas)</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimizar rutas para múltiples destinos</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### Plugin QNEAT3</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>**QNEAT3** (QGIS Network Analysis Toolbox 3) es el plugin más completo para análisis de redes en QGIS.</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>**Instalación**:</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Complementos → Administrar e instalar complementos</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Busca <span class="in">`QNEAT3`</span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Haz clic en **Instalar complemento**</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>**Funcionalidades principales de QNEAT3**:</span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Herramienta                    <span class="pp">|</span> Descripción                                        <span class="pp">|</span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------------------------------|:---------------------------------------------------|</span></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Shortest Path (Point to Point) <span class="pp">|</span> Ruta más corta entre dos puntos                    <span class="pp">|</span></span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Iso-Area as Polygons           <span class="pp">|</span> Áreas de cobertura (isócronas) desde un punto      <span class="pp">|</span></span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Iso-Area as Contour Lines      <span class="pp">|</span> Líneas de isócrona a distintas distancias/tiempos  <span class="pp">|</span></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> OD Matrix (Layers)             <span class="pp">|</span> Matriz de origen-destino entre capas de puntos     <span class="pp">|</span></span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> OD Matrix (from Layers)        <span class="pp">|</span> Matriz con múltiples orígenes y destinos           <span class="pp">|</span></span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="fu">### Plugin Road Graph (clásico)</span></span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>El plugin **Road Graph** está incluido en QGIS sin necesidad de instalación adicional:</span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a><span class="in">Complementos → Road Graph → Complemento Road Graph</span></span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Permite calcular rutas entre dos puntos sobre una red de líneas</span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Soporta velocidades por tipo de vía</span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Muestra el resultado como capa temporal</span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cálculo de rutas óptimas</span></span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### Preparación de la red vial</span></span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>Antes de calcular rutas, la red vial debe estar correctamente preparada:</span>
-<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Topología correcta**: las líneas deben conectarse en sus extremos (nodos)</span>
-<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Sin duplicados**: eliminar geometrías duplicadas</span>
-<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**CRS proyectado**: usar UTM u otro CRS en metros</span>
-<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>**Verificar y reparar topología con GRASS**:</span>
-<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="in">Procesamiento → Caja de herramientas → GRASS → v.clean</span></span>
-<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ruta más corta con QNEAT3</span></span>
-<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Instala y activa QNEAT3</span>
-<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Ve a: **Procesamiento → Caja de herramientas → QNEAT3 → Shortest Path (Point to Point)**</span>
-<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Parámetros:</span>
-<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Network Layer**: capa de red vial (líneas)</span>
-<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Start Point**: punto de origen</span>
-<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**End Point**: punto de destino</span>
-<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Optimization Criterion**: distancia o tiempo</span>
-<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Entry cost strategy**: distancia del tramo / tiempo estimado</span>
-<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configurar velocidades por tipo de vía</span></span>
-<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>Para calcular tiempos de viaje realistas, asigna velocidades según el tipo de vía:</span>
-<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Tipo de vía         <span class="pp">|</span> Velocidad promedio (km/h) <span class="pp">|</span></span>
-<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a><span class="pp">|:--------------------|:--------------------------|</span></span>
-<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Autopista           <span class="pp">|</span> 100                       <span class="pp">|</span></span>
-<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Carretera primaria  <span class="pp">|</span> 80                        <span class="pp">|</span></span>
-<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Carretera secundaria<span class="pp">|</span> 60                        <span class="pp">|</span></span>
-<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Vía urbana          <span class="pp">|</span> 40                        <span class="pp">|</span></span>
-<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Calle local         <span class="pp">|</span> 25                        <span class="pp">|</span></span>
-<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Camino de tierra    <span class="pp">|</span> 20                        <span class="pp">|</span></span>
-<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## Calcular tiempo desde velocidad</span></span>
-<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>Si tienes un campo de velocidad en tu capa de red, puedes calcular el tiempo de recorrido:</span>
-<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a><span class="co"># Tiempo en minutos = (longitud en metros / 1000) / velocidad_kmh * 60</span></span>
-<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>($length <span class="op">/</span> <span class="dv">1000</span>) <span class="op">/</span> <span class="st">"velocidad_kmh"</span> <span class="op">*</span> <span class="dv">60</span></span>
-<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrices de origen-destino</span></span>
-<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a>Una **matriz de origen-destino (OD)** calcula las distancias o tiempos de viaje entre todos los pares de puntos en dos conjuntos (orígenes y destinos).</span>
-<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### Casos de uso</span></span>
-<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular el tiempo de acceso desde cada comunidad al hospital más cercano</span>
-<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Evaluar la cobertura de una flota de vehículos de emergencia</span>
-<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimizar la distribución de productos desde bodegas a clientes</span>
-<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a><span class="fu">### Generar matriz OD con QNEAT3</span></span>
-<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Procesamiento → Caja de herramientas → QNEAT3 → OD Matrix (Layers as OD Pairs)**</span>
-<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Parámetros:</span>
-<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Network Layer: red vial</span>
-<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Origin Points: capa con puntos de origen (ej. comunidades)</span>
-<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Destination Points: capa con puntos de destino (ej. hospitales)</span>
-<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Optimization Criterion: distancia o tiempo</span>
-<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>El resultado es una tabla con distancia/tiempo de cada par O-D</span>
-<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de los resultados</span></span>
-<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a>La tabla OD puede exportarse a Excel para análisis adicional:</span>
-<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a><span class="in">Clic derecho en la capa resultado → Exportar → Guardar entidades como...</span></span>
-<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a><span class="in">→ Formato: CSV o XLSX</span></span>
-<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Zonificación y análisis de cobertura de rutas</span></span>
-<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a><span class="fu">### Isócronas (áreas de cobertura temporal)</span></span>
-<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a>Las **isócronas** son polígonos que representan el área alcanzable desde un punto en un tiempo determinado.</span>
-<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a>**Generar isócronas con QNEAT3**:</span>
-<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Procesamiento → Caja de herramientas → QNEAT3 → Iso-Area as Polygons**</span>
-<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Parámetros:</span>
-<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Network Layer: red vial</span>
-<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Start Point: punto de origen (ej. hospital, bodega)</span>
-<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Size of Iso-Area: tamaño del intervalo (ej. 1000 metros o 5 minutos)</span>
-<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Maximum cost: límite máximo (ej. 10000 metros o 30 minutos)</span>
-<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>El resultado son polígonos que muestran las áreas accesibles</span>
-<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualización de cobertura</span></span>
-<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a>Una vez generadas las isócronas:</span>
-<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Aplica simbología por colores graduados según el tiempo/distancia</span>
-<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Superpone la capa de población o comunidades</span>
-<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Identifica las zonas sin cobertura adecuada</span>
-<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análisis de puntos de interés</span></span>
-<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### Unión espacial (Spatial Join)</span></span>
-<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a>Combina atributos de dos capas basándose en su relación espacial:</span>
-<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Herramientas de gestión de datos → Unión de atributos por localización</span></span>
-<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a>**Ejemplo**: contar cuántos clientes hay dentro del radio de cobertura de cada tienda.</span>
-<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de densidad de puntos</span></span>
-<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a><span class="in">Ráster → Análisis → Mapa de calor (KDE)</span></span>
-<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a>Genera un ráster que muestra la concentración espacial de puntos (ej. accidentes de tráfico, clientes).</span>
-<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identificar el punto más cercano</span></span>
-<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a><span class="in">Vector → Análisis → Distancia al punto más cercano</span></span>
-<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a>**Ejemplo**: para cada comunidad, identificar el hospital más cercano y la distancia a él.</span>
-<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis con NetworkX (Python)</span></span>
-<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a>Para análisis avanzados de redes, puedes usar la biblioteca **NetworkX** desde la consola de Python en QGIS:</span>
-<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
-<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un grafo simple</span></span>
-<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()</span>
-<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a>G.add_edge(<span class="st">'A'</span>, <span class="st">'B'</span>, weight<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a>G.add_edge(<span class="st">'B'</span>, <span class="st">'C'</span>, weight<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a>G.add_edge(<span class="st">'A'</span>, <span class="st">'C'</span>, weight<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a><span class="co"># Ruta más corta</span></span>
-<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> nx.shortest_path(G, source<span class="op">=</span><span class="st">'A'</span>, target<span class="op">=</span><span class="st">'C'</span>, weight<span class="op">=</span><span class="st">'weight'</span>)</span>
-<span id="cb9-213"><a href="#cb9-213" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Ruta más corta: </span><span class="sc">{</span>ruta<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb9-214"><a href="#cb9-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a>distancia <span class="op">=</span> nx.shortest_path_length(G, source<span class="op">=</span><span class="st">'A'</span>, target<span class="op">=</span><span class="st">'C'</span>, weight<span class="op">=</span><span class="st">'weight'</span>)</span>
-<span id="cb9-216"><a href="#cb9-216" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Distancia: </span><span class="sc">{</span>distancia<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb9-217"><a href="#cb9-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-218"><a href="#cb9-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-219"><a href="#cb9-219" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-221"><a href="#cb9-221" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🛠️ Ejercicios Prácticos</span></span>
-<span id="cb9-222"><a href="#cb9-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-223"><a href="#cb9-223" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 4.1: Preparación de red vial</span></span>
-<span id="cb9-224"><a href="#cb9-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-225"><a href="#cb9-225" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Descarga la red vial de Tegucigalpa desde QuickOSM (highways).</span>
-<span id="cb9-226"><a href="#cb9-226" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Verifica la topología con la herramienta **Verificar validez**.</span>
-<span id="cb9-227"><a href="#cb9-227" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Reproyecta a UTM Zona 16N para trabajar en metros.</span>
-<span id="cb9-228"><a href="#cb9-228" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Agrega un campo <span class="in">`velocidad_kmh`</span> con valores según el tipo de vía.</span>
-<span id="cb9-229"><a href="#cb9-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-230"><a href="#cb9-230" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 4.2: Rutas óptimas</span></span>
-<span id="cb9-231"><a href="#cb9-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-232"><a href="#cb9-232" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Instala el plugin QNEAT3.</span>
-<span id="cb9-233"><a href="#cb9-233" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Define dos puntos (origen y destino) en Tegucigalpa.</span>
-<span id="cb9-234"><a href="#cb9-234" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Calcula la ruta más corta por distancia.</span>
-<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Calcula la ruta más rápida por tiempo.</span>
-<span id="cb9-236"><a href="#cb9-236" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Compara los resultados.</span>
-<span id="cb9-237"><a href="#cb9-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-238"><a href="#cb9-238" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 4.3: Isócronas y cobertura</span></span>
-<span id="cb9-239"><a href="#cb9-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-240"><a href="#cb9-240" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Selecciona un hospital en Tegucigalpa.</span>
-<span id="cb9-241"><a href="#cb9-241" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Genera isócronas de 5, 10, 15 y 30 minutos.</span>
-<span id="cb9-242"><a href="#cb9-242" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Carga datos de comunidades o barrios.</span>
-<span id="cb9-243"><a href="#cb9-243" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Determina qué porcentaje de la población está a menos de 15 minutos del hospital.</span>
-<span id="cb9-244"><a href="#cb9-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-245"><a href="#cb9-245" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 4.4: Matriz origen-destino</span></span>
-<span id="cb9-246"><a href="#cb9-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-247"><a href="#cb9-247" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Crea una capa de 5 puntos origen (ej. barrios) y 3 destinos (ej. hospitales).</span>
-<span id="cb9-248"><a href="#cb9-248" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Genera la matriz OD con QNEAT3.</span>
-<span id="cb9-249"><a href="#cb9-249" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Exporta los resultados a CSV.</span>
-<span id="cb9-250"><a href="#cb9-250" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Identifica el hospital más accesible para cada barrio.</span>
-<span id="cb9-251"><a href="#cb9-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-252"><a href="#cb9-252" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb9-253"><a href="#cb9-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-254"><a href="#cb9-254" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Recursos y Referencias</span></span>
-<span id="cb9-255"><a href="#cb9-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-256"><a href="#cb9-256" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QNEAT3 — Documentación oficial</span><span class="co">](https://root676.github.io/QNEAT3/)</span></span>
-<span id="cb9-257"><a href="#cb9-257" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QGIS Network Analysis — Tutorial</span><span class="co">](https://docs.qgis.org/latest/en/docs/training_manual/network_analysis/network_analysis.html)</span></span>
-<span id="cb9-258"><a href="#cb9-258" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OpenRouteService — Análisis de rutas online</span><span class="co">](https://openrouteservice.org)</span></span>
-<span id="cb9-259"><a href="#cb9-259" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OpenStreetMap — Datos de transporte</span><span class="co">](https://www.openstreetmap.org)</span></span>
-<span id="cb9-260"><a href="#cb9-260" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Overpass Turbo — Consulta de datos OSM</span><span class="co">](https://overpass-turbo.eu)</span></span>
-<span id="cb9-261"><a href="#cb9-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-262"><a href="#cb9-262" aria-hidden="true" tabindex="-1"></a>---</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Módulo 4: Análisis espacial para rutas"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Objetivos del Módulo</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>Al finalizar este módulo, los participantes podrán:</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comprender los conceptos fundamentales del análisis de redes.</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilizar las herramientas nativas de análisis de redes en QGIS.</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular rutas óptimas entre puntos usando criterios de distancia y tiempo.</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Generar áreas de cobertura (isócronas) desde puntos de servicio.</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar análisis de redes a casos prácticos de empresa eléctrica.</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conceptos fundamentales del análisis de redes</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### ¿Qué es un análisis de redes?</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>El **análisis de redes** permite modelar y resolver problemas de conectividad sobre una red de elementos lineales (calles, carreteras, líneas eléctricas), respondiendo preguntas como:</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Cuál es la ruta más corta entre dos puntos?</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Qué áreas puedo alcanzar en 15 minutos desde mi ubicación?</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Cuál es el tiempo de respuesta promedio a emergencias?</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Dónde ubicar un nuevo centro de servicio para optimizar cobertura?</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### Componentes de una red</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>Una red espacial está compuesta por:</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Componente <span class="pp">|</span> Descripción <span class="pp">|</span> Ejemplo en empresa eléctrica <span class="pp">|</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------|:------------|:-----------------------------|</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Nodos** <span class="pp">|</span> Puntos de conexión o intersección <span class="pp">|</span> Subestaciones, transformadores <span class="pp">|</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Arcos/Edges** <span class="pp">|</span> Segmentos que conectan nodos <span class="pp">|</span> Líneas de transmisión, cables <span class="pp">|</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Atributos** <span class="pp">|</span> Propiedades de los arcos <span class="pp">|</span> Voltaje, capacidad, estado <span class="pp">|</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Costos** <span class="pp">|</span> Valores para cálculo de rutas <span class="pp">|</span> Distancia, tiempo, impedancia <span class="pp">|</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tipos de análisis de redes</span></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>**1. Ruta más corta (Shortest Path)**</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Encuentra el camino óptimo entre dos puntos</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Criterios: distancia mínima o tiempo mínimo</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>**2. Área de servicio (Service Area)**</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Determina qué zonas son accesibles desde un punto</span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Útil para análisis de cobertura y planificación</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>**3. Punto más cercano (Closest Facility)**</span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identifica el servicio más próximo a cada ubicación</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicación: asignación de cuadrillas de mantenimiento</span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análisis de redes con herramientas nativas y QNEAT3</span></span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Herramientas nativas de QGIS</span></span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>QGIS incluye algoritmos integrados para análisis de redes que no requieren plugins adicionales:</span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a><span class="in">Procesamiento → Caja de herramientas → Análisis de redes</span></span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>**Algoritmos principales:**</span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Herramienta <span class="pp">|</span> Función <span class="pp">|</span> Caso de uso <span class="pp">|</span></span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|:------------|:--------|:------------|</span></span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Área de servicio (desde capa)** <span class="pp">|</span> Este algoritmo crea una nueva capa vectorial con todos los segmentos o partes de segmentos de una capa de líneas de red que se pueden alcanzar dentro de una distancia o un tiempo, comenzando desde las características de una capa de puntos. La distancia y el tiempo (ambos referidos como "costo de viaje") deben especificarse respectivamente en las unidades de la capa de red o en horas. <span class="pp">|</span> Cobertura de cuadrilla de emergencia <span class="pp">|</span></span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Área de servicio (desde punto)** <span class="pp">|</span> Este algoritmo crea una nueva capa vectorial con todos los segmentos o partes de segmentos de una capa de líneas de red que se pueden alcanzar dentro de una distancia o un tiempo, comenzando desde un punto específico. La distancia y el tiempo (ambos referidos como "costo de viaje") deben especificarse respectivamente en las unidades de la capa de red o en horas. <span class="pp">|</span> Planificar ruta de inspección <span class="pp">|</span></span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Ruta más corta (capa a punto)** <span class="pp">|</span> Este algoritmo calcula rutas óptimas (más cortas o más rápidas) desde múltiples puntos de inicio definidos por una capa vectorial hasta un punto final dado. <span class="pp">|</span> Desde cuadrillas a transformador  <span class="pp">|</span></span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Ruta más corta (punto a capa)** <span class="pp">|</span> Este algoritmo calcula rutas óptimas (más cortas o más rápidas) desde un punto de inicio dado hasta múltiples puntos finales definidos por una capa vectorial de puntos. Este algoritmo elimina las claves primarias existentes o los valores FID y los regenera en las capas de salida. <span class="pp">|</span> Cobertura de cuadrilla de emergencia <span class="pp">|</span></span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Ruta más corta (punto a punto)** <span class="pp">|</span> Este algoritmo calcula la ruta óptima (la más corta o la más rápida) entre los puntos inicial y final indicados. <span class="pp">|</span> Analizar la ruta más corta o más rápida desde un punto (Cuadrilla) a otro (punto final) <span class="pp">|</span></span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a>**Ventajas de herramientas nativas:**</span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>✅ Incluidas en QGIS por defecto</span>
+<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>✅ Estables y bien documentadas</span>
+<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>✅ Suficientes para análisis básicos-intermedios</span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>✅ Integración perfecta con Processing Framework</span>
+<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Plugin QNEAT3 (para análisis avanzados)</span></span>
+<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a>**QNEAT3** (QGIS Network Analysis Toolbox 3) ofrece funcionalidades adicionales para usuarios avanzados.</span>
+<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a>**Instalación:**</span>
+<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a><span class="in">Complementos → Administrar e instalar complementos → Buscar "QNEAT3"</span></span>
+<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a>**Funcionalidades avanzadas de QNEAT3:**</span>
+<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Herramienta QNEAT3 <span class="pp">|</span> Función <span class="pp">|</span> Cuándo usarla <span class="pp">|</span></span>
+<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------------------|:--------|:--------------|</span></span>
+<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **OD Matrix (Layers)** <span class="pp">|</span> Matriz completa origen-destino <span class="pp">|</span> Análisis masivos (&gt;50 puntos) <span class="pp">|</span></span>
+<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Iso-Area as Polygons** <span class="pp">|</span> Isócronas con múltiples intervalos <span class="pp">|</span> Análisis detallado de cobertura <span class="pp">|</span></span>
+<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Iso-Area as Contours** <span class="pp">|</span> Líneas de isócrona <span class="pp">|</span> Visualización de gradientes <span class="pp">|</span></span>
+<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Shortest Path (Point to Point)** <span class="pp">|</span> Versión avanzada con más opciones <span class="pp">|</span> Análisis complejos con restricciones <span class="pp">|</span></span>
+<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a>**Cuándo usar cada herramienta:**</span>
+<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a><span class="in">ANÁLISIS BÁSICO → Herramientas nativas QGIS</span></span>
+<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a><span class="in">ANÁLISIS MASIVO → QNEAT3</span></span>
+<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### Comparación: Nativo vs QNEAT3</span></span>
+<span id="cb14-111"><a href="#cb14-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Aspecto <span class="pp">|</span> Herramientas Nativas <span class="pp">|</span> QNEAT3 <span class="pp">|</span></span>
+<span id="cb14-113"><a href="#cb14-113" aria-hidden="true" tabindex="-1"></a><span class="pp">|:--------|:-------------------|:-------|</span></span>
+<span id="cb14-114"><a href="#cb14-114" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Instalación** <span class="pp">|</span> Incluido <span class="pp">|</span> Requiere plugin <span class="pp">|</span></span>
+<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Estabilidad** <span class="pp">|</span> Muy alta <span class="pp">|</span> Alta <span class="pp">|</span></span>
+<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Facilidad de uso** <span class="pp">|</span> Simple <span class="pp">|</span> Más opciones <span class="pp">|</span></span>
+<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Matrices OD** <span class="pp">|</span> Limitado <span class="pp">|</span> Completo <span class="pp">|</span></span>
+<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Isócronas** <span class="pp">|</span> Básico <span class="pp">|</span> Avanzado <span class="pp">|</span></span>
+<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Documentación** <span class="pp">|</span> Oficial QGIS <span class="pp">|</span> Comunidad <span class="pp">|</span></span>
+<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Rendimiento** <span class="pp">|</span> Bueno <span class="pp">|</span> Optimizado <span class="pp">|</span></span>
+<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-122"><a href="#cb14-122" aria-hidden="true" tabindex="-1"></a><span class="fu">### Preparación de datos para análisis de redes</span></span>
+<span id="cb14-123"><a href="#cb14-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a>**Requisitos básicos:**</span>
+<span id="cb14-125"><a href="#cb14-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-126"><a href="#cb14-126" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Red topológicamente correcta**</span>
+<span id="cb14-127"><a href="#cb14-127" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Los segmentos deben conectarse en sus extremos</span>
+<span id="cb14-128"><a href="#cb14-128" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Sin gaps ni overlaps no deseados</span>
+<span id="cb14-129"><a href="#cb14-129" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usar herramientas de validación del Módulo 3</span>
+<span id="cb14-130"><a href="#cb14-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-131"><a href="#cb14-131" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Sistema de coordenadas proyectado**</span>
+<span id="cb14-132"><a href="#cb14-132" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Preferible UTM para mediciones precisas</span>
+<span id="cb14-133"><a href="#cb14-133" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Evitar coordenadas geográficas (grados)</span>
+<span id="cb14-134"><a href="#cb14-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-135"><a href="#cb14-135" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Campos de costo configurados**</span>
+<span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Distancia: usar longitud de segmento</span>
+<span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tiempo: calcular según velocidad permitida</span>
+<span id="cb14-138"><a href="#cb14-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-140"><a href="#cb14-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-141"><a href="#cb14-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cálculo de rutas óptimas</span></span>
+<span id="cb14-142"><a href="#cb14-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-143"><a href="#cb14-143" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ruta más corta por distancia</span></span>
+<span id="cb14-144"><a href="#cb14-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-145"><a href="#cb14-145" aria-hidden="true" tabindex="-1"></a>**Ejemplo práctico: Ruta de inspección entre subestaciones**</span>
+<span id="cb14-146"><a href="#cb14-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-147"><a href="#cb14-147" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Cargar datos de red vial**</span>
+<span id="cb14-148"><a href="#cb14-148" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb14-149"><a href="#cb14-149" aria-hidden="true" tabindex="-1"></a><span class="in">   Capa → Añadir capa → Capa vectorial</span></span>
+<span id="cb14-150"><a href="#cb14-150" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb14-151"><a href="#cb14-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-152"><a href="#cb14-152" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Abrir herramienta de ruta más corta**</span>
+<span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a><span class="in">   Procesamiento → Caja de herramientas → Análisis de redes →</span></span>
+<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a><span class="in">   Ruta más corta (punto a punto)</span></span>
+<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Configurar parámetros:**</span>
+<span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Vector layer representing network**: capa de calles/carreteras</span>
+<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Path type to calculate**: <span class="in">`Shortest`</span> (distancia)</span>
+<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Start point**: coordenadas del punto de origen</span>
+<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**End point**: coordenadas del punto de destino</span>
+<span id="cb14-163"><a href="#cb14-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-164"><a href="#cb14-164" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Interpretar resultados:**</span>
+<span id="cb14-165"><a href="#cb14-165" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Nueva capa con la ruta óptima</span>
+<span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tabla de atributos con distancia total</span>
+<span id="cb14-167"><a href="#cb14-167" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tiempo estimado (si se configuró velocidad)</span>
+<span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ruta más rápida por tiempo</span></span>
+<span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a>Para calcular la ruta más rápida, necesitas configurar velocidades:</span>
+<span id="cb14-172"><a href="#cb14-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-173"><a href="#cb14-173" aria-hidden="true" tabindex="-1"></a>**Paso 1: Agregar campo de velocidad**</span>
+<span id="cb14-174"><a href="#cb14-174" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb14-175"><a href="#cb14-175" aria-hidden="true" tabindex="-1"></a><span class="co"># En la calculadora de campos, crear campo 'velocidad_kmh'</span></span>
+<span id="cb14-176"><a href="#cb14-176" aria-hidden="true" tabindex="-1"></a>CASE</span>
+<span id="cb14-177"><a href="#cb14-177" aria-hidden="true" tabindex="-1"></a>  WHEN <span class="st">"highway"</span> <span class="op">=</span> <span class="st">'motorway'</span> THEN <span class="dv">100</span></span>
+<span id="cb14-178"><a href="#cb14-178" aria-hidden="true" tabindex="-1"></a>  WHEN <span class="st">"highway"</span> <span class="op">=</span> <span class="st">'primary'</span> THEN <span class="dv">80</span></span>
+<span id="cb14-179"><a href="#cb14-179" aria-hidden="true" tabindex="-1"></a>  WHEN <span class="st">"highway"</span> <span class="op">=</span> <span class="st">'secondary'</span> THEN <span class="dv">60</span></span>
+<span id="cb14-180"><a href="#cb14-180" aria-hidden="true" tabindex="-1"></a>  WHEN <span class="st">"highway"</span> <span class="op">=</span> <span class="st">'residential'</span> THEN <span class="dv">40</span></span>
+<span id="cb14-181"><a href="#cb14-181" aria-hidden="true" tabindex="-1"></a>  ELSE <span class="dv">30</span></span>
+<span id="cb14-182"><a href="#cb14-182" aria-hidden="true" tabindex="-1"></a>END</span>
+<span id="cb14-183"><a href="#cb14-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-184"><a href="#cb14-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-185"><a href="#cb14-185" aria-hidden="true" tabindex="-1"></a>**Paso 2: Configurar análisis por tiempo**</span>
+<span id="cb14-186"><a href="#cb14-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-187"><a href="#cb14-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Capa vectorial que representa la red**: <span class="in">`network_lines`</span> (capa de calles)</span>
+<span id="cb14-188"><a href="#cb14-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tipo de ruta a calcular**: <span class="in">`Más rápida`</span> (tiempo en porciones de hora)</span>
+<span id="cb14-189"><a href="#cb14-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Campo de velocidad**: seleccionar campo <span class="in">`velocidad_kmh`</span></span>
+<span id="cb14-190"><a href="#cb14-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Velocidad predeterminada km/h**: velocidad por defecto (ej. 50 km/h)</span>
+<span id="cb14-191"><a href="#cb14-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-192"><a href="#cb14-192" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-193"><a href="#cb14-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-194"><a href="#cb14-194" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrices de origen-destino</span></span>
+<span id="cb14-195"><a href="#cb14-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-196"><a href="#cb14-196" aria-hidden="true" tabindex="-1"></a>Una **matriz de origen-destino (OD)** calcula las distancias o tiempos de viaje entre todos los pares de puntos en dos conjuntos (orígenes y destinos).</span>
+<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### ¿Cuándo usar matrices OD?</span></span>
+<span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a>**Casos de uso en empresa eléctrica:**</span>
+<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular tiempo de acceso desde cada centro de operación a transformadores</span>
+<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Evaluar cobertura de cuadrillas de mantenimiento</span>
+<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimizar asignación de personal a zonas de trabajo</span>
+<span id="cb14-205"><a href="#cb14-205" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Planificar rutas de inspección múltiples</span>
+<span id="cb14-206"><a href="#cb14-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-207"><a href="#cb14-207" aria-hidden="true" tabindex="-1"></a><span class="fu">### Generar matriz básica con herramientas nativas</span></span>
+<span id="cb14-208"><a href="#cb14-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-209"><a href="#cb14-209" aria-hidden="true" tabindex="-1"></a>**Opción 1: Análisis punto a capa**</span>
+<span id="cb14-210"><a href="#cb14-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-211"><a href="#cb14-211" aria-hidden="true" tabindex="-1"></a><span class="in">Procesamiento → Análisis de redes → Ruta más corta (punto a capa)</span></span>
+<span id="cb14-212"><a href="#cb14-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-213"><a href="#cb14-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-214"><a href="#cb14-214" aria-hidden="true" tabindex="-1"></a>**Parámetros:**</span>
+<span id="cb14-215"><a href="#cb14-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-216"><a href="#cb14-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Capa de red**: red vial</span>
+<span id="cb14-217"><a href="#cb14-217" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Punto de inicio**: centro de operación (coordenadas)</span>
+<span id="cb14-218"><a href="#cb14-218" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Capa de puntos de destino**: capa de transformadores</span>
+<span id="cb14-219"><a href="#cb14-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tipo de ruta**: <span class="in">`Más corta`</span> o <span class="in">`Más rápida`</span></span>
+<span id="cb14-220"><a href="#cb14-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-221"><a href="#cb14-221" aria-hidden="true" tabindex="-1"></a>**Resultado:** Rutas desde un punto a múltiples destinos con distancias/tiempos</span>
+<span id="cb14-222"><a href="#cb14-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-223"><a href="#cb14-223" aria-hidden="true" tabindex="-1"></a>**Opción 2: Para matrices completas (avanzado)**</span>
+<span id="cb14-224"><a href="#cb14-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-225"><a href="#cb14-225" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Usar QNEAT3 para matrices OD completas</span>
+<span id="cb14-226"><a href="#cb14-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Recomendado solo para análisis masivos (&gt;50 puntos)</span>
+<span id="cb14-227"><a href="#cb14-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-228"><a href="#cb14-228" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretar resultados de matriz OD</span></span>
+<span id="cb14-229"><a href="#cb14-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-230"><a href="#cb14-230" aria-hidden="true" tabindex="-1"></a>La tabla resultante contiene:</span>
+<span id="cb14-231"><a href="#cb14-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-232"><a href="#cb14-232" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**origin_id**: identificador del punto de origen</span>
+<span id="cb14-233"><a href="#cb14-233" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**destination_id**: identificador del punto de destino</span>
+<span id="cb14-234"><a href="#cb14-234" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**total_cost**: distancia o tiempo total</span>
+<span id="cb14-235"><a href="#cb14-235" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**route_geometry**: geometría de la ruta (opcional)</span>
+<span id="cb14-236"><a href="#cb14-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-237"><a href="#cb14-237" aria-hidden="true" tabindex="-1"></a>**Análisis típicos:**</span>
+<span id="cb14-238"><a href="#cb14-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-239"><a href="#cb14-239" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificar destino más cercano para cada origen</span>
+<span id="cb14-240"><a href="#cb14-240" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular tiempo promedio de respuesta</span>
+<span id="cb14-241"><a href="#cb14-241" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Detectar zonas con acceso deficiente</span>
+<span id="cb14-242"><a href="#cb14-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-243"><a href="#cb14-243" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-244"><a href="#cb14-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-245"><a href="#cb14-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## Zonificación y análisis de cobertura de rutas</span></span>
+<span id="cb14-246"><a href="#cb14-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-247"><a href="#cb14-247" aria-hidden="true" tabindex="-1"></a><span class="fu">### Generar isócronas (áreas de tiempo)</span></span>
+<span id="cb14-248"><a href="#cb14-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-249"><a href="#cb14-249" aria-hidden="true" tabindex="-1"></a>Las **isócronas** muestran qué áreas son accesibles en un tiempo determinado desde un punto de servicio.</span>
+<span id="cb14-250"><a href="#cb14-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-251"><a href="#cb14-251" aria-hidden="true" tabindex="-1"></a>**Ejemplo: Cobertura de cuadrilla de emergencia**</span>
+<span id="cb14-252"><a href="#cb14-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-253"><a href="#cb14-253" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Abrir herramienta Service Area**</span>
+<span id="cb14-254"><a href="#cb14-254" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb14-255"><a href="#cb14-255" aria-hidden="true" tabindex="-1"></a><span class="in">   Procesamiento → Análisis de redes → Service area (from point)</span></span>
+<span id="cb14-256"><a href="#cb14-256" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb14-257"><a href="#cb14-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-258"><a href="#cb14-258" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Configurar parámetros:**</span>
+<span id="cb14-259"><a href="#cb14-259" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Capa vectorial que representa la red**: red vial</span>
+<span id="cb14-260"><a href="#cb14-260" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Tipo de ruta**: <span class="in">`Más rápida`</span> (por tiempo)</span>
+<span id="cb14-261"><a href="#cb14-261" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Costo de viaje**: <span class="in">`900`</span> (15 minutos en segundos)</span>
+<span id="cb14-262"><a href="#cb14-262" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Campo de velocidad**: campo de velocidades</span>
+<span id="cb14-263"><a href="#cb14-263" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Punto de inicio**: ubicación del centro de servicio</span>
+<span id="cb14-264"><a href="#cb14-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-265"><a href="#cb14-265" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Resultado:**</span>
+<span id="cb14-266"><a href="#cb14-266" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Polígono mostrando área accesible en 15 minutos</span>
+<span id="cb14-267"><a href="#cb14-267" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Útil para evaluar cobertura de servicios de emergencia</span>
+<span id="cb14-268"><a href="#cb14-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-269"><a href="#cb14-269" aria-hidden="true" tabindex="-1"></a><span class="fu">### Múltiples áreas de cobertura</span></span>
+<span id="cb14-270"><a href="#cb14-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-271"><a href="#cb14-271" aria-hidden="true" tabindex="-1"></a>Para analizar cobertura desde varios puntos simultáneamente:</span>
+<span id="cb14-272"><a href="#cb14-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-273"><a href="#cb14-273" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Crear capa de puntos de servicio**</span>
+<span id="cb14-274"><a href="#cb14-274" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ubicaciones de subestaciones, centros de operación</span>
+<span id="cb14-275"><a href="#cb14-275" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Incluir atributos: nombre, tipo, capacidad</span>
+<span id="cb14-276"><a href="#cb14-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-277"><a href="#cb14-277" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Usar Service area (from layer)**</span>
+<span id="cb14-278"><a href="#cb14-278" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Puntos de inicio**: capa de centros de servicio</span>
+<span id="cb14-279"><a href="#cb14-279" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Costo de viaje**: tiempo máximo deseado</span>
+<span id="cb14-280"><a href="#cb14-280" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Genera un polígono por cada punto de servicio</span>
+<span id="cb14-281"><a href="#cb14-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-282"><a href="#cb14-282" aria-hidden="true" tabindex="-1"></a><span class="fu">### Zonificación de servicios</span></span>
+<span id="cb14-283"><a href="#cb14-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-284"><a href="#cb14-284" aria-hidden="true" tabindex="-1"></a>**Crear zonas de responsabilidad:**</span>
+<span id="cb14-285"><a href="#cb14-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-286"><a href="#cb14-286" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Generar áreas de cobertura** para cada centro de servicio</span>
+<span id="cb14-287"><a href="#cb14-287" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Identificar superposiciones** entre zonas</span>
+<span id="cb14-288"><a href="#cb14-288" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Asignar prioridades** según capacidad o especialización</span>
+<span id="cb14-289"><a href="#cb14-289" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Crear mapa de zonificación** final</span>
+<span id="cb14-290"><a href="#cb14-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-291"><a href="#cb14-291" aria-hidden="true" tabindex="-1"></a>**Aplicación práctica:**</span>
+<span id="cb14-292"><a href="#cb14-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-293"><a href="#cb14-293" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Dividir territorio en zonas de mantenimiento</span>
+<span id="cb14-294"><a href="#cb14-294" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Asignar cuadrillas a sectores específicos</span>
+<span id="cb14-295"><a href="#cb14-295" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimizar distribución de recursos</span>
+<span id="cb14-296"><a href="#cb14-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-297"><a href="#cb14-297" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualización de resultados</span></span>
+<span id="cb14-298"><a href="#cb14-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-299"><a href="#cb14-299" aria-hidden="true" tabindex="-1"></a>**Simbolización por tiempo de acceso:**</span>
+<span id="cb14-300"><a href="#cb14-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-301"><a href="#cb14-301" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Propiedades de capa → Simbología</span>
+<span id="cb14-302"><a href="#cb14-302" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Graduado → Campo: <span class="in">`cost`</span> (tiempo)</span>
+<span id="cb14-303"><a href="#cb14-303" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Colores: verde (cerca) → rojo (lejos)</span>
+<span id="cb14-304"><a href="#cb14-304" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Etiquetas: mostrar tiempo en minutos</span>
+<span id="cb14-305"><a href="#cb14-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-306"><a href="#cb14-306" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-307"><a href="#cb14-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-308"><a href="#cb14-308" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aplicaciones para empresa eléctrica</span></span>
+<span id="cb14-309"><a href="#cb14-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-310"><a href="#cb14-310" aria-hidden="true" tabindex="-1"></a><span class="fu">### Casos de uso específicos</span></span>
+<span id="cb14-311"><a href="#cb14-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-312"><a href="#cb14-312" aria-hidden="true" tabindex="-1"></a>**1. Planificación de rutas de mantenimiento**</span>
+<span id="cb14-313"><a href="#cb14-313" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimizar recorridos diarios de cuadrillas</span>
+<span id="cb14-314"><a href="#cb14-314" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Minimizar tiempo de desplazamiento entre sitios</span>
+<span id="cb14-315"><a href="#cb14-315" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Considerar restricciones de acceso vehicular</span>
+<span id="cb14-316"><a href="#cb14-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-317"><a href="#cb14-317" aria-hidden="true" tabindex="-1"></a>**2. Análisis de tiempo de respuesta**</span>
+<span id="cb14-318"><a href="#cb14-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Evaluar cobertura actual de centros de operación</span>
+<span id="cb14-319"><a href="#cb14-319" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificar zonas con tiempo de respuesta elevado</span>
+<span id="cb14-320"><a href="#cb14-320" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Planificar ubicación de nuevos centros</span>
+<span id="cb14-321"><a href="#cb14-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-322"><a href="#cb14-322" aria-hidden="true" tabindex="-1"></a>**3. Gestión de emergencias**</span>
+<span id="cb14-323"><a href="#cb14-323" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rutas rápidas a sitios de fallas eléctricas</span>
+<span id="cb14-324"><a href="#cb14-324" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Coordinación de múltiples cuadrillas</span>
+<span id="cb14-325"><a href="#cb14-325" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rutas alternativas durante bloqueos</span>
+<span id="cb14-326"><a href="#cb14-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-327"><a href="#cb14-327" aria-hidden="true" tabindex="-1"></a>**4. Planificación de infraestructura**</span>
+<span id="cb14-328"><a href="#cb14-328" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ubicación óptima de nuevas subestaciones</span>
+<span id="cb14-329"><a href="#cb14-329" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Análisis de accesibilidad para mantenimiento</span>
+<span id="cb14-330"><a href="#cb14-330" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Evaluación de rutas de construcción</span>
+<span id="cb14-331"><a href="#cb14-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-332"><a href="#cb14-332" aria-hidden="true" tabindex="-1"></a><span class="fu">### Datos típicos en empresas eléctricas</span></span>
+<span id="cb14-333"><a href="#cb14-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-334"><a href="#cb14-334" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Tipo de dato <span class="pp">|</span> Geometría <span class="pp">|</span> Atributos clave <span class="pp">|</span></span>
+<span id="cb14-335"><a href="#cb14-335" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------------|:----------|:----------------|</span></span>
+<span id="cb14-336"><a href="#cb14-336" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Red vial** <span class="pp">|</span> Líneas <span class="pp">|</span> Tipo de vía, velocidad, restricciones <span class="pp">|</span></span>
+<span id="cb14-337"><a href="#cb14-337" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Subestaciones** <span class="pp">|</span> Puntos <span class="pp">|</span> Voltaje, capacidad, estado operativo <span class="pp">|</span></span>
+<span id="cb14-338"><a href="#cb14-338" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Transformadores** <span class="pp">|</span> Puntos <span class="pp">|</span> Potencia, ubicación, fecha instalación <span class="pp">|</span></span>
+<span id="cb14-339"><a href="#cb14-339" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Centros de operación** <span class="pp">|</span> Puntos <span class="pp">|</span> Personal disponible, equipos, horarios <span class="pp">|</span></span>
+<span id="cb14-340"><a href="#cb14-340" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Zonas de servicio** <span class="pp">|</span> Polígonos <span class="pp">|</span> Población servida, demanda, prioridad <span class="pp">|</span></span>
+<span id="cb14-341"><a href="#cb14-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-342"><a href="#cb14-342" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-343"><a href="#cb14-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-344"><a href="#cb14-344" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análisis de puntos de interés (clientes, riesgos, servicios)</span></span>
+<span id="cb14-345"><a href="#cb14-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-346"><a href="#cb14-346" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tipos de puntos de interés en empresa eléctrica</span></span>
+<span id="cb14-347"><a href="#cb14-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-348"><a href="#cb14-348" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Tipo <span class="pp">|</span> Ejemplos <span class="pp">|</span> Análisis típico <span class="pp">|</span></span>
+<span id="cb14-349"><a href="#cb14-349" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----|:---------|:----------------|</span></span>
+<span id="cb14-350"><a href="#cb14-350" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Clientes** <span class="pp">|</span> Grandes consumidores, hospitales, industrias <span class="pp">|</span> Prioridad de atención, rutas de inspección <span class="pp">|</span></span>
+<span id="cb14-351"><a href="#cb14-351" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Riesgos** <span class="pp">|</span> Zonas de fallas frecuentes, áreas inundables <span class="pp">|</span> Tiempo de respuesta, rutas de emergencia <span class="pp">|</span></span>
+<span id="cb14-352"><a href="#cb14-352" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Servicios** <span class="pp">|</span> Subestaciones, centros de control, bodegas <span class="pp">|</span> Cobertura, asignación de recursos <span class="pp">|</span></span>
+<span id="cb14-353"><a href="#cb14-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-354"><a href="#cb14-354" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identificar servicios más cercanos</span></span>
+<span id="cb14-355"><a href="#cb14-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-356"><a href="#cb14-356" aria-hidden="true" tabindex="-1"></a>**Ejemplo: Asignar transformadores a centros de mantenimiento**</span>
+<span id="cb14-357"><a href="#cb14-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-358"><a href="#cb14-358" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Preparar datos:**</span>
+<span id="cb14-359"><a href="#cb14-359" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Capa de transformadores (puntos)</span>
+<span id="cb14-360"><a href="#cb14-360" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Capa de centros de mantenimiento (puntos)</span>
+<span id="cb14-361"><a href="#cb14-361" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Red vial conectando ambos</span>
+<span id="cb14-362"><a href="#cb14-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-363"><a href="#cb14-363" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Análisis con herramientas de red:**</span>
+<span id="cb14-364"><a href="#cb14-364" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb14-365"><a href="#cb14-365" aria-hidden="true" tabindex="-1"></a><span class="in">   Procesamiento → Análisis de redes → Shortest path (layer to point)</span></span>
+<span id="cb14-366"><a href="#cb14-366" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb14-367"><a href="#cb14-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-368"><a href="#cb14-368" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Configurar parámetros:**</span>
+<span id="cb14-369"><a href="#cb14-369" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Capa de red**: red vial</span>
+<span id="cb14-370"><a href="#cb14-370" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Puntos de inicio**: capa de transformadores</span>
+<span id="cb14-371"><a href="#cb14-371" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Punto de destino**: centro de mantenimiento específico</span>
+<span id="cb14-372"><a href="#cb14-372" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Tipo de ruta**: <span class="in">`Más rápida`</span> (tiempo de respuesta)</span>
+<span id="cb14-373"><a href="#cb14-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-374"><a href="#cb14-374" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Interpretar resultados:**</span>
+<span id="cb14-375"><a href="#cb14-375" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Cada transformador con ruta al centro asignado</span>
+<span id="cb14-376"><a href="#cb14-376" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tiempo de acceso calculado</span>
+<span id="cb14-377"><a href="#cb14-377" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Base para planificación de rutas diarias</span>
+<span id="cb14-378"><a href="#cb14-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-379"><a href="#cb14-379" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de accesibilidad a clientes prioritarios</span></span>
+<span id="cb14-380"><a href="#cb14-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-381"><a href="#cb14-381" aria-hidden="true" tabindex="-1"></a>**Ejemplo: Hospitales y servicios críticos**</span>
+<span id="cb14-382"><a href="#cb14-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-383"><a href="#cb14-383" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Identificar clientes críticos:**</span>
+<span id="cb14-384"><a href="#cb14-384" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Hospitales, centros de salud</span>
+<span id="cb14-385"><a href="#cb14-385" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Industrias con procesos críticos</span>
+<span id="cb14-386"><a href="#cb14-386" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Servicios públicos esenciales</span>
+<span id="cb14-387"><a href="#cb14-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-388"><a href="#cb14-388" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Calcular tiempo de respuesta:**</span>
+<span id="cb14-389"><a href="#cb14-389" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb14-390"><a href="#cb14-390" aria-hidden="true" tabindex="-1"></a><span class="in">   Procesamiento → Análisis de redes → Service area (from layer)</span></span>
+<span id="cb14-391"><a href="#cb14-391" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb14-392"><a href="#cb14-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-393"><a href="#cb14-393" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Evaluar cobertura:**</span>
+<span id="cb14-394"><a href="#cb14-394" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>¿Todos los clientes críticos están dentro de 30 min?</span>
+<span id="cb14-395"><a href="#cb14-395" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>¿Qué zonas requieren centros de servicio adicionales?</span>
+<span id="cb14-396"><a href="#cb14-396" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>¿Cómo optimizar ubicación de cuadrillas?</span>
+<span id="cb14-397"><a href="#cb14-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-398"><a href="#cb14-398" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de zonas de riesgo</span></span>
+<span id="cb14-399"><a href="#cb14-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-400"><a href="#cb14-400" aria-hidden="true" tabindex="-1"></a>**Identificar patrones espaciales de fallas:**</span>
+<span id="cb14-401"><a href="#cb14-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-402"><a href="#cb14-402" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Preparar datos de incidentes:**</span>
+<span id="cb14-403"><a href="#cb14-403" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ubicación de fallas históricas</span>
+<span id="cb14-404"><a href="#cb14-404" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tipo de falla, fecha, duración</span>
+<span id="cb14-405"><a href="#cb14-405" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Condiciones climáticas asociadas</span>
+<span id="cb14-406"><a href="#cb14-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-407"><a href="#cb14-407" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Análisis de densidad:**</span>
+<span id="cb14-408"><a href="#cb14-408" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb14-409"><a href="#cb14-409" aria-hidden="true" tabindex="-1"></a><span class="in">   Ráster → Análisis → Mapa de calor (KDE)</span></span>
+<span id="cb14-410"><a href="#cb14-410" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb14-411"><a href="#cb14-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-412"><a href="#cb14-412" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Análisis de accesibilidad a zonas de riesgo:**</span>
+<span id="cb14-413"><a href="#cb14-413" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tiempo de respuesta a zonas críticas</span>
+<span id="cb14-414"><a href="#cb14-414" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Rutas alternativas durante emergencias</span>
+<span id="cb14-415"><a href="#cb14-415" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ubicación estratégica de equipos de emergencia</span>
+<span id="cb14-416"><a href="#cb14-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-417"><a href="#cb14-417" aria-hidden="true" tabindex="-1"></a><span class="fu">### Optimización de rutas de inspección</span></span>
+<span id="cb14-418"><a href="#cb14-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-419"><a href="#cb14-419" aria-hidden="true" tabindex="-1"></a>**Planificar recorridos eficientes:**</span>
+<span id="cb14-420"><a href="#cb14-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-421"><a href="#cb14-421" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Agrupar puntos de interés por proximidad:**</span>
+<span id="cb14-422"><a href="#cb14-422" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb14-423"><a href="#cb14-423" aria-hidden="true" tabindex="-1"></a><span class="in">   Vector → Herramientas de análisis → Análisis de agrupamiento K-means</span></span>
+<span id="cb14-424"><a href="#cb14-424" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb14-425"><a href="#cb14-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-426"><a href="#cb14-426" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Calcular rutas entre grupos:**</span>
+<span id="cb14-427"><a href="#cb14-427" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usar ruta más corta entre centroides de grupos</span>
+<span id="cb14-428"><a href="#cb14-428" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Minimizar tiempo total de recorrido</span>
+<span id="cb14-429"><a href="#cb14-429" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Considerar restricciones operativas</span>
+<span id="cb14-430"><a href="#cb14-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-431"><a href="#cb14-431" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Validar rutas propuestas:**</span>
+<span id="cb14-432"><a href="#cb14-432" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Verificar accesibilidad real</span>
+<span id="cb14-433"><a href="#cb14-433" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Considerar horarios de trabajo</span>
+<span id="cb14-434"><a href="#cb14-434" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ajustar según capacidad de cuadrillas</span>
+<span id="cb14-435"><a href="#cb14-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-436"><a href="#cb14-436" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-437"><a href="#cb14-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-438"><a href="#cb14-438" aria-hidden="true" tabindex="-1"></a><span class="fu">## Plugin QNEAT3</span></span>
+<span id="cb14-439"><a href="#cb14-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-440"><a href="#cb14-440" aria-hidden="true" tabindex="-1"></a>Para usuarios que requieran análisis más sofisticados, QNEAT3 ofrece funcionalidades adicionales:</span>
+<span id="cb14-441"><a href="#cb14-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-442"><a href="#cb14-442" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instalación</span></span>
+<span id="cb14-443"><a href="#cb14-443" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-444"><a href="#cb14-444" aria-hidden="true" tabindex="-1"></a><span class="in">Complementos → Administrar e instalar complementos → Buscar "QNEAT3"</span></span>
+<span id="cb14-445"><a href="#cb14-445" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-446"><a href="#cb14-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-447"><a href="#cb14-447" aria-hidden="true" tabindex="-1"></a><span class="fu">### Funcionalidades avanzadas</span></span>
+<span id="cb14-448"><a href="#cb14-448" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Matrices origen-destino completas**</span>
+<span id="cb14-449"><a href="#cb14-449" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Isócronas con múltiples intervalos**</span>
+<span id="cb14-450"><a href="#cb14-450" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Optimización de rutas complejas**</span>
+<span id="cb14-451"><a href="#cb14-451" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Análisis de centralidad de red**</span>
+<span id="cb14-452"><a href="#cb14-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-453"><a href="#cb14-453" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb14-454"><a href="#cb14-454" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cuándo usar QNEAT3</span></span>
+<span id="cb14-455"><a href="#cb14-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-456"><a href="#cb14-456" aria-hidden="true" tabindex="-1"></a>QNEAT3 es recomendable cuando necesites:</span>
+<span id="cb14-457"><a href="#cb14-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-458"><a href="#cb14-458" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Análisis masivos (cientos de puntos)</span>
+<span id="cb14-459"><a href="#cb14-459" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Matrices OD completas para optimización</span>
+<span id="cb14-460"><a href="#cb14-460" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Isócronas con intervalos múltiples</span>
+<span id="cb14-461"><a href="#cb14-461" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Análisis de accesibilidad complejos</span>
+<span id="cb14-462"><a href="#cb14-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-463"><a href="#cb14-463" aria-hidden="true" tabindex="-1"></a>Para análisis básicos, las herramientas nativas de QGIS son suficientes y más estables.</span>
+<span id="cb14-464"><a href="#cb14-464" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb14-465"><a href="#cb14-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-466"><a href="#cb14-466" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-467"><a href="#cb14-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-468"><a href="#cb14-468" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🛠️ Ejercicios Prácticos</span></span>
+<span id="cb14-469"><a href="#cb14-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-470"><a href="#cb14-470" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 4.1: Preparación de red vial</span></span>
+<span id="cb14-471"><a href="#cb14-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-472"><a href="#cb14-472" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Descarga datos de red vial usando QuickOSM:</span>
+<span id="cb14-473"><a href="#cb14-473" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Área: Tegucigalpa, Honduras</span>
+<span id="cb14-474"><a href="#cb14-474" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Consulta: <span class="in">`highway=primary OR highway=secondary OR highway=residential`</span></span>
+<span id="cb14-475"><a href="#cb14-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-476"><a href="#cb14-476" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Verifica la topología:</span>
+<span id="cb14-477"><a href="#cb14-477" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`Vector → Herramientas de geometría → Verificar validez`</span></span>
+<span id="cb14-478"><a href="#cb14-478" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Corrige errores encontrados</span>
+<span id="cb14-479"><a href="#cb14-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-480"><a href="#cb14-480" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Reproyecta a UTM Zona 16N para mediciones precisas</span>
+<span id="cb14-481"><a href="#cb14-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-482"><a href="#cb14-482" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Agrega campo de velocidad según tipo de vía</span>
+<span id="cb14-483"><a href="#cb14-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-484"><a href="#cb14-484" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 4.2: Ruta más corta</span></span>
+<span id="cb14-485"><a href="#cb14-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-486"><a href="#cb14-486" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Define dos puntos en Tegucigalpa (ej. Hospital Escuela → Aeropuerto)</span>
+<span id="cb14-487"><a href="#cb14-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-488"><a href="#cb14-488" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Calcula ruta más corta por distancia:</span>
+<span id="cb14-489"><a href="#cb14-489" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usa <span class="in">`Ruta más corta (punto a punto)`</span></span>
+<span id="cb14-490"><a href="#cb14-490" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Anota distancia total</span>
+<span id="cb14-491"><a href="#cb14-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-492"><a href="#cb14-492" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Calcula ruta más rápida por tiempo:</span>
+<span id="cb14-493"><a href="#cb14-493" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Configura campo de velocidades</span>
+<span id="cb14-494"><a href="#cb14-494" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Compara con ruta anterior</span>
+<span id="cb14-495"><a href="#cb14-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-496"><a href="#cb14-496" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Valida resultados comparando con Google Maps</span>
+<span id="cb14-497"><a href="#cb14-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-498"><a href="#cb14-498" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 4.3: Análisis de cobertura</span></span>
+<span id="cb14-499"><a href="#cb14-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-500"><a href="#cb14-500" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Selecciona ubicación de un centro de emergencias</span>
+<span id="cb14-501"><a href="#cb14-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-502"><a href="#cb14-502" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Genera isócronas de 5, 10 y 15 minutos:</span>
+<span id="cb14-503"><a href="#cb14-503" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usa <span class="in">`Área de servicio (desde punto)`</span></span>
+<span id="cb14-504"><a href="#cb14-504" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Configura múltiples costos: <span class="in">`300,600,900`</span> segundos</span>
+<span id="cb14-505"><a href="#cb14-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-506"><a href="#cb14-506" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Carga datos de población o comunidades</span>
+<span id="cb14-507"><a href="#cb14-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-508"><a href="#cb14-508" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Calcula qué porcentaje de población está cubierto en cada intervalo</span>
+<span id="cb14-509"><a href="#cb14-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-510"><a href="#cb14-510" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 4.4: Matriz origen-destino</span></span>
+<span id="cb14-511"><a href="#cb14-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-512"><a href="#cb14-512" aria-hidden="true" tabindex="-1"></a>**Escenario:** Asignar transformadores a centros de mantenimiento</span>
+<span id="cb14-513"><a href="#cb14-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-514"><a href="#cb14-514" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Crea una capa con 3 centros de mantenimiento en Tegucigalpa</span>
+<span id="cb14-515"><a href="#cb14-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-516"><a href="#cb14-516" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Crea una capa con 8-10 transformadores distribuidos en la ciudad</span>
+<span id="cb14-517"><a href="#cb14-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-518"><a href="#cb14-518" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Calcula matriz OD usando herramientas nativas:</span>
+<span id="cb14-519"><a href="#cb14-519" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`Ruta más corta (punto a capa)`</span> desde cada centro</span>
+<span id="cb14-520"><a href="#cb14-520" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Configura análisis por tiempo (más rápida)</span>
+<span id="cb14-521"><a href="#cb14-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-522"><a href="#cb14-522" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Analiza resultados:</span>
+<span id="cb14-523"><a href="#cb14-523" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>¿Qué transformadores están más alejados?</span>
+<span id="cb14-524"><a href="#cb14-524" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>¿Cómo distribuir zonas de responsabilidad?</span>
+<span id="cb14-525"><a href="#cb14-525" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>¿Se necesitan centros adicionales?</span>
+<span id="cb14-526"><a href="#cb14-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-527"><a href="#cb14-527" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 4.5: Análisis de puntos de interés</span></span>
+<span id="cb14-528"><a href="#cb14-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-529"><a href="#cb14-529" aria-hidden="true" tabindex="-1"></a>**Escenario:** Evaluar accesibilidad a servicios críticos</span>
+<span id="cb14-530"><a href="#cb14-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-531"><a href="#cb14-531" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Identifica 5 puntos de interés críticos:</span>
+<span id="cb14-532"><a href="#cb14-532" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>2 hospitales</span>
+<span id="cb14-533"><a href="#cb14-533" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>1 aeropuerto</span>
+<span id="cb14-534"><a href="#cb14-534" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>1 universidad</span>
+<span id="cb14-535"><a href="#cb14-535" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>1 centro comercial</span>
+<span id="cb14-536"><a href="#cb14-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-537"><a href="#cb14-537" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Desde el centro de operaciones principal:</span>
+<span id="cb14-538"><a href="#cb14-538" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Calcula ruta más rápida a cada punto crítico</span>
+<span id="cb14-539"><a href="#cb14-539" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Genera isócrona de 20 minutos</span>
+<span id="cb14-540"><a href="#cb14-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-541"><a href="#cb14-541" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Evalúa cobertura:</span>
+<span id="cb14-542"><a href="#cb14-542" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>¿Todos los puntos críticos están cubiertos?</span>
+<span id="cb14-543"><a href="#cb14-543" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>¿Qué puntos requieren atención especial?</span>
+<span id="cb14-544"><a href="#cb14-544" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>¿Dónde ubicar centro de emergencias adicional?</span>
+<span id="cb14-545"><a href="#cb14-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-546"><a href="#cb14-546" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 4.6: Proyecto integrador</span></span>
+<span id="cb14-547"><a href="#cb14-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-548"><a href="#cb14-548" aria-hidden="true" tabindex="-1"></a>**Escenario completo:** Optimización de red de servicios eléctricos</span>
+<span id="cb14-549"><a href="#cb14-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-550"><a href="#cb14-550" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Preparación de datos:**</span>
+<span id="cb14-551"><a href="#cb14-551" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Red vial de Tegucigalpa (QuickOSM)</span>
+<span id="cb14-552"><a href="#cb14-552" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>3 centros de operación (crear)</span>
+<span id="cb14-553"><a href="#cb14-553" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>15 transformadores (distribuir)</span>
+<span id="cb14-554"><a href="#cb14-554" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>5 clientes críticos (hospitales, industrias)</span>
+<span id="cb14-555"><a href="#cb14-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-556"><a href="#cb14-556" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Análisis de rutas óptimas:**</span>
+<span id="cb14-557"><a href="#cb14-557" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ruta más corta entre centros de operación</span>
+<span id="cb14-558"><a href="#cb14-558" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Rutas de emergencia a clientes críticos</span>
+<span id="cb14-559"><a href="#cb14-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-560"><a href="#cb14-560" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Análisis de cobertura:**</span>
+<span id="cb14-561"><a href="#cb14-561" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Isócronas de 15 y 30 minutos desde cada centro</span>
+<span id="cb14-562"><a href="#cb14-562" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Identificar zonas sin cobertura adecuada</span>
+<span id="cb14-563"><a href="#cb14-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-564"><a href="#cb14-564" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Matriz origen-destino:**</span>
+<span id="cb14-565"><a href="#cb14-565" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tiempo de acceso de cada centro a transformadores</span>
+<span id="cb14-566"><a href="#cb14-566" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Asignación óptima de responsabilidades</span>
+<span id="cb14-567"><a href="#cb14-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-568"><a href="#cb14-568" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Análisis de puntos de interés:**</span>
+<span id="cb14-569"><a href="#cb14-569" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Priorización de clientes por accesibilidad</span>
+<span id="cb14-570"><a href="#cb14-570" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Identificación de zonas de riesgo</span>
+<span id="cb14-571"><a href="#cb14-571" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-572"><a href="#cb14-572" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Recomendaciones finales:**</span>
+<span id="cb14-573"><a href="#cb14-573" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Mapa de zonificación propuesta</span>
+<span id="cb14-574"><a href="#cb14-574" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ubicaciones sugeridas para nuevos centros</span>
+<span id="cb14-575"><a href="#cb14-575" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Plan de rutas de mantenimiento optimizado</span>
+<span id="cb14-576"><a href="#cb14-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-577"><a href="#cb14-577" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-578"><a href="#cb14-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-579"><a href="#cb14-579" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Recursos y Referencias</span></span>
+<span id="cb14-580"><a href="#cb14-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-581"><a href="#cb14-581" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QGIS Network Analysis — Documentación oficial</span><span class="co">](https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/networkanalysis.html)</span></span>
+<span id="cb14-582"><a href="#cb14-582" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QGIS Training Manual — Network Analysis</span><span class="co">](https://docs.qgis.org/latest/en/docs/training_manual/vector_analysis/network_analysis.html)</span></span>
+<span id="cb14-583"><a href="#cb14-583" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OpenStreetMap — Datos de transporte</span><span class="co">](https://www.openstreetmap.org)</span></span>
+<span id="cb14-584"><a href="#cb14-584" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QuickOSM — Plugin para descargar datos OSM</span><span class="co">](https://plugins.qgis.org/plugins/QuickOSM/)</span></span>
+<span id="cb14-585"><a href="#cb14-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-586"><a href="#cb14-586" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-587"><a href="#cb14-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-588"><a href="#cb14-588" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb14-589"><a href="#cb14-589" aria-hidden="true" tabindex="-1"></a><span class="fu">## Para la próxima sesión</span></span>
+<span id="cb14-590"><a href="#cb14-590" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-591"><a href="#cb14-591" aria-hidden="true" tabindex="-1"></a>Asegúrate de tener:</span>
+<span id="cb14-592"><a href="#cb14-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-593"><a href="#cb14-593" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>QGIS funcionando correctamente</span>
+<span id="cb14-594"><a href="#cb14-594" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Plugin QuickOSM instalado</span>
+<span id="cb14-595"><a href="#cb14-595" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Datos de red vial descargados y preparados</span>
+<span id="cb14-596"><a href="#cb14-596" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comprensión clara de conceptos de análisis de redes</span>
+<span id="cb14-597"><a href="#cb14-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-598"><a href="#cb14-598" aria-hidden="true" tabindex="-1"></a>El Módulo 5 construirá sobre estos conceptos para automatizar análisis repetitivos con Python.</span>
+<span id="cb14-599"><a href="#cb14-599" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
