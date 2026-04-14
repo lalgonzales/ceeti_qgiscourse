@@ -1,0 +1,72 @@
+---
+title: "Política de Privacidad"
+description: "Información sobre el uso de datos de visitantes en este sitio web."
+number-sections: false
+toc: true
+---
+
+*Última actualización: abril de 2026*
+
+## Quiénes somos
+
+Este sitio web es operado por **CEETI – Universidad Nacional Autónoma de Honduras (UNAH)** y forma parte del curso *QGIS y Herramientas Python para el Análisis Geoespacial*. El responsable del sitio es el instructor del curso.
+
+Repositorio del curso: <https://github.com/lalgonzales/ceeti_qgiscourse>
+
+---
+
+## Datos que recopilamos
+
+Este sitio **no recopila datos personales directamente**. No tiene formularios de registro, cuentas de usuario ni almacena información identificable de los visitantes.
+
+Sin embargo, utilizamos herramientas de análisis de terceros que pueden recopilar información de forma anónima:
+
+### Google Analytics (vía Google Tag Manager)
+
+Usamos **Google Tag Manager (GTM-PVHS7PQJ)** para activar Google Analytics en este sitio. Esta herramienta recopila datos de manera anónima para entender cómo los estudiantes usan el sitio, incluyendo:
+
+- Páginas visitadas y tiempo de permanencia
+- País/región de acceso (no se almacena IP completa)
+- Tipo de dispositivo y navegador
+- Fuente de tráfico (ej. enlace directo, motor de búsqueda)
+
+Google Analytics **no recopila** nombre, correo electrónico ni ningún dato que le identifique personalmente.
+
+Para más información sobre cómo Google procesa estos datos, consulte la [Política de Privacidad de Google](https://policies.google.com/privacy).
+
+---
+
+## Cookies
+
+Este sitio utiliza cookies de Google Analytics para distinguir visitas únicas y analizar el tráfico. Estas cookies son de tipo **analítico/estadístico** y no se usan con fines publicitarios.
+
+| Cookie | Propósito | Duración |
+|:-------|:----------|:---------|
+| `_ga` | Distinguir usuarios únicos | 2 años |
+| `_ga_*` | Mantener estado de sesión | 2 años |
+
+Puede desactivar las cookies de Google Analytics instalando el [complemento de exclusión de Google Analytics](https://tools.google.com/dlpage/gaoptout) en su navegador.
+
+---
+
+## Derechos del usuario
+
+Dado que este sitio no almacena datos personales propios, no aplican derechos de acceso, rectificación o eliminación de datos al operador del sitio. Para ejercer derechos sobre los datos recopilados por Google, consulte la [Política de Privacidad de Google](https://policies.google.com/privacy) y las herramientas de control disponibles en [myaccount.google.com](https://myaccount.google.com/).
+
+---
+
+## Servicios de terceros
+
+Este sitio puede enlazar a recursos externos (QGIS, OpenStreetMap, GitHub, etc.). Esta política de privacidad aplica únicamente a este sitio; los sitios enlazados tienen sus propias políticas.
+
+---
+
+## Cambios a esta política
+
+Esta política puede actualizarse periódicamente. La fecha de última actualización aparece al inicio de esta página.
+
+---
+
+## Contacto
+
+Para consultas sobre privacidad, puede comunicarse a través del repositorio del curso en GitHub: <https://github.com/lalgonzales/ceeti_qgiscourse>

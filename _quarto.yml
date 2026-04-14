@@ -52,6 +52,8 @@ website:
             href: content/labs/lab_07.qmd
       - text: "Instructor"
         href: content/sobre/instructor.qmd
+      - text: "Créditos"
+        href: content/sobre/creditos.qmd
     right:
       - icon: github
         href: https://github.com/lalgonzales/ceeti_qgiscourse
@@ -102,9 +104,18 @@ website:
             href: content/labs/lab_07.qmd
       - text: "Instructor"
         href: content/sobre/instructor.qmd
+      - text: "Créditos"
+        href: content/sobre/creditos.qmd
+      - text: "Privacidad"
+        href: content/sobre/privacidad.qmd
 
   page-footer:
-    left: "© 2026 CEETI – Universidad Nacional Autónoma de Honduras"
+    left: "© 2026 CEETI – Universidad Nacional Autónoma de Honduras · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
+    center:
+      - text: "Créditos"
+        href: content/sobre/creditos.qmd
+      - text: "Privacidad"
+        href: content/sobre/privacidad.qmd
     right:
       - icon: github
         href: https://github.com/lalgonzales/ceeti_qgiscourse
