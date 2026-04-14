@@ -60,14 +60,13 @@ Los conjuntos de datos utilizados en los laboratorios incluyen datos del reposit
 
 ## Licencia del Curso
 
-El contenido original de este curso (texto, diagramas y código desarrollado por el instructor) está publicado bajo la licencia **Creative Commons Atribución 4.0 Internacional (CC BY 4.0)**.
+El contenido original de este curso (texto, diagramas, código y demás materiales didácticos
+desarrollados por el instructor) está protegido por derechos de autor.
 
-[![Licencia CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
+**Todos los derechos reservados © 2026 Luis Alfredo López Gonzales.**
 
-Esto significa que puede compartir y adaptar el material citando la fuente:
+Queda prohibida la reproducción, distribución, comunicación pública o transformación del
+material, total o parcial, sin contar con la **autorización escrita previa del autor**.
 
-> López Gonzales, L.A. (2026). *QGIS y Herramientas Python para el Análisis Geoespacial*. CEETI – Universidad Nacional Autónoma de Honduras. <https://github.com/lalgonzales/ceeti_qgiscourse>
-
----
-
-*Para consultas sobre el uso del material, contacte al instructor a través del repositorio del curso.*
+Para solicitar permiso de uso, contacte al instructor a través del repositorio del curso:
+<https://github.com/lalgonzales/ceeti_qgiscourse>
