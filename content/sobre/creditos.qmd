@@ -1,0 +1,76 @@
+---
+title: "Créditos y Atribuciones"
+description: "Reconocimiento a los proyectos, datos y herramientas de terceros utilizados en este curso."
+number-sections: false
+toc: true
+---
+
+Este curso hace uso de herramientas de código abierto, datos geoespaciales libres y materiales de referencia que pertenecen a sus respectivos autores y comunidades. A continuación se detallan las atribuciones correspondientes.
+
+## Software
+
+### QGIS
+
+[QGIS](https://qgis.org/) es un Sistema de Información Geográfica de código abierto publicado bajo la licencia GNU General Public License (GPL ≥ v2). Es desarrollado y mantenido por la comunidad internacional [QGIS.org](https://qgis.org/).
+
+> QGIS Development Team (2024). *QGIS Geographic Information System*. Open Source Geospatial Foundation. <https://qgis.org>
+
+### Python y bibliotecas
+
+- **Python** — [python.org](https://www.python.org/), licencia PSF.
+- **PyQGIS** — parte del ecosistema QGIS, licencia GPL ≥ v2.
+- **GeoPandas** — [geopandas.org](https://geopandas.org/), licencia BSD 3-Clause.
+- **Matplotlib** — [matplotlib.org](https://matplotlib.org/), licencia PSF.
+
+### Quarto
+
+Este sitio web fue generado con [Quarto](https://quarto.org/), publicado por Posit PBC bajo la licencia MIT/GPL.
+
+> Allaire, J.J., Teague, C., Scheidegger, C., Xie, Y., and Dervieux, C. (2022). *Quarto*. <https://doi.org/10.5281/zenodo.5960048>
+
+---
+
+## Datos Geoespaciales
+
+### OpenStreetMap
+
+Los datos de calles, puntos de interés y otros datos geográficos utilizados en los ejercicios provienen de **OpenStreetMap** y son utilizados bajo la licencia [Open Database License (ODbL) v1.0](https://opendatacommons.org/licenses/odbl/).
+
+> © OpenStreetMap contributors. Disponible en <https://www.openstreetmap.org/copyright>
+
+Cualquier mapa derivado de datos OSM debe incluir la siguiente atribución:
+
+> *Datos de mapa © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), disponibles bajo ODbL.*
+
+### QGIS Training Dataset
+
+Los conjuntos de datos utilizados en los laboratorios incluyen datos del repositorio oficial de entrenamiento de QGIS, distribuidos bajo la licencia [Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](https://creativecommons.org/licenses/by-sa/3.0/).
+
+> QGIS Project Contributors. *QGIS Training Data*. <https://github.com/qgis/QGIS-Training-Data>
+
+---
+
+## Materiales de Referencia
+
+- **QGIS Documentation** — [docs.qgis.org](https://docs.qgis.org/), licencia CC BY 3.0.
+- **QGIS User Manual** — QGIS Development Team, disponible en <https://docs.qgis.org/latest/es/docs/user_manual/>.
+- **QGIS Training Manual** — QGIS Development Team, disponible en <https://docs.qgis.org/latest/es/docs/training_manual/>.
+
+---
+
+## Licencia del Curso
+
+El contenido original de este curso (texto, diagramas, código y demás materiales didácticos)
+es propiedad de la **Universidad Nacional Autónoma de Honduras (UNAH)** a través del
+**Centro de Estudios y Entrenamiento en Tecnologías de la Información (CEETI)**.
+
+**Todos los derechos reservados © 2026 UNAH – CEETI.**
+
+Autor y creador del contenido: **Luis Alfredo López Gonzales**, instructor del curso.
+
+Queda prohibida la reproducción, distribución, comunicación pública o transformación del
+material, total o parcial, sin contar con la **autorización escrita previa de la UNAH/CEETI
+y del autor**.
+
+Para solicitar permiso de uso, contacte a través del repositorio del curso:
+<https://github.com/lalgonzales/ceeti_qgiscourse>
