@@ -65,7 +65,7 @@ El contenido original de este curso (texto, diagramas y código desarrollado por
 
 Esto significa que puede compartir y adaptar el material citando la fuente:
 
-> Gonzales, L.A. (2026). *QGIS y Herramientas Python para el Análisis Geoespacial*. CEETI – Universidad Nacional Autónoma de Honduras. <https://github.com/lalgonzales/ceeti_qgiscourse>
+> López Gonzales, L.A. (2026). *QGIS y Herramientas Python para el Análisis Geoespacial*. CEETI – Universidad Nacional Autónoma de Honduras. <https://github.com/lalgonzales/ceeti_qgiscourse>
 
 ---
 
