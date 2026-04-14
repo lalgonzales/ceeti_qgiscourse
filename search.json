@@ -623,6 +623,149 @@
     ]
   },
   {
+    "objectID": "content/sobre/creditos.html",
+    "href": "content/sobre/creditos.html",
+    "title": "Créditos y Atribuciones",
+    "section": "",
+    "text": "Este curso hace uso de herramientas de código abierto, datos geoespaciales libres y materiales de referencia que pertenecen a sus respectivos autores y comunidades. A continuación se detallan las atribuciones correspondientes.",
+    "crumbs": [
+      "Inicio",
+      "Créditos"
+    ]
+  },
+  {
+    "objectID": "content/sobre/creditos.html#software",
+    "href": "content/sobre/creditos.html#software",
+    "title": "Créditos y Atribuciones",
+    "section": "Software",
+    "text": "Software\n\nQGIS\nQGIS es un Sistema de Información Geográfica de código abierto publicado bajo la licencia GNU General Public License (GPL ≥ v2). Es desarrollado y mantenido por la comunidad internacional QGIS.org.\n\nQGIS Development Team (2024). QGIS Geographic Information System. Open Source Geospatial Foundation. https://qgis.org\n\n\n\nPython y bibliotecas\n\nPython — python.org, licencia PSF.\nPyQGIS — parte del ecosistema QGIS, licencia GPL ≥ v2.\nGeoPandas — geopandas.org, licencia BSD 3-Clause.\nMatplotlib — matplotlib.org, licencia PSF.\n\n\n\nQuarto\nEste sitio web fue generado con Quarto, publicado por Posit PBC bajo la licencia MIT/GPL.\n\nAllaire, J.J., Teague, C., Scheidegger, C., Xie, Y., and Dervieux, C. (2022). Quarto. https://doi.org/10.5281/zenodo.5960048",
+    "crumbs": [
+      "Inicio",
+      "Créditos"
+    ]
+  },
+  {
+    "objectID": "content/sobre/creditos.html#datos-geoespaciales",
+    "href": "content/sobre/creditos.html#datos-geoespaciales",
+    "title": "Créditos y Atribuciones",
+    "section": "Datos Geoespaciales",
+    "text": "Datos Geoespaciales\n\nOpenStreetMap\nLos datos de calles, puntos de interés y otros datos geográficos utilizados en los ejercicios provienen de OpenStreetMap y son utilizados bajo la licencia Open Database License (ODbL) v1.0.\n\n© OpenStreetMap contributors. Disponible en https://www.openstreetmap.org/copyright\n\nCualquier mapa derivado de datos OSM debe incluir la siguiente atribución:\n\nDatos de mapa © OpenStreetMap contributors, disponibles bajo ODbL.\n\n\n\nQGIS Training Dataset\nLos conjuntos de datos utilizados en los laboratorios incluyen datos del repositorio oficial de entrenamiento de QGIS, distribuidos bajo la licencia Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0).\n\nQGIS Project Contributors. QGIS Training Data. https://github.com/qgis/QGIS-Training-Data",
+    "crumbs": [
+      "Inicio",
+      "Créditos"
+    ]
+  },
+  {
+    "objectID": "content/sobre/creditos.html#materiales-de-referencia",
+    "href": "content/sobre/creditos.html#materiales-de-referencia",
+    "title": "Créditos y Atribuciones",
+    "section": "Materiales de Referencia",
+    "text": "Materiales de Referencia\n\nQGIS Documentation — docs.qgis.org, licencia CC BY 3.0.\nQGIS User Manual — QGIS Development Team, disponible en https://docs.qgis.org/latest/es/docs/user_manual/.\nQGIS Training Manual — QGIS Development Team, disponible en https://docs.qgis.org/latest/es/docs/training_manual/.",
+    "crumbs": [
+      "Inicio",
+      "Créditos"
+    ]
+  },
+  {
+    "objectID": "content/sobre/creditos.html#licencia-del-curso",
+    "href": "content/sobre/creditos.html#licencia-del-curso",
+    "title": "Créditos y Atribuciones",
+    "section": "Licencia del Curso",
+    "text": "Licencia del Curso\nEl contenido original de este curso (texto, diagramas, código y demás materiales didácticos) es propiedad de la Universidad Nacional Autónoma de Honduras (UNAH) a través del Centro de Estudios y Entrenamiento en Tecnologías de la Información (CEETI).\nTodos los derechos reservados © 2026 UNAH – CEETI.\nAutor y creador del contenido: Luis Alfredo López Gonzales, instructor del curso.\nQueda prohibida la reproducción, distribución, comunicación pública o transformación del material, total o parcial, sin contar con la autorización escrita previa de la UNAH/CEETI y del autor.\nPara solicitar permiso de uso, contacte a través del repositorio del curso: https://github.com/lalgonzales/ceeti_qgiscourse",
+    "crumbs": [
+      "Inicio",
+      "Créditos"
+    ]
+  },
+  {
+    "objectID": "content/sobre/privacidad.html",
+    "href": "content/sobre/privacidad.html",
+    "title": "Política de Privacidad",
+    "section": "",
+    "text": "Última actualización: abril de 2026",
+    "crumbs": [
+      "Inicio",
+      "Privacidad"
+    ]
+  },
+  {
+    "objectID": "content/sobre/privacidad.html#quiénes-somos",
+    "href": "content/sobre/privacidad.html#quiénes-somos",
+    "title": "Política de Privacidad",
+    "section": "Quiénes somos",
+    "text": "Quiénes somos\nEste sitio corresponde al curso QGIS y Herramientas Python para el Análisis Geoespacial, impartido por Luis Alfredo López Gonzales. El sitio está publicado en GitHub Pages y el responsable del contenido es el instructor del curso.\nRepositorio del curso: https://github.com/lalgonzales/ceeti_qgiscourse",
+    "crumbs": [
+      "Inicio",
+      "Privacidad"
+    ]
+  },
+  {
+    "objectID": "content/sobre/privacidad.html#datos-que-recopilamos",
+    "href": "content/sobre/privacidad.html#datos-que-recopilamos",
+    "title": "Política de Privacidad",
+    "section": "Datos que recopilamos",
+    "text": "Datos que recopilamos\nEste sitio no recopila datos personales directamente. No tiene formularios de registro, cuentas de usuario ni almacena información identificable de los visitantes.\nSin embargo, utilizamos herramientas de análisis de terceros que pueden recopilar información de forma anónima:\n\nGoogle Analytics (vía Google Tag Manager)\nUsamos Google Tag Manager (GTM-PVHS7PQJ) para activar Google Analytics en este sitio. Esta herramienta recopila datos de manera anónima para entender cómo los estudiantes usan el sitio, incluyendo:\n\nPáginas visitadas y tiempo de permanencia\nPaís/región de acceso (no se almacena IP completa)\nTipo de dispositivo y navegador\nFuente de tráfico (ej. enlace directo, motor de búsqueda)\n\nGoogle Analytics no recopila nombre, correo electrónico ni ningún dato que le identifique personalmente.\nPara más información sobre cómo Google procesa estos datos, consulte la Política de Privacidad de Google.",
+    "crumbs": [
+      "Inicio",
+      "Privacidad"
+    ]
+  },
+  {
+    "objectID": "content/sobre/privacidad.html#cookies",
+    "href": "content/sobre/privacidad.html#cookies",
+    "title": "Política de Privacidad",
+    "section": "Cookies",
+    "text": "Cookies\nEste sitio utiliza cookies de Google Analytics para distinguir visitas únicas y analizar el tráfico. Estas cookies son de tipo analítico/estadístico y no se usan con fines publicitarios.\n\n\n\nCookie\nPropósito\nDuración\n\n\n\n\n_ga\nDistinguir usuarios únicos\n2 años\n\n\n_ga_*\nMantener estado de sesión\n2 años\n\n\n\nPuede desactivar las cookies de Google Analytics instalando el complemento de exclusión de Google Analytics en su navegador.",
+    "crumbs": [
+      "Inicio",
+      "Privacidad"
+    ]
+  },
+  {
+    "objectID": "content/sobre/privacidad.html#derechos-del-usuario",
+    "href": "content/sobre/privacidad.html#derechos-del-usuario",
+    "title": "Política de Privacidad",
+    "section": "Derechos del usuario",
+    "text": "Derechos del usuario\nDado que este sitio no almacena datos personales propios, no aplican derechos de acceso, rectificación o eliminación de datos al operador del sitio. Para ejercer derechos sobre los datos recopilados por Google, consulte la Política de Privacidad de Google y las herramientas de control disponibles en myaccount.google.com.",
+    "crumbs": [
+      "Inicio",
+      "Privacidad"
+    ]
+  },
+  {
+    "objectID": "content/sobre/privacidad.html#servicios-de-terceros",
+    "href": "content/sobre/privacidad.html#servicios-de-terceros",
+    "title": "Política de Privacidad",
+    "section": "Servicios de terceros",
+    "text": "Servicios de terceros\nEste sitio puede enlazar a recursos externos (QGIS, OpenStreetMap, GitHub, etc.). Esta política de privacidad aplica únicamente a este sitio; los sitios enlazados tienen sus propias políticas.",
+    "crumbs": [
+      "Inicio",
+      "Privacidad"
+    ]
+  },
+  {
+    "objectID": "content/sobre/privacidad.html#cambios-a-esta-política",
+    "href": "content/sobre/privacidad.html#cambios-a-esta-política",
+    "title": "Política de Privacidad",
+    "section": "Cambios a esta política",
+    "text": "Cambios a esta política\nEsta política puede actualizarse periódicamente. La fecha de última actualización aparece al inicio de esta página.",
+    "crumbs": [
+      "Inicio",
+      "Privacidad"
+    ]
+  },
+  {
+    "objectID": "content/sobre/privacidad.html#contacto",
+    "href": "content/sobre/privacidad.html#contacto",
+    "title": "Política de Privacidad",
+    "section": "Contacto",
+    "text": "Contacto\nPara consultas sobre privacidad, puede comunicarse a través del repositorio del curso en GitHub: https://github.com/lalgonzales/ceeti_qgiscourse",
+    "crumbs": [
+      "Inicio",
+      "Privacidad"
+    ]
+  },
+  {
     "objectID": "content/sobre/instructor.html#perfil-profesional",
     "href": "content/sobre/instructor.html#perfil-profesional",
     "title": "Instructor",
