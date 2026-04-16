@@ -23,7 +23,7 @@ Al finalizar este módulo, los participantes podrán:
 Imagina que trabajas en una empresa eléctrica y cada semana debes:
 
 - ✅ Generar reportes de cobertura de 50 subestaciones
-- ✅ Calcular áreas de servicio para 200 transformadores  
+- ✅ Calcular áreas de servicio para 200 transformadores
 - ✅ Exportar mapas de rutas de mantenimiento a PDF
 - ✅ Actualizar distancias entre puntos críticos
 - ✅ Crear buffers de seguridad alrededor de líneas de alta tensión
@@ -111,7 +111,7 @@ numero_subestaciones = 25
 print(f"La {nombre_empresa} tiene {numero_subestaciones} subestaciones")
 ```
 
-**¡Prueba estos comandos en tu consola!** 
+**¡Prueba estos comandos en tu consola!**
 
 ---
 
@@ -204,16 +204,16 @@ capas_proyecto = QgsProject.instance().mapLayersByName("Subestaciones")
 
 if capas_proyecto:
     subestaciones = capas_proyecto[0]  # Tomar la primera capa encontrada
-    
+
     print(f"=== INFORMACIÓN DE SUBESTACIONES ===")
     print(f"Total de subestaciones: {subestaciones.featureCount()}")
-    
+
     # Mostrar información de cada subestación
     for subestacion in subestaciones.getFeatures():
         nombre = subestacion["nombre"]  # Asumiendo que hay un campo "nombre"
         voltaje = subestacion["voltaje"]  # Asumiendo que hay un campo "voltaje"
         print(f"- {nombre}: {voltaje} kV")
-        
+
         # Solo mostrar las primeras 5 para no saturar la consola
         if subestacion.id() >= 5:
             print("... (y más)")
@@ -241,37 +241,37 @@ def calcular_distancias_subestaciones():
     if not capas:
         print("❌ No se encontró la capa 'Subestaciones'")
         return
-    
+
     subestaciones = capas[0]
-    
+
     # Herramienta para calcular distancias
     calculadora = QgsDistanceArea()
     calculadora.setSourceCrs(subestaciones.crs(), QgsProject.instance().transformContext())
-    
+
     print("=== ANÁLISIS DE DISTANCIAS ENTRE SUBESTACIONES ===")
-    
+
     # Obtener todas las subestaciones como lista
     lista_subestaciones = list(subestaciones.getFeatures())
-    
+
     for subestacion_a in lista_subestaciones:
         nombre_a = subestacion_a["nombre"]
         punto_a = subestacion_a.geometry().asPoint()
-        
+
         distancia_minima = float('inf')
         subestacion_mas_cercana = None
-        
+
         # Comparar con todas las demás subestaciones
         for subestacion_b in lista_subestaciones:
             if subestacion_a.id() == subestacion_b.id():
                 continue  # Saltar la misma subestación
-            
+
             punto_b = subestacion_b.geometry().asPoint()
             distancia = calculadora.measureLine(punto_a, punto_b)
-            
+
             if distancia < distancia_minima:
                 distancia_minima = distancia
                 subestacion_mas_cercana = subestacion_b["nombre"]
-        
+
         # Convertir metros a kilómetros
         distancia_km = distancia_minima / 1000
         print(f"🔌 {nombre_a} → más cercana: {subestacion_mas_cercana} ({distancia_km:.2f} km)")
@@ -293,18 +293,18 @@ def crear_zonas_seguridad_lineas():
     if not capas:
         print("❌ No se encontró la capa 'Lineas_Transmision'")
         return
-    
+
     lineas = capas[0]
-    
+
     # Definir distancias de seguridad según voltaje
     distancias_seguridad = {
         "138": 50,   # 138 kV → 50 metros
-        "230": 75,   # 230 kV → 75 metros  
+        "230": 75,   # 230 kV → 75 metros
         "500": 150   # 500 kV → 150 metros
     }
-    
+
     print("=== CREANDO ZONAS DE SEGURIDAD ===")
-    
+
     for voltaje, distancia in distancias_seguridad.items():
         # Crear nueva capa para este voltaje
         crs = lineas.crs().authid()
@@ -313,7 +313,7 @@ def crear_zonas_seguridad_lineas():
             f"Zona_Seguridad_{voltaje}kV",
             "memory"
         )
-        
+
         # Configurar campos de la nueva capa
         provider = capa_buffer.dataProvider()
         provider.addAttributes([
@@ -322,16 +322,16 @@ def crear_zonas_seguridad_lineas():
             QgsField("nombre_linea", QVariant.String)
         ])
         capa_buffer.updateFields()
-        
+
         # Filtrar líneas por voltaje y crear buffers
         entidades_buffer = []
         for linea in lineas.getFeatures():
             voltaje_linea = str(linea["voltaje"])
-            
+
             if voltaje_linea == voltaje:
                 # Crear buffer
                 geometria_buffer = linea.geometry().buffer(distancia, 8)
-                
+
                 # Crear nueva entidad
                 nueva_entidad = QgsFeature()
                 nueva_entidad.setGeometry(geometria_buffer)
@@ -341,13 +341,13 @@ def crear_zonas_seguridad_lineas():
                     linea["nombre"]
                 ])
                 entidades_buffer.append(nueva_entidad)
-        
+
         # Agregar entidades a la capa
         provider.addFeatures(entidades_buffer)
-        
+
         # Agregar capa al proyecto
         QgsProject.instance().addMapLayer(capa_buffer)
-        
+
         print(f"✅ Zona de seguridad {voltaje} kV creada: {len(entidades_buffer)} buffers de {distancia}m")
 
 # Ejecutar la función
@@ -370,42 +370,42 @@ def generar_reporte_subestaciones():
     if not capas:
         print("❌ No se encontró la capa 'Subestaciones'")
         return
-    
+
     subestaciones = capas[0]
-    
+
     # Crear nombre de archivo con fecha
     fecha_actual = datetime.now().strftime("%Y%m%d_%H%M")
     nombre_archivo = f"reporte_subestaciones_{fecha_actual}.csv"
     ruta_archivo = os.path.join(os.path.expanduser("~"), "Desktop", nombre_archivo)
-    
+
     print(f"=== GENERANDO REPORTE DE SUBESTACIONES ===")
-    
+
     # Crear archivo CSV
     with open(ruta_archivo, 'w', newline='', encoding='utf-8') as archivo:
         # Obtener nombres de campos
         campos = [campo.name() for campo in subestaciones.fields()]
         campos.extend(["coordenada_x", "coordenada_y", "area_cobertura_km2"])
-        
+
         writer = csv.writer(archivo)
         writer.writerow(campos)  # Escribir encabezados
-        
+
         # Escribir datos de cada subestación
         for subestacion in subestaciones.getFeatures():
             # Datos básicos de atributos
             fila = subestacion.attributes()
-            
+
             # Agregar coordenadas
             punto = subestacion.geometry().asPoint()
             fila.extend([punto.x(), punto.y()])
-            
+
             # Calcular área de cobertura (buffer de 5 km)
             buffer_cobertura = subestacion.geometry().buffer(5000, 8)  # 5000 metros
             area_m2 = buffer_cobertura.area()
             area_km2 = area_m2 / 1_000_000  # Convertir a km²
             fila.append(round(area_km2, 2))
-            
+
             writer.writerow(fila)
-    
+
     print(f"✅ Reporte generado exitosamente:")
     print(f"📁 Ubicación: {ruta_archivo}")
     print(f"📊 Total de subestaciones: {subestaciones.featureCount()}")
@@ -430,40 +430,40 @@ def exportar_capa_multiple_formatos(nombre_capa):
     if not capas:
         print(f"❌ No se encontró la capa '{nombre_capa}'")
         return
-    
+
     capa = capas[0]
-    
+
     # Definir formatos de exportación
     formatos = {
         "GeoJSON": "GeoJSON",
-        "Shapefile": "ESRI Shapefile", 
+        "Shapefile": "ESRI Shapefile",
         "Excel": "XLSX",
         "KML": "KML"
     }
-    
+
     print(f"=== EXPORTANDO '{nombre_capa}' A MÚLTIPLES FORMATOS ===")
-    
+
     # Crear carpeta de exportación
     carpeta_exportacion = os.path.join(os.path.expanduser("~"), "Desktop", "exportaciones_qgis")
     os.makedirs(carpeta_exportacion, exist_ok=True)
-    
+
     for nombre_formato, driver in formatos.items():
         # Definir extensión de archivo
         extensiones = {
             "GeoJSON": ".geojson",
             "Shapefile": ".shp",
-            "Excel": ".xlsx", 
+            "Excel": ".xlsx",
             "KML": ".kml"
         }
-        
+
         extension = extensiones[nombre_formato]
         ruta_salida = os.path.join(carpeta_exportacion, f"{nombre_capa}{extension}")
-        
+
         # Configurar opciones de exportación
         opciones = QgsVectorFileWriter.SaveVectorOptions()
         opciones.driverName = driver
         opciones.fileEncoding = "UTF-8"
-        
+
         # Exportar
         error, mensaje, _, _ = QgsVectorFileWriter.writeAsVectorFormatV3(
             capa,
@@ -471,12 +471,12 @@ def exportar_capa_multiple_formatos(nombre_capa):
             QgsCoordinateTransformContext(),
             opciones
         )
-        
+
         if error == QgsVectorFileWriter.NoError:
             print(f"✅ {nombre_formato}: {ruta_salida}")
         else:
             print(f"❌ Error en {nombre_formato}: {mensaje}")
-    
+
     print(f"\n📁 Todos los archivos guardados en: {carpeta_exportacion}")
 
 # Ejemplo de uso
@@ -493,7 +493,7 @@ def exportar_mapa_actual():
     from qgis.core import QgsMapSettings, QgsMapRendererParallelJob
     from PyQt5.QtCore import QSize
     from PyQt5.QtGui import QColor
-    
+
     # Configurar el mapa
     configuracion = QgsMapSettings()
     configuracion.setLayers([layer for layer in QgsProject.instance().mapLayers().values()])
@@ -501,18 +501,18 @@ def exportar_mapa_actual():
     configuracion.setOutputSize(QSize(1920, 1080))  # Resolución Full HD
     configuracion.setExtent(iface.mapCanvas().extent())
     configuracion.setDestinationCrs(QgsProject.instance().crs())
-    
+
     # Renderizar el mapa
     trabajo_render = QgsMapRendererParallelJob(configuracion)
     trabajo_render.start()
     trabajo_render.waitForFinished()
-    
+
     # Guardar imagen
     imagen = trabajo_render.renderedImage()
     fecha_actual = datetime.now().strftime("%Y%m%d_%H%M")
     nombre_archivo = f"mapa_electrico_{fecha_actual}.png"
     ruta_archivo = os.path.join(os.path.expanduser("~"), "Desktop", nombre_archivo)
-    
+
     if imagen.save(ruta_archivo):
         print(f"✅ Mapa exportado exitosamente:")
         print(f"📁 {ruta_archivo}")
@@ -550,9 +550,9 @@ def crear_buffer_processing(nombre_capa, distancia_metros):
     if not capas:
         print(f"❌ Capa '{nombre_capa}' no encontrada")
         return
-    
+
     capa_origen = capas[0]
-    
+
     # Ejecutar algoritmo de buffer
     resultado = processing.run("native:buffer", {
         'INPUT': capa_origen,
@@ -564,12 +564,12 @@ def crear_buffer_processing(nombre_capa, distancia_metros):
         'DISSOLVE': False,
         'OUTPUT': 'TEMPORARY_OUTPUT'
     })
-    
+
     # Agregar resultado al proyecto
     capa_buffer = resultado['OUTPUT']
     capa_buffer.setName(f"Buffer_{nombre_capa}_{distancia_metros}m")
     QgsProject.instance().addMapLayer(capa_buffer)
-    
+
     print(f"✅ Buffer creado: {distancia_metros}m alrededor de '{nombre_capa}'")
     return capa_buffer
 
@@ -590,17 +590,17 @@ def flujo_analisis_electrico_completo():
     """
     print("🔄 INICIANDO ANÁLISIS ELÉCTRICO AUTOMATIZADO")
     print("=" * 50)
-    
+
     # Paso 1: Verificar capas necesarias
     capas_necesarias = ["Subestaciones", "Municipios"]
     for nombre_capa in capas_necesarias:
         if not QgsProject.instance().mapLayersByName(nombre_capa):
             print(f"❌ Falta la capa: {nombre_capa}")
             return
-    
+
     subestaciones = QgsProject.instance().mapLayersByName("Subestaciones")[0]
     municipios = QgsProject.instance().mapLayersByName("Municipios")[0]
-    
+
     # Paso 2: Crear zonas de cobertura (buffer de 10 km)
     print("📍 Creando zonas de cobertura...")
     cobertura = processing.run("native:buffer", {
@@ -610,10 +610,10 @@ def flujo_analisis_electrico_completo():
         'DISSOLVE': True,   # Unir buffers superpuestos
         'OUTPUT': 'TEMPORARY_OUTPUT'
     })['OUTPUT']
-    
+
     cobertura.setName("Cobertura_Electrica_10km")
     QgsProject.instance().addMapLayer(cobertura)
-    
+
     # Paso 3: Identificar áreas sin cobertura
     print("🔍 Identificando áreas sin cobertura...")
     sin_cobertura = processing.run("native:difference", {
@@ -621,24 +621,24 @@ def flujo_analisis_electrico_completo():
         'OVERLAY': cobertura,
         'OUTPUT': 'TEMPORARY_OUTPUT'
     })['OUTPUT']
-    
+
     sin_cobertura.setName("Areas_Sin_Cobertura")
     QgsProject.instance().addMapLayer(sin_cobertura)
-    
+
     # Paso 4: Calcular estadísticas
     print("📊 Calculando estadísticas...")
-    
+
     # Área total de municipios
     area_total = sum(municipio.geometry().area() for municipio in municipios.getFeatures())
     area_total_km2 = area_total / 1_000_000
-    
+
     # Área sin cobertura
     area_sin_cobertura = sum(area.geometry().area() for area in sin_cobertura.getFeatures())
     area_sin_cobertura_km2 = area_sin_cobertura / 1_000_000
-    
+
     # Porcentaje de cobertura
     porcentaje_cobertura = ((area_total_km2 - area_sin_cobertura_km2) / area_total_km2) * 100
-    
+
     # Paso 5: Mostrar resultados
     print("\n📈 RESULTADOS DEL ANÁLISIS:")
     print(f"🏢 Total de subestaciones: {subestaciones.featureCount()}")
@@ -646,12 +646,12 @@ def flujo_analisis_electrico_completo():
     print(f"✅ Área con cobertura: {(area_total_km2 - area_sin_cobertura_km2):.2f} km²")
     print(f"❌ Área sin cobertura: {area_sin_cobertura_km2:.2f} km²")
     print(f"📊 Porcentaje de cobertura: {porcentaje_cobertura:.1f}%")
-    
+
     # Paso 6: Exportar reporte
     print("\n💾 Exportando reporte...")
     fecha = datetime.now().strftime("%Y%m%d_%H%M")
     ruta_reporte = os.path.join(os.path.expanduser("~"), "Desktop", f"analisis_cobertura_{fecha}.txt")
-    
+
     with open(ruta_reporte, 'w', encoding='utf-8') as archivo:
         archivo.write("REPORTE DE ANÁLISIS DE COBERTURA ELÉCTRICA\n")
         archivo.write("=" * 50 + "\n\n")
@@ -661,7 +661,7 @@ def flujo_analisis_electrico_completo():
         archivo.write(f"Área con cobertura: {(area_total_km2 - area_sin_cobertura_km2):.2f} km²\n")
         archivo.write(f"Área sin cobertura: {area_sin_cobertura_km2:.2f} km²\n")
         archivo.write(f"Porcentaje de cobertura: {porcentaje_cobertura:.1f}%\n")
-    
+
     print(f"✅ Análisis completado. Reporte guardado en: {ruta_reporte}")
 
 # Ejecutar el flujo completo
@@ -713,11 +713,11 @@ if capa:
     print(f"Tipo: {capa.geometryType()}")
     print(f"Entidades: {capa.featureCount()}")
     print(f"CRS: {capa.crs().authid()}")
-    
+
     print(f"\n=== CAMPOS DISPONIBLES ===")
     for campo in capa.fields():
         print(f"- {campo.name()} ({campo.typeName()})")
-    
+
     print(f"\n=== PRIMERAS 3 ENTIDADES ===")
     for i, entidad in enumerate(capa.getFeatures()):
         if i >= 3:  # Solo mostrar las primeras 3
@@ -742,38 +742,38 @@ def analizar_cobertura_puntos():
     Analiza la cobertura de puntos con buffer de 2 km
     """
     capa = iface.activeLayer()
-    
+
     if not capa:
         print("❌ Selecciona una capa de puntos primero")
         return
-    
+
     print(f"🔍 Analizando cobertura de: {capa.name()}")
-    
+
     area_total = 0
     contador = 0
-    
+
     for punto in capa.getFeatures():
         # Crear buffer de 2 km
         buffer = punto.geometry().buffer(2000, 8)
         area_buffer = buffer.area()  # en metros cuadrados
         area_km2 = area_buffer / 1_000_000  # convertir a km²
-        
+
         area_total += area_km2
         contador += 1
-        
+
         # Mostrar información del punto
         nombre = punto.attributes()[0] if punto.attributes() else f"Punto_{contador}"
         print(f"📍 {nombre}: {area_km2:.2f} km² de cobertura")
-    
+
     print(f"\n📊 RESUMEN:")
     print(f"Total de puntos: {contador}")
     print(f"Área total de cobertura: {area_total:.2f} km²")
     print(f"Área promedio por punto: {area_total/contador:.2f} km²")
-    
+
     # Guardar resultados
     fecha = datetime.now().strftime("%Y%m%d_%H%M")
     archivo = os.path.join(os.path.expanduser("~"), "Desktop", f"analisis_cobertura_{fecha}.txt")
-    
+
     with open(archivo, 'w', encoding='utf-8') as f:
         f.write(f"ANÁLISIS DE COBERTURA - {capa.name()}\n")
         f.write("=" * 40 + "\n")
@@ -781,7 +781,7 @@ def analizar_cobertura_puntos():
         f.write(f"Total de puntos: {contador}\n")
         f.write(f"Área total de cobertura: {area_total:.2f} km²\n")
         f.write(f"Área promedio por punto: {area_total/contador:.2f} km²\n")
-    
+
     print(f"💾 Resultados guardados en: {archivo}")
 
 # Ejecutar el análisis
