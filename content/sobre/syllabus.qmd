@@ -108,10 +108,10 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 | 6      | 14 abr (Mar)       | Módulo 4: Análisis espacial para rutas          | Virtual      | 1.5   |
 | 7      | 15 abr (Mié)       | Módulo 4 (cont.)                                | Virtual      | 1.5   |
 | 8      | 16 abr (Jue)       | Módulo 5: Automatización con Python y PyQGIS    | Virtual      | 1.5   |
-| 9      | 20 abr (Lun)       | Módulo 5 (cont.)                                | Virtual      | 1.5   |
-| 10     | 21 abr (Mar)       | Módulo 6: Visualización avanzada y mapas        | Virtual      | 1.5   |
-| 11     | 22 abr (Mié)       | Módulo 6 (cont.)                                | Virtual      | 1.5   |
-| 12     | 23 abr (Jue)       | Módulo 7: Integración y casos prácticos         | Virtual      | 1.5   |
+| 9      | 21 abr (Lun)       | Módulo 5 (cont.)                                | Virtual      | 1.5   |
+| 10     | 22 abr (Mar)       | Módulo 6: Visualización avanzada y mapas        | Virtual      | 1.5   |
+| 11     | 23 abr (Mié)       | Módulo 6 (cont.)                                | Virtual      | 1.5   |
+| 12     | 27 abr (Jue)       | Módulo 7: Integración y casos prácticos         | Virtual      | 1.5   |
 | **13** | **Por coordinar**  | **Presentación proyecto final y clausura**      | **Presencial** | **2** |
 | **Total** |                 |                                                 |              | **20 h** |
 
