@@ -2,66 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lalgonzales.github.io/ceeti_qgiscourse/index.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo2.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo4.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo5.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo3.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/labs/lab_02.html</loc>
-    <lastmod>2026-04-16T23:01:58.809Z</lastmod>
+    <lastmod>2026-04-22T21:33:56.393Z</lastmod>
   </url>
   <url>
     <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/sobre/syllabus.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/sobre/creditos.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
+    <lastmod>2026-04-22T21:33:56.393Z</lastmod>
   </url>
   <url>
     <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/sobre/privacidad.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/sobre/instructor.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/labs/instrucciones_labs.html</loc>
-    <lastmod>2026-04-16T23:01:58.809Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/labs/lab_01.html</loc>
-    <lastmod>2026-04-16T23:01:58.809Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo6.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
+    <lastmod>2026-04-22T21:33:56.393Z</lastmod>
   </url>
   <url>
     <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo1.html</loc>
-    <lastmod>2026-04-16T23:01:58.809Z</lastmod>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
   </url>
   <url>
-    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo7.html</loc>
-    <lastmod>2026-04-16T23:01:58.810Z</lastmod>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo4.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo6.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo3.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
   </url>
   <url>
     <loc>https://lalgonzales.github.io/ceeti_qgiscourse/SECURITY.html</loc>
-    <lastmod>2026-04-16T23:01:58.780Z</lastmod>
+    <lastmod>2026-04-22T21:33:56.362Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo7.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo2.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/modulos/modulo5.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/labs/lab_02.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/labs/lab_03_04.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/labs/lab_01.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/labs/instrucciones_labs.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/sobre/creditos.html</loc>
+    <lastmod>2026-04-22T21:33:56.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lalgonzales.github.io/ceeti_qgiscourse/content/sobre/instructor.html</loc>
+    <lastmod>2026-04-22T21:33:56.393Z</lastmod>
   </url>
 </urlset>

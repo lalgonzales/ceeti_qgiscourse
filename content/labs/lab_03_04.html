@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Laboratorio Integrado: Análisis Espacial y Redes – QGIS y Herramientas Python para el Análisis Geoespacial</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/sobre/instructor.html" rel="next">
+<link href="../../content/labs/lab_02.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-0901d60795becbae1edf99893501b07d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PVHS7PQJ');</script>
+<!-- End Google Tag Manager -->
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CEETI – QGIS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Inicio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/sobre/syllabus.html"> 
+<span class="menu-text">Temario</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-módulos" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Módulos</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-módulos">    
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo1.html">
+ <span class="dropdown-text">1. Introducción a QGIS y SIG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo2.html">
+ <span class="dropdown-text">2. Carga y manejo de datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo3.html">
+ <span class="dropdown-text">3. Edición y geoprocesamiento básico</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo4.html">
+ <span class="dropdown-text">4. Análisis espacial para rutas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo5.html">
+ <span class="dropdown-text">5. Automatización con Python y PyQGIS</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo6.html">
+ <span class="dropdown-text">6. Visualización avanzada y mapas finales</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/modulos/modulo7.html">
+ <span class="dropdown-text">7. Integración y casos prácticos</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-laboratorios" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Laboratorios</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-laboratorios">    
+        <li>
+    <a class="dropdown-item" href="../../content/labs/instrucciones_labs.html">
+ <span class="dropdown-text">Instrucciones</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/labs/lab_01.html">
+ <span class="dropdown-text">Lab 1 – Exploración de QGIS</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/labs/lab_02.html">
+ <span class="dropdown-text">Lab 2 – Carga y gestión de datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/labs/lab_03_04.html">
+ <span class="dropdown-text">Lab 3 - 4 – Edición, geoprocesamiento y análisis de redes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/sobre/instructor.html"> 
+<span class="menu-text">Instructor</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/sobre/creditos.html"> 
+<span class="menu-text">Créditos</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/lalgonzales/ceeti_qgiscourse"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/labs/instrucciones_labs.html">Laboratorios</a></li><li class="breadcrumb-item"><a href="../../content/labs/lab_03_04.html">Lab 3 - 4 – Edición, geoprocesamiento y análisis de redes</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inicio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/sobre/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Temario</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Módulos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Introducción a QGIS y SIG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Carga y manejo de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Edición y geoprocesamiento básico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Análisis espacial para rutas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Automatización con Python y PyQGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Visualización avanzada y mapas finales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/modulos/modulo7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Integración y casos prácticos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Laboratorios</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/instrucciones_labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instrucciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/lab_01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1 – Exploración de QGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/lab_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2 – Carga y gestión de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/lab_03_04.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 3 - 4 – Edición, geoprocesamiento y análisis de redes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/sobre/instructor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/sobre/creditos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Créditos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/sobre/privacidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Privacidad</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#información-general" id="toc-información-general" class="nav-link active" data-scroll-target="#información-general"><span class="header-section-number">1</span> Información General</a>
+  <ul class="collapse">
+  <li><a href="#objetivos-de-aprendizaje" id="toc-objetivos-de-aprendizaje" class="nav-link" data-scroll-target="#objetivos-de-aprendizaje"><span class="header-section-number">1.1</span> Objetivos de Aprendizaje</a></li>
+  </ul></li>
+  <li><a href="#preparación-del-entorno" id="toc-preparación-del-entorno" class="nav-link" data-scroll-target="#preparación-del-entorno"><span class="header-section-number">2</span> Preparación del Entorno</a>
+  <ul class="collapse">
+  <li><a href="#software-requerido" id="toc-software-requerido" class="nav-link" data-scroll-target="#software-requerido"><span class="header-section-number">2.1</span> Software Requerido</a></li>
+  <li><a href="#configuración-inicial" id="toc-configuración-inicial" class="nav-link" data-scroll-target="#configuración-inicial"><span class="header-section-number">2.2</span> Configuración Inicial</a></li>
+  </ul></li>
+  <li><a href="#parte-i-preparación-de-datos" id="toc-parte-i-preparación-de-datos" class="nav-link" data-scroll-target="#parte-i-preparación-de-datos"><span class="header-section-number">3</span> Parte I: Preparación de Datos</a>
+  <ul class="collapse">
+  <li><a href="#descarga-de-datos-desde-openstreetmap" id="toc-descarga-de-datos-desde-openstreetmap" class="nav-link" data-scroll-target="#descarga-de-datos-desde-openstreetmap"><span class="header-section-number">3.1</span> 1.1 Descarga de Datos desde OpenStreetMap</a></li>
+  <li><a href="#creación-de-capa-de-puntos-de-interés" id="toc-creación-de-capa-de-puntos-de-interés" class="nav-link" data-scroll-target="#creación-de-capa-de-puntos-de-interés"><span class="header-section-number">3.2</span> 1.2 Creación de Capa de Puntos de Interés</a></li>
+  </ul></li>
+  <li><a href="#parte-ii-edición-y-mejora-de-datos" id="toc-parte-ii-edición-y-mejora-de-datos" class="nav-link" data-scroll-target="#parte-ii-edición-y-mejora-de-datos"><span class="header-section-number">4</span> Parte II: Edición y Mejora de Datos</a>
+  <ul class="collapse">
+  <li><a href="#edición-de-calles" id="toc-edición-de-calles" class="nav-link" data-scroll-target="#edición-de-calles"><span class="header-section-number">4.1</span> 2.1 Edición de Calles</a></li>
+  <li><a href="#edición-de-edificios" id="toc-edición-de-edificios" class="nav-link" data-scroll-target="#edición-de-edificios"><span class="header-section-number">4.2</span> 2.2 Edición de Edificios</a></li>
+  </ul></li>
+  <li><a href="#parte-iii-análisis-espacial-básico" id="toc-parte-iii-análisis-espacial-básico" class="nav-link" data-scroll-target="#parte-iii-análisis-espacial-básico"><span class="header-section-number">5</span> Parte III: Análisis Espacial Básico</a>
+  <ul class="collapse">
+  <li><a href="#herramientas-de-geoprocesamiento" id="toc-herramientas-de-geoprocesamiento" class="nav-link" data-scroll-target="#herramientas-de-geoprocesamiento"><span class="header-section-number">5.1</span> 3.1 Herramientas de Geoprocesamiento</a></li>
+  <li><a href="#validación-topológica" id="toc-validación-topológica" class="nav-link" data-scroll-target="#validación-topológica"><span class="header-section-number">5.2</span> 3.2 Validación Topológica</a></li>
+  </ul></li>
+  <li><a href="#parte-iv-análisis-de-redes" id="toc-parte-iv-análisis-de-redes" class="nav-link" data-scroll-target="#parte-iv-análisis-de-redes"><span class="header-section-number">6</span> Parte IV: Análisis de Redes</a>
+  <ul class="collapse">
+  <li><a href="#preparación-de-red-de-transporte" id="toc-preparación-de-red-de-transporte" class="nav-link" data-scroll-target="#preparación-de-red-de-transporte"><span class="header-section-number">6.1</span> 4.1 Preparación de Red de Transporte</a></li>
+  <li><a href="#cálculo-de-rutas" id="toc-cálculo-de-rutas" class="nav-link" data-scroll-target="#cálculo-de-rutas"><span class="header-section-number">6.2</span> 4.2 Cálculo de Rutas</a></li>
+  </ul></li>
+  <li><a href="#entregables-y-documentación" id="toc-entregables-y-documentación" class="nav-link" data-scroll-target="#entregables-y-documentación"><span class="header-section-number">7</span> Entregables y Documentación</a>
+  <ul class="collapse">
+  <li><a href="#archivos-a-entregar" id="toc-archivos-a-entregar" class="nav-link" data-scroll-target="#archivos-a-entregar"><span class="header-section-number">7.1</span> 5.1 Archivos a Entregar</a></li>
+  <li><a href="#reporte-de-actividades" id="toc-reporte-de-actividades" class="nav-link" data-scroll-target="#reporte-de-actividades"><span class="header-section-number">7.2</span> 5.2 Reporte de Actividades</a></li>
+  </ul></li>
+  <li><a href="#criterios-de-evaluación" id="toc-criterios-de-evaluación" class="nav-link" data-scroll-target="#criterios-de-evaluación"><span class="header-section-number">8</span> Criterios de Evaluación</a></li>
+  <li><a href="#recursos-de-apoyo" id="toc-recursos-de-apoyo" class="nav-link" data-scroll-target="#recursos-de-apoyo"><span class="header-section-number">9</span> Recursos de Apoyo</a></li>
+  <li><a href="#notas-para-el-instructor" id="toc-notas-para-el-instructor" class="nav-link" data-scroll-target="#notas-para-el-instructor"><span class="header-section-number">10</span> Notas para el Instructor</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVHS7PQJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/labs/instrucciones_labs.html">Laboratorios</a></li><li class="breadcrumb-item"><a href="../../content/labs/lab_03_04.html">Lab 3 - 4 – Edición, geoprocesamiento y análisis de redes</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Laboratorio Integrado: Análisis Espacial y Redes</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+<p class="subtitle lead">Práctica general de herramientas básicas de QGIS</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="información-general" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="información-general"><span class="header-section-number">1</span> Información General</h2>
+<p><strong>Nivel:</strong> Básico-Intermedio <strong>Modalidad:</strong> Práctica hands-on <strong>Enfoque:</strong> Exploración y experimentación con herramientas básicas</p>
+<section id="objetivos-de-aprendizaje" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="objetivos-de-aprendizaje"><span class="header-section-number">1.1</span> Objetivos de Aprendizaje</h3>
+<p>Al finalizar este laboratorio, los participantes serán capaces de:</p>
+<ol type="1">
+<li>Crear y configurar un proyecto QGIS desde cero</li>
+<li>Descargar y cargar datos desde OpenStreetMap</li>
+<li>Crear capas vectoriales personalizadas con campos específicos</li>
+<li>Editar geometrías y atributos de capas existentes</li>
+<li>Aplicar herramientas de geoprocesamiento básicas (buffer, intersección, clip, unión)</li>
+<li>Ejecutar análisis de topología para validar datos</li>
+<li>Realizar análisis básico de redes para calcular rutas</li>
+<li>Guardar y exportar resultados en diferentes formatos</li>
+</ol>
+</section>
+</section>
+<section id="preparación-del-entorno" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="preparación-del-entorno"><span class="header-section-number">2</span> Preparación del Entorno</h2>
+<section id="software-requerido" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="software-requerido"><span class="header-section-number">2.1</span> Software Requerido</h3>
+<ul>
+<li>QGIS 3.34 LTR o superior</li>
+<li>Plugin QuickOSM (para descargar datos de OpenStreetMap)</li>
+<li>Conexión a internet para descarga de datos</li>
+</ul>
+</section>
+<section id="configuración-inicial" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="configuración-inicial"><span class="header-section-number">2.2</span> Configuración Inicial</h3>
+<ol type="1">
+<li>Crear un nuevo proyecto en QGIS</li>
+<li>Guardarlo como “Laboratorio_Integrado.qgz” en una carpeta de trabajo</li>
+<li>Establecer el sistema de coordenadas del proyecto a EPSG:32616 (WGS84 / UTM zona 16N)</li>
+<li>Verificar que el plugin QuickOSM esté instalado (Complementos → Administrar e instalar complementos)</li>
+</ol>
+</section>
+</section>
+<section id="parte-i-preparación-de-datos" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="parte-i-preparación-de-datos"><span class="header-section-number">3</span> Parte I: Preparación de Datos</h2>
+<section id="descarga-de-datos-desde-openstreetmap" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="descarga-de-datos-desde-openstreetmap"><span class="header-section-number">3.1</span> 1.1 Descarga de Datos desde OpenStreetMap</h3>
+<section id="objetivo" class="level4" data-number="3.1.1">
+<h4 data-number="3.1.1" class="anchored" data-anchor-id="objetivo"><span class="header-section-number">3.1.1</span> Objetivo</h4>
+<p>Obtener datos reales de calles y edificios de una zona de interés usando OpenStreetMap.</p>
+</section>
+<section id="procedimiento" class="level4" data-number="3.1.2">
+<h4 data-number="3.1.2" class="anchored" data-anchor-id="procedimiento"><span class="header-section-number">3.1.2</span> Procedimiento</h4>
+<ol type="1">
+<li><strong>Instalar y activar QuickOSM:</strong>
+<ul>
+<li>Ir a Complementos → Administrar e instalar complementos</li>
+<li>Buscar “QuickOSM” e instalarlo si no está disponible</li>
+<li>Activarlo desde Vector → QuickOSM</li>
+</ul></li>
+<li><strong>Descargar calles:</strong>
+<ul>
+<li>Abrir QuickOSM</li>
+<li>En “Consulta rápida”:
+<ul>
+<li>Clave: highway</li>
+<li>Valor: (dejar vacío para obtener todas las carreteras)</li>
+<li>En: elegir tu ciudad o área de interés</li>
+</ul></li>
+<li>Ejecutar consulta</li>
+<li>Guardar como: <code>calles_osm.shp</code></li>
+</ul></li>
+<li><strong>Descargar edificios:</strong>
+<ul>
+<li>Nueva consulta en QuickOSM:
+<ul>
+<li>Clave: building</li>
+<li>Valor: (dejar vacío)</li>
+<li>En: la misma área que las calles</li>
+</ul></li>
+<li>Ejecutar consulta</li>
+<li>Guardar como: <code>edificios_osm.shp</code></li>
+</ul></li>
+</ol>
+</section>
+<section id="resultado-esperado" class="level4" data-number="3.1.3">
+<h4 data-number="3.1.3" class="anchored" data-anchor-id="resultado-esperado"><span class="header-section-number">3.1.3</span> Resultado Esperado</h4>
+<p>Dos capas vectoriales con datos reales de calles y edificios de tu área de estudio.</p>
+</section>
+</section>
+<section id="creación-de-capa-de-puntos-de-interés" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="creación-de-capa-de-puntos-de-interés"><span class="header-section-number">3.2</span> 1.2 Creación de Capa de Puntos de Interés</h3>
+<section id="objetivo-1" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="objetivo-1"><span class="header-section-number">3.2.1</span> Objetivo</h4>
+<p>Crear una capa personalizada de puntos que represente lugares de inicio y fin de rutas.</p>
+</section>
+<section id="procedimiento-1" class="level4" data-number="3.2.2">
+<h4 data-number="3.2.2" class="anchored" data-anchor-id="procedimiento-1"><span class="header-section-number">3.2.2</span> Procedimiento</h4>
+<ol type="1">
+<li><strong>Crear nueva capa de puntos:</strong>
+<ul>
+<li>Ir a Capa → Crear capa → Nueva capa de archivo shape</li>
+<li>Tipo de geometría: Punto</li>
+<li>Sistema de coordenadas: EPSG:32616 (WGS84 / UTM zona 16N)</li>
+<li>Nombre del archivo: <code>puntos_interes.shp</code></li>
+</ul></li>
+<li><strong>Definir campos de atributos:</strong>
+<ul>
+<li>Agregar los siguientes campos:
+<ul>
+<li><code>id</code> (Número entero)</li>
+<li><code>nombre</code> (Texto, longitud 50)</li>
+<li><code>tipo</code> (Texto, longitud 20) - valores: “inicio”, “destino”, “intermedio”</li>
+<li><code>descripcion</code> (Texto, longitud 100)</li>
+</ul></li>
+</ul></li>
+<li><strong>Digitalizar puntos:</strong>
+<ul>
+<li>Activar edición en la capa</li>
+<li>Usar herramienta “Añadir entidad puntual”</li>
+<li>Crear al menos 5 puntos distribuidos en el área de estudio</li>
+<li>Llenar los atributos de cada punto</li>
+<li>Guardar cambios y desactivar edición</li>
+</ul></li>
+</ol>
+</section>
+<section id="resultado-esperado-1" class="level4" data-number="3.2.3">
+<h4 data-number="3.2.3" class="anchored" data-anchor-id="resultado-esperado-1"><span class="header-section-number">3.2.3</span> Resultado Esperado</h4>
+<p>Una capa de puntos personalizada con información de lugares de interés para análisis de rutas.</p>
+</section>
+</section>
+</section>
+<section id="parte-ii-edición-y-mejora-de-datos" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="parte-ii-edición-y-mejora-de-datos"><span class="header-section-number">4</span> Parte II: Edición y Mejora de Datos</h2>
+<section id="edición-de-calles" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="edición-de-calles"><span class="header-section-number">4.1</span> 2.1 Edición de Calles</h3>
+<section id="objetivo-2" class="level4" data-number="4.1.1">
+<h4 data-number="4.1.1" class="anchored" data-anchor-id="objetivo-2"><span class="header-section-number">4.1.1</span> Objetivo</h4>
+<p>Practicar la edición de geometrías agregando una carretera que no existe en OSM.</p>
+</section>
+<section id="procedimiento-2" class="level4" data-number="4.1.2">
+<h4 data-number="4.1.2" class="anchored" data-anchor-id="procedimiento-2"><span class="header-section-number">4.1.2</span> Procedimiento</h4>
+<ol type="1">
+<li><strong>Preparar capa para edición:</strong>
+<ul>
+<li>Hacer clic derecho en <code>calles_osm</code> → Activar edición</li>
+<li>Familiarizarse con los campos existentes</li>
+</ul></li>
+<li><strong>Agregar nueva carretera:</strong>
+<ul>
+<li>Usar herramienta “Añadir entidad lineal”</li>
+<li>Digitalizar una línea que conecte dos puntos de interés</li>
+<li>Llenar atributos básicos:
+<ul>
+<li>highway: “residential”</li>
+<li>name: “Calle Nueva”</li>
+</ul></li>
+<li>Guardar cambios</li>
+</ul></li>
+<li><strong>Verificar resultado:</strong>
+<ul>
+<li>Usar herramienta de información para verificar los atributos</li>
+<li>Aplicar simbología diferente para destacar la nueva carretera</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="edición-de-edificios" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="edición-de-edificios"><span class="header-section-number">4.2</span> 2.2 Edición de Edificios</h3>
+<section id="objetivo-3" class="level4" data-number="4.2.1">
+<h4 data-number="4.2.1" class="anchored" data-anchor-id="objetivo-3"><span class="header-section-number">4.2.1</span> Objetivo</h4>
+<p>Agregar edificios faltantes en el área de estudio.</p>
+</section>
+<section id="procedimiento-3" class="level4" data-number="4.2.2">
+<h4 data-number="4.2.2" class="anchored" data-anchor-id="procedimiento-3"><span class="header-section-number">4.2.2</span> Procedimiento</h4>
+<ol type="1">
+<li><strong>Activar edición en edificios:</strong>
+<ul>
+<li>Activar edición en <code>edificios_osm</code></li>
+</ul></li>
+<li><strong>Agregar 3 edificios nuevos:</strong>
+<ul>
+<li>Usar herramienta “Añadir entidad poligonal”</li>
+<li>Digitalizar 3 polígonos rectangulares representando casas</li>
+<li>Asignar atributos:
+<ul>
+<li>building: “house”</li>
+<li>name: “Casa 1”, “Casa 2”, “Casa 3”</li>
+</ul></li>
+</ul></li>
+<li><strong>Guardar cambios y verificar</strong></li>
+</ol>
+</section>
+<section id="resultado-esperado-2" class="level4" data-number="4.2.3">
+<h4 data-number="4.2.3" class="anchored" data-anchor-id="resultado-esperado-2"><span class="header-section-number">4.2.3</span> Resultado Esperado</h4>
+<p>Capas editadas con nuevos elementos agregados manualmente.</p>
+</section>
+</section>
+</section>
+<section id="parte-iii-análisis-espacial-básico" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="parte-iii-análisis-espacial-básico"><span class="header-section-number">5</span> Parte III: Análisis Espacial Básico</h2>
+<section id="herramientas-de-geoprocesamiento" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="herramientas-de-geoprocesamiento"><span class="header-section-number">5.1</span> 3.1 Herramientas de Geoprocesamiento</h3>
+<section id="objetivo-4" class="level4" data-number="5.1.1">
+<h4 data-number="5.1.1" class="anchored" data-anchor-id="objetivo-4"><span class="header-section-number">5.1.1</span> Objetivo</h4>
+<p>Aplicar las herramientas básicas de análisis espacial vistas en el módulo 3.</p>
+</section>
+<section id="procedimiento-4" class="level4" data-number="5.1.2">
+<h4 data-number="5.1.2" class="anchored" data-anchor-id="procedimiento-4"><span class="header-section-number">5.1.2</span> Procedimiento</h4>
+<ol type="1">
+<li><strong>Crear buffers alrededor de puntos de interés:</strong>
+<ul>
+<li>Ir a Procesos → Caja de herramientas</li>
+<li>Buscar “Buffer”</li>
+<li>Aplicar buffer de 200 metros a <code>puntos_interes</code></li>
+<li>Guardar como: <code>buffer_puntos.shp</code></li>
+</ul></li>
+<li><strong>Intersección entre buffers y edificios:</strong>
+<ul>
+<li>Buscar herramienta “Intersección”</li>
+<li>Capa de entrada: <code>edificios_osm</code></li>
+<li>Capa de superposición: <code>buffer_puntos</code></li>
+<li>Guardar como: <code>edificios_en_buffer.shp</code></li>
+</ul></li>
+<li><strong>Clip de calles con buffer:</strong>
+<ul>
+<li>Usar herramienta “Recortar”</li>
+<li>Capa de entrada: <code>calles_osm</code></li>
+<li>Capa de superposición: <code>buffer_puntos</code></li>
+<li>Guardar como: <code>calles_cercanas.shp</code></li>
+</ul></li>
+<li><strong>Unión de todos los buffers:</strong>
+<ul>
+<li>Usar herramienta “Unión”</li>
+<li>Aplicar a <code>buffer_puntos</code></li>
+<li>Guardar como: <code>area_influencia.shp</code></li>
+</ul></li>
+</ol>
+</section>
+<section id="análisis-de-resultados" class="level4" data-number="5.1.3">
+<h4 data-number="5.1.3" class="anchored" data-anchor-id="análisis-de-resultados"><span class="header-section-number">5.1.3</span> Análisis de Resultados</h4>
+<ol type="1">
+<li>Contar cuántos edificios están dentro del área de influencia</li>
+<li>Calcular la longitud total de calles en el área</li>
+<li>Identificar superposiciones entre buffers</li>
+</ol>
+</section>
+</section>
+<section id="validación-topológica" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="validación-topológica"><span class="header-section-number">5.2</span> 3.2 Validación Topológica</h3>
+<section id="objetivo-5" class="level4" data-number="5.2.1">
+<h4 data-number="5.2.1" class="anchored" data-anchor-id="objetivo-5"><span class="header-section-number">5.2.1</span> Objetivo</h4>
+<p>Verificar la calidad de los datos usando herramientas de topología.</p>
+</section>
+<section id="procedimiento-5" class="level4" data-number="5.2.2">
+<h4 data-number="5.2.2" class="anchored" data-anchor-id="procedimiento-5"><span class="header-section-number">5.2.2</span> Procedimiento</h4>
+<ol type="1">
+<li><strong>Configurar reglas topológicas:</strong>
+<ul>
+<li>Ir a Vector → Herramientas de topología → Comprobador de topología</li>
+<li>Agregar regla: “Los polígonos no deben superponerse” para edificios</li>
+<li>Agregar regla: “Los puntos no deben ser duplicados” para puntos de interés</li>
+</ul></li>
+<li><strong>Ejecutar validación:</strong>
+<ul>
+<li>Hacer clic en “Validar todo”</li>
+<li>Revisar errores encontrados</li>
+<li>Corregir al menos un error si existe</li>
+</ul></li>
+<li><strong>Verificar geometrías:</strong>
+<ul>
+<li>Usar Vector → Herramientas de geometría → Comprobar validez</li>
+<li>Aplicar a todas las capas creadas</li>
+<li>Documentar cualquier problema encontrado</li>
+</ul></li>
+</ol>
+</section>
+<section id="resultado-esperado-3" class="level4" data-number="5.2.3">
+<h4 data-number="5.2.3" class="anchored" data-anchor-id="resultado-esperado-3"><span class="header-section-number">5.2.3</span> Resultado Esperado</h4>
+<p>Datos validados topológicamente y corrección de errores básicos.</p>
+</section>
+</section>
+</section>
+<section id="parte-iv-análisis-de-redes" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="parte-iv-análisis-de-redes"><span class="header-section-number">6</span> Parte IV: Análisis de Redes</h2>
+<section id="preparación-de-red-de-transporte" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="preparación-de-red-de-transporte"><span class="header-section-number">6.1</span> 4.1 Preparación de Red de Transporte</h3>
+<section id="objetivo-6" class="level4" data-number="6.1.1">
+<h4 data-number="6.1.1" class="anchored" data-anchor-id="objetivo-6"><span class="header-section-number">6.1.1</span> Objetivo</h4>
+<p>Configurar la red de calles para análisis de rutas.</p>
+</section>
+<section id="procedimiento-6" class="level4" data-number="6.1.2">
+<h4 data-number="6.1.2" class="anchored" data-anchor-id="procedimiento-6"><span class="header-section-number">6.1.2</span> Procedimiento</h4>
+<ol type="1">
+<li><strong>Verificar conectividad de la red:</strong>
+<ul>
+<li>Examinar visualmente las conexiones entre calles</li>
+<li>Identificar posibles gaps o desconexiones</li>
+</ul></li>
+<li><strong>Calcular longitudes:</strong>
+<ul>
+<li>Abrir tabla de atributos de <code>calles_osm</code></li>
+<li>Agregar campo “longitud_m”</li>
+<li>Usar calculadora de campos: <code>$length</code></li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="cálculo-de-rutas" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="cálculo-de-rutas"><span class="header-section-number">6.2</span> 4.2 Cálculo de Rutas</h3>
+<section id="objetivo-7" class="level4" data-number="6.2.1">
+<h4 data-number="6.2.1" class="anchored" data-anchor-id="objetivo-7"><span class="header-section-number">6.2.1</span> Objetivo</h4>
+<p>Calcular rutas entre puntos de interés usando herramientas nativas de QGIS.</p>
+</section>
+<section id="procedimiento-7" class="level4" data-number="6.2.2">
+<h4 data-number="6.2.2" class="anchored" data-anchor-id="procedimiento-7"><span class="header-section-number">6.2.2</span> Procedimiento</h4>
+<ol type="1">
+<li><strong>Configurar análisis de ruta:</strong>
+<ul>
+<li>Ir a Procesos → Análisis de redes → Ruta más corta (punto a punto)</li>
+<li>Red vectorial: <code>calles_osm</code></li>
+<li>Punto de inicio: seleccionar un punto tipo “inicio”</li>
+<li>Punto final: seleccionar un punto tipo “destino”</li>
+<li>Estrategia de ruta: “Distancia más corta”</li>
+</ul></li>
+<li><strong>Calcular múltiples rutas:</strong>
+<ul>
+<li>Repetir el proceso para diferentes combinaciones de puntos</li>
+<li>Guardar cada ruta con nombre descriptivo</li>
+</ul></li>
+<li><strong>Analizar resultados:</strong>
+<ul>
+<li>Comparar longitudes de diferentes rutas</li>
+<li>Identificar la ruta más eficiente</li>
+<li>Crear mapa temático mostrando las rutas</li>
+</ul></li>
+</ol>
+</section>
+<section id="resultado-esperado-4" class="level4" data-number="6.2.3">
+<h4 data-number="6.2.3" class="anchored" data-anchor-id="resultado-esperado-4"><span class="header-section-number">6.2.3</span> Resultado Esperado</h4>
+<p>Múltiples rutas calculadas entre puntos de interés con análisis comparativo.</p>
+</section>
+</section>
+</section>
+<section id="entregables-y-documentación" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="entregables-y-documentación"><span class="header-section-number">7</span> Entregables y Documentación</h2>
+<section id="archivos-a-entregar" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="archivos-a-entregar"><span class="header-section-number">7.1</span> 5.1 Archivos a Entregar</h3>
+<ol type="1">
+<li><strong>Proyecto QGIS completo</strong> (<code>Laboratorio_Integrado.qgz</code>)</li>
+<li><strong>Capas vectoriales creadas:</strong>
+<ul>
+<li><code>puntos_interes.shp</code></li>
+<li><code>calles_osm.shp</code> (editada)</li>
+<li><code>edificios_osm.shp</code> (editada)</li>
+<li><code>buffer_puntos.shp</code></li>
+<li><code>edificios_en_buffer.shp</code></li>
+<li><code>calles_cercanas.shp</code></li>
+<li><code>area_influencia.shp</code></li>
+<li>Archivos de rutas calculadas</li>
+</ul></li>
+<li><strong>Mapa final</strong> exportado como PDF mostrando todos los análisis</li>
+</ol>
+</section>
+<section id="reporte-de-actividades" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="reporte-de-actividades"><span class="header-section-number">7.2</span> 5.2 Reporte de Actividades</h3>
+<p>Documenta brevemente:</p>
+<ol type="1">
+<li><strong>Datos descargados:</strong> área seleccionada y cantidad de elementos</li>
+<li><strong>Ediciones realizadas:</strong> descripción de elementos agregados</li>
+<li><strong>Análisis espaciales:</strong> resultados numéricos obtenidos</li>
+<li><strong>Problemas topológicos:</strong> errores encontrados y corregidos</li>
+<li><strong>Rutas calculadas:</strong> distancias y comparaciones</li>
+<li><strong>Dificultades encontradas:</strong> problemas y soluciones aplicadas</li>
+</ol>
+</section>
+</section>
+<section id="criterios-de-evaluación" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="criterios-de-evaluación"><span class="header-section-number">8</span> Criterios de Evaluación</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 40%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterio</th>
+<th>Descripción</th>
+<th>Puntos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Preparación de datos</strong></td>
+<td>Descarga exitosa de OSM y creación de capa de puntos</td>
+<td>20%</td>
+</tr>
+<tr class="even">
+<td><strong>Edición de geometrías</strong></td>
+<td>Agregado correcto de calles y edificios</td>
+<td>20%</td>
+</tr>
+<tr class="odd">
+<td><strong>Geoprocesamiento</strong></td>
+<td>Aplicación correcta de buffer, intersección, clip, unión</td>
+<td>25%</td>
+</tr>
+<tr class="even">
+<td><strong>Validación topológica</strong></td>
+<td>Ejecución de verificaciones y corrección de errores</td>
+<td>15%</td>
+</tr>
+<tr class="odd">
+<td><strong>Análisis de redes</strong></td>
+<td>Cálculo exitoso de rutas y análisis de resultados</td>
+<td>20%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="recursos-de-apoyo" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="recursos-de-apoyo"><span class="header-section-number">9</span> Recursos de Apoyo</h2>
+<ul>
+<li><a href="https://plugins.qgis.org/plugins/QuickOSM/">Documentación de QuickOSM</a></li>
+<li><a href="https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/">Manual de herramientas de geoprocesamiento</a></li>
+<li><a href="https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/networkanalysis.html">Guía de análisis de redes en QGIS</a></li>
+</ul>
+<hr>
+</section>
+<section id="notas-para-el-instructor" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="notas-para-el-instructor"><span class="header-section-number">10</span> Notas para el Instructor</h2>
+<ul>
+<li><strong>Flexibilidad:</strong> Los estudiantes pueden elegir cualquier área geográfica de interés</li>
+<li><strong>Adaptabilidad:</strong> Los ejercicios pueden ajustarse según el nivel de los participantes</li>
+<li><strong>Exploración:</strong> Fomentar la experimentación con diferentes parámetros y herramientas</li>
+<li><strong>Colaboración:</strong> Promover el intercambio de resultados entre estudiantes</li>
+</ul>
+<p>¡Este laboratorio permite “experimentar” con las herramientas mientras se aprenden los conceptos fundamentales! 🚀</p>
+
+
+<!-- -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/lalgonzales\.github\.io\/ceeti_qgiscourse\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/labs/lab_02.html" class="pagination-link" aria-label="Lab 2 – Carga y gestión de datos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 2 – Carga y gestión de datos</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/sobre/instructor.html" class="pagination-link" aria-label="Instructor">
+        <span class="nav-page-text">Instructor</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Laboratorio Integrado: Análisis Espacial y Redes"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Práctica general de herramientas básicas de QGIS"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: cosmo</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Información General</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>**Nivel:** Básico-Intermedio</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>**Modalidad:** Práctica hands-on</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>**Enfoque:** Exploración y experimentación con herramientas básicas</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos de Aprendizaje</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Al finalizar este laboratorio, los participantes serán capaces de:</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Crear y configurar un proyecto QGIS desde cero</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Descargar y cargar datos desde OpenStreetMap</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Crear capas vectoriales personalizadas con campos específicos</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Editar geometrías y atributos de capas existentes</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Aplicar herramientas de geoprocesamiento básicas (buffer, intersección, clip, unión)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Ejecutar análisis de topología para validar datos</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Realizar análisis básico de redes para calcular rutas</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Guardar y exportar resultados en diferentes formatos</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preparación del Entorno</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### Software Requerido</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>QGIS 3.34 LTR o superior</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Plugin QuickOSM (para descargar datos de OpenStreetMap)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Conexión a internet para descarga de datos</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuración Inicial</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Crear un nuevo proyecto en QGIS</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Guardarlo como "Laboratorio_Integrado.qgz" en una carpeta de trabajo</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Establecer el sistema de coordenadas del proyecto a EPSG:32616 (WGS84 / UTM zona 16N)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Verificar que el plugin QuickOSM esté instalado (Complementos → Administrar e instalar complementos)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Parte I: Preparación de Datos</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1.1 Descarga de Datos desde OpenStreetMap</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Objetivo</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>Obtener datos reales de calles y edificios de una zona de interés usando OpenStreetMap.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Procedimiento</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Instalar y activar QuickOSM:**</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ir a Complementos → Administrar e instalar complementos</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Buscar "QuickOSM" e instalarlo si no está disponible</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Activarlo desde Vector → QuickOSM</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Descargar calles:**</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Abrir QuickOSM</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>En "Consulta rápida":</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span>Clave: highway</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span>Valor: (dejar vacío para obtener todas las carreteras)</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span>En: elegir tu ciudad o área de interés</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ejecutar consulta</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guardar como: <span class="in">`calles_osm.shp`</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Descargar edificios:**</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Nueva consulta en QuickOSM:</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span>Clave: building</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span>Valor: (dejar vacío)</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span>En: la misma área que las calles</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ejecutar consulta</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guardar como: <span class="in">`edificios_osm.shp`</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Resultado Esperado</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>Dos capas vectoriales con datos reales de calles y edificios de tu área de estudio.</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1.2 Creación de Capa de Puntos de Interés</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Objetivo</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>Crear una capa personalizada de puntos que represente lugares de inicio y fin de rutas.</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Procedimiento</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Crear nueva capa de puntos:**</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ir a Capa → Crear capa → Nueva capa de archivo shape</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Tipo de geometría: Punto</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Sistema de coordenadas: EPSG:32616 (WGS84 / UTM zona 16N)</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Nombre del archivo: <span class="in">`puntos_interes.shp`</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Definir campos de atributos:**</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Agregar los siguientes campos:</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span><span class="in">`id`</span> (Número entero)</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span><span class="in">`nombre`</span> (Texto, longitud 50)</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span><span class="in">`tipo`</span> (Texto, longitud 20) - valores: "inicio", "destino", "intermedio"</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span><span class="in">`descripcion`</span> (Texto, longitud 100)</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Digitalizar puntos:**</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Activar edición en la capa</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usar herramienta "Añadir entidad puntual"</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Crear al menos 5 puntos distribuidos en el área de estudio</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Llenar los atributos de cada punto</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guardar cambios y desactivar edición</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Resultado Esperado</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>Una capa de puntos personalizada con información de lugares de interés para análisis de rutas.</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="fu">## Parte II: Edición y Mejora de Datos</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.1 Edición de Calles</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Objetivo</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>Practicar la edición de geometrías agregando una carretera que no existe en OSM.</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Procedimiento</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Preparar capa para edición:**</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Hacer clic derecho en <span class="in">`calles_osm`</span> → Activar edición</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Familiarizarse con los campos existentes</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Agregar nueva carretera:**</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usar herramienta "Añadir entidad lineal"</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Digitalizar una línea que conecte dos puntos de interés</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Llenar atributos básicos:</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span>highway: "residential"</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span>name: "Calle Nueva"</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guardar cambios</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Verificar resultado:**</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usar herramienta de información para verificar los atributos</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Aplicar simbología diferente para destacar la nueva carretera</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.2 Edición de Edificios</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Objetivo</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>Agregar edificios faltantes en el área de estudio.</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Procedimiento</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Activar edición en edificios:**</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Activar edición en <span class="in">`edificios_osm`</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Agregar 3 edificios nuevos:**</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usar herramienta "Añadir entidad poligonal"</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Digitalizar 3 polígonos rectangulares representando casas</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Asignar atributos:</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span>building: "house"</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="ss">     - </span>name: "Casa 1", "Casa 2", "Casa 3"</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Guardar cambios y verificar**</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Resultado Esperado</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>Capas editadas con nuevos elementos agregados manualmente.</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## Parte III: Análisis Espacial Básico</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.1 Herramientas de Geoprocesamiento</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Objetivo</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>Aplicar las herramientas básicas de análisis espacial vistas en el módulo 3.</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Procedimiento</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Crear buffers alrededor de puntos de interés:**</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ir a Procesos → Caja de herramientas</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Buscar "Buffer"</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Aplicar buffer de 200 metros a <span class="in">`puntos_interes`</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guardar como: <span class="in">`buffer_puntos.shp`</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Intersección entre buffers y edificios:**</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Buscar herramienta "Intersección"</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Capa de entrada: <span class="in">`edificios_osm`</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Capa de superposición: <span class="in">`buffer_puntos`</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guardar como: <span class="in">`edificios_en_buffer.shp`</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Clip de calles con buffer:**</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usar herramienta "Recortar"</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Capa de entrada: <span class="in">`calles_osm`</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Capa de superposición: <span class="in">`buffer_puntos`</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guardar como: <span class="in">`calles_cercanas.shp`</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Unión de todos los buffers:**</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usar herramienta "Unión"</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Aplicar a <span class="in">`buffer_puntos`</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guardar como: <span class="in">`area_influencia.shp`</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Análisis de Resultados</span></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Contar cuántos edificios están dentro del área de influencia</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Calcular la longitud total de calles en el área</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Identificar superposiciones entre buffers</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.2 Validación Topológica</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Objetivo</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>Verificar la calidad de los datos usando herramientas de topología.</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Procedimiento</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Configurar reglas topológicas:**</span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ir a Vector → Herramientas de topología → Comprobador de topología</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Agregar regla: "Los polígonos no deben superponerse" para edificios</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Agregar regla: "Los puntos no deben ser duplicados" para puntos de interés</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Ejecutar validación:**</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Hacer clic en "Validar todo"</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Revisar errores encontrados</span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Corregir al menos un error si existe</span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Verificar geometrías:**</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usar Vector → Herramientas de geometría → Comprobar validez</span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Aplicar a todas las capas creadas</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Documentar cualquier problema encontrado</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Resultado Esperado</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>Datos validados topológicamente y corrección de errores básicos.</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="fu">## Parte IV: Análisis de Redes</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.1 Preparación de Red de Transporte</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Objetivo</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>Configurar la red de calles para análisis de rutas.</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Procedimiento</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Verificar conectividad de la red:**</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Examinar visualmente las conexiones entre calles</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Identificar posibles gaps o desconexiones</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Calcular longitudes:**</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Abrir tabla de atributos de <span class="in">`calles_osm`</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Agregar campo "longitud_m"</span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usar calculadora de campos: <span class="in">`$length`</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.2 Cálculo de Rutas</span></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Objetivo</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>Calcular rutas entre puntos de interés usando herramientas nativas de QGIS.</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Procedimiento</span></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Configurar análisis de ruta:**</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Ir a Procesos → Análisis de redes → Ruta más corta (punto a punto)</span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Red vectorial: <span class="in">`calles_osm`</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Punto de inicio: seleccionar un punto tipo "inicio"</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Punto final: seleccionar un punto tipo "destino"</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Estrategia de ruta: "Distancia más corta"</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Calcular múltiples rutas:**</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Repetir el proceso para diferentes combinaciones de puntos</span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guardar cada ruta con nombre descriptivo</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Analizar resultados:**</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Comparar longitudes de diferentes rutas</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Identificar la ruta más eficiente</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Crear mapa temático mostrando las rutas</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Resultado Esperado</span></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>Múltiples rutas calculadas entre puntos de interés con análisis comparativo.</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entregables y Documentación</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5.1 Archivos a Entregar</span></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Proyecto QGIS completo** (<span class="in">`Laboratorio_Integrado.qgz`</span>)</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Capas vectoriales creadas:**</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`puntos_interes.shp`</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`calles_osm.shp`</span> (editada)</span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`edificios_osm.shp`</span> (editada)</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`buffer_puntos.shp`</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`edificios_en_buffer.shp`</span></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`calles_cercanas.shp`</span></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`area_influencia.shp`</span></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Archivos de rutas calculadas</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Mapa final** exportado como PDF mostrando todos los análisis</span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5.2 Reporte de Actividades</span></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a>Documenta brevemente:</span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Datos descargados:** área seleccionada y cantidad de elementos</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Ediciones realizadas:** descripción de elementos agregados</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Análisis espaciales:** resultados numéricos obtenidos</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Problemas topológicos:** errores encontrados y corregidos</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Rutas calculadas:** distancias y comparaciones</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Dificultades encontradas:** problemas y soluciones aplicadas</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a><span class="fu">## Criterios de Evaluación</span></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criterio <span class="pp">|</span> Descripción <span class="pp">|</span> Puntos <span class="pp">|</span></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|-------------|---------|</span></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Preparación de datos** <span class="pp">|</span> Descarga exitosa de OSM y creación de capa de puntos <span class="pp">|</span> 20% <span class="pp">|</span></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Edición de geometrías** <span class="pp">|</span> Agregado correcto de calles y edificios <span class="pp">|</span> 20% <span class="pp">|</span></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Geoprocesamiento** <span class="pp">|</span> Aplicación correcta de buffer, intersección, clip, unión <span class="pp">|</span> 25% <span class="pp">|</span></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Validación topológica** <span class="pp">|</span> Ejecución de verificaciones y corrección de errores <span class="pp">|</span> 15% <span class="pp">|</span></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Análisis de redes** <span class="pp">|</span> Cálculo exitoso de rutas y análisis de resultados <span class="pp">|</span> 20% <span class="pp">|</span></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="fu">## Recursos de Apoyo</span></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Documentación de QuickOSM</span><span class="co">](https://plugins.qgis.org/plugins/QuickOSM/)</span></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Manual de herramientas de geoprocesamiento</span><span class="co">](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/)</span></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Guía de análisis de redes en QGIS</span><span class="co">](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/networkanalysis.html)</span></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Notas para el Instructor</span></span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Flexibilidad:** Los estudiantes pueden elegir cualquier área geográfica de interés</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Adaptabilidad:** Los ejercicios pueden ajustarse según el nivel de los participantes</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Exploración:** Fomentar la experimentación con diferentes parámetros y herramientas</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Colaboración:** Promover el intercambio de resultados entre estudiantes</span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>¡Este laboratorio permite "experimentar" con las herramientas mientras se aprenden los conceptos fundamentales! 🚀</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 CEETI – Universidad Nacional Autónoma de Honduras · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../content/sobre/creditos.html">
+<p>Créditos</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../content/sobre/privacidad.html">
+<p>Privacidad</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/lalgonzales/ceeti_qgiscourse">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
