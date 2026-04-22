@@ -1,24 +1,24 @@
 ---
 title: "Laboratorio Integrado: Análisis Espacial y Redes"
 subtitle: "Práctica general de herramientas básicas de QGIS"
-format: 
+format:
   html:
     toc: true
     toc-depth: 3
     number-sections: true
     theme: cosmo
 ---
- 
+
 ## Información General
- 
-**Nivel:** Básico-Intermedio  
-**Modalidad:** Práctica hands-on  
+
+**Nivel:** Básico-Intermedio
+**Modalidad:** Práctica hands-on
 **Enfoque:** Exploración y experimentación con herramientas básicas
- 
+
 ### Objetivos de Aprendizaje
- 
+
 Al finalizar este laboratorio, los participantes serán capaces de:
- 
+
 1. Crear y configurar un proyecto QGIS desde cero
 2. Descargar y cargar datos desde OpenStreetMap
 3. Crear capas vectoriales personalizadas con campos específicos
@@ -27,36 +27,36 @@ Al finalizar este laboratorio, los participantes serán capaces de:
 6. Ejecutar análisis de topología para validar datos
 7. Realizar análisis básico de redes para calcular rutas
 8. Guardar y exportar resultados en diferentes formatos
- 
+
 ## Preparación del Entorno
- 
+
 ### Software Requerido
- 
+
 - QGIS 3.34 LTR o superior
 - Plugin QuickOSM (para descargar datos de OpenStreetMap)
 - Conexión a internet para descarga de datos
- 
+
 ### Configuración Inicial
- 
+
 1. Crear un nuevo proyecto en QGIS
 2. Guardarlo como "Laboratorio_Integrado.qgz" en una carpeta de trabajo
 3. Establecer el sistema de coordenadas del proyecto a EPSG:32616 (WGS84 / UTM zona 16N)
 4. Verificar que el plugin QuickOSM esté instalado (Complementos → Administrar e instalar complementos)
- 
+
 ## Parte I: Preparación de Datos
- 
+
 ### 1.1 Descarga de Datos desde OpenStreetMap
- 
+
 #### Objetivo
 Obtener datos reales de calles y edificios de una zona de interés usando OpenStreetMap.
- 
+
 #### Procedimiento
- 
+
 1. **Instalar y activar QuickOSM:**
    - Ir a Complementos → Administrar e instalar complementos
    - Buscar "QuickOSM" e instalarlo si no está disponible
    - Activarlo desde Vector → QuickOSM
- 
+
 2. **Descargar calles:**
    - Abrir QuickOSM
    - En "Consulta rápida":
@@ -65,7 +65,7 @@ Obtener datos reales de calles y edificios de una zona de interés usando OpenSt
      - En: elegir tu ciudad o área de interés
    - Ejecutar consulta
    - Guardar como: `calles_osm.shp`
- 
+
 3. **Descargar edificios:**
    - Nueva consulta en QuickOSM:
      - Clave: building
@@ -73,53 +73,53 @@ Obtener datos reales de calles y edificios de una zona de interés usando OpenSt
      - En: la misma área que las calles
    - Ejecutar consulta
    - Guardar como: `edificios_osm.shp`
- 
+
 #### Resultado Esperado
 Dos capas vectoriales con datos reales de calles y edificios de tu área de estudio.
- 
+
 ### 1.2 Creación de Capa de Puntos de Interés
- 
+
 #### Objetivo
 Crear una capa personalizada de puntos que represente lugares de inicio y fin de rutas.
- 
+
 #### Procedimiento
- 
+
 1. **Crear nueva capa de puntos:**
    - Ir a Capa → Crear capa → Nueva capa de archivo shape
    - Tipo de geometría: Punto
    - Sistema de coordenadas: EPSG:32616 (WGS84 / UTM zona 16N)
    - Nombre del archivo: `puntos_interes.shp`
- 
+
 2. **Definir campos de atributos:**
    - Agregar los siguientes campos:
      - `id` (Número entero)
      - `nombre` (Texto, longitud 50)
      - `tipo` (Texto, longitud 20) - valores: "inicio", "destino", "intermedio"
      - `descripcion` (Texto, longitud 100)
- 
+
 3. **Digitalizar puntos:**
    - Activar edición en la capa
    - Usar herramienta "Añadir entidad puntual"
    - Crear al menos 5 puntos distribuidos en el área de estudio
    - Llenar los atributos de cada punto
    - Guardar cambios y desactivar edición
- 
+
 #### Resultado Esperado
 Una capa de puntos personalizada con información de lugares de interés para análisis de rutas.
- 
+
 ## Parte II: Edición y Mejora de Datos
- 
+
 ### 2.1 Edición de Calles
- 
+
 #### Objetivo
 Practicar la edición de geometrías agregando una carretera que no existe en OSM.
- 
+
 #### Procedimiento
- 
+
 1. **Preparar capa para edición:**
    - Hacer clic derecho en `calles_osm` → Activar edición
    - Familiarizarse con los campos existentes
- 
+
 2. **Agregar nueva carretera:**
    - Usar herramienta "Añadir entidad lineal"
    - Digitalizar una línea que conecte dos puntos de interés
@@ -127,144 +127,144 @@ Practicar la edición de geometrías agregando una carretera que no existe en OS
      - highway: "residential"
      - name: "Calle Nueva"
    - Guardar cambios
- 
+
 3. **Verificar resultado:**
    - Usar herramienta de información para verificar los atributos
    - Aplicar simbología diferente para destacar la nueva carretera
- 
+
 ### 2.2 Edición de Edificios
- 
+
 #### Objetivo
 Agregar edificios faltantes en el área de estudio.
- 
+
 #### Procedimiento
- 
+
 1. **Activar edición en edificios:**
    - Activar edición en `edificios_osm`
- 
+
 2. **Agregar 3 edificios nuevos:**
    - Usar herramienta "Añadir entidad poligonal"
    - Digitalizar 3 polígonos rectangulares representando casas
    - Asignar atributos:
      - building: "house"
      - name: "Casa 1", "Casa 2", "Casa 3"
- 
+
 3. **Guardar cambios y verificar**
- 
+
 #### Resultado Esperado
 Capas editadas con nuevos elementos agregados manualmente.
- 
+
 ## Parte III: Análisis Espacial Básico
- 
+
 ### 3.1 Herramientas de Geoprocesamiento
- 
+
 #### Objetivo
 Aplicar las herramientas básicas de análisis espacial vistas en el módulo 3.
- 
+
 #### Procedimiento
- 
+
 1. **Crear buffers alrededor de puntos de interés:**
    - Ir a Procesos → Caja de herramientas
    - Buscar "Buffer"
    - Aplicar buffer de 200 metros a `puntos_interes`
    - Guardar como: `buffer_puntos.shp`
- 
+
 2. **Intersección entre buffers y edificios:**
    - Buscar herramienta "Intersección"
    - Capa de entrada: `edificios_osm`
    - Capa de superposición: `buffer_puntos`
    - Guardar como: `edificios_en_buffer.shp`
- 
+
 3. **Clip de calles con buffer:**
    - Usar herramienta "Recortar"
    - Capa de entrada: `calles_osm`
    - Capa de superposición: `buffer_puntos`
    - Guardar como: `calles_cercanas.shp`
- 
+
 4. **Unión de todos los buffers:**
    - Usar herramienta "Unión"
    - Aplicar a `buffer_puntos`
    - Guardar como: `area_influencia.shp`
- 
+
 #### Análisis de Resultados
- 
+
 1. Contar cuántos edificios están dentro del área de influencia
 2. Calcular la longitud total de calles en el área
 3. Identificar superposiciones entre buffers
- 
+
 ### 3.2 Validación Topológica
 
 #### Objetivo
 Verificar la calidad de los datos usando herramientas de topología.
- 
+
 #### Procedimiento
- 
+
 1. **Configurar reglas topológicas:**
    - Ir a Vector → Herramientas de topología → Comprobador de topología
    - Agregar regla: "Los polígonos no deben superponerse" para edificios
    - Agregar regla: "Los puntos no deben ser duplicados" para puntos de interés
- 
+
 2. **Ejecutar validación:**
    - Hacer clic en "Validar todo"
    - Revisar errores encontrados
    - Corregir al menos un error si existe
- 
+
 3. **Verificar geometrías:**
    - Usar Vector → Herramientas de geometría → Comprobar validez
    - Aplicar a todas las capas creadas
    - Documentar cualquier problema encontrado
- 
+
 #### Resultado Esperado
 Datos validados topológicamente y corrección de errores básicos.
- 
+
 ## Parte IV: Análisis de Redes
- 
+
 ### 4.1 Preparación de Red de Transporte
- 
+
 #### Objetivo
 Configurar la red de calles para análisis de rutas.
- 
+
 #### Procedimiento
- 
+
 1. **Verificar conectividad de la red:**
    - Examinar visualmente las conexiones entre calles
    - Identificar posibles gaps o desconexiones
- 
+
 2. **Calcular longitudes:**
    - Abrir tabla de atributos de `calles_osm`
    - Agregar campo "longitud_m"
    - Usar calculadora de campos: `$length`
- 
+
 ### 4.2 Cálculo de Rutas
- 
+
 #### Objetivo
 Calcular rutas entre puntos de interés usando herramientas nativas de QGIS.
- 
+
 #### Procedimiento
- 
+
 1. **Configurar análisis de ruta:**
    - Ir a Procesos → Análisis de redes → Ruta más corta (punto a punto)
    - Red vectorial: `calles_osm`
    - Punto de inicio: seleccionar un punto tipo "inicio"
    - Punto final: seleccionar un punto tipo "destino"
    - Estrategia de ruta: "Distancia más corta"
- 
+
 2. **Calcular múltiples rutas:**
    - Repetir el proceso para diferentes combinaciones de puntos
    - Guardar cada ruta con nombre descriptivo
- 
+
 3. **Analizar resultados:**
    - Comparar longitudes de diferentes rutas
    - Identificar la ruta más eficiente
    - Crear mapa temático mostrando las rutas
- 
+
 #### Resultado Esperado
 Múltiples rutas calculadas entre puntos de interés con análisis comparativo.
- 
+
 ## Entregables y Documentación
- 
+
 ### 5.1 Archivos a Entregar
- 
+
 1. **Proyecto QGIS completo** (`Laboratorio_Integrado.qgz`)
 2. **Capas vectoriales creadas:**
    - `puntos_interes.shp`
@@ -275,22 +275,22 @@ Múltiples rutas calculadas entre puntos de interés con análisis comparativo.
    - `calles_cercanas.shp`
    - `area_influencia.shp`
    - Archivos de rutas calculadas
- 
+
 3. **Mapa final** exportado como PDF mostrando todos los análisis
- 
+
 ### 5.2 Reporte de Actividades
- 
+
 Documenta brevemente:
- 
+
 1. **Datos descargados:** área seleccionada y cantidad de elementos
 2. **Ediciones realizadas:** descripción de elementos agregados
 3. **Análisis espaciales:** resultados numéricos obtenidos
 4. **Problemas topológicos:** errores encontrados y corregidos
 5. **Rutas calculadas:** distancias y comparaciones
 6. **Dificultades encontradas:** problemas y soluciones aplicadas
- 
+
 ## Criterios de Evaluación
- 
+
 | Criterio | Descripción | Puntos |
 |----------|-------------|---------|
 | **Preparación de datos** | Descarga exitosa de OSM y creación de capa de puntos | 20% |
@@ -298,20 +298,20 @@ Documenta brevemente:
 | **Geoprocesamiento** | Aplicación correcta de buffer, intersección, clip, unión | 25% |
 | **Validación topológica** | Ejecución de verificaciones y corrección de errores | 15% |
 | **Análisis de redes** | Cálculo exitoso de rutas y análisis de resultados | 20% |
- 
+
 ## Recursos de Apoyo
- 
+
 - [Documentación de QuickOSM](https://plugins.qgis.org/plugins/QuickOSM/)
 - [Manual de herramientas de geoprocesamiento](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/)
 - [Guía de análisis de redes en QGIS](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/networkanalysis.html)
- 
+
 ---
- 
+
 ## Notas para el Instructor
- 
+
 - **Flexibilidad:** Los estudiantes pueden elegir cualquier área geográfica de interés
 - **Adaptabilidad:** Los ejercicios pueden ajustarse según el nivel de los participantes
 - **Exploración:** Fomentar la experimentación con diferentes parámetros y herramientas
 - **Colaboración:** Promover el intercambio de resultados entre estudiantes
- 
+
 ¡Este laboratorio permite "experimentar" con las herramientas mientras se aprenden los conceptos fundamentales! 🚀
