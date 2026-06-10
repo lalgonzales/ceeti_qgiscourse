@@ -112,10 +112,9 @@ subtitle: "QGIS y Herramientas Python para el Análisis Geoespacial"
 | 10     | 22 abr (Mar)       | Módulo 6: Visualización avanzada y mapas        | Virtual      | 1.5   |
 | 11     | 23 abr (Mié)       | Módulo 6 (cont.)                                | Virtual      | 1.5   |
 | 12     | 27 abr (Jue)       | Módulo 7: Integración y casos prácticos         | Virtual      | 1.5   |
-| **13** | 28 may (Jue)  | **Presentación proyecto final y clausura**      | **Presencial** | **2** |
+| 13 | 10 jun (Mié)       | Presentación proyecto final      | Virtual | 2 |
 | **Total** |                 |                                                 |              | **20 h** |
 
-> **Nota**: Las sesiones 1–12 son virtuales (1.5 h cada una). La sesión 13
-> es presencial (2 h) para presentación de proyectos finales y clausura.
+> **Nota**: Las sesiones 1–12 son virtuales (1.5 h cada una). La sesión 13 serán 2 h para presentación de proyectos finales. \par
 > Los [laboratorios](../labs/instrucciones_labs.qmd) son tareas independientes
 > de las sesiones, diseñadas para evaluación y práctica autónoma.

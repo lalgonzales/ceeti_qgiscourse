@@ -1,417 +1,208 @@
 ---
-title: "Módulo 7: Integración y casos prácticos"
+title: "Módulo 7: Estándares OGC, Servicios Web y Recolección de Datos en Campo"
 ---
 
 ## Objetivos del Módulo
 
 Al finalizar este módulo, los participantes podrán:
 
-- Conectar QGIS con APIs externas como OpenStreetMap y Google Maps.
-- Diseñar y evaluar rutas eficientes para trabajo de campo.
-- Importar y procesar rutas GPS recolectadas con aplicaciones móviles.
-- Aplicar técnicas de optimización de recorridos con restricciones reales.
+- Comprender los estándares OGC y su importancia en la interoperabilidad geoespacial.
+- Diferenciar entre servicios WMS y WFS y saber cuándo utilizar cada uno.
+- Conectar QGIS con el Geoportal del ICF de Honduras para consumir datos oficiales.
+- Implementar un flujo de trabajo completo de recolección de datos en campo usando QField y QFieldSync.
 
 ---
 
-## Conexión con APIs externas
+## Estándares OGC e Interoperabilidad
 
-### OpenStreetMap (OSM)
+En el mundo de los SIG, la capacidad de compartir datos entre diferentes plataformas (QGIS, ArcGIS, Google Earth, etc.) es fundamental. Esto es posible gracias al **Open Geospatial Consortium (OGC)**.
 
-OpenStreetMap es el mapa colaborativo de código abierto más completo del mundo. QGIS se integra con OSM de múltiples maneras.
+### ¿Qué es el OGC?
 
-#### Tiles (mapas base)
+El **OGC** es una organización internacional no lucrativa que crea estándares abiertos para datos geográficos. Estos estándares aseguran que el software de diferentes proveedores pueda "hablar el mismo idioma", permitiendo que un servidor de mapas en Linux sea leído por un cliente en Windows o Android sin problemas de compatibilidad.
 
-```
-Panel Explorador → Teselas XYZ → Nueva conexión
-```
+::: {.callout-tip}
+## Interoperabilidad
 
-Agrega estas URLs como capas base:
+La interoperabilidad es la capacidad de un sistema para interactuar con otros sistemas. En SIG, esto significa que no dependemos de un único formato de archivo propietario, sino que utilizamos servicios web estandarizados para acceder a la información en tiempo real.
+:::
 
-| Servicio          | URL                                                              |
-|:------------------|:-----------------------------------------------------------------|
-| OpenStreetMap     | `https://tile.openstreetmap.org/{z}/{x}/{y}.png`                |
-| OSM Humanitarian  | `https://tile-c.openstreetmap.fr/hot/{z}/{x}/{y}.png`           |
-| CartoDB Light     | `https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png` |
-| ESRI Satellite    | `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}` |
+---
 
-#### Descarga de datos con QuickOSM
+## Servicios Web Geográficos: WMS y WFS
 
-```python
-# Consulta mediante Python (requiere plugin QuickOSM)
-import processing
+Los dos servicios más utilizados para distribuir información geográfica a través de la web son el **WMS** y el **WFS**.
 
-resultado = processing.run("quickosm:buildqueryextent", {
-    "KEY": "amenity",
-    "VALUE": "hospital",
-    "EXTENT": "-87.3,13.9,-87.1,14.2 [EPSG:4326]",
-    "OUTPUT": "TEMPORARY_OUTPUT"
-})
-```
+### WMS (Web Map Service)
 
-#### Descarga con la API Overpass
+Un servicio **WMS** entrega la información en forma de **imágenes** (generalmente PNG o JPEG). El cliente (QGIS) solicita una región del mapa y el servidor renderiza la imagen y la envía.
 
-La API Overpass permite consultas avanzadas sobre datos OSM:
+- **Ventaja**: Carga muy rápida, no sobrecarga el cliente, ideal para mapas base.
+- **Desventaja**: No podemos acceder a los atributos originales ni editar la geometría; es solo una "foto" del mapa.
 
-```python
-import requests
-import json
+### WFS (Web Feature Service)
 
-def descargar_osm_overpass(query, bbox):
-    """
-    Descarga datos OSM usando la API Overpass.
-    bbox: (sur, oeste, norte, este)
-    """
-    url = "https://overpass-api.de/api/interpreter"
-    overpass_query = f"""
-    [out:json][timeout:30];
-    (
-      node[{query}]({bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]});
-      way[{query}]({bbox[0]},{bbox[1]},{bbox[2]},{bbox[3]});
-    );
-    out body;
-    >;
-    out skel qt;
-    """
-    response = requests.get(url, params={"data": overpass_query})
-    return response.json()
+Un servicio **WFS** entrega la información como **vectores** (coordenadas y atributos reales). El servidor envía los datos geográficos y el cliente (QGIS) los renderiza localmente.
 
-# Ejemplo: hospitales en Tegucigalpa
-datos = descargar_osm_overpass(
-    '"amenity"="hospital"',
-    (13.9, -87.3, 14.2, -87.1)
-)
-print(f"Elementos encontrados: {len(datos['elements'])}")
-```
+- **Ventaja**: Permite realizar análisis espaciales, filtrar atributos y, en algunos casos, editar los datos en el servidor.
+- **Desventaja**: Carga más lenta si hay muchos datos, ya que el cliente debe descargar toda la geometría.
 
-### Google Maps / Places API
+### Comparativa: WMS vs WFS
 
-Para conectar con la API de Google Maps desde Python (requiere clave API):
+| Característica | WMS (Web Map Service) | WFS (Web Feature Service) |
+|:----------------|:-------------------|:---------------------------|
+| **Formato de entrega** | Imagen (Ráster) | Vector (Geometría) |
+| **Carga de datos** | Rápida (renderizado servidor) | Lenta (descarga de vectores) |
+| **Acceso a atributos** | Limitado (solo consulta) | Total (tabla de atributos) |
+| **Análisis espacial** | ❌ No es posible | ✅ Es posible |
+| **Edición** | ❌ Imposible | ✅ Posible (si el servidor lo permite) |
+| **Uso principal** | Visualización y Mapas Base | Análisis, Filtrado y Edición |
 
-```python
-import requests
+---
 
-def geocodificar_direccion(direccion, api_key):
-    """Convierte una dirección en coordenadas usando Google Maps."""
-    url = "https://maps.googleapis.com/maps/api/geocode/json"
-    params = {
-        "address": direccion,
-        "key": api_key,
-        "language": "es"
-    }
-    response = requests.get(url, params=params)
-    data = response.json()
+## Integración con el Geoportal del ICF
 
-    if data["status"] == "OK":
-        location = data["results"][0]["geometry"]["location"]
-        return location["lat"], location["lng"]
-    return None
+El **Instituto de Conservación Forestal (ICF)** de Honduras dispone de un Geoportal que permite el acceso a datos oficiales sobre el sector forestal y áreas protegidas mediante estándares OGC.
 
-# Uso
-# lat, lon = geocodificar_direccion("UNAH, Tegucigalpa", "TU_API_KEY")
-```
+### Acceso al Geoportal
+
+El Geoportal del ICF es la fuente oficial para obtener capas de:
+- Áreas Protegidas de Honduras.
+- Red Vial Forestal.
+- Inventarios forestales y cobertura vegetal.
+
+**URL del Geoportal**: [https://geoportal.icf.gob.hn/geoportal/](https://geoportal.icf.gob.hn/geoportal/)
+
+### Configuración de conexión WMS en QGIS
+
+Para visualizar las capas del ICF como imágenes:
+
+1. **Panel Explorador → WMS/WMTS** $\to$ clic derecho $\to$ **Nueva conexión**
+2. **Nombre**: `ICF - WMS`
+3. **URL**: `http://geoportal.icf.gob.hn:8081/geoserver/icf/wms`
+4. Haz clic en **Aceptar**.
+5. Despliega la conexión en el panel Explorador y arrastra las capas deseadas (ej. `icf:areas_protegidas`) al mapa.
+
+### Configuración de conexión WFS en QGIS
+
+Para descargar los vectores y analizar los datos del ICF:
+
+1. **Panel Explorador → WFS** $\to$ clic derecho $\to$ **Nueva conexión**
+2. **Nombre**: `ICF - WFS`
+3. **URL**: `http://geoportal.icf.gob.hn:8081/geoserver/icf/wfs`
+4. Haz clic en **Aceptar**.
+5. Despliega la conexión y arrastra la capa al mapa. Ahora puedes abrir la tabla de atributos y realizar consultas espaciales.
 
 ::: {.callout-warning}
-## API Keys
+## Rendimiento de WFS
 
-Para usar las APIs de Google Maps necesitas registrarte en Google Cloud Platform y crear una clave de API. Algunas APIs son de pago según el uso.
+Cuando utilices WFS con capas muy extensas (como la red vial nacional), evita cargar toda la capa. Utiliza el filtro de la conexión o haz zoom en un área pequeña antes de solicitar los datos para evitar que QGIS se bloquee.
 :::
-
-### OpenRouteService (ORS)
-
-OpenRouteService ofrece APIs gratuitas para enrutamiento basadas en OSM:
-
-```python
-import requests
-
-def calcular_ruta_ors(origen, destino, api_key, modo="driving-car"):
-    """
-    Calcula una ruta usando OpenRouteService.
-    origen/destino: [longitud, latitud]
-    modos: driving-car, cycling-regular, foot-walking
-    """
-    url = "https://api.openrouteservice.org/v2/directions/" + modo
-    headers = {
-        "Authorization": api_key,
-        "Content-Type": "application/json"
-    }
-    body = {
-        "coordinates": [origen, destino],
-        "format": "geojson"
-    }
-    response = requests.post(url, json=body, headers=headers)
-    return response.json()
-
-# Ejemplo de uso
-# origen = [-87.2068, 14.0818]  # [lon, lat]
-# destino = [-87.1904, 14.0817]
-# ruta = calcular_ruta_ors(origen, destino, "TU_API_KEY_ORS")
-```
 
 ---
 
-## Proyecto aplicado: diseño de rutas eficientes para campo
+## Recolección de datos en campo con QField y QFieldSync
 
-### Planteamiento del problema
+La recolección de datos en campo es una fase crítica de cualquier proyecto SIG. **QField** es una aplicación móvil diseñada para llevar la potencia de QGIS al dispositivo Android o iOS.
 
-Un equipo de trabajo de campo necesita visitar 10 puntos de control (comunidades, puntos de monitoreo, etc.) desde una base de operaciones, minimizando el tiempo total de desplazamiento.
+### ¿Qué es QField?
 
-Este es un problema de **Ruta del Viajero (TSP - Travelling Salesman Problem)**.
+**QField** no es solo un visor de mapas; es una herramienta de captura de datos que permite:
+- Visualizar mapas base y capas oficiales en el terreno (offline).
+- Crear nuevas entidades (puntos, líneas, polígonos) con el GPS del móvil.
+- Completar formularios de atributos personalizados creados en QGIS.
 
-### Solución 1: Herramienta de procesamiento de QGIS
+### QFieldSync: El puente entre escritorio y campo
 
-QGIS incluye herramientas para optimizar recorridos:
+Para que un proyecto de QGIS funcione en QField, debe ser "empaquetado" y configurado. Para esto utilizamos el plugin **QFieldSync**.
 
-```
-Procesamiento → Caja de herramientas → Análisis de redes → Optimization of a graph path
-```
+**Flujo de Trabajo Profesional**:
 
-### Solución 2: Python con OR-Tools (Google)
+::: {.grid}
 
-```python
-# Requiere: pip install ortools
-from ortools.constraint_solver import routing_enums_pb2
-from ortools.constraint_solver import pywrapcp
-import math
+::: {.g-col-12 .g-col-md-6}
+**1. Preparación (QGIS Desktop)**
+- Diseñar la simbología y etiquetas.
+- Crear formularios de entrada de datos (listas desplegables, validaciones).
+- Configurar el plugin **QFieldSync** para definir qué capas son editables y cuáles son solo lectura.
+:::
 
-def calcular_distancia(p1, p2):
-    """Distancia euclidiana entre dos puntos (lat, lon)."""
-    return math.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2) * 111000  # metros aprox.
+::: {.g-col-12 .g-col-md-6}
+**2. Transferencia**
+- Exportar el proyecto mediante QFieldSync.
+- Transferir la carpeta al dispositivo móvil (vía USB, QFieldCloud o almacenamiento compartido).
+:::
 
-def resolver_tsp(puntos):
-    """
-    Resuelve el TSP para una lista de puntos (lat, lon).
-    Retorna el orden óptimo de visita.
-    """
-    n = len(puntos)
-    # Matriz de distancias
-    matriz = [[int(calcular_distancia(puntos[i], puntos[j]))
-               for j in range(n)] for i in range(n)]
+:::
 
-    manager = pywrapcp.RoutingIndexManager(n, 1, 0)
-    routing = pywrapcp.RoutingModel(manager)
+::: {.grid}
 
-    def callback_distancia(from_index, to_index):
-        from_node = manager.IndexToNode(from_index)
-        to_node = manager.IndexToNode(to_index)
-        return matriz[from_node][to_node]
+::: {.g-col-12 .g-col-md-6}
+**3. Captura (QField Mobile)**
+- Abrir el proyecto en el dispositivo.
+- Recolectar datos en campo usando el GPS.
+- Guardar los cambios localmente en el dispositivo.
+:::
 
-    transit_callback_index = routing.RegisterTransitCallback(callback_distancia)
-    routing.SetArcCostEvaluatorOfAllVehicles(transit_callback_index)
+::: {.g-col-12 .g-col-md-6}
+**4. Sincronización (Retorno)**
+- Transferir la carpeta del dispositivo de vuelta al computador.
+- Usar QFieldSync para **Sincronizar** los datos capturados con la base de datos original de QGIS.
+:::
 
-    parametros = pywrapcp.DefaultRoutingSearchParameters()
-    parametros.first_solution_strategy = (
-        routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)
+:::
 
-    solucion = routing.SolveWithParameters(parametros)
+### Configuración de capas en QFieldSync
 
-    if solucion:
-        ruta = []
-        index = routing.Start(0)
-        while not routing.IsEnd(index):
-            ruta.append(manager.IndexToNode(index))
-            index = solucion.Value(routing.NextVar(index))
-        ruta.append(manager.IndexToNode(index))
-        return ruta
-    return None
+Al configurar el proyecto, debemos asignar un "Action" a cada capa:
 
-# Ejemplo con puntos en Honduras
-puntos_visita = [
-    (14.0818, -87.2068),  # Base: UNAH
-    (14.1234, -87.1890),  # Punto 1
-    (14.0500, -87.2200),  # Punto 2
-    (14.0700, -87.1700),  # Punto 3
-]
-
-orden_optimo = resolver_tsp(puntos_visita)
-if orden_optimo:
-    print("Orden óptimo de visita:", orden_optimo)
-```
+| Acción | Descripción | Uso típico |
+|:-----------|:---------------------------------------------------|:-------------------------------------------|
+| **No Action** | La capa no se exporta al móvil | Capas temporales o muy pesadas |
+| **Offline Editing** | La capa es editable en campo | Capas de puntos de muestreo, incidencias |
+| **ReadOnly** | La capa se visualiza pero no se edita | Mapas base, límites administrativos, ríos |
 
 ---
 
-## Trazabilidad de rutas GPS con apps móviles
+## 🛠️ Ejercicio Práctico
 
-### Aplicaciones para recolección de datos en campo
+### Ejercicio 7.1: Consumo de servicios oficiales del ICF
 
-| Aplicación  | Plataforma | Características principales                         |
-|:------------|:-----------|:----------------------------------------------------|
-| **QField**  | Android/iOS| Versión móvil de QGIS, edita capas directamente    |
-| **Input**   | Android/iOS| Basada en QGIS, sincronización en la nube           |
-| **GPSLogger**| Android   | Registra tracks GPS en varios formatos              |
-| **OSMAnd**  | Android/iOS| Navegación y recolección de datos OSM               |
-| **SW Maps** | Android    | Mapeo GPS de alta precisión                         |
+1. Configura una conexión **WMS** al Geoportal del ICF.
+2. Carga la capa de **Áreas Protegidas** y ajusta su transparencia para verla sobre un mapa satelital.
+3. Configura una conexión **WFS** al Geoportal del ICF.
+4. Carga la misma capa de Áreas Protegidas vía WFS.
+5. Abre la tabla de atributos y filtra las áreas protegidas que tengan una superficie mayor a un valor específico.
 
-### Flujo de trabajo con QField
+### Ejercicio 7.2: Preparación de proyecto para QField
 
-1. **Preparar proyecto en QGIS Desktop**:
-   - Crea el proyecto con las capas necesarias
-   - Define formularios de captura de datos
-   - Guarda como GeoPackage
-
-2. **Transferir al dispositivo móvil**:
-   - Usa QFieldCloud (sincronización en la nube)
-   - O copia los archivos via USB/WiFi
-
-3. **Recolección en campo**:
-   - Abre el proyecto en QField
-   - Captura puntos, líneas o polígonos con GPS
-   - Completa los formularios de atributos
-
-4. **Importar datos de vuelta a QGIS**:
-   - Sincroniza con QFieldCloud
-   - O copia el GeoPackage actualizado al computador
-
-### Importar tracks GPX
-
-Los tracks GPS se pueden importar directamente:
-
-```python
-# Importar archivo GPX
-ruta_gpx = "/home/usuario/tracks/recorrido.gpx"
-capa_track = QgsVectorLayer(f"{ruta_gpx}|layername=tracks", "Mi Track", "ogr")
-capa_waypoints = QgsVectorLayer(f"{ruta_gpx}|layername=waypoints", "Waypoints", "ogr")
-
-QgsProject.instance().addMapLayer(capa_track)
-QgsProject.instance().addMapLayer(capa_waypoints)
-
-print(f"Track cargado: {capa_track.featureCount()} segmentos")
-print(f"Waypoints: {capa_waypoints.featureCount()} puntos")
-```
-
-### Análisis de tracks GPS
-
-```python
-# Calcular longitud total de un track
-capa = QgsProject.instance().mapLayersByName("Mi Track")[0]
-longitud_total = sum(
-    entidad.geometry().length()
-    for entidad in capa.getFeatures()
-)
-print(f"Longitud total del recorrido: {longitud_total/1000:.2f} km")
-```
-
----
-
-## Optimización de recorridos con restricciones reales
-
-### Tipos de restricciones comunes
-
-| Restricción                  | Ejemplo                                              |
-|:-----------------------------|:-----------------------------------------------------|
-| **Ventanas de tiempo**       | Visitar un cliente entre 9:00 AM y 12:00 PM          |
-| **Capacidad del vehículo**   | Máximo de 500 kg por camión                         |
-| **Tipo de vehículo**         | Camiones no pueden usar ciertos caminos              |
-| **Prioridades**              | Clientes prioritarios deben visitarse primero        |
-| **Horas de trabajo**         | Máximo 8 horas de trabajo por jornada                |
-
-### Vehicle Routing Problem (VRP) con OR-Tools
-
-```python
-# Ejemplo simplificado de VRP con ventanas de tiempo
-# Requiere: pip install ortools
-
-"""
-Problema: Una empresa tiene una bodega central y 5 clientes a visitar
-con 2 vehículos disponibles, cada uno con ventanas de tiempo.
-"""
-
-# Datos del problema
-datos = {
-    "num_vehicles": 2,
-    "depot": 0,  # índice de la bodega
-    "time_matrix": [
-        # Tiempo en minutos entre cada par de ubicaciones
-        [0, 15, 30, 25, 20, 35],
-        [15, 0, 20, 18, 25, 28],
-        [30, 20, 0, 12, 22, 15],
-        [25, 18, 12, 0, 15, 20],
-        [20, 25, 22, 15, 0, 18],
-        [35, 28, 15, 20, 18, 0],
-    ],
-    "time_windows": [
-        (0, 480),    # Bodega: 8:00 AM - 4:00 PM
-        (60, 180),   # Cliente 1: 9:00 AM - 11:00 AM
-        (120, 240),  # Cliente 2: 10:00 AM - 12:00 PM
-        (0, 300),    # Cliente 3: 8:00 AM - 1:00 PM
-        (180, 360),  # Cliente 4: 11:00 AM - 2:00 PM
-        (240, 420),  # Cliente 5: 12:00 PM - 3:00 PM
-    ],
-}
-
-print("Problema de VRP con ventanas de tiempo definido.")
-print(f"Vehículos disponibles: {datos['num_vehicles']}")
-print(f"Clientes a visitar: {len(datos['time_windows']) - 1}")
-```
-
-### Herramientas adicionales para optimización
-
-| Herramienta          | Descripción                                          |
-|:---------------------|:-----------------------------------------------------|
-| **OR-Tools**         | Biblioteca de Google para optimización combinatoria  |
-| **OpenRouteService** | API con funcionalidad de optimización de rutas       |
-| **pgRouting**        | Extensión de PostgreSQL para análisis de redes        |
-| **OSRM**             | Motor de enrutamiento de alto rendimiento basado en OSM|
-| **Vroom**            | Soluciones para VRP usando OSRM/OpenRouteService     |
-
----
-
-## Proyecto Final del Curso
-
-### Descripción del proyecto
-
-Diseña y evalúa un sistema de rutas para uno de los siguientes escenarios:
-
-::: {.callout-note}
-## Escenario A: Sistema de distribución de productos
-Diseña las rutas óptimas para distribuir productos desde una bodega central a 8–10 clientes en Tegucigalpa, considerando:
-- Ventanas horarias de entrega por cliente
-- Capacidad de 2 vehículos disponibles
-- Minimización del tiempo total de desplazamiento
-:::
-
-::: {.callout-note}
-## Escenario B: Cobertura de servicios de salud
-Evalúa la cobertura geográfica de los centros de salud en un municipio:
-- Calcula el área atendida por cada establecimiento (isócronas de 15 y 30 min)
-- Identifica comunidades sin cobertura adecuada
-- Propone la ubicación óptima para un nuevo centro de salud
-:::
-
-::: {.callout-note}
-## Escenario C: Monitoreo ambiental en campo
-Planifica rutas de campo para monitoreo ambiental:
-- Importa puntos de muestreo desde GPS/aplicación móvil
-- Optimiza el orden de visita
-- Genera un informe con las rutas y estadísticas del recorrido
-:::
-
-### Entregables del proyecto
-
-1. ✅ Mapa final exportado en PDF (calidad de impresión)
-2. ✅ Script Python documentado con la lógica de análisis
-3. ✅ Archivo GeoPackage con todas las capas del proyecto
-4. ✅ Informe breve (máximo 2 páginas) describiendo la metodología y resultados
+1. Crea un nuevo proyecto de QGIS y añade una capa de puntos llamada `Muestreo_Campo` (GeoPackage).
+2. Configura el formulario de la capa con los siguientes campos:
+   - `ID` (Autoincrementado)
+   - `Fecha` (Fecha)
+   - `Observacion` (Texto)
+   - `Estado` (Valor relación / Lista: Bueno, Regular, Malo)
+3. Instala el plugin **QFieldSync**.
+4. Configura la capa `Muestreo_Campo` como **Offline Editing** y el mapa base como **ReadOnly**.
+5. Empaqueta el proyecto y simula la exportación hacia un dispositivo móvil.
 
 ---
 
 ## 📚 Recursos y Referencias
 
 - [QField — Documentación oficial](https://docs.qfield.org)
-- [Input App — Mergin Maps](https://merginmaps.com/docs)
-- [OpenRouteService — API Documentation](https://openrouteservice.org/dev/#/api-docs)
-- [OR-Tools — Google Optimization Tools](https://developers.google.com/optimization)
-- [pgRouting — Documentación](https://docs.pgrouting.org)
-- [OSM Overpass API — Tutorial](https://wiki.openstreetmap.org/wiki/Overpass_API)
-- [VROOM — Vehicle Routing Open-source Optimization Machine](https://github.com/VROOM-Project/vroom)
+- [QFieldSync — Plugin de QGIS](https://plugins.qgis.org/plugins/qfieldsync/)
+- [OGC — Estándares de Interoperabilidad](https://www.ogc.org/standards/)
+- [Geoportal del ICF Honduras](https://geoportal.icf.gob.hn/geoportal/)
 
 ---
 
 ::: {.callout-important}
-## ¡Felicitaciones!
+## ¡Cierre del Curso!
 
-Has completado el **Curso de QGIS y Herramientas Python para el Análisis Geoespacial** del CEETI – UNAH.
+Con la finalización de este módulo, has completado el programa de **QGIS y Herramientas Python para el Análisis Geoespacial**.
 
-Recuerda que la práctica continua es la clave para dominar estas herramientas. Explora los recursos adicionales, participa en la comunidad QGIS y aplica lo aprendido en proyectos reales.
+Has transitado desde los conceptos básicos de SIG hasta la automatización con Python y la implementación de flujos de trabajo profesionales de recolección de datos. La clave ahora es la aplicación constante de estos conocimientos en proyectos reales.
+
+**¡Felicidades por tu esfuerzo y dedicación!**
 :::
-
----
