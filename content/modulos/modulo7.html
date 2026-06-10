@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Módulo 7: Integración y casos prácticos – QGIS y Herramientas Python para el Análisis Geoespacial</title>
+<title>Módulo 7: Estándares OGC, Servicios Web y Recolección de Datos en Campo – QGIS y Herramientas Python para el Análisis Geoespacial</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -76,14 +76,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de63f62b328812d8e578a4d74e282472.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6b6957c917596b414ec0b78690761e87.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de63f62b328812d8e578a4d74e282472.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3f45e6d1230361743dcca8f868809110.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-596a8ee22a14e0fc2c0defba1c008855.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-3f45e6d1230361743dcca8f868809110.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c81fb15434283cc1a497fcae9c00ed97.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-70784c935927e5191dde600566c82874.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-c81fb15434283cc1a497fcae9c00ed97.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -119,6 +119,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PVHS7PQJ');</script>
 <!-- End Google Tag Manager -->
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -548,35 +577,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    
   <ul>
   <li><a href="#objetivos-del-módulo" id="toc-objetivos-del-módulo" class="nav-link active" data-scroll-target="#objetivos-del-módulo"><span class="header-section-number">1</span> Objetivos del Módulo</a></li>
-  <li><a href="#conexión-con-apis-externas" id="toc-conexión-con-apis-externas" class="nav-link" data-scroll-target="#conexión-con-apis-externas"><span class="header-section-number">2</span> Conexión con APIs externas</a>
+  <li><a href="#estándares-ogc-e-interoperabilidad" id="toc-estándares-ogc-e-interoperabilidad" class="nav-link" data-scroll-target="#estándares-ogc-e-interoperabilidad"><span class="header-section-number">2</span> Estándares OGC e Interoperabilidad</a>
   <ul class="collapse">
-  <li><a href="#openstreetmap-osm" id="toc-openstreetmap-osm" class="nav-link" data-scroll-target="#openstreetmap-osm"><span class="header-section-number">2.1</span> OpenStreetMap (OSM)</a></li>
-  <li><a href="#google-maps-places-api" id="toc-google-maps-places-api" class="nav-link" data-scroll-target="#google-maps-places-api"><span class="header-section-number">2.2</span> Google Maps / Places API</a></li>
-  <li><a href="#openrouteservice-ors" id="toc-openrouteservice-ors" class="nav-link" data-scroll-target="#openrouteservice-ors"><span class="header-section-number">2.3</span> OpenRouteService (ORS)</a></li>
+  <li><a href="#qué-es-el-ogc" id="toc-qué-es-el-ogc" class="nav-link" data-scroll-target="#qué-es-el-ogc"><span class="header-section-number">2.1</span> ¿Qué es el OGC?</a></li>
   </ul></li>
-  <li><a href="#proyecto-aplicado-diseño-de-rutas-eficientes-para-campo" id="toc-proyecto-aplicado-diseño-de-rutas-eficientes-para-campo" class="nav-link" data-scroll-target="#proyecto-aplicado-diseño-de-rutas-eficientes-para-campo"><span class="header-section-number">3</span> Proyecto aplicado: diseño de rutas eficientes para campo</a>
+  <li><a href="#servicios-web-geográficos-wms-y-wfs" id="toc-servicios-web-geográficos-wms-y-wfs" class="nav-link" data-scroll-target="#servicios-web-geográficos-wms-y-wfs"><span class="header-section-number">3</span> Servicios Web Geográficos: WMS y WFS</a>
   <ul class="collapse">
-  <li><a href="#planteamiento-del-problema" id="toc-planteamiento-del-problema" class="nav-link" data-scroll-target="#planteamiento-del-problema"><span class="header-section-number">3.1</span> Planteamiento del problema</a></li>
-  <li><a href="#solución-1-herramienta-de-procesamiento-de-qgis" id="toc-solución-1-herramienta-de-procesamiento-de-qgis" class="nav-link" data-scroll-target="#solución-1-herramienta-de-procesamiento-de-qgis"><span class="header-section-number">3.2</span> Solución 1: Herramienta de procesamiento de QGIS</a></li>
-  <li><a href="#solución-2-python-con-or-tools-google" id="toc-solución-2-python-con-or-tools-google" class="nav-link" data-scroll-target="#solución-2-python-con-or-tools-google"><span class="header-section-number">3.3</span> Solución 2: Python con OR-Tools (Google)</a></li>
+  <li><a href="#wms-web-map-service" id="toc-wms-web-map-service" class="nav-link" data-scroll-target="#wms-web-map-service"><span class="header-section-number">3.1</span> WMS (Web Map Service)</a></li>
+  <li><a href="#wfs-web-feature-service" id="toc-wfs-web-feature-service" class="nav-link" data-scroll-target="#wfs-web-feature-service"><span class="header-section-number">3.2</span> WFS (Web Feature Service)</a></li>
+  <li><a href="#comparativa-wms-vs-wfs" id="toc-comparativa-wms-vs-wfs" class="nav-link" data-scroll-target="#comparativa-wms-vs-wfs"><span class="header-section-number">3.3</span> Comparativa: WMS vs WFS</a></li>
   </ul></li>
-  <li><a href="#trazabilidad-de-rutas-gps-con-apps-móviles" id="toc-trazabilidad-de-rutas-gps-con-apps-móviles" class="nav-link" data-scroll-target="#trazabilidad-de-rutas-gps-con-apps-móviles"><span class="header-section-number">4</span> Trazabilidad de rutas GPS con apps móviles</a>
+  <li><a href="#integración-con-el-geoportal-del-icf" id="toc-integración-con-el-geoportal-del-icf" class="nav-link" data-scroll-target="#integración-con-el-geoportal-del-icf"><span class="header-section-number">4</span> Integración con el Geoportal del ICF</a>
   <ul class="collapse">
-  <li><a href="#aplicaciones-para-recolección-de-datos-en-campo" id="toc-aplicaciones-para-recolección-de-datos-en-campo" class="nav-link" data-scroll-target="#aplicaciones-para-recolección-de-datos-en-campo"><span class="header-section-number">4.1</span> Aplicaciones para recolección de datos en campo</a></li>
-  <li><a href="#flujo-de-trabajo-con-qfield" id="toc-flujo-de-trabajo-con-qfield" class="nav-link" data-scroll-target="#flujo-de-trabajo-con-qfield"><span class="header-section-number">4.2</span> Flujo de trabajo con QField</a></li>
-  <li><a href="#importar-tracks-gpx" id="toc-importar-tracks-gpx" class="nav-link" data-scroll-target="#importar-tracks-gpx"><span class="header-section-number">4.3</span> Importar tracks GPX</a></li>
-  <li><a href="#análisis-de-tracks-gps" id="toc-análisis-de-tracks-gps" class="nav-link" data-scroll-target="#análisis-de-tracks-gps"><span class="header-section-number">4.4</span> Análisis de tracks GPS</a></li>
+  <li><a href="#acceso-al-geoportal" id="toc-acceso-al-geoportal" class="nav-link" data-scroll-target="#acceso-al-geoportal"><span class="header-section-number">4.1</span> Acceso al Geoportal</a></li>
+  <li><a href="#configuración-de-conexión-wms-en-qgis" id="toc-configuración-de-conexión-wms-en-qgis" class="nav-link" data-scroll-target="#configuración-de-conexión-wms-en-qgis"><span class="header-section-number">4.2</span> Configuración de conexión WMS en QGIS</a></li>
+  <li><a href="#configuración-de-conexión-wfs-en-qgis" id="toc-configuración-de-conexión-wfs-en-qgis" class="nav-link" data-scroll-target="#configuración-de-conexión-wfs-en-qgis"><span class="header-section-number">4.3</span> Configuración de conexión WFS en QGIS</a></li>
   </ul></li>
-  <li><a href="#optimización-de-recorridos-con-restricciones-reales" id="toc-optimización-de-recorridos-con-restricciones-reales" class="nav-link" data-scroll-target="#optimización-de-recorridos-con-restricciones-reales"><span class="header-section-number">5</span> Optimización de recorridos con restricciones reales</a>
+  <li><a href="#recolección-de-datos-en-campo-con-qfield-y-qfieldsync" id="toc-recolección-de-datos-en-campo-con-qfield-y-qfieldsync" class="nav-link" data-scroll-target="#recolección-de-datos-en-campo-con-qfield-y-qfieldsync"><span class="header-section-number">5</span> Recolección de datos en campo con QField y QFieldSync</a>
   <ul class="collapse">
-  <li><a href="#tipos-de-restricciones-comunes" id="toc-tipos-de-restricciones-comunes" class="nav-link" data-scroll-target="#tipos-de-restricciones-comunes"><span class="header-section-number">5.1</span> Tipos de restricciones comunes</a></li>
-  <li><a href="#vehicle-routing-problem-vrp-con-or-tools" id="toc-vehicle-routing-problem-vrp-con-or-tools" class="nav-link" data-scroll-target="#vehicle-routing-problem-vrp-con-or-tools"><span class="header-section-number">5.2</span> Vehicle Routing Problem (VRP) con OR-Tools</a></li>
-  <li><a href="#herramientas-adicionales-para-optimización" id="toc-herramientas-adicionales-para-optimización" class="nav-link" data-scroll-target="#herramientas-adicionales-para-optimización"><span class="header-section-number">5.3</span> Herramientas adicionales para optimización</a></li>
+  <li><a href="#qué-es-qfield" id="toc-qué-es-qfield" class="nav-link" data-scroll-target="#qué-es-qfield"><span class="header-section-number">5.1</span> ¿Qué es QField?</a></li>
+  <li><a href="#qfieldsync-el-puente-entre-escritorio-y-campo" id="toc-qfieldsync-el-puente-entre-escritorio-y-campo" class="nav-link" data-scroll-target="#qfieldsync-el-puente-entre-escritorio-y-campo"><span class="header-section-number">5.2</span> QFieldSync: El puente entre escritorio y campo</a></li>
+  <li><a href="#configuración-de-capas-en-qfieldsync" id="toc-configuración-de-capas-en-qfieldsync" class="nav-link" data-scroll-target="#configuración-de-capas-en-qfieldsync"><span class="header-section-number">5.3</span> Configuración de capas en QFieldSync</a></li>
   </ul></li>
-  <li><a href="#proyecto-final-del-curso" id="toc-proyecto-final-del-curso" class="nav-link" data-scroll-target="#proyecto-final-del-curso"><span class="header-section-number">6</span> Proyecto Final del Curso</a>
+  <li><a href="#ejercicio-práctico" id="toc-ejercicio-práctico" class="nav-link" data-scroll-target="#ejercicio-práctico"><span class="header-section-number">6</span> 🛠️ Ejercicio Práctico</a>
   <ul class="collapse">
-  <li><a href="#descripción-del-proyecto" id="toc-descripción-del-proyecto" class="nav-link" data-scroll-target="#descripción-del-proyecto"><span class="header-section-number">6.1</span> Descripción del proyecto</a></li>
-  <li><a href="#entregables-del-proyecto" id="toc-entregables-del-proyecto" class="nav-link" data-scroll-target="#entregables-del-proyecto"><span class="header-section-number">6.2</span> Entregables del proyecto</a></li>
+  <li><a href="#ejercicio-7.1-consumo-de-servicios-oficiales-del-icf" id="toc-ejercicio-7.1-consumo-de-servicios-oficiales-del-icf" class="nav-link" data-scroll-target="#ejercicio-7.1-consumo-de-servicios-oficiales-del-icf"><span class="header-section-number">6.1</span> Ejercicio 7.1: Consumo de servicios oficiales del ICF</a></li>
+  <li><a href="#ejercicio-7.2-preparación-de-proyecto-para-qfield" id="toc-ejercicio-7.2-preparación-de-proyecto-para-qfield" class="nav-link" data-scroll-target="#ejercicio-7.2-preparación-de-proyecto-para-qfield"><span class="header-section-number">6.2</span> Ejercicio 7.2: Preparación de proyecto para QField</a></li>
   </ul></li>
   <li><a href="#recursos-y-referencias" id="toc-recursos-y-referencias" class="nav-link" data-scroll-target="#recursos-y-referencias"><span class="header-section-number">7</span> 📚 Recursos y Referencias</a></li>
   </ul>
@@ -591,7 +617,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../../content/modulos/modulo7.html">7. Integración y casos prácticos</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Módulo 7: Integración y casos prácticos</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Módulo 7: Estándares OGC, Servicios Web y Recolección de Datos en Campo</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
 </div>
 
 
@@ -612,505 +638,241 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 data-number="1" class="anchored" data-anchor-id="objetivos-del-módulo"><span class="header-section-number">1</span> Objetivos del Módulo</h2>
 <p>Al finalizar este módulo, los participantes podrán:</p>
 <ul>
-<li>Conectar QGIS con APIs externas como OpenStreetMap y Google Maps.</li>
-<li>Diseñar y evaluar rutas eficientes para trabajo de campo.</li>
-<li>Importar y procesar rutas GPS recolectadas con aplicaciones móviles.</li>
-<li>Aplicar técnicas de optimización de recorridos con restricciones reales.</li>
+<li>Comprender los estándares OGC y su importancia en la interoperabilidad geoespacial.</li>
+<li>Diferenciar entre servicios WMS y WFS y saber cuándo utilizar cada uno.</li>
+<li>Conectar QGIS con el Geoportal del ICF de Honduras para consumir datos oficiales.</li>
+<li>Implementar un flujo de trabajo completo de recolección de datos en campo usando QField y QFieldSync.</li>
 </ul>
 <hr>
 </section>
-<section id="conexión-con-apis-externas" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="conexión-con-apis-externas"><span class="header-section-number">2</span> Conexión con APIs externas</h2>
-<section id="openstreetmap-osm" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="openstreetmap-osm"><span class="header-section-number">2.1</span> OpenStreetMap (OSM)</h3>
-<p>OpenStreetMap es el mapa colaborativo de código abierto más completo del mundo. QGIS se integra con OSM de múltiples maneras.</p>
-<section id="tiles-mapas-base" class="level4" data-number="2.1.1">
-<h4 data-number="2.1.1" class="anchored" data-anchor-id="tiles-mapas-base"><span class="header-section-number">2.1.1</span> Tiles (mapas base)</h4>
-<pre><code>Panel Explorador → Teselas XYZ → Nueva conexión</code></pre>
-<p>Agrega estas URLs como capas base:</p>
+<section id="estándares-ogc-e-interoperabilidad" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="estándares-ogc-e-interoperabilidad"><span class="header-section-number">2</span> Estándares OGC e Interoperabilidad</h2>
+<p>En el mundo de los SIG, la capacidad de compartir datos entre diferentes plataformas (QGIS, ArcGIS, Google Earth, etc.) es fundamental. Esto es posible gracias al <strong>Open Geospatial Consortium (OGC)</strong>.</p>
+<section id="qué-es-el-ogc" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="qué-es-el-ogc"><span class="header-section-number">2.1</span> ¿Qué es el OGC?</h3>
+<p>El <strong>OGC</strong> es una organización internacional no lucrativa que crea estándares abiertos para datos geográficos. Estos estándares aseguran que el software de diferentes proveedores pueda “hablar el mismo idioma”, permitiendo que un servidor de mapas en Linux sea leído por un cliente en Windows o Android sin problemas de compatibilidad.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interoperabilidad
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La interoperabilidad es la capacidad de un sistema para interactuar con otros sistemas. En SIG, esto significa que no dependemos de un único formato de archivo propietario, sino que utilizamos servicios web estandarizados para acceder a la información en tiempo real.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="servicios-web-geográficos-wms-y-wfs" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="servicios-web-geográficos-wms-y-wfs"><span class="header-section-number">3</span> Servicios Web Geográficos: WMS y WFS</h2>
+<p>Los dos servicios más utilizados para distribuir información geográfica a través de la web son el <strong>WMS</strong> y el <strong>WFS</strong>.</p>
+<section id="wms-web-map-service" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="wms-web-map-service"><span class="header-section-number">3.1</span> WMS (Web Map Service)</h3>
+<p>Un servicio <strong>WMS</strong> entrega la información en forma de <strong>imágenes</strong> (generalmente PNG o JPEG). El cliente (QGIS) solicita una región del mapa y el servidor renderiza la imagen y la envía.</p>
+<ul>
+<li><strong>Ventaja</strong>: Carga muy rápida, no sobrecarga el cliente, ideal para mapas base.</li>
+<li><strong>Desventaja</strong>: No podemos acceder a los atributos originales ni editar la geometría; es solo una “foto” del mapa.</li>
+</ul>
+</section>
+<section id="wfs-web-feature-service" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="wfs-web-feature-service"><span class="header-section-number">3.2</span> WFS (Web Feature Service)</h3>
+<p>Un servicio <strong>WFS</strong> entrega la información como <strong>vectores</strong> (coordenadas y atributos reales). El servidor envía los datos geográficos y el cliente (QGIS) los renderiza localmente.</p>
+<ul>
+<li><strong>Ventaja</strong>: Permite realizar análisis espaciales, filtrar atributos y, en algunos casos, editar los datos en el servidor.</li>
+<li><strong>Desventaja</strong>: Carga más lenta si hay muchos datos, ya que el cliente debe descargar toda la geometría.</li>
+</ul>
+</section>
+<section id="comparativa-wms-vs-wfs" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="comparativa-wms-vs-wfs"><span class="header-section-number">3.3</span> Comparativa: WMS vs WFS</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 77%">
+<col style="width: 26%">
+<col style="width: 30%">
+<col style="width: 43%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Servicio</th>
-<th style="text-align: left;">URL</th>
+<th style="text-align: left;">Característica</th>
+<th style="text-align: left;">WMS (Web Map Service)</th>
+<th style="text-align: left;">WFS (Web Feature Service)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">OpenStreetMap</td>
-<td style="text-align: left;"><code>https://tile.openstreetmap.org/{z}/{x}/{y}.png</code></td>
+<td style="text-align: left;"><strong>Formato de entrega</strong></td>
+<td style="text-align: left;">Imagen (Ráster)</td>
+<td style="text-align: left;">Vector (Geometría)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">OSM Humanitarian</td>
-<td style="text-align: left;"><code>https://tile-c.openstreetmap.fr/hot/{z}/{x}/{y}.png</code></td>
+<td style="text-align: left;"><strong>Carga de datos</strong></td>
+<td style="text-align: left;">Rápida (renderizado servidor)</td>
+<td style="text-align: left;">Lenta (descarga de vectores)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">CartoDB Light</td>
-<td style="text-align: left;"><code>https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png</code></td>
+<td style="text-align: left;"><strong>Acceso a atributos</strong></td>
+<td style="text-align: left;">Limitado (solo consulta)</td>
+<td style="text-align: left;">Total (tabla de atributos)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">ESRI Satellite</td>
-<td style="text-align: left;"><code>https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}</code></td>
+<td style="text-align: left;"><strong>Análisis espacial</strong></td>
+<td style="text-align: left;">❌ No es posible</td>
+<td style="text-align: left;">✅ Es posible</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Edición</strong></td>
+<td style="text-align: left;">❌ Imposible</td>
+<td style="text-align: left;">✅ Posible (si el servidor lo permite)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Uso principal</strong></td>
+<td style="text-align: left;">Visualización y Mapas Base</td>
+<td style="text-align: left;">Análisis, Filtrado y Edición</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="descarga-de-datos-con-quickosm" class="level4" data-number="2.1.2">
-<h4 data-number="2.1.2" class="anchored" data-anchor-id="descarga-de-datos-con-quickosm"><span class="header-section-number">2.1.2</span> Descarga de datos con QuickOSM</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Consulta mediante Python (requiere plugin QuickOSM)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> processing</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>resultado <span class="op">=</span> processing.run(<span class="st">"quickosm:buildqueryextent"</span>, {</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"KEY"</span>: <span class="st">"amenity"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"VALUE"</span>: <span class="st">"hospital"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"EXTENT"</span>: <span class="st">"-87.3,13.9,-87.1,14.2 [EPSG:4326]"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OUTPUT"</span>: <span class="st">"TEMPORARY_OUTPUT"</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="descarga-con-la-api-overpass" class="level4" data-number="2.1.3">
-<h4 data-number="2.1.3" class="anchored" data-anchor-id="descarga-con-la-api-overpass"><span class="header-section-number">2.1.3</span> Descarga con la API Overpass</h4>
-<p>La API Overpass permite consultas avanzadas sobre datos OSM:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> descargar_osm_overpass(query, bbox):</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Descarga datos OSM usando la API Overpass.</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    bbox: (sur, oeste, norte, este)</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://overpass-api.de/api/interpreter"</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    overpass_query <span class="op">=</span> <span class="ss">f"""</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    [out:json][timeout:30];</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ss">      node[</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">](</span><span class="sc">{</span>bbox[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">3</span>]<span class="sc">}</span><span class="ss">);</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ss">      way[</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">](</span><span class="sc">{</span>bbox[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">3</span>]<span class="sc">}</span><span class="ss">);</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    );</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    out body;</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    &gt;;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    out skel qt;</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url, params<span class="op">=</span>{<span class="st">"data"</span>: overpass_query})</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response.json()</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo: hospitales en Tegucigalpa</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> descargar_osm_overpass(</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'"amenity"="hospital"'</span>,</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">13.9</span>, <span class="op">-</span><span class="fl">87.3</span>, <span class="fl">14.2</span>, <span class="op">-</span><span class="fl">87.1</span>)</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Elementos encontrados: </span><span class="sc">{</span><span class="bu">len</span>(datos[<span class="st">'elements'</span>])<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
 </section>
 </section>
-<section id="google-maps-places-api" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="google-maps-places-api"><span class="header-section-number">2.2</span> Google Maps / Places API</h3>
-<p>Para conectar con la API de Google Maps desde Python (requiere clave API):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> geocodificar_direccion(direccion, api_key):</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Convierte una dirección en coordenadas usando Google Maps."""</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://maps.googleapis.com/maps/api/geocode/json"</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> {</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"address"</span>: direccion,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key"</span>: api_key,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"language"</span>: <span class="st">"es"</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url, params<span class="op">=</span>params)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> response.json()</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> data[<span class="st">"status"</span>] <span class="op">==</span> <span class="st">"OK"</span>:</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        location <span class="op">=</span> data[<span class="st">"results"</span>][<span class="dv">0</span>][<span class="st">"geometry"</span>][<span class="st">"location"</span>]</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> location[<span class="st">"lat"</span>], location[<span class="st">"lng"</span>]</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Uso</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># lat, lon = geocodificar_direccion("UNAH, Tegucigalpa", "TU_API_KEY")</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="integración-con-el-geoportal-del-icf" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="integración-con-el-geoportal-del-icf"><span class="header-section-number">4</span> Integración con el Geoportal del ICF</h2>
+<p>El <strong>Instituto de Conservación Forestal (ICF)</strong> de Honduras dispone de un Geoportal que permite el acceso a datos oficiales sobre el sector forestal y áreas protegidas mediante estándares OGC.</p>
+<section id="acceso-al-geoportal" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="acceso-al-geoportal"><span class="header-section-number">4.1</span> Acceso al Geoportal</h3>
+<p>El Geoportal del ICF es la fuente oficial para obtener capas de: - Áreas Protegidas de Honduras. - Red Vial Forestal. - Inventarios forestales y cobertura vegetal.</p>
+<p><strong>URL del Geoportal</strong>: <a href="https://geoportal.icf.gob.hn/geoportal/">https://geoportal.icf.gob.hn/geoportal/</a></p>
+</section>
+<section id="configuración-de-conexión-wms-en-qgis" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="configuración-de-conexión-wms-en-qgis"><span class="header-section-number">4.2</span> Configuración de conexión WMS en QGIS</h3>
+<p>Para visualizar las capas del ICF como imágenes:</p>
+<ol type="1">
+<li><strong>Panel Explorador → WMS/WMTS</strong> <span class="math inline">\(\to\)</span> clic derecho <span class="math inline">\(\to\)</span> <strong>Nueva conexión</strong></li>
+<li><strong>Nombre</strong>: <code>ICF - WMS</code></li>
+<li><strong>URL</strong>: <code>http://geoportal.icf.gob.hn:8081/geoserver/icf/wms</code></li>
+<li>Haz clic en <strong>Aceptar</strong>.</li>
+<li>Despliega la conexión en el panel Explorador y arrastra las capas deseadas (ej. <code>icf:areas_protegidas</code>) al mapa.</li>
+</ol>
+</section>
+<section id="configuración-de-conexión-wfs-en-qgis" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="configuración-de-conexión-wfs-en-qgis"><span class="header-section-number">4.3</span> Configuración de conexión WFS en QGIS</h3>
+<p>Para descargar los vectores y analizar los datos del ICF:</p>
+<ol type="1">
+<li><strong>Panel Explorador → WFS</strong> <span class="math inline">\(\to\)</span> clic derecho <span class="math inline">\(\to\)</span> <strong>Nueva conexión</strong></li>
+<li><strong>Nombre</strong>: <code>ICF - WFS</code></li>
+<li><strong>URL</strong>: <code>http://geoportal.icf.gob.hn:8081/geoserver/icf/wfs</code></li>
+<li>Haz clic en <strong>Aceptar</strong>.</li>
+<li>Despliega la conexión y arrastra la capa al mapa. Ahora puedes abrir la tabla de atributos y realizar consultas espaciales.</li>
+</ol>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Advertencia</span>API Keys
+<span class="screen-reader-only">Advertencia</span>Rendimiento de WFS
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Para usar las APIs de Google Maps necesitas registrarte en Google Cloud Platform y crear una clave de API. Algunas APIs son de pago según el uso.</p>
+<p>Cuando utilices WFS con capas muy extensas (como la red vial nacional), evita cargar toda la capa. Utiliza el filtro de la conexión o haz zoom en un área pequeña antes de solicitar los datos para evitar que QGIS se bloquee.</p>
 </div>
 </div>
-</section>
-<section id="openrouteservice-ors" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="openrouteservice-ors"><span class="header-section-number">2.3</span> OpenRouteService (ORS)</h3>
-<p>OpenRouteService ofrece APIs gratuitas para enrutamiento basadas en OSM:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcular_ruta_ors(origen, destino, api_key, modo<span class="op">=</span><span class="st">"driving-car"</span>):</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Calcula una ruta usando OpenRouteService.</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    origen/destino: [longitud, latitud]</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    modos: driving-car, cycling-regular, foot-walking</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://api.openrouteservice.org/v2/directions/"</span> <span class="op">+</span> modo</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> {</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span>: api_key,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Content-Type"</span>: <span class="st">"application/json"</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    body <span class="op">=</span> {</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"coordinates"</span>: [origen, destino],</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"format"</span>: <span class="st">"geojson"</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.post(url, json<span class="op">=</span>body, headers<span class="op">=</span>headers)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response.json()</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de uso</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># origen = [-87.2068, 14.0818]  # [lon, lat]</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># destino = [-87.1904, 14.0817]</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ruta = calcular_ruta_ors(origen, destino, "TU_API_KEY_ORS")</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
-<section id="proyecto-aplicado-diseño-de-rutas-eficientes-para-campo" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="proyecto-aplicado-diseño-de-rutas-eficientes-para-campo"><span class="header-section-number">3</span> Proyecto aplicado: diseño de rutas eficientes para campo</h2>
-<section id="planteamiento-del-problema" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="planteamiento-del-problema"><span class="header-section-number">3.1</span> Planteamiento del problema</h3>
-<p>Un equipo de trabajo de campo necesita visitar 10 puntos de control (comunidades, puntos de monitoreo, etc.) desde una base de operaciones, minimizando el tiempo total de desplazamiento.</p>
-<p>Este es un problema de <strong>Ruta del Viajero (TSP - Travelling Salesman Problem)</strong>.</p>
+<section id="recolección-de-datos-en-campo-con-qfield-y-qfieldsync" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="recolección-de-datos-en-campo-con-qfield-y-qfieldsync"><span class="header-section-number">5</span> Recolección de datos en campo con QField y QFieldSync</h2>
+<p>La recolección de datos en campo es una fase crítica de cualquier proyecto SIG. <strong>QField</strong> es una aplicación móvil diseñada para llevar la potencia de QGIS al dispositivo Android o iOS.</p>
+<section id="qué-es-qfield" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="qué-es-qfield"><span class="header-section-number">5.1</span> ¿Qué es QField?</h3>
+<p><strong>QField</strong> no es solo un visor de mapas; es una herramienta de captura de datos que permite: - Visualizar mapas base y capas oficiales en el terreno (offline). - Crear nuevas entidades (puntos, líneas, polígonos) con el GPS del móvil. - Completar formularios de atributos personalizados creados en QGIS.</p>
 </section>
-<section id="solución-1-herramienta-de-procesamiento-de-qgis" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="solución-1-herramienta-de-procesamiento-de-qgis"><span class="header-section-number">3.2</span> Solución 1: Herramienta de procesamiento de QGIS</h3>
-<p>QGIS incluye herramientas para optimizar recorridos:</p>
-<pre><code>Procesamiento → Caja de herramientas → Análisis de redes → Optimization of a graph path</code></pre>
+<section id="qfieldsync-el-puente-entre-escritorio-y-campo" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="qfieldsync-el-puente-entre-escritorio-y-campo"><span class="header-section-number">5.2</span> QFieldSync: El puente entre escritorio y campo</h3>
+<p>Para que un proyecto de QGIS funcione en QField, debe ser “empaquetado” y configurado. Para esto utilizamos el plugin <strong>QFieldSync</strong>.</p>
+<p><strong>Flujo de Trabajo Profesional</strong>:</p>
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p><strong>1. Preparación (QGIS Desktop)</strong> - Diseñar la simbología y etiquetas. - Crear formularios de entrada de datos (listas desplegables, validaciones). - Configurar el plugin <strong>QFieldSync</strong> para definir qué capas son editables y cuáles son solo lectura.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<p><strong>2. Transferencia</strong> - Exportar el proyecto mediante QFieldSync. - Transferir la carpeta al dispositivo móvil (vía USB, QFieldCloud o almacenamiento compartido).</p>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p><strong>3. Captura (QField Mobile)</strong> - Abrir el proyecto en el dispositivo. - Recolectar datos en campo usando el GPS. - Guardar los cambios localmente en el dispositivo.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<p><strong>4. Sincronización (Retorno)</strong> - Transferir la carpeta del dispositivo de vuelta al computador. - Usar QFieldSync para <strong>Sincronizar</strong> los datos capturados con la base de datos original de QGIS.</p>
+</div>
+</div>
 </section>
-<section id="solución-2-python-con-or-tools-google" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="solución-2-python-con-or-tools-google"><span class="header-section-number">3.3</span> Solución 2: Python con OR-Tools (Google)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Requiere: pip install ortools</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ortools.constraint_solver <span class="im">import</span> routing_enums_pb2</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ortools.constraint_solver <span class="im">import</span> pywrapcp</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcular_distancia(p1, p2):</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Distancia euclidiana entre dos puntos (lat, lon)."""</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.sqrt((p1[<span class="dv">0</span>]<span class="op">-</span>p2[<span class="dv">0</span>])<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1[<span class="dv">1</span>]<span class="op">-</span>p2[<span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> <span class="dv">111000</span>  <span class="co"># metros aprox.</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resolver_tsp(puntos):</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Resuelve el TSP para una lista de puntos (lat, lon).</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Retorna el orden óptimo de visita.</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(puntos)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Matriz de distancias</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    matriz <span class="op">=</span> [[<span class="bu">int</span>(calcular_distancia(puntos[i], puntos[j]))</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n)] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)]</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    manager <span class="op">=</span> pywrapcp.RoutingIndexManager(n, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    routing <span class="op">=</span> pywrapcp.RoutingModel(manager)</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> callback_distancia(from_index, to_index):</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        from_node <span class="op">=</span> manager.IndexToNode(from_index)</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        to_node <span class="op">=</span> manager.IndexToNode(to_index)</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> matriz[from_node][to_node]</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    transit_callback_index <span class="op">=</span> routing.RegisterTransitCallback(callback_distancia)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    routing.SetArcCostEvaluatorOfAllVehicles(transit_callback_index)</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    parametros <span class="op">=</span> pywrapcp.DefaultRoutingSearchParameters()</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    parametros.first_solution_strategy <span class="op">=</span> (</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    solucion <span class="op">=</span> routing.SolveWithParameters(parametros)</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> solucion:</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        ruta <span class="op">=</span> []</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        index <span class="op">=</span> routing.Start(<span class="dv">0</span>)</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="kw">not</span> routing.IsEnd(index):</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>            ruta.append(manager.IndexToNode(index))</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>            index <span class="op">=</span> solucion.Value(routing.NextVar(index))</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>        ruta.append(manager.IndexToNode(index))</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ruta</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo con puntos en Honduras</span></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>puntos_visita <span class="op">=</span> [</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0818</span>, <span class="op">-</span><span class="fl">87.2068</span>),  <span class="co"># Base: UNAH</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.1234</span>, <span class="op">-</span><span class="fl">87.1890</span>),  <span class="co"># Punto 1</span></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0500</span>, <span class="op">-</span><span class="fl">87.2200</span>),  <span class="co"># Punto 2</span></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0700</span>, <span class="op">-</span><span class="fl">87.1700</span>),  <span class="co"># Punto 3</span></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>orden_optimo <span class="op">=</span> resolver_tsp(puntos_visita)</span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> orden_optimo:</span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Orden óptimo de visita:"</span>, orden_optimo)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-</section>
-<section id="trazabilidad-de-rutas-gps-con-apps-móviles" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="trazabilidad-de-rutas-gps-con-apps-móviles"><span class="header-section-number">4</span> Trazabilidad de rutas GPS con apps móviles</h2>
-<section id="aplicaciones-para-recolección-de-datos-en-campo" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="aplicaciones-para-recolección-de-datos-en-campo"><span class="header-section-number">4.1</span> Aplicaciones para recolección de datos en campo</h3>
+<section id="configuración-de-capas-en-qfieldsync" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="configuración-de-capas-en-qfieldsync"><span class="header-section-number">5.3</span> Configuración de capas en QFieldSync</h3>
+<p>Al configurar el proyecto, debemos asignar un “Action” a cada capa:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 15%">
-<col style="width: 67%">
+<col style="width: 11%">
+<col style="width: 48%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Aplicación</th>
-<th style="text-align: left;">Plataforma</th>
-<th style="text-align: left;">Características principales</th>
+<th style="text-align: left;">Acción</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Uso típico</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>QField</strong></td>
-<td style="text-align: left;">Android/iOS</td>
-<td style="text-align: left;">Versión móvil de QGIS, edita capas directamente</td>
+<td style="text-align: left;"><strong>No Action</strong></td>
+<td style="text-align: left;">La capa no se exporta al móvil</td>
+<td style="text-align: left;">Capas temporales o muy pesadas</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Input</strong></td>
-<td style="text-align: left;">Android/iOS</td>
-<td style="text-align: left;">Basada en QGIS, sincronización en la nube</td>
+<td style="text-align: left;"><strong>Offline Editing</strong></td>
+<td style="text-align: left;">La capa es editable en campo</td>
+<td style="text-align: left;">Capas de puntos de muestreo, incidencias</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>GPSLogger</strong></td>
-<td style="text-align: left;">Android</td>
-<td style="text-align: left;">Registra tracks GPS en varios formatos</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>OSMAnd</strong></td>
-<td style="text-align: left;">Android/iOS</td>
-<td style="text-align: left;">Navegación y recolección de datos OSM</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>SW Maps</strong></td>
-<td style="text-align: left;">Android</td>
-<td style="text-align: left;">Mapeo GPS de alta precisión</td>
+<td style="text-align: left;"><strong>ReadOnly</strong></td>
+<td style="text-align: left;">La capa se visualiza pero no se edita</td>
+<td style="text-align: left;">Mapas base, límites administrativos, ríos</td>
 </tr>
 </tbody>
 </table>
+<hr>
 </section>
-<section id="flujo-de-trabajo-con-qfield" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="flujo-de-trabajo-con-qfield"><span class="header-section-number">4.2</span> Flujo de trabajo con QField</h3>
+</section>
+<section id="ejercicio-práctico" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="ejercicio-práctico"><span class="header-section-number">6</span> 🛠️ Ejercicio Práctico</h2>
+<section id="ejercicio-7.1-consumo-de-servicios-oficiales-del-icf" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="ejercicio-7.1-consumo-de-servicios-oficiales-del-icf"><span class="header-section-number">6.1</span> Ejercicio 7.1: Consumo de servicios oficiales del ICF</h3>
 <ol type="1">
-<li><strong>Preparar proyecto en QGIS Desktop</strong>:
-<ul>
-<li>Crea el proyecto con las capas necesarias</li>
-<li>Define formularios de captura de datos</li>
-<li>Guarda como GeoPackage</li>
-</ul></li>
-<li><strong>Transferir al dispositivo móvil</strong>:
-<ul>
-<li>Usa QFieldCloud (sincronización en la nube)</li>
-<li>O copia los archivos via USB/WiFi</li>
-</ul></li>
-<li><strong>Recolección en campo</strong>:
-<ul>
-<li>Abre el proyecto en QField</li>
-<li>Captura puntos, líneas o polígonos con GPS</li>
-<li>Completa los formularios de atributos</li>
-</ul></li>
-<li><strong>Importar datos de vuelta a QGIS</strong>:
-<ul>
-<li>Sincroniza con QFieldCloud</li>
-<li>O copia el GeoPackage actualizado al computador</li>
-</ul></li>
+<li>Configura una conexión <strong>WMS</strong> al Geoportal del ICF.</li>
+<li>Carga la capa de <strong>Áreas Protegidas</strong> y ajusta su transparencia para verla sobre un mapa satelital.</li>
+<li>Configura una conexión <strong>WFS</strong> al Geoportal del ICF.</li>
+<li>Carga la misma capa de Áreas Protegidas vía WFS.</li>
+<li>Abre la tabla de atributos y filtra las áreas protegidas que tengan una superficie mayor a un valor específico.</li>
 </ol>
 </section>
-<section id="importar-tracks-gpx" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="importar-tracks-gpx"><span class="header-section-number">4.3</span> Importar tracks GPX</h3>
-<p>Los tracks GPS se pueden importar directamente:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar archivo GPX</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ruta_gpx <span class="op">=</span> <span class="st">"/home/usuario/tracks/recorrido.gpx"</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>capa_track <span class="op">=</span> QgsVectorLayer(<span class="ss">f"</span><span class="sc">{</span>ruta_gpx<span class="sc">}</span><span class="ss">|layername=tracks"</span>, <span class="st">"Mi Track"</span>, <span class="st">"ogr"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>capa_waypoints <span class="op">=</span> QgsVectorLayer(<span class="ss">f"</span><span class="sc">{</span>ruta_gpx<span class="sc">}</span><span class="ss">|layername=waypoints"</span>, <span class="st">"Waypoints"</span>, <span class="st">"ogr"</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(capa_track)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(capa_waypoints)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Track cargado: </span><span class="sc">{</span>capa_track<span class="sc">.</span>featureCount()<span class="sc">}</span><span class="ss"> segmentos"</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Waypoints: </span><span class="sc">{</span>capa_waypoints<span class="sc">.</span>featureCount()<span class="sc">}</span><span class="ss"> puntos"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="análisis-de-tracks-gps" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="análisis-de-tracks-gps"><span class="header-section-number">4.4</span> Análisis de tracks GPS</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular longitud total de un track</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>capa <span class="op">=</span> QgsProject.instance().mapLayersByName(<span class="st">"Mi Track"</span>)[<span class="dv">0</span>]</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>longitud_total <span class="op">=</span> <span class="bu">sum</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    entidad.geometry().length()</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> entidad <span class="kw">in</span> capa.getFeatures()</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Longitud total del recorrido: </span><span class="sc">{</span>longitud_total<span class="op">/</span><span class="dv">1000</span><span class="sc">:.2f}</span><span class="ss"> km"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-</section>
-<section id="optimización-de-recorridos-con-restricciones-reales" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="optimización-de-recorridos-con-restricciones-reales"><span class="header-section-number">5</span> Optimización de recorridos con restricciones reales</h2>
-<section id="tipos-de-restricciones-comunes" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="tipos-de-restricciones-comunes"><span class="header-section-number">5.1</span> Tipos de restricciones comunes</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 35%">
-<col style="width: 64%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Restricción</th>
-<th style="text-align: left;">Ejemplo</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Ventanas de tiempo</strong></td>
-<td style="text-align: left;">Visitar un cliente entre 9:00 AM y 12:00 PM</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Capacidad del vehículo</strong></td>
-<td style="text-align: left;">Máximo de 500 kg por camión</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Tipo de vehículo</strong></td>
-<td style="text-align: left;">Camiones no pueden usar ciertos caminos</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Prioridades</strong></td>
-<td style="text-align: left;">Clientes prioritarios deben visitarse primero</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Horas de trabajo</strong></td>
-<td style="text-align: left;">Máximo 8 horas de trabajo por jornada</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="vehicle-routing-problem-vrp-con-or-tools" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="vehicle-routing-problem-vrp-con-or-tools"><span class="header-section-number">5.2</span> Vehicle Routing Problem (VRP) con OR-Tools</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo simplificado de VRP con ventanas de tiempo</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Requiere: pip install ortools</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">Problema: Una empresa tiene una bodega central y 5 clientes a visitar</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">con 2 vehículos disponibles, cada uno con ventanas de tiempo.</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del problema</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> {</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"num_vehicles"</span>: <span class="dv">2</span>,</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"depot"</span>: <span class="dv">0</span>,  <span class="co"># índice de la bodega</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"time_matrix"</span>: [</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Tiempo en minutos entre cada par de ubicaciones</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">25</span>, <span class="dv">20</span>, <span class="dv">35</span>],</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">28</span>],</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">22</span>, <span class="dv">15</span>],</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">25</span>, <span class="dv">18</span>, <span class="dv">12</span>, <span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">20</span>],</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">22</span>, <span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">18</span>],</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">0</span>],</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    ],</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"time_windows"</span>: [</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">480</span>),    <span class="co"># Bodega: 8:00 AM - 4:00 PM</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">60</span>, <span class="dv">180</span>),   <span class="co"># Cliente 1: 9:00 AM - 11:00 AM</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">120</span>, <span class="dv">240</span>),  <span class="co"># Cliente 2: 10:00 AM - 12:00 PM</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">300</span>),    <span class="co"># Cliente 3: 8:00 AM - 1:00 PM</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">180</span>, <span class="dv">360</span>),  <span class="co"># Cliente 4: 11:00 AM - 2:00 PM</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">240</span>, <span class="dv">420</span>),  <span class="co"># Cliente 5: 12:00 PM - 3:00 PM</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    ],</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Problema de VRP con ventanas de tiempo definido."</span>)</span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Vehículos disponibles: </span><span class="sc">{</span>datos[<span class="st">'num_vehicles'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Clientes a visitar: </span><span class="sc">{</span><span class="bu">len</span>(datos[<span class="st">'time_windows'</span>]) <span class="op">-</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="herramientas-adicionales-para-optimización" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="herramientas-adicionales-para-optimización"><span class="header-section-number">5.3</span> Herramientas adicionales para optimización</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 28%">
-<col style="width: 71%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Herramienta</th>
-<th style="text-align: left;">Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>OR-Tools</strong></td>
-<td style="text-align: left;">Biblioteca de Google para optimización combinatoria</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>OpenRouteService</strong></td>
-<td style="text-align: left;">API con funcionalidad de optimización de rutas</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>pgRouting</strong></td>
-<td style="text-align: left;">Extensión de PostgreSQL para análisis de redes</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>OSRM</strong></td>
-<td style="text-align: left;">Motor de enrutamiento de alto rendimiento basado en OSM</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Vroom</strong></td>
-<td style="text-align: left;">Soluciones para VRP usando OSRM/OpenRouteService</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-</section>
-<section id="proyecto-final-del-curso" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="proyecto-final-del-curso"><span class="header-section-number">6</span> Proyecto Final del Curso</h2>
-<section id="descripción-del-proyecto" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="descripción-del-proyecto"><span class="header-section-number">6.1</span> Descripción del proyecto</h3>
-<p>Diseña y evalúa un sistema de rutas para uno de los siguientes escenarios:</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Escenario A: Sistema de distribución de productos
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Diseña las rutas óptimas para distribuir productos desde una bodega central a 8–10 clientes en Tegucigalpa, considerando: - Ventanas horarias de entrega por cliente - Capacidad de 2 vehículos disponibles - Minimización del tiempo total de desplazamiento</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Escenario B: Cobertura de servicios de salud
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Evalúa la cobertura geográfica de los centros de salud en un municipio: - Calcula el área atendida por cada establecimiento (isócronas de 15 y 30 min) - Identifica comunidades sin cobertura adecuada - Propone la ubicación óptima para un nuevo centro de salud</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Escenario C: Monitoreo ambiental en campo
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Planifica rutas de campo para monitoreo ambiental: - Importa puntos de muestreo desde GPS/aplicación móvil - Optimiza el orden de visita - Genera un informe con las rutas y estadísticas del recorrido</p>
-</div>
-</div>
-</section>
-<section id="entregables-del-proyecto" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="entregables-del-proyecto"><span class="header-section-number">6.2</span> Entregables del proyecto</h3>
+<section id="ejercicio-7.2-preparación-de-proyecto-para-qfield" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="ejercicio-7.2-preparación-de-proyecto-para-qfield"><span class="header-section-number">6.2</span> Ejercicio 7.2: Preparación de proyecto para QField</h3>
 <ol type="1">
-<li>✅ Mapa final exportado en PDF (calidad de impresión)</li>
-<li>✅ Script Python documentado con la lógica de análisis</li>
-<li>✅ Archivo GeoPackage con todas las capas del proyecto</li>
-<li>✅ Informe breve (máximo 2 páginas) describiendo la metodología y resultados</li>
+<li>Crea un nuevo proyecto de QGIS y añade una capa de puntos llamada <code>Muestreo_Campo</code> (GeoPackage).</li>
+<li>Configura el formulario de la capa con los siguientes campos:
+<ul>
+<li><code>ID</code> (Autoincrementado)</li>
+<li><code>Fecha</code> (Fecha)</li>
+<li><code>Observacion</code> (Texto)</li>
+<li><code>Estado</code> (Valor relación / Lista: Bueno, Regular, Malo)</li>
+</ul></li>
+<li>Instala el plugin <strong>QFieldSync</strong>.</li>
+<li>Configura la capa <code>Muestreo_Campo</code> como <strong>Offline Editing</strong> y el mapa base como <strong>ReadOnly</strong>.</li>
+<li>Empaqueta el proyecto y simula la exportación hacia un dispositivo móvil.</li>
 </ol>
 <hr>
 </section>
@@ -1119,12 +881,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 data-number="7" class="anchored" data-anchor-id="recursos-y-referencias"><span class="header-section-number">7</span> 📚 Recursos y Referencias</h2>
 <ul>
 <li><a href="https://docs.qfield.org">QField — Documentación oficial</a></li>
-<li><a href="https://merginmaps.com/docs">Input App — Mergin Maps</a></li>
-<li><a href="https://openrouteservice.org/dev/#/api-docs">OpenRouteService — API Documentation</a></li>
-<li><a href="https://developers.google.com/optimization">OR-Tools — Google Optimization Tools</a></li>
-<li><a href="https://docs.pgrouting.org">pgRouting — Documentación</a></li>
-<li><a href="https://wiki.openstreetmap.org/wiki/Overpass_API">OSM Overpass API — Tutorial</a></li>
-<li><a href="https://github.com/VROOM-Project/vroom">VROOM — Vehicle Routing Open-source Optimization Machine</a></li>
+<li><a href="https://plugins.qgis.org/plugins/qfieldsync/">QFieldSync — Plugin de QGIS</a></li>
+<li><a href="https://www.ogc.org/standards/">OGC — Estándares de Interoperabilidad</a></li>
+<li><a href="https://geoportal.icf.gob.hn/geoportal/">Geoportal del ICF Honduras</a></li>
 </ul>
 <hr>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -1133,15 +892,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>¡Felicitaciones!
+<span class="screen-reader-only">Importante</span>¡Cierre del Curso!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Has completado el <strong>Curso de QGIS y Herramientas Python para el Análisis Geoespacial</strong> del CEETI – UNAH.</p>
-<p>Recuerda que la práctica continua es la clave para dominar estas herramientas. Explora los recursos adicionales, participa en la comunidad QGIS y aplica lo aprendido en proyectos reales.</p>
+<p>Con la finalización de este módulo, has completado el programa de <strong>QGIS y Herramientas Python para el Análisis Geoespacial</strong>.</p>
+<p>Has transitado desde los conceptos básicos de SIG hasta la automatización con Python y la implementación de flujos de trabajo profesionales de recolección de datos. La clave ahora es la aplicación constante de estos conocimientos en proyectos reales.</p>
+<p><strong>¡Felicidades por tu esfuerzo y dedicación!</strong></p>
 </div>
 </div>
-<hr>
 
 
 <!-- -->
@@ -1625,423 +1384,214 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Módulo 7: Integración y casos prácticos"</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Objetivos del Módulo</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>Al finalizar este módulo, los participantes podrán:</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Conectar QGIS con APIs externas como OpenStreetMap y Google Maps.</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Diseñar y evaluar rutas eficientes para trabajo de campo.</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Importar y procesar rutas GPS recolectadas con aplicaciones móviles.</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar técnicas de optimización de recorridos con restricciones reales.</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conexión con APIs externas</span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="fu">### OpenStreetMap (OSM)</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>OpenStreetMap es el mapa colaborativo de código abierto más completo del mundo. QGIS se integra con OSM de múltiples maneras.</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tiles (mapas base)</span></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="in">Panel Explorador → Teselas XYZ → Nueva conexión</span></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>Agrega estas URLs como capas base:</span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Servicio          <span class="pp">|</span> URL                                                              <span class="pp">|</span></span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|:------------------|:-----------------------------------------------------------------|</span></span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> OpenStreetMap     <span class="pp">|</span> <span class="in">`https://tile.openstreetmap.org/{z}/{x}/{y}.png`</span>                <span class="pp">|</span></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> OSM Humanitarian  <span class="pp">|</span> <span class="in">`https://tile-c.openstreetmap.fr/hot/{z}/{x}/{y}.png`</span>           <span class="pp">|</span></span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CartoDB Light     <span class="pp">|</span> <span class="in">`https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png`</span> <span class="pp">|</span></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ESRI Satellite    <span class="pp">|</span> <span class="in">`https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}`</span> <span class="pp">|</span></span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Descarga de datos con QuickOSM</span></span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Consulta mediante Python (requiere plugin QuickOSM)</span></span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> processing</span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>resultado <span class="op">=</span> processing.run(<span class="st">"quickosm:buildqueryextent"</span>, {</span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"KEY"</span>: <span class="st">"amenity"</span>,</span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">"VALUE"</span>: <span class="st">"hospital"</span>,</span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">"EXTENT"</span>: <span class="st">"-87.3,13.9,-87.1,14.2 [EPSG:4326]"</span>,</span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OUTPUT"</span>: <span class="st">"TEMPORARY_OUTPUT"</span></span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Descarga con la API Overpass</span></span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>La API Overpass permite consultas avanzadas sobre datos OSM:</span>
-<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> descargar_osm_overpass(query, bbox):</span>
-<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="co">    Descarga datos OSM usando la API Overpass.</span></span>
-<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a><span class="co">    bbox: (sur, oeste, norte, este)</span></span>
-<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://overpass-api.de/api/interpreter"</span></span>
-<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>    overpass_query <span class="op">=</span> <span class="ss">f"""</span></span>
-<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a><span class="ss">    [out:json][timeout:30];</span></span>
-<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span></span>
-<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a><span class="ss">      node[</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">](</span><span class="sc">{</span>bbox[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">3</span>]<span class="sc">}</span><span class="ss">);</span></span>
-<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a><span class="ss">      way[</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">](</span><span class="sc">{</span>bbox[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>bbox[<span class="dv">3</span>]<span class="sc">}</span><span class="ss">);</span></span>
-<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a><span class="ss">    );</span></span>
-<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="ss">    out body;</span></span>
-<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a><span class="ss">    &gt;;</span></span>
-<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="ss">    out skel qt;</span></span>
-<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span></span>
-<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url, params<span class="op">=</span>{<span class="st">"data"</span>: overpass_query})</span>
-<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response.json()</span>
-<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo: hospitales en Tegucigalpa</span></span>
-<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> descargar_osm_overpass(</span>
-<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a>    <span class="st">'"amenity"="hospital"'</span>,</span>
-<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">13.9</span>, <span class="op">-</span><span class="fl">87.3</span>, <span class="fl">14.2</span>, <span class="op">-</span><span class="fl">87.1</span>)</span>
-<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Elementos encontrados: </span><span class="sc">{</span><span class="bu">len</span>(datos[<span class="st">'elements'</span>])<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Google Maps / Places API</span></span>
-<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>Para conectar con la API de Google Maps desde Python (requiere clave API):</span>
-<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> geocodificar_direccion(direccion, api_key):</span>
-<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Convierte una dirección en coordenadas usando Google Maps."""</span></span>
-<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://maps.googleapis.com/maps/api/geocode/json"</span></span>
-<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> {</span>
-<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>        <span class="st">"address"</span>: direccion,</span>
-<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key"</span>: api_key,</span>
-<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>        <span class="st">"language"</span>: <span class="st">"es"</span></span>
-<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url, params<span class="op">=</span>params)</span>
-<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> response.json()</span>
-<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> data[<span class="st">"status"</span>] <span class="op">==</span> <span class="st">"OK"</span>:</span>
-<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>        location <span class="op">=</span> data[<span class="st">"results"</span>][<span class="dv">0</span>][<span class="st">"geometry"</span>][<span class="st">"location"</span>]</span>
-<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> location[<span class="st">"lat"</span>], location[<span class="st">"lng"</span>]</span>
-<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Uso</span></span>
-<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a><span class="co"># lat, lon = geocodificar_direccion("UNAH, Tegucigalpa", "TU_API_KEY")</span></span>
-<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## API Keys</span></span>
-<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>Para usar las APIs de Google Maps necesitas registrarte en Google Cloud Platform y crear una clave de API. Algunas APIs son de pago según el uso.</span>
-<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### OpenRouteService (ORS)</span></span>
-<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>OpenRouteService ofrece APIs gratuitas para enrutamiento basadas en OSM:</span>
-<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcular_ruta_ors(origen, destino, api_key, modo<span class="op">=</span><span class="st">"driving-car"</span>):</span>
-<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a><span class="co">    Calcula una ruta usando OpenRouteService.</span></span>
-<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a><span class="co">    origen/destino: [longitud, latitud]</span></span>
-<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a><span class="co">    modos: driving-car, cycling-regular, foot-walking</span></span>
-<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://api.openrouteservice.org/v2/directions/"</span> <span class="op">+</span> modo</span>
-<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> {</span>
-<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authorization"</span>: api_key,</span>
-<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Content-Type"</span>: <span class="st">"application/json"</span></span>
-<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a>    body <span class="op">=</span> {</span>
-<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a>        <span class="st">"coordinates"</span>: [origen, destino],</span>
-<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a>        <span class="st">"format"</span>: <span class="st">"geojson"</span></span>
-<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.post(url, json<span class="op">=</span>body, headers<span class="op">=</span>headers)</span>
-<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response.json()</span>
-<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de uso</span></span>
-<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a><span class="co"># origen = [-87.2068, 14.0818]  # [lon, lat]</span></span>
-<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a><span class="co"># destino = [-87.1904, 14.0817]</span></span>
-<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a><span class="co"># ruta = calcular_ruta_ors(origen, destino, "TU_API_KEY_ORS")</span></span>
-<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a><span class="fu">## Proyecto aplicado: diseño de rutas eficientes para campo</span></span>
-<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a><span class="fu">### Planteamiento del problema</span></span>
-<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>Un equipo de trabajo de campo necesita visitar 10 puntos de control (comunidades, puntos de monitoreo, etc.) desde una base de operaciones, minimizando el tiempo total de desplazamiento.</span>
-<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>Este es un problema de **Ruta del Viajero (TSP - Travelling Salesman Problem)**.</span>
-<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solución 1: Herramienta de procesamiento de QGIS</span></span>
-<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a>QGIS incluye herramientas para optimizar recorridos:</span>
-<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a><span class="in">Procesamiento → Caja de herramientas → Análisis de redes → Optimization of a graph path</span></span>
-<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solución 2: Python con OR-Tools (Google)</span></span>
-<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a><span class="co"># Requiere: pip install ortools</span></span>
-<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ortools.constraint_solver <span class="im">import</span> routing_enums_pb2</span>
-<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ortools.constraint_solver <span class="im">import</span> pywrapcp</span>
-<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcular_distancia(p1, p2):</span>
-<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Distancia euclidiana entre dos puntos (lat, lon)."""</span></span>
-<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.sqrt((p1[<span class="dv">0</span>]<span class="op">-</span>p2[<span class="dv">0</span>])<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (p1[<span class="dv">1</span>]<span class="op">-</span>p2[<span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> <span class="dv">111000</span>  <span class="co"># metros aprox.</span></span>
-<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resolver_tsp(puntos):</span>
-<span id="cb11-181"><a href="#cb11-181" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb11-182"><a href="#cb11-182" aria-hidden="true" tabindex="-1"></a><span class="co">    Resuelve el TSP para una lista de puntos (lat, lon).</span></span>
-<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a><span class="co">    Retorna el orden óptimo de visita.</span></span>
-<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(puntos)</span>
-<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Matriz de distancias</span></span>
-<span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a>    matriz <span class="op">=</span> [[<span class="bu">int</span>(calcular_distancia(puntos[i], puntos[j]))</span>
-<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n)] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)]</span>
-<span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a>    manager <span class="op">=</span> pywrapcp.RoutingIndexManager(n, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a>    routing <span class="op">=</span> pywrapcp.RoutingModel(manager)</span>
-<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> callback_distancia(from_index, to_index):</span>
-<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a>        from_node <span class="op">=</span> manager.IndexToNode(from_index)</span>
-<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a>        to_node <span class="op">=</span> manager.IndexToNode(to_index)</span>
-<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> matriz[from_node][to_node]</span>
-<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a>    transit_callback_index <span class="op">=</span> routing.RegisterTransitCallback(callback_distancia)</span>
-<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a>    routing.SetArcCostEvaluatorOfAllVehicles(transit_callback_index)</span>
-<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a>    parametros <span class="op">=</span> pywrapcp.DefaultRoutingSearchParameters()</span>
-<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a>    parametros.first_solution_strategy <span class="op">=</span> (</span>
-<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a>        routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)</span>
-<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a>    solucion <span class="op">=</span> routing.SolveWithParameters(parametros)</span>
-<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> solucion:</span>
-<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a>        ruta <span class="op">=</span> []</span>
-<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a>        index <span class="op">=</span> routing.Start(<span class="dv">0</span>)</span>
-<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="kw">not</span> routing.IsEnd(index):</span>
-<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a>            ruta.append(manager.IndexToNode(index))</span>
-<span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a>            index <span class="op">=</span> solucion.Value(routing.NextVar(index))</span>
-<span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a>        ruta.append(manager.IndexToNode(index))</span>
-<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ruta</span>
-<span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo con puntos en Honduras</span></span>
-<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a>puntos_visita <span class="op">=</span> [</span>
-<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0818</span>, <span class="op">-</span><span class="fl">87.2068</span>),  <span class="co"># Base: UNAH</span></span>
-<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.1234</span>, <span class="op">-</span><span class="fl">87.1890</span>),  <span class="co"># Punto 1</span></span>
-<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0500</span>, <span class="op">-</span><span class="fl">87.2200</span>),  <span class="co"># Punto 2</span></span>
-<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">14.0700</span>, <span class="op">-</span><span class="fl">87.1700</span>),  <span class="co"># Punto 3</span></span>
-<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a>orden_optimo <span class="op">=</span> resolver_tsp(puntos_visita)</span>
-<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> orden_optimo:</span>
-<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Orden óptimo de visita:"</span>, orden_optimo)</span>
-<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## Trazabilidad de rutas GPS con apps móviles</span></span>
-<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aplicaciones para recolección de datos en campo</span></span>
-<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Aplicación  <span class="pp">|</span> Plataforma <span class="pp">|</span> Características principales                         <span class="pp">|</span></span>
-<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a><span class="pp">|:------------|:-----------|:----------------------------------------------------|</span></span>
-<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **QField**  <span class="pp">|</span> Android/iOS<span class="pp">|</span> Versión móvil de QGIS, edita capas directamente    <span class="pp">|</span></span>
-<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Input**   <span class="pp">|</span> Android/iOS<span class="pp">|</span> Basada en QGIS, sincronización en la nube           <span class="pp">|</span></span>
-<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **GPSLogger**<span class="pp">|</span> Android   <span class="pp">|</span> Registra tracks GPS en varios formatos              <span class="pp">|</span></span>
-<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **OSMAnd**  <span class="pp">|</span> Android/iOS<span class="pp">|</span> Navegación y recolección de datos OSM               <span class="pp">|</span></span>
-<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **SW Maps** <span class="pp">|</span> Android    <span class="pp">|</span> Mapeo GPS de alta precisión                         <span class="pp">|</span></span>
-<span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### Flujo de trabajo con QField</span></span>
-<span id="cb11-245"><a href="#cb11-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Preparar proyecto en QGIS Desktop**:</span>
-<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Crea el proyecto con las capas necesarias</span>
-<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Define formularios de captura de datos</span>
-<span id="cb11-249"><a href="#cb11-249" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Guarda como GeoPackage</span>
-<span id="cb11-250"><a href="#cb11-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-251"><a href="#cb11-251" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Transferir al dispositivo móvil**:</span>
-<span id="cb11-252"><a href="#cb11-252" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Usa QFieldCloud (sincronización en la nube)</span>
-<span id="cb11-253"><a href="#cb11-253" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>O copia los archivos via USB/WiFi</span>
-<span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Recolección en campo**:</span>
-<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Abre el proyecto en QField</span>
-<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Captura puntos, líneas o polígonos con GPS</span>
-<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Completa los formularios de atributos</span>
-<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Importar datos de vuelta a QGIS**:</span>
-<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Sincroniza con QFieldCloud</span>
-<span id="cb11-262"><a href="#cb11-262" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>O copia el GeoPackage actualizado al computador</span>
-<span id="cb11-263"><a href="#cb11-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-264"><a href="#cb11-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### Importar tracks GPX</span></span>
-<span id="cb11-265"><a href="#cb11-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-266"><a href="#cb11-266" aria-hidden="true" tabindex="-1"></a>Los tracks GPS se pueden importar directamente:</span>
-<span id="cb11-267"><a href="#cb11-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-268"><a href="#cb11-268" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb11-269"><a href="#cb11-269" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar archivo GPX</span></span>
-<span id="cb11-270"><a href="#cb11-270" aria-hidden="true" tabindex="-1"></a>ruta_gpx <span class="op">=</span> <span class="st">"/home/usuario/tracks/recorrido.gpx"</span></span>
-<span id="cb11-271"><a href="#cb11-271" aria-hidden="true" tabindex="-1"></a>capa_track <span class="op">=</span> QgsVectorLayer(<span class="ss">f"</span><span class="sc">{</span>ruta_gpx<span class="sc">}</span><span class="ss">|layername=tracks"</span>, <span class="st">"Mi Track"</span>, <span class="st">"ogr"</span>)</span>
-<span id="cb11-272"><a href="#cb11-272" aria-hidden="true" tabindex="-1"></a>capa_waypoints <span class="op">=</span> QgsVectorLayer(<span class="ss">f"</span><span class="sc">{</span>ruta_gpx<span class="sc">}</span><span class="ss">|layername=waypoints"</span>, <span class="st">"Waypoints"</span>, <span class="st">"ogr"</span>)</span>
-<span id="cb11-273"><a href="#cb11-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-274"><a href="#cb11-274" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(capa_track)</span>
-<span id="cb11-275"><a href="#cb11-275" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(capa_waypoints)</span>
-<span id="cb11-276"><a href="#cb11-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-277"><a href="#cb11-277" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Track cargado: </span><span class="sc">{</span>capa_track<span class="sc">.</span>featureCount()<span class="sc">}</span><span class="ss"> segmentos"</span>)</span>
-<span id="cb11-278"><a href="#cb11-278" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Waypoints: </span><span class="sc">{</span>capa_waypoints<span class="sc">.</span>featureCount()<span class="sc">}</span><span class="ss"> puntos"</span>)</span>
-<span id="cb11-279"><a href="#cb11-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-280"><a href="#cb11-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-281"><a href="#cb11-281" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de tracks GPS</span></span>
-<span id="cb11-282"><a href="#cb11-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-283"><a href="#cb11-283" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb11-284"><a href="#cb11-284" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular longitud total de un track</span></span>
-<span id="cb11-285"><a href="#cb11-285" aria-hidden="true" tabindex="-1"></a>capa <span class="op">=</span> QgsProject.instance().mapLayersByName(<span class="st">"Mi Track"</span>)[<span class="dv">0</span>]</span>
-<span id="cb11-286"><a href="#cb11-286" aria-hidden="true" tabindex="-1"></a>longitud_total <span class="op">=</span> <span class="bu">sum</span>(</span>
-<span id="cb11-287"><a href="#cb11-287" aria-hidden="true" tabindex="-1"></a>    entidad.geometry().length()</span>
-<span id="cb11-288"><a href="#cb11-288" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> entidad <span class="kw">in</span> capa.getFeatures()</span>
-<span id="cb11-289"><a href="#cb11-289" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-290"><a href="#cb11-290" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Longitud total del recorrido: </span><span class="sc">{</span>longitud_total<span class="op">/</span><span class="dv">1000</span><span class="sc">:.2f}</span><span class="ss"> km"</span>)</span>
-<span id="cb11-291"><a href="#cb11-291" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-292"><a href="#cb11-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-293"><a href="#cb11-293" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb11-294"><a href="#cb11-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-295"><a href="#cb11-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## Optimización de recorridos con restricciones reales</span></span>
-<span id="cb11-296"><a href="#cb11-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-297"><a href="#cb11-297" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tipos de restricciones comunes</span></span>
-<span id="cb11-298"><a href="#cb11-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-299"><a href="#cb11-299" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Restricción                  <span class="pp">|</span> Ejemplo                                              <span class="pp">|</span></span>
-<span id="cb11-300"><a href="#cb11-300" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------------------------|:-----------------------------------------------------|</span></span>
-<span id="cb11-301"><a href="#cb11-301" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Ventanas de tiempo**       <span class="pp">|</span> Visitar un cliente entre 9:00 AM y 12:00 PM          <span class="pp">|</span></span>
-<span id="cb11-302"><a href="#cb11-302" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Capacidad del vehículo**   <span class="pp">|</span> Máximo de 500 kg por camión                         <span class="pp">|</span></span>
-<span id="cb11-303"><a href="#cb11-303" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Tipo de vehículo**         <span class="pp">|</span> Camiones no pueden usar ciertos caminos              <span class="pp">|</span></span>
-<span id="cb11-304"><a href="#cb11-304" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Prioridades**              <span class="pp">|</span> Clientes prioritarios deben visitarse primero        <span class="pp">|</span></span>
-<span id="cb11-305"><a href="#cb11-305" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Horas de trabajo**         <span class="pp">|</span> Máximo 8 horas de trabajo por jornada                <span class="pp">|</span></span>
-<span id="cb11-306"><a href="#cb11-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-307"><a href="#cb11-307" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vehicle Routing Problem (VRP) con OR-Tools</span></span>
-<span id="cb11-308"><a href="#cb11-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-309"><a href="#cb11-309" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb11-310"><a href="#cb11-310" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo simplificado de VRP con ventanas de tiempo</span></span>
-<span id="cb11-311"><a href="#cb11-311" aria-hidden="true" tabindex="-1"></a><span class="co"># Requiere: pip install ortools</span></span>
-<span id="cb11-312"><a href="#cb11-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-313"><a href="#cb11-313" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb11-314"><a href="#cb11-314" aria-hidden="true" tabindex="-1"></a><span class="co">Problema: Una empresa tiene una bodega central y 5 clientes a visitar</span></span>
-<span id="cb11-315"><a href="#cb11-315" aria-hidden="true" tabindex="-1"></a><span class="co">con 2 vehículos disponibles, cada uno con ventanas de tiempo.</span></span>
-<span id="cb11-316"><a href="#cb11-316" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb11-317"><a href="#cb11-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-318"><a href="#cb11-318" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del problema</span></span>
-<span id="cb11-319"><a href="#cb11-319" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> {</span>
-<span id="cb11-320"><a href="#cb11-320" aria-hidden="true" tabindex="-1"></a>    <span class="st">"num_vehicles"</span>: <span class="dv">2</span>,</span>
-<span id="cb11-321"><a href="#cb11-321" aria-hidden="true" tabindex="-1"></a>    <span class="st">"depot"</span>: <span class="dv">0</span>,  <span class="co"># índice de la bodega</span></span>
-<span id="cb11-322"><a href="#cb11-322" aria-hidden="true" tabindex="-1"></a>    <span class="st">"time_matrix"</span>: [</span>
-<span id="cb11-323"><a href="#cb11-323" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Tiempo en minutos entre cada par de ubicaciones</span></span>
-<span id="cb11-324"><a href="#cb11-324" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">25</span>, <span class="dv">20</span>, <span class="dv">35</span>],</span>
-<span id="cb11-325"><a href="#cb11-325" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">28</span>],</span>
-<span id="cb11-326"><a href="#cb11-326" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">22</span>, <span class="dv">15</span>],</span>
-<span id="cb11-327"><a href="#cb11-327" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">25</span>, <span class="dv">18</span>, <span class="dv">12</span>, <span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">20</span>],</span>
-<span id="cb11-328"><a href="#cb11-328" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">22</span>, <span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">18</span>],</span>
-<span id="cb11-329"><a href="#cb11-329" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">0</span>],</span>
-<span id="cb11-330"><a href="#cb11-330" aria-hidden="true" tabindex="-1"></a>    ],</span>
-<span id="cb11-331"><a href="#cb11-331" aria-hidden="true" tabindex="-1"></a>    <span class="st">"time_windows"</span>: [</span>
-<span id="cb11-332"><a href="#cb11-332" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">480</span>),    <span class="co"># Bodega: 8:00 AM - 4:00 PM</span></span>
-<span id="cb11-333"><a href="#cb11-333" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">60</span>, <span class="dv">180</span>),   <span class="co"># Cliente 1: 9:00 AM - 11:00 AM</span></span>
-<span id="cb11-334"><a href="#cb11-334" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">120</span>, <span class="dv">240</span>),  <span class="co"># Cliente 2: 10:00 AM - 12:00 PM</span></span>
-<span id="cb11-335"><a href="#cb11-335" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">300</span>),    <span class="co"># Cliente 3: 8:00 AM - 1:00 PM</span></span>
-<span id="cb11-336"><a href="#cb11-336" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">180</span>, <span class="dv">360</span>),  <span class="co"># Cliente 4: 11:00 AM - 2:00 PM</span></span>
-<span id="cb11-337"><a href="#cb11-337" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">240</span>, <span class="dv">420</span>),  <span class="co"># Cliente 5: 12:00 PM - 3:00 PM</span></span>
-<span id="cb11-338"><a href="#cb11-338" aria-hidden="true" tabindex="-1"></a>    ],</span>
-<span id="cb11-339"><a href="#cb11-339" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-340"><a href="#cb11-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-341"><a href="#cb11-341" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Problema de VRP con ventanas de tiempo definido."</span>)</span>
-<span id="cb11-342"><a href="#cb11-342" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Vehículos disponibles: </span><span class="sc">{</span>datos[<span class="st">'num_vehicles'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-343"><a href="#cb11-343" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Clientes a visitar: </span><span class="sc">{</span><span class="bu">len</span>(datos[<span class="st">'time_windows'</span>]) <span class="op">-</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-344"><a href="#cb11-344" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-345"><a href="#cb11-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-346"><a href="#cb11-346" aria-hidden="true" tabindex="-1"></a><span class="fu">### Herramientas adicionales para optimización</span></span>
-<span id="cb11-347"><a href="#cb11-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-348"><a href="#cb11-348" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Herramienta          <span class="pp">|</span> Descripción                                          <span class="pp">|</span></span>
-<span id="cb11-349"><a href="#cb11-349" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---------------------|:-----------------------------------------------------|</span></span>
-<span id="cb11-350"><a href="#cb11-350" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **OR-Tools**         <span class="pp">|</span> Biblioteca de Google para optimización combinatoria  <span class="pp">|</span></span>
-<span id="cb11-351"><a href="#cb11-351" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **OpenRouteService** <span class="pp">|</span> API con funcionalidad de optimización de rutas       <span class="pp">|</span></span>
-<span id="cb11-352"><a href="#cb11-352" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **pgRouting**        <span class="pp">|</span> Extensión de PostgreSQL para análisis de redes        <span class="pp">|</span></span>
-<span id="cb11-353"><a href="#cb11-353" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **OSRM**             <span class="pp">|</span> Motor de enrutamiento de alto rendimiento basado en OSM<span class="pp">|</span></span>
-<span id="cb11-354"><a href="#cb11-354" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Vroom**            <span class="pp">|</span> Soluciones para VRP usando OSRM/OpenRouteService     <span class="pp">|</span></span>
-<span id="cb11-355"><a href="#cb11-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-356"><a href="#cb11-356" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb11-357"><a href="#cb11-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-358"><a href="#cb11-358" aria-hidden="true" tabindex="-1"></a><span class="fu">## Proyecto Final del Curso</span></span>
-<span id="cb11-359"><a href="#cb11-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-360"><a href="#cb11-360" aria-hidden="true" tabindex="-1"></a><span class="fu">### Descripción del proyecto</span></span>
-<span id="cb11-361"><a href="#cb11-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-362"><a href="#cb11-362" aria-hidden="true" tabindex="-1"></a>Diseña y evalúa un sistema de rutas para uno de los siguientes escenarios:</span>
-<span id="cb11-363"><a href="#cb11-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-364"><a href="#cb11-364" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb11-365"><a href="#cb11-365" aria-hidden="true" tabindex="-1"></a><span class="fu">## Escenario A: Sistema de distribución de productos</span></span>
-<span id="cb11-366"><a href="#cb11-366" aria-hidden="true" tabindex="-1"></a>Diseña las rutas óptimas para distribuir productos desde una bodega central a 8–10 clientes en Tegucigalpa, considerando:</span>
-<span id="cb11-367"><a href="#cb11-367" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ventanas horarias de entrega por cliente</span>
-<span id="cb11-368"><a href="#cb11-368" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Capacidad de 2 vehículos disponibles</span>
-<span id="cb11-369"><a href="#cb11-369" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Minimización del tiempo total de desplazamiento</span>
-<span id="cb11-370"><a href="#cb11-370" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb11-371"><a href="#cb11-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-372"><a href="#cb11-372" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb11-373"><a href="#cb11-373" aria-hidden="true" tabindex="-1"></a><span class="fu">## Escenario B: Cobertura de servicios de salud</span></span>
-<span id="cb11-374"><a href="#cb11-374" aria-hidden="true" tabindex="-1"></a>Evalúa la cobertura geográfica de los centros de salud en un municipio:</span>
-<span id="cb11-375"><a href="#cb11-375" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcula el área atendida por cada establecimiento (isócronas de 15 y 30 min)</span>
-<span id="cb11-376"><a href="#cb11-376" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identifica comunidades sin cobertura adecuada</span>
-<span id="cb11-377"><a href="#cb11-377" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Propone la ubicación óptima para un nuevo centro de salud</span>
-<span id="cb11-378"><a href="#cb11-378" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb11-379"><a href="#cb11-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-380"><a href="#cb11-380" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb11-381"><a href="#cb11-381" aria-hidden="true" tabindex="-1"></a><span class="fu">## Escenario C: Monitoreo ambiental en campo</span></span>
-<span id="cb11-382"><a href="#cb11-382" aria-hidden="true" tabindex="-1"></a>Planifica rutas de campo para monitoreo ambiental:</span>
-<span id="cb11-383"><a href="#cb11-383" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Importa puntos de muestreo desde GPS/aplicación móvil</span>
-<span id="cb11-384"><a href="#cb11-384" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimiza el orden de visita</span>
-<span id="cb11-385"><a href="#cb11-385" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Genera un informe con las rutas y estadísticas del recorrido</span>
-<span id="cb11-386"><a href="#cb11-386" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb11-387"><a href="#cb11-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-388"><a href="#cb11-388" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entregables del proyecto</span></span>
-<span id="cb11-389"><a href="#cb11-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-390"><a href="#cb11-390" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>✅ Mapa final exportado en PDF (calidad de impresión)</span>
-<span id="cb11-391"><a href="#cb11-391" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>✅ Script Python documentado con la lógica de análisis</span>
-<span id="cb11-392"><a href="#cb11-392" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>✅ Archivo GeoPackage con todas las capas del proyecto</span>
-<span id="cb11-393"><a href="#cb11-393" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>✅ Informe breve (máximo 2 páginas) describiendo la metodología y resultados</span>
-<span id="cb11-394"><a href="#cb11-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-395"><a href="#cb11-395" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb11-396"><a href="#cb11-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-397"><a href="#cb11-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Recursos y Referencias</span></span>
-<span id="cb11-398"><a href="#cb11-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-399"><a href="#cb11-399" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QField — Documentación oficial</span><span class="co">](https://docs.qfield.org)</span></span>
-<span id="cb11-400"><a href="#cb11-400" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Input App — Mergin Maps</span><span class="co">](https://merginmaps.com/docs)</span></span>
-<span id="cb11-401"><a href="#cb11-401" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OpenRouteService — API Documentation</span><span class="co">](https://openrouteservice.org/dev/#/api-docs)</span></span>
-<span id="cb11-402"><a href="#cb11-402" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OR-Tools — Google Optimization Tools</span><span class="co">](https://developers.google.com/optimization)</span></span>
-<span id="cb11-403"><a href="#cb11-403" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">pgRouting — Documentación</span><span class="co">](https://docs.pgrouting.org)</span></span>
-<span id="cb11-404"><a href="#cb11-404" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OSM Overpass API — Tutorial</span><span class="co">](https://wiki.openstreetmap.org/wiki/Overpass_API)</span></span>
-<span id="cb11-405"><a href="#cb11-405" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">VROOM — Vehicle Routing Open-source Optimization Machine</span><span class="co">](https://github.com/VROOM-Project/vroom)</span></span>
-<span id="cb11-406"><a href="#cb11-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-407"><a href="#cb11-407" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb11-408"><a href="#cb11-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-409"><a href="#cb11-409" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
-<span id="cb11-410"><a href="#cb11-410" aria-hidden="true" tabindex="-1"></a><span class="fu">## ¡Felicitaciones!</span></span>
-<span id="cb11-411"><a href="#cb11-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-412"><a href="#cb11-412" aria-hidden="true" tabindex="-1"></a>Has completado el **Curso de QGIS y Herramientas Python para el Análisis Geoespacial** del CEETI – UNAH.</span>
-<span id="cb11-413"><a href="#cb11-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-414"><a href="#cb11-414" aria-hidden="true" tabindex="-1"></a>Recuerda que la práctica continua es la clave para dominar estas herramientas. Explora los recursos adicionales, participa en la comunidad QGIS y aplica lo aprendido en proyectos reales.</span>
-<span id="cb11-415"><a href="#cb11-415" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb11-416"><a href="#cb11-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-417"><a href="#cb11-417" aria-hidden="true" tabindex="-1"></a>---</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Módulo 7: Estándares OGC, Servicios Web y Recolección de Datos en Campo"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Objetivos del Módulo</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Al finalizar este módulo, los participantes podrán:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comprender los estándares OGC y su importancia en la interoperabilidad geoespacial.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Diferenciar entre servicios WMS y WFS y saber cuándo utilizar cada uno.</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Conectar QGIS con el Geoportal del ICF de Honduras para consumir datos oficiales.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implementar un flujo de trabajo completo de recolección de datos en campo usando QField y QFieldSync.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estándares OGC e Interoperabilidad</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>En el mundo de los SIG, la capacidad de compartir datos entre diferentes plataformas (QGIS, ArcGIS, Google Earth, etc.) es fundamental. Esto es posible gracias al **Open Geospatial Consortium (OGC)**.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### ¿Qué es el OGC?</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>El **OGC** es una organización internacional no lucrativa que crea estándares abiertos para datos geográficos. Estos estándares aseguran que el software de diferentes proveedores pueda "hablar el mismo idioma", permitiendo que un servidor de mapas en Linux sea leído por un cliente en Windows o Android sin problemas de compatibilidad.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interoperabilidad</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>La interoperabilidad es la capacidad de un sistema para interactuar con otros sistemas. En SIG, esto significa que no dependemos de un único formato de archivo propietario, sino que utilizamos servicios web estandarizados para acceder a la información en tiempo real.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Servicios Web Geográficos: WMS y WFS</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>Los dos servicios más utilizados para distribuir información geográfica a través de la web son el **WMS** y el **WFS**.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### WMS (Web Map Service)</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Un servicio **WMS** entrega la información en forma de **imágenes** (generalmente PNG o JPEG). El cliente (QGIS) solicita una región del mapa y el servidor renderiza la imagen y la envía.</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ventaja**: Carga muy rápida, no sobrecarga el cliente, ideal para mapas base.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Desventaja**: No podemos acceder a los atributos originales ni editar la geometría; es solo una "foto" del mapa.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### WFS (Web Feature Service)</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>Un servicio **WFS** entrega la información como **vectores** (coordenadas y atributos reales). El servidor envía los datos geográficos y el cliente (QGIS) los renderiza localmente.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ventaja**: Permite realizar análisis espaciales, filtrar atributos y, en algunos casos, editar los datos en el servidor.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Desventaja**: Carga más lenta si hay muchos datos, ya que el cliente debe descargar toda la geometría.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### Comparativa: WMS vs WFS</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Característica <span class="pp">|</span> WMS (Web Map Service) <span class="pp">|</span> WFS (Web Feature Service) <span class="pp">|</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|:----------------|:-------------------|:---------------------------|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Formato de entrega** <span class="pp">|</span> Imagen (Ráster) <span class="pp">|</span> Vector (Geometría) <span class="pp">|</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Carga de datos** <span class="pp">|</span> Rápida (renderizado servidor) <span class="pp">|</span> Lenta (descarga de vectores) <span class="pp">|</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Acceso a atributos** <span class="pp">|</span> Limitado (solo consulta) <span class="pp">|</span> Total (tabla de atributos) <span class="pp">|</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Análisis espacial** <span class="pp">|</span> ❌ No es posible <span class="pp">|</span> ✅ Es posible <span class="pp">|</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Edición** <span class="pp">|</span> ❌ Imposible <span class="pp">|</span> ✅ Posible (si el servidor lo permite) <span class="pp">|</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Uso principal** <span class="pp">|</span> Visualización y Mapas Base <span class="pp">|</span> Análisis, Filtrado y Edición <span class="pp">|</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Integración con el Geoportal del ICF</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>El **Instituto de Conservación Forestal (ICF)** de Honduras dispone de un Geoportal que permite el acceso a datos oficiales sobre el sector forestal y áreas protegidas mediante estándares OGC.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### Acceso al Geoportal</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>El Geoportal del ICF es la fuente oficial para obtener capas de:</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Áreas Protegidas de Honduras.</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Red Vial Forestal.</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inventarios forestales y cobertura vegetal.</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>**URL del Geoportal**: <span class="co">[</span><span class="ot">https://geoportal.icf.gob.hn/geoportal/</span><span class="co">](https://geoportal.icf.gob.hn/geoportal/)</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuración de conexión WMS en QGIS</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>Para visualizar las capas del ICF como imágenes:</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Panel Explorador → WMS/WMTS** $\to$ clic derecho $\to$ **Nueva conexión**</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Nombre**: <span class="in">`ICF - WMS`</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**URL**: <span class="in">`http://geoportal.icf.gob.hn:8081/geoserver/icf/wms`</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Haz clic en **Aceptar**.</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Despliega la conexión en el panel Explorador y arrastra las capas deseadas (ej. <span class="in">`icf:areas_protegidas`</span>) al mapa.</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuración de conexión WFS en QGIS</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>Para descargar los vectores y analizar los datos del ICF:</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Panel Explorador → WFS** $\to$ clic derecho $\to$ **Nueva conexión**</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Nombre**: <span class="in">`ICF - WFS`</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**URL**: <span class="in">`http://geoportal.icf.gob.hn:8081/geoserver/icf/wfs`</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Haz clic en **Aceptar**.</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Despliega la conexión y arrastra la capa al mapa. Ahora puedes abrir la tabla de atributos y realizar consultas espaciales.</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rendimiento de WFS</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>Cuando utilices WFS con capas muy extensas (como la red vial nacional), evita cargar toda la capa. Utiliza el filtro de la conexión o haz zoom en un área pequeña antes de solicitar los datos para evitar que QGIS se bloquee.</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## Recolección de datos en campo con QField y QFieldSync</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>La recolección de datos en campo es una fase crítica de cualquier proyecto SIG. **QField** es una aplicación móvil diseñada para llevar la potencia de QGIS al dispositivo Android o iOS.</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="fu">### ¿Qué es QField?</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>**QField** no es solo un visor de mapas; es una herramienta de captura de datos que permite:</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Visualizar mapas base y capas oficiales en el terreno (offline).</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Crear nuevas entidades (puntos, líneas, polígonos) con el GPS del móvil.</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Completar formularios de atributos personalizados creados en QGIS.</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="fu">### QFieldSync: El puente entre escritorio y campo</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>Para que un proyecto de QGIS funcione en QField, debe ser "empaquetado" y configurado. Para esto utilizamos el plugin **QFieldSync**.</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>**Flujo de Trabajo Profesional**:</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>::: {.grid}</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>::: {.g-col-12 .g-col-md-6}</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>**1. Preparación (QGIS Desktop)**</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Diseñar la simbología y etiquetas.</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Crear formularios de entrada de datos (listas desplegables, validaciones).</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Configurar el plugin **QFieldSync** para definir qué capas son editables y cuáles son solo lectura.</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>::: {.g-col-12 .g-col-md-6}</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>**2. Transferencia**</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Exportar el proyecto mediante QFieldSync.</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Transferir la carpeta al dispositivo móvil (vía USB, QFieldCloud o almacenamiento compartido).</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>::: {.grid}</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>::: {.g-col-12 .g-col-md-6}</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>**3. Captura (QField Mobile)**</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Abrir el proyecto en el dispositivo.</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Recolectar datos en campo usando el GPS.</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Guardar los cambios localmente en el dispositivo.</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>::: {.g-col-12 .g-col-md-6}</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>**4. Sincronización (Retorno)**</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Transferir la carpeta del dispositivo de vuelta al computador.</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Usar QFieldSync para **Sincronizar** los datos capturados con la base de datos original de QGIS.</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuración de capas en QFieldSync</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>Al configurar el proyecto, debemos asignar un "Action" a cada capa:</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Acción <span class="pp">|</span> Descripción <span class="pp">|</span> Uso típico <span class="pp">|</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------|:---------------------------------------------------|:-------------------------------------------|</span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **No Action** <span class="pp">|</span> La capa no se exporta al móvil <span class="pp">|</span> Capas temporales o muy pesadas <span class="pp">|</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Offline Editing** <span class="pp">|</span> La capa es editable en campo <span class="pp">|</span> Capas de puntos de muestreo, incidencias <span class="pp">|</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **ReadOnly** <span class="pp">|</span> La capa se visualiza pero no se edita <span class="pp">|</span> Mapas base, límites administrativos, ríos <span class="pp">|</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🛠️ Ejercicio Práctico</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 7.1: Consumo de servicios oficiales del ICF</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Configura una conexión **WMS** al Geoportal del ICF.</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Carga la capa de **Áreas Protegidas** y ajusta su transparencia para verla sobre un mapa satelital.</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Configura una conexión **WFS** al Geoportal del ICF.</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Carga la misma capa de Áreas Protegidas vía WFS.</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Abre la tabla de atributos y filtra las áreas protegidas que tengan una superficie mayor a un valor específico.</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio 7.2: Preparación de proyecto para QField</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Crea un nuevo proyecto de QGIS y añade una capa de puntos llamada <span class="in">`Muestreo_Campo`</span> (GeoPackage).</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Configura el formulario de la capa con los siguientes campos:</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`ID`</span> (Autoincrementado)</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`Fecha`</span> (Fecha)</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`Observacion`</span> (Texto)</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span><span class="in">`Estado`</span> (Valor relación / Lista: Bueno, Regular, Malo)</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Instala el plugin **QFieldSync**.</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Configura la capa <span class="in">`Muestreo_Campo`</span> como **Offline Editing** y el mapa base como **ReadOnly**.</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Empaqueta el proyecto y simula la exportación hacia un dispositivo móvil.</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Recursos y Referencias</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QField — Documentación oficial</span><span class="co">](https://docs.qfield.org)</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">QFieldSync — Plugin de QGIS</span><span class="co">](https://plugins.qgis.org/plugins/qfieldsync/)</span></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OGC — Estándares de Interoperabilidad</span><span class="co">](https://www.ogc.org/standards/)</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Geoportal del ICF Honduras</span><span class="co">](https://geoportal.icf.gob.hn/geoportal/)</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## ¡Cierre del Curso!</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>Con la finalización de este módulo, has completado el programa de **QGIS y Herramientas Python para el Análisis Geoespacial**.</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>Has transitado desde los conceptos básicos de SIG hasta la automatización con Python y la implementación de flujos de trabajo profesionales de recolección de datos. La clave ahora es la aplicación constante de estos conocimientos en proyectos reales.</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>**¡Felicidades por tu esfuerzo y dedicación!**</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
